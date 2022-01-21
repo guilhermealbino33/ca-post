@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { utils } from "utils/utils";
 
 import api from "../../services/api";
 
@@ -55,19 +56,6 @@ class ExternalChannelAdvisorController {
   };
   updateProduct = async (req: Request, res: Response) => {
     const { code } = req.params;
-    let nameStr = req.body.data.name;
-    const modelStr = req.body.data.model.name;
-    const brandStr = req.body.data.brand.name;
-    const model = `${brandStr} ${modelStr}`;
-    nameStr = nameStr.replace(modelStr, "");
-    nameStr = nameStr.replace(brandStr, "");
-
-    let descriptionStr = req.body.data.model.bulletPoints;
-    descriptionStr = descriptionStr.join("- ");
-    descriptionStr = `<ul><li>${descriptionStr.replace(
-      "- ",
-      "</li><li>"
-    )}</li></ul>`;
 
     const data = {
       Value: {
@@ -78,11 +66,15 @@ class ExternalChannelAdvisorController {
           },
           {
             Name: "QBP Name",
-            Value: nameStr.trim(),
+            Value: utils.prettyName(
+              req.body.data.name,
+              req.body.data.model.name,
+              req.body.data.brand.name
+            ),
           },
           {
             Name: "QBP Model",
-            Value: model,
+            Value: `${req.body.data.brand.name} ${req.body.data.model.name}`,
           },
           {
             Name: "QBP Description",
@@ -90,7 +82,7 @@ class ExternalChannelAdvisorController {
           },
           {
             Name: "QBP Short Description",
-            Value: descriptionStr,
+            Value: utils.toHtml(req.body.data.model.bulletPoints),
           },
           {
             Name: "QBP Cost",
@@ -106,7 +98,7 @@ class ExternalChannelAdvisorController {
           },
           {
             Name: "QBP Brand",
-            Value: brandStr,
+            Value: req.body.data.brand.name,
           },
           {
             Name: "QBP Discontinued",

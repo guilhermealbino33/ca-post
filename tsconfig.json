@@ -12,7 +12,11 @@
     "strict": true,
     "strictPropertyInitialization": false,                                      
     "forceConsistentCasingInFileNames": true,            
-    "skipLibCheck": true                                 
+    "skipLibCheck": true,
+    "lib": [
+      "ES2021.String",
+    ]        
+                             
   },
 
 }
