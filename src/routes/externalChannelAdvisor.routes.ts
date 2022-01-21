@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ExternalChannelAdvisorController } from "modules/externalChannelAdvisor/ExternalChannelAdvisorController";
+import { ExternalChannelAdvisorController } from "modules/externalChannelAdvisor/externalChannelAdvisorController";
 
 const externalChannelRoutes = Router();
 const externalChannelAdvisorController = new ExternalChannelAdvisorController();
