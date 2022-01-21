@@ -1,25 +1,12 @@
 version: "3.9"
 
 services:
-    database:
-        image: postgres
-        container_name: api_test
-        restart: always
-        ports:
-            - 5432:5432
-        environment:
-            - POSTGRES_USER=incycle
-            - POSTGRES_PASSWORD=docker
-            - POSTGRES_DB=api_test
-        volumes:
-            - pgdata:/data/postgres
-
     app:
         build: .
-        container_name: mongo-connection
+        container_name: ca-post
         restart: always
         ports:
-            - 3335:3335
+            - 3336:3336
         volumes:
             - .:/usr/app
         links:

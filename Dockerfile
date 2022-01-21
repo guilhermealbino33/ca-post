@@ -4,10 +4,10 @@ WORKDIR /usr/app
 
 COPY package.json ./
 
-RUN npm install --legacy-peer-deps
+RUN npm install
 
 COPY . .
 
-EXPOSE 3335
+EXPOSE 3336
 
 CMD [ "npm", "run", "dev" ]

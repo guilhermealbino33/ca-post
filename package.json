@@ -1,5 +1,5 @@
 {
-  "name": "mongo-connection",
+  "name": "ca-post",
   "version": "1.0.0",
   "private": true,
   "main": "src/infra/server.ts",
@@ -30,7 +30,6 @@
     "qs": "^6.10.3",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.6.0",
-    "typeorm": "^0.2.41",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -55,6 +54,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guilhermealbino33/mongo-connection"
+    "url": "https://github.com/guilhermealbino33/ca-post"
   }
 }
