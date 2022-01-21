@@ -1,0 +1,18 @@
+{
+    "username": "incycle",
+    "password": "docker",
+  
+    "type": "postgres",
+    "name": "default",
+    "host": "localhost",
+    "port": 5432,
+    "database": "api_test",
+    "migrations": ["./src/database/typeorm/migrations/*.ts"],
+    "entities": ["./src/modules/ChannelAdvisor/entities/*.ts"],
+    "cli": {
+      "migrationsDir": "./src/database/typeorm/migrations",
+      "entitiesDir": "./src/modules/ChannelAdvisor/entities"
+    }
+  }
+  
+  

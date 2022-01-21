@@ -1,0 +1,5 @@
+node_modules/
+exports/
+dist/
+.vscode
+.env
