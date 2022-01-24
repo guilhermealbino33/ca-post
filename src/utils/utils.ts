@@ -8,6 +8,7 @@ class utils {
   static prettyName = (nameStr: string, modelStr: string, brandStr: string) => {
     let output = nameStr.replace(modelStr, "");
     output = output.replace(brandStr, "");
+    output = output.replaceAll(",", "");
 
     return output.trim();
   };
