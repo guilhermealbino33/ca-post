@@ -20,5 +20,9 @@ externalChannelRoutes.post(
   "/products/update/:code",
   externalChannelAdvisorController.updateProduct
 );
+externalChannelRoutes.patch(
+  "/products/images/:code/:images",
+  externalChannelAdvisorController.productImages
+);
 
 export { externalChannelRoutes };

@@ -54,6 +54,7 @@ class ExternalChannelAdvisorController {
       res.status(400).json(error);
     }
   };
+
   updateProduct = async (req: Request, res: Response) => {
     const { code } = req.params;
 
@@ -129,6 +130,24 @@ class ExternalChannelAdvisorController {
       const response = await api.post(
         `/v1/Products(${code})/UpdateAttributes`,
         data
+      );
+      res.status(201).json(response.data);
+    } catch (error) {
+      res.status(400).json(error);
+    }
+  };
+
+  productImages = async (req: Request, res: Response) => {
+    console.log("entrou");
+    const { code } = req.params;
+    const { images } = req.params;
+
+    console.log(images);
+    try {
+      console.log("entrou try");
+      const response = await api.patch(
+        `/v1/Products(${code})/Images('${images}')`,
+        req.body
       );
       res.status(201).json(response.data);
     } catch (error) {
