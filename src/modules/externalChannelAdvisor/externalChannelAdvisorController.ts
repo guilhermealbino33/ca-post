@@ -138,13 +138,11 @@ class ExternalChannelAdvisorController {
   };
 
   productImages = async (req: Request, res: Response) => {
-    console.log("entrou");
     const { code } = req.params;
     const { images } = req.params;
 
     console.log(images);
     try {
-      console.log("entrou try");
       const response = await api.patch(
         `/v1/Products(${code})/Images('${images}')`,
         req.body

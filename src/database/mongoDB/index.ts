@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { log } from "./log";
+import { log } from "../../utils/log";
 
 const connectDatabase = async () => {
   try {
