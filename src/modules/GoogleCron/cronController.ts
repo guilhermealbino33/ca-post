@@ -1,58 +1,28 @@
 import { Request, Response } from "express";
+import { product } from "modules/QBP/repositories/productRepository";
+import api from "services/api";
 import { utils } from "utils/utils";
 
-import api from "../../services/api";
+class cronController {
+  codes = [
+    "RM0020",
+    "RM0021",
+    "RM0028",
+    "RM0030",
+    "RM0040",
+    "RM0050",
+    "RM0051",
+    "RM0060",
+    "RM0153",
+    "RM0154",
+    "RM0155",
+  ];
 
-class ExternalChannelAdvisorController {
-  list = async (req: Request, res: Response) => {
-    let dataResp;
-    async function products() {
-      return api.get("/v1/products");
-    }
-    // eslint-disable-next-line prefer-const
-    dataResp = products();
-    dataResp
-      .then((response) => {
-        res.status(201).json(response.data);
-      })
-      .catch((error) => {
-        res.status(400).json(error);
-      });
-  };
-
-  single = async (req: Request, res: Response) => {
-    const { code } = req.params;
-
-    try {
-      const response = await api.get(`/v1/products(${code})`);
-      res.status(201).json(response.data);
-    } catch (error) {
-      res.status(400).json(error);
-    }
-  };
-
-  createProduct = async (req: Request, res: Response) => {
-    const data = {
-      ProfileID: req.body.ProfileID,
-      Sku: req.body.Sku,
-      Title: req.body.tittle,
-      Brand: req.body.Brand,
-      Manufacturer: req.body.Manufacturer,
-      MPN: req.body.MPN,
-      Condition: req.body.Condition,
-      Description: req.body.Description,
-      UPC: req.body.UPC,
-      BuyItNowPrice: req.body.BuyItNowPrice,
-      RetailPrice: req.body.RetailPrice,
-      Attributes: req.body.Attributes,
-    };
-
-    try {
-      const response = await api.post("/v1/products", data);
-      res.status(201).json(response.data);
-    } catch (error) {
-      res.status(400).json(error);
-    }
+  details = async (req: Request, res: Response) => {
+    this.codes.forEach(async (code: string, i: number) => {
+      const response = await product.findOne({ code: code[i] });
+      return res.send(response);
+    });
   };
 
   updateProduct = async (req: Request, res: Response) => {
@@ -136,20 +106,6 @@ class ExternalChannelAdvisorController {
       res.status(400).json(error);
     }
   };
-
-  productImages = async (req: Request, res: Response) => {
-    const { code } = req.params;
-    const { images } = req.params;
-
-    try {
-      const response = await api.patch(
-        `/v1/Products(${code})/Images('${images}')`,
-        req.body
-      );
-      res.status(201).json(response.data);
-    } catch (error) {
-      res.status(400).json(error);
-    }
-  };
 }
-export { ExternalChannelAdvisorController };
+
+export { cronController };

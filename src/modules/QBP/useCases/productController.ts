@@ -8,6 +8,5 @@ class ProductController {
       .findOne({ code: req.params.code })
       .then((response) => res.send(response));
   };
-
 }
 export { ProductController };
