@@ -2,6 +2,6 @@ import mongoose from "mongoose";
 
 import { Product } from "../models/ProductSchema";
 
-const product = mongoose.model("products", Product);
+const ProductRepository = mongoose.model("products", Product);
 
-export { product };
+export { ProductRepository };
