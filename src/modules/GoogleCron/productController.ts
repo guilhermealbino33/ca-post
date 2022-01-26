@@ -3,7 +3,7 @@ import { ProductRepository } from "modules/QBP/repositories/productRepository";
 import api from "services/api";
 import { utils } from "utils/utils";
 
-class CronController {
+class ProductController {
   codes = [
     "RM0020",
     "RM0021",
@@ -18,7 +18,7 @@ class CronController {
     "RM0155",
   ];
 
-  cronJob = async (req: Request, res: Response) => {
+  products = async (req: Request, res: Response) => {
     this.codes.forEach(async (code: string) => {
       const product = await ProductRepository.findOne({ code });
       if (!product) {
@@ -110,4 +110,4 @@ class CronController {
   };
 }
 
-export { CronController };
+export { ProductController };

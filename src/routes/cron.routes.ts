@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { CronController } from "modules/GoogleCron/cronController";
+import { ProductController } from "modules/GoogleCron/productController";
 
 const cronRoutes = Router();
-const cronRoutesController = new CronController();
+const productController = new ProductController();
 
-cronRoutes.post("/", cronRoutesController.cronJob);
+cronRoutes.post("/", productController.products);
 
 export { cronRoutes };
