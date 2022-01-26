@@ -3,7 +3,7 @@ import { utils } from "utils/utils";
 
 import api from "../../services/api";
 
-class ExternalChannelAdvisorController {
+class ChannelAdvisorController {
   list = async (req: Request, res: Response) => {
     let dataResp;
     async function products() {
@@ -152,4 +152,4 @@ class ExternalChannelAdvisorController {
     }
   };
 }
-export { ExternalChannelAdvisorController };
+export { ChannelAdvisorController };
