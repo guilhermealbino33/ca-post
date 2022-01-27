@@ -4,6 +4,8 @@ import express from "express";
 import { setup } from "../database/mongoDB";
 import { router } from "../routes/index";
 
+import "./config-env";
+
 const api = express();
 api.use(express.json());
 api.use(router);

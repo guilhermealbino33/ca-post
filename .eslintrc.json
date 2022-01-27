@@ -21,6 +21,7 @@
 		"prettier"
 	],
 	"rules": {
+    "no-await-in-loop": "off",
 		"prettier/prettier": [
             "error",
             {

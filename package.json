@@ -5,10 +5,12 @@
   "main": "src/infra/server.ts",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/infra/server.ts",
+    "loadQueueAdvisor": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/setup/load-queue-advisor.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli"
   },
   "dependencies": {
     "@types/body-parser": "^1.19.2",
+    "@types/lodash": "^4.14.178",
     "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
@@ -21,6 +23,7 @@
     "express": "~4.17.2",
     "http-errors": "~2.0.0",
     "json2csv": "^5.0.6",
+    "lodash": "^4.17.21",
     "mongodb": "^4.2.2",
     "mongoose": "^6.1.4",
     "morgan": "~1.10.0",
