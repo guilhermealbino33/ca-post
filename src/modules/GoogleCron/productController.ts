@@ -22,6 +22,7 @@ class ProductController {
     this.codes.forEach(async (code: string) => {
       const product = await ProductRepository.findOne({ code });
       if (!product) {
+        console.log(`Product ${code} not exists`);
         return;
       }
 
