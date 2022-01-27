@@ -3,24 +3,17 @@ import { ProductRepository } from "modules/QBP/repositories/productRepository";
 import api from "services/api";
 import { utils } from "utils/utils";
 
-class ProductController {
-  codes = [
-    "RM0020",
-    "RM0021",
-    "RM0028",
-    "RM0030",
-    "RM0040",
-    "RM0050",
-    "RM0051",
-    "RM0060",
-    "RM0153",
-    "RM0154",
-    "RM0155",
-  ];
+import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
+import queueAdvisorService from "./Services/queueAdvisorService";
 
+class ProductController {
   products = async (req: Request, res: Response) => {
-    this.codes.forEach(async (code: string) => {
+    const codes = await queueAdvisorService.pullQueue();
+
+    const queue = codes.map(async (item: IQueueAdvisorUpdate) => {
+      const { code } = item;
       const product = await ProductRepository.findOne({ code });
+
       if (!product) {
         console.log(`Product ${code} not exists`);
         return;
@@ -98,16 +91,17 @@ class ProductController {
       );
 
       try {
-        console.log(data);
         const response = await api.post(
           `/v1/Products(${code})/UpdateAttributes`,
           data
         );
-        res.status(201).json(response.data);
+        console.log(response);
       } catch (error) {
-        res.status(400).json(error);
+        console.log("error", error);
       }
     });
+    await Promise.all(queue);
+    res.status(201).json("Job concluded!");
   };
 }
 

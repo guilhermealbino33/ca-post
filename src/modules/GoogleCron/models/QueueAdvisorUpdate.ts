@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-interface IQueueAdvisorUpdate {
+export interface IQueueAdvisorUpdate {
   code: string;
   lastUpdate: number;
 }

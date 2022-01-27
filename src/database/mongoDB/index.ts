@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import { log } from "../../utils/log";
 
 const connectDatabase = async () => {
-  console.log(process.env.ACCESS_URL);
   try {
     await mongoose.connect(`${process.env.ACCESS_URL}`, {});
 
