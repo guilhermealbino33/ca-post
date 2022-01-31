@@ -12,7 +12,6 @@ const getProductCodeList = async () => {
     "https://api.channeladvisor.com/v1/products?$filter=Sku eq 'WPCC2-RealTree' or Sku eq 'RM0180'&$select=ID";
 
   const config = {
-    // method: "get",
     baseURL: url,
     headers: {
       Accept: "application/json",
