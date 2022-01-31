@@ -3,10 +3,12 @@ import { QueueAdvisorUpdateRepository } from "../repositories/QueueAdvisorUpdate
 class QueueAdvisorService {
   async pullQueue() {
     const items = await QueueAdvisorUpdateRepository.find({})
+      .populate("product")
       .sort({
         lastUpdate: 1,
       })
-      .limit(100);
+      .limit(5);
+
     await QueueAdvisorUpdateRepository.collection.bulkWrite(
       items.map((item) => {
         return {

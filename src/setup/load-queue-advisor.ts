@@ -8,8 +8,9 @@ import "../infra/config-env";
 const getProductCodeList = async () => {
   const url = "https://clsdev.qbp.com/api3/1";
   const key = "994675804a77949ba12e40dad5afaaf6";
-  const urlChannel =
-    "https://api.channeladvisor.com/v1/products?$filter=Sku eq 'WPCC2-RealTree' or Sku eq 'RM0180'&$select=ID";
+
+  // const urlChannel =
+  //   "https://api.channeladvisor.com/v1/products?$filter=Sku eq 'WPCC2-RealTree' or Sku eq 'RM0180'&$select=ID";
 
   const config = {
     baseURL: url,

@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 
 const api = axios.create({
-  baseURL: process.env.API_PATH,
+  baseURL: "https://api.channeladvisor.com",
 });
 
 api.interceptors.response.use(
@@ -10,7 +10,9 @@ api.interceptors.response.use(
     return response;
   },
   async (error) => {
-    if (error.response.status === 401) {
+    const originalRequest = error.config;
+
+    if (error.response.status === 401 && !originalRequest._retry) {
       const config = qs.stringify({
         grant_type: process.env.GRANT_TYPE,
         refresh_token: process.env.REFRESH_TOKEN,
@@ -24,7 +26,10 @@ api.interceptors.response.use(
         .post("/oauth2/token", config, { headers })
         .then(async (response) => {
           api.defaults.headers.common.Authorization = `Bearer ${response.data.access_token}`;
-          localStorage.setItem("access_token", response.data.access_token);
+          console.log("retrying refresh token");
+          originalRequest._retry = true;
+
+          return api(originalRequest);
         })
         .catch((err) => {
           error.status(401).json(err);

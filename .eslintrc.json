@@ -21,6 +21,7 @@
 		"prettier"
 	],
 	"rules": {
+    "no-underscore-dangle": "off",
     "no-await-in-loop": "off",
 		"prettier/prettier": [
             "error",

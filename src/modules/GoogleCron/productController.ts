@@ -11,11 +11,10 @@ class ProductController {
     const codes = await queueAdvisorService.pullQueue();
 
     const queue = codes.map(async (item: IQueueAdvisorUpdate) => {
-      const { code } = item;
-      const product = await ProductRepository.findOne({ code });
+      const { product } = item;
 
-      if (!product) {
-        console.log(`Product ${code} not exists`);
+      if (!product || !product.data) {
+        console.log(`Product ${product.code} not exists`);
         return;
       }
 
@@ -91,16 +90,26 @@ class ProductController {
       );
 
       try {
+        const resCode = await api.get(
+          `/v1/products?$filter=Sku eq '${product.data.manufacturerPartNumber}'&$select=ID`
+        );
+        const code = resCode.data.value[0].ID;
+
         const response = await api.post(
           `/v1/Products(${code})/UpdateAttributes`,
           data
         );
-        console.log(response);
+        console.log(response.data);
       } catch (error) {
         console.log("error", error);
       }
     });
-    await Promise.all(queue);
+
+    try {
+      await Promise.all(queue);
+    } catch (e) {
+      console.log(e);
+    }
     res.status(201).json("Job concluded!");
   };
 }
