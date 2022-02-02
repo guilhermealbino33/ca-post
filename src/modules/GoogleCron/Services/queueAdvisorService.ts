@@ -7,7 +7,7 @@ class QueueAdvisorService {
       .sort({
         lastUpdate: 1,
       })
-      .limit(5);
+      .limit(1);
 
     await QueueAdvisorUpdateRepository.collection.bulkWrite(
       items.map((item) => {
@@ -26,6 +26,16 @@ class QueueAdvisorService {
         };
       })
     );
+    return items;
+  }
+  async pullOne() {
+    // for tests with a single item
+    const items = await QueueAdvisorUpdateRepository.find({ code: "AR7001" })
+      .populate("product")
+      .sort({
+        lastUpdate: 1,
+      })
+      .limit(5);
     return items;
   }
 }
