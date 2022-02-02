@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { ProductRepository } from "modules/QBP/repositories/productRepository";
-import api from "services/api";
+import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
 
 import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
@@ -9,6 +8,8 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 class ProductController {
   products = async (req: Request, res: Response) => {
     const codes = await queueAdvisorService.pullQueue();
+
+    await createToken();
 
     const queue = codes.map(async (item: IQueueAdvisorUpdate) => {
       const { product } = item;
@@ -94,12 +95,11 @@ class ProductController {
           `/v1/products?$filter=Sku eq '${product.data.manufacturerPartNumber}'&$select=ID`
         );
         const code = resCode.data.value[0].ID;
+        console.log(`code ${resCode.data.value[0].ID}`);
 
-        const response = await api.post(
-          `/v1/Products(${code})/UpdateAttributes`,
-          data
-        );
-        console.log(response.data);
+        await api.post(`/v1/Products(${code})/UpdateAttributes`, data);
+
+        console.log(`product code ${product.data.code}`);
       } catch (error) {
         console.log("error", error);
       }
