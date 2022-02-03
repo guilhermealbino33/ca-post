@@ -1,3 +1,6 @@
+import "modules/QBP/models/ProductSchema";
+import "modules/QBP/repositories/productRepository";
+
 import { IProductInterface } from "modules/QBP/models/ProductInterface";
 import { Schema } from "mongoose";
 

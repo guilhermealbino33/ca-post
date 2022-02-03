@@ -1,22 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",                                  
+    "target": "es5",
     "module": "commonjs",
-    "outDir":"./dist", 
+    "outDir": "./dist",
     "rootDir": "./src",
-    "baseUrl": "./src",                    
-    "esModuleInterop": true, 
-    "resolveJsonModule": true,                            
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strict": true,
-    "strictPropertyInitialization": false,                                      
-    "forceConsistentCasingInFileNames": true,            
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "lib": [
-      "ES2021.String",
-    ]        
-                             
+    "lib": ["ES2021.String"]
   },
-
+  "exclude": ["node_modules", "./dist"]
 }
