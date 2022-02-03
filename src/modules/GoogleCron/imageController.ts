@@ -7,8 +7,14 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 class ImageController {
   images = async (req: Request, res: Response) => {
     const codes = await queueAdvisorService.pullQueue();
-    const imageBaseUrl =
-      "https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/";
+
+    async function call(code: string, image: string, body: object) {
+      const response = await api.patch(
+        `/v1/Products(${code})/Images('${image}')`,
+        body
+      );
+      return response;
+    }
 
     await createToken();
 
@@ -28,16 +34,15 @@ class ImageController {
         console.log(`code ${resCode.data.value[0].ID}`);
 
         if (product.data.images.length > 0) {
-          product.data.images.forEach(async (image: string) => {
+          const queueImages = product.data.images.map(async (image: string) => {
             console.log(`code ${code}, image: ${image}`);
-            const body = imageBaseUrl + image;
-            console.log(`link ${body}`);
-            const response = await api.patch(
-              `/v1/Products(${code})/Images('${image}')`,
-              body
-            );
-            return res.status(201).json(response.data);
+
+            const body = {
+              Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
+            };
+            await call(code, image, body);
           });
+          await Promise.all(queueImages);
         }
       } catch (error) {
         res.status(400).json(error);

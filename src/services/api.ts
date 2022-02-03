@@ -32,7 +32,6 @@ api.interceptors.response.use(
     const originalRequest = error.config;
 
     if (error.response.status === 401 && !originalRequest._retry) {
-      console.log("entrou");
       originalRequest._retry = true;
       const config = qs.stringify({
         grant_type: process.env.GRANT_TYPE,
