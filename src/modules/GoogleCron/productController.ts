@@ -7,7 +7,7 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 
 class ProductController {
   products = async (req: Request, res: Response) => {
-    const codes = await queueAdvisorService.pullQueue();
+    const codes = await queueAdvisorService.pullQueue(100);
 
     await createToken();
 

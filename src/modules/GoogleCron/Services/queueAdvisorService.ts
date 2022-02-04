@@ -1,13 +1,13 @@
 import { QueueAdvisorUpdateRepository } from "../repositories/QueueAdvisorUpdateRepository";
 
 class QueueAdvisorService {
-  async pullQueue() {
+  async pullQueue(quantity: number) {
     const items = await QueueAdvisorUpdateRepository.find({})
       .populate("product")
       .sort({
         lastUpdate: 1,
       })
-      .limit(1);
+      .limit(quantity);
 
     await QueueAdvisorUpdateRepository.collection.bulkWrite(
       items.map((item) => {
