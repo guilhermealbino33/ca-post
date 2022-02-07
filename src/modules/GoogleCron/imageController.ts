@@ -6,7 +6,7 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 
 class ImageController {
   images = async (req: Request, res: Response) => {
-    const codes = await queueAdvisorService.pullQueue(1);
+    const codes = await queueAdvisorService.pullQueue(5);
 
     const call = async (code: string, placementName: string, body: object) => {
       const response = await api.patch(

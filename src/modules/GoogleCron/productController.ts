@@ -98,10 +98,8 @@ class ProductController {
         console.log(`code ${resCode.data.value[0].ID}`);
 
         await api.post(`/v1/Products(${code})/UpdateAttributes`, data);
-
-        console.log(`product code ${product.data.code}`);
       } catch (error) {
-        console.log("error", error);
+        console.log("error");
       }
     });
 
