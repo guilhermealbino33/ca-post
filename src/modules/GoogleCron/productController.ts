@@ -7,7 +7,10 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 
 class ProductController {
   products = async (req: Request, res: Response) => {
-    const codes = await queueAdvisorService.pullQueue(100);
+    const headers = {
+      "Retry-After": "10000",
+    };
+    const codes = await queueAdvisorService.pullQueue(20);
 
     await createToken();
 
@@ -92,14 +95,17 @@ class ProductController {
 
       try {
         const resCode = await api.get(
-          `/v1/products?$filter=Sku eq '${product.data.manufacturerPartNumber}'&$select=ID`
+          `/v1/products?$filter=Sku eq '${product.data.manufacturerPartNumber}'&$select=ID`,
+          { headers }
         );
         const code = resCode.data.value[0].ID;
         console.log(`code ${resCode.data.value[0].ID}`);
 
-        await api.post(`/v1/Products(${code})/UpdateAttributes`, data);
+        await api.post(`/v1/Products(${code})/UpdateAttributes`, data, {
+          headers,
+        });
       } catch (error) {
-        console.log("error");
+        console.log("error", error);
       }
     });
 
