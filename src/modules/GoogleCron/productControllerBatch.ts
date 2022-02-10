@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
-
 import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
 import queueAdvisorService from "./Services/queueAdvisorService";
 
@@ -11,11 +10,26 @@ class ProductControllerBatch {
       "Content-Type": "multipart/mixed; boundary=changeset",
     };
 
-    const codes = await queueAdvisorService.pullQueue(30);
+    const queue = await queueAdvisorService.pullQueue(100);
     let body;
 
     await createToken();
-    codes.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
+
+    const bodyCodes = {
+      requests: queue.map((item: IQueueAdvisorUpdate, index) => ({
+        id: String(index),
+        method: "get",
+        url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku`,
+      })),
+    };
+
+    const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
 
       if (!product || !product.data) {
@@ -93,18 +107,19 @@ class ProductControllerBatch {
         }
       );
       try {
-        const resCode = await api.get(
-          `/v1/products?$filter=Sku eq '${product.data.manufacturerPartNumber}'&$select=ID`
+        const code = codes.data.responses.find(
+          (code: any) =>
+            code.body.value[0].Sku === product.data.manufacturerPartNumber
         );
-        const code = resCode.data.value[0].ID;
-        console.log(`code ${resCode.data.value[0].ID}`);
+
+        console.log(`code ${code.body.value[0].ID}`);
 
         body = {
           requests: [
             {
               id: i,
               method: "post",
-              url: `/v1/Products(${code})/UpdateAttributes`,
+              url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
               headers: {
                 "Retry-After": 3600,
               },
