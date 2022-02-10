@@ -8,13 +8,14 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 class ProductController {
   products = async (req: Request, res: Response) => {
     const headers = {
-      "Retry-After": "10000",
+      "Content-Type": "multipart/mixed; boundary=changeset",
     };
-    const codes = await queueAdvisorService.pullQueue(20);
+
+    const codes = await queueAdvisorService.pullQueue(30);
+    let body;
 
     await createToken();
-
-    const queue = codes.map(async (item: IQueueAdvisorUpdate) => {
+    codes.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
 
       if (!product || !product.data) {
@@ -37,7 +38,6 @@ class ProductController {
                 product.data.brand.name
               ),
             },
-
             {
               Name: "QBP Model",
               Value: `${product.data.brand.name} ${product.data.model.name}`,
@@ -92,25 +92,35 @@ class ProductController {
           data.Value.Attributes.push(attribute);
         }
       );
-
       try {
         const resCode = await api.get(
-          `/v1/products?$filter=Sku eq '${product.data.manufacturerPartNumber}'&$select=ID`,
-          { headers }
+          `/v1/products?$filter=Sku eq '${product.data.manufacturerPartNumber}'&$select=ID`
         );
         const code = resCode.data.value[0].ID;
         console.log(`code ${resCode.data.value[0].ID}`);
 
-        await api.post(`/v1/Products(${code})/UpdateAttributes`, data, {
-          headers,
-        });
+        body = {
+          requests: [
+            {
+              id: i,
+              method: "post",
+              url: `/v1/Products(${code})/UpdateAttributes`,
+              headers: {
+                "Retry-After": 3600,
+              },
+              body: data,
+            },
+          ],
+        };
+        // await api.post(`/v1/Products(${code})/UpdateAttributes`, data);
       } catch (error) {
-        console.log("error", error);
+        console.log("error");
       }
     });
 
     try {
-      await Promise.all(queue);
+      // await Promise.all(queue);
+      await api.post(`/v1/$batch`, body, { headers });
     } catch (e) {
       console.log(e);
     }

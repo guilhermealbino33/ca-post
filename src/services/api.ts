@@ -14,7 +14,6 @@ export const createToken = async () => {
     Authorization: `Basic ${process.env.AUTHORIZATION}`,
     "Content-Type": "application/x-www-form-urlencoded",
     Accept: "*/*",
-    "Retry-After": "10000",
   };
   return api
     .post("/oauth2/token", config, { headers })
