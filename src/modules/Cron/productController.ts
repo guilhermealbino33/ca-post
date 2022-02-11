@@ -11,7 +11,7 @@ class ProductController {
       "Content-Type": "multipart/mixed; boundary=changeset",
     };
 
-    const queue = await queueAdvisorService.pullQueue(100);
+    const queue = await queueAdvisorService.pullQueue(3);
     let body;
 
     await createToken();

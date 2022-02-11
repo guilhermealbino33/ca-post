@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 
@@ -10,8 +11,8 @@ class ImageController {
       "Content-Type": "multipart/mixed; boundary=changeset",
     };
 
-    const queue = await queueAdvisorService.pullQueue(100);
-    let body;
+    const queue = await queueAdvisorService.pullOne();
+    let config: any;
     await createToken();
 
     const bodyCodes = {
@@ -38,7 +39,6 @@ class ImageController {
 
       try {
         const code = codes.data.responses.find(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (code: any) =>
             code.body.value[0].Sku === product.data.manufacturerPartNumber
         );
@@ -47,32 +47,34 @@ class ImageController {
           product.data.images.forEach(async (image: string, i: number) => {
             console.log(`code ${code.body.value[0].ID}, image: ${image}`);
 
-            body = {
+            config = {
               requests: [
                 {
                   id: index,
-                  method: "post",
+                  method: "patch",
                   url: `/v1/Products(${
                     code.body.value[0].ID
                   })/Images(ITEMIMAGEURL${1 + i})`,
-                  headers: {
-                    "Retry-After": 3600,
-                  },
                   body: {
                     Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
+                  },
+                  headers: {
+                    "Content-Type": "application/json",
+                    "Retry-After": 3600,
                   },
                 },
               ],
             };
           });
         }
+        console.log("body", config.requests.body);
       } catch (error) {
         res.status(400).json(error);
       }
     });
 
     try {
-      await api.post(`/v1/$batch`, body, { headers });
+      await api.post("/v1/$batch", config, { headers });
     } catch (e) {
       console.log(e);
     }
