@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
+
 import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
 import queueAdvisorService from "./Services/queueAdvisorService";
 
