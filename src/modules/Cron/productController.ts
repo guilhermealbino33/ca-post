@@ -7,13 +7,10 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 
 class ProductController {
   products = async (req: Request, res: Response) => {
+    const queue = await queueAdvisorService.pullQueue(50);
     const headers = {
-      "Content-Type": "multipart/mixed; boundary=changeset",
+      "Content-Type": "application/json",
     };
-
-    const queue = await queueAdvisorService.pullQueue(3);
-    let body;
-
     await createToken();
 
     const bodyCodes = {
@@ -25,9 +22,7 @@ class ProductController {
     };
 
     const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
@@ -107,38 +102,33 @@ class ProductController {
           data.Value.Attributes.push(attribute);
         }
       );
-      try {
-        const code = codes.data.responses.find(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (code: any) =>
-            code.body.value[0].Sku === product.data.manufacturerPartNumber
-        );
+      const code = codes.data.responses.find(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (code: any) =>
+          code.body.value[0].Sku === product.data.manufacturerPartNumber
+      );
 
-        console.log(`code ${code.body.value[0].ID}`);
+      console.log(`code ${code.body.value[0].ID}`);
 
-        body = {
-          requests: [
-            {
-              id: i,
-              method: "post",
-              url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
-              headers: {
-                "Retry-After": 3600,
-              },
-              body: data,
+      const config = {
+        requests: [
+          {
+            id: String(i),
+            method: "post",
+            url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
+            body: data,
+            headers: {
+              "Content-Type": "application/json",
             },
-          ],
-        };
-      } catch (error) {
-        console.log("error", error);
+          },
+        ],
+      };
+      try {
+        await api.post(`/v1/$batch`, JSON.stringify(config), { headers });
+      } catch (e) {
+        console.log(e);
       }
     });
-
-    try {
-      await api.post(`/v1/$batch`, body, { headers });
-    } catch (e) {
-      console.log(e);
-    }
     res.status(201).json("Job concluded!");
   };
 }

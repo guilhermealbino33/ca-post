@@ -60,7 +60,6 @@ class ImageController {
                   },
                   headers: {
                     "Content-Type": "application/json",
-                    "Retry-After": 3600,
                   },
                 },
               ],

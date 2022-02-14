@@ -30,12 +30,12 @@ class QueueAdvisorService {
   }
   async pullOne() {
     // for tests with a single item
-    const items = await QueueAdvisorUpdateRepository.find({ code: "BR8928" })
+    const items = await QueueAdvisorUpdateRepository.find({ code: "BT3124" })
       .populate("product")
       .sort({
         lastUpdate: 1,
       })
-      .limit(5);
+      .limit(1);
     return items;
   }
 }
