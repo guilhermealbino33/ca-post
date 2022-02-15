@@ -2,15 +2,18 @@ import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
 
+import { IBatchBody } from "./interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
 import queueAdvisorService from "./Services/queueAdvisorService";
 
 class ProductController {
   products = async (req: Request, res: Response) => {
-    const queue = await queueAdvisorService.pullQueue(50);
+    const queue = await queueAdvisorService.pullQueue(100);
     const headers = {
       "Content-Type": "application/json",
     };
+    const batchBody: IBatchBody[] = [];
+
     await createToken();
 
     const bodyCodes = {
@@ -102,6 +105,7 @@ class ProductController {
           data.Value.Attributes.push(attribute);
         }
       );
+
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
@@ -111,24 +115,25 @@ class ProductController {
       console.log(`code ${code.body.value[0].ID}`);
 
       const config = {
-        requests: [
-          {
-            id: String(i),
-            method: "post",
-            url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
-            body: data,
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
-        ],
+        id: String(i),
+        method: "post",
+        url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
       };
-      try {
-        await api.post(`/v1/$batch`, JSON.stringify(config), { headers });
-      } catch (e) {
-        console.log(e);
-      }
+      batchBody.push(config);
     });
+    try {
+      // console.log("body ", { requests: batchBody });
+
+      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+        headers,
+      });
+    } catch (e) {
+      console.log(e);
+    }
     res.status(201).json("Job concluded!");
   };
 }
