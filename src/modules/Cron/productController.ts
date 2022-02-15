@@ -111,6 +111,10 @@ class ProductController {
         (code: any) =>
           code.body.value[0].Sku === product.data.manufacturerPartNumber
       );
+      if (code.body.value[0].Sku === undefined) {
+        console.log(`Product ${code.body.value[0].ID} has undefined SKU!`);
+        return;
+      }
 
       console.log(`code ${code.body.value[0].ID}`);
 

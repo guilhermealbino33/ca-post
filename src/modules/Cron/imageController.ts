@@ -18,7 +18,7 @@ class ImageController {
       return count++;
     }
 
-    const queue = await queueAdvisorService.pullQueue(100);
+    const queue = await queueAdvisorService.pullOne();
     await createToken();
 
     const batchBody: IBatchBody[] = [];
@@ -46,19 +46,25 @@ class ImageController {
         (code: any) =>
           code.body.value[0].Sku === product.data.manufacturerPartNumber
       );
-
+      if (code.body.value[0].Sku === undefined) {
+        console.log(`Product ${code.body.value[0].ID} has undefined SKU!`);
+        return;
+      }
       if (product.data.images.length > 0) {
         product.data.images.map(async (image: string, i: number) => {
           console.log(`code ${code.body.value[0].ID}, image: ${image}`);
 
           const config = {
             id: String(increment()),
-            method: "PUT",
-            url: `/v1/Products(${code.body.value[0].ID})/Images(ITEMIMAGEURL${
+            method: "patch",
+            url: `/v1/Products(${code.body.value[0].ID})/Images('ITEMIMAGEURL${
               1 + i
-            })`,
+            }')`,
             body: {
               Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
+            },
+            headers: {
+              "Content-Type": "application/json",
             },
           };
           batchBody.push(config);
@@ -66,8 +72,10 @@ class ImageController {
       }
     });
     try {
-      console.log("external body", { requests: batchBody });
-      // await api.post("/v1/$batch", JSON.stringify(config), { headers });
+      console.log("external body", JSON.stringify({ requests: batchBody }));
+      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+        headers,
+      });
     } catch (e) {
       console.log(e);
     }
