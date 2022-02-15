@@ -31,7 +31,7 @@ class ProductController {
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
 
-      if (!product || !product.data) {
+      if (!product || !product.data || !product.data.manufacturerPartNumber) {
         console.log(`Product ${product.code} not exists`);
         return;
       }
