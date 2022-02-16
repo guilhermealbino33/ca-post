@@ -13,7 +13,7 @@ class ProductController {
       "Content-Type": "application/json",
     };
     const batchBody: IBatchBody[] = [];
-
+    const codesResponse: string[] = ["Job concluded!"];
     await createToken();
 
     const bodyCodes = {
@@ -115,6 +115,7 @@ class ProductController {
         return;
       }
 
+      codesResponse.push(code.body.value[0].ID);
       console.log(`code ${code.body.value[0].ID}`);
 
       const config = {
@@ -137,7 +138,7 @@ class ProductController {
     } catch (e) {
       console.log(e);
     }
-    res.status(201).json("Job concluded!");
+    res.status(201).json(codesResponse);
   };
 }
 

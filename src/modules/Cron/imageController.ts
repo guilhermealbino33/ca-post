@@ -22,6 +22,7 @@ class ImageController {
     await createToken();
 
     const batchBody: IBatchBody[] = [];
+    const codesResponse: string[] = ["Job concluded!"];
 
     const bodyCodes = {
       requests: queue.map((item: IQueueAdvisorUpdate, index: number) => ({
@@ -53,6 +54,7 @@ class ImageController {
       }
       if (product.data.images.length > 0) {
         product.data.images.map(async (image: string, i: number) => {
+          codesResponse.push(`code ${code.body.value[0].ID}, image: ${image}`);
           console.log(`code ${code.body.value[0].ID}, image: ${image}`);
 
           const placementName = `'ITEMIMAGEURL${1 + i}'`;
@@ -73,13 +75,14 @@ class ImageController {
     });
     try {
       // console.log("external body", { requests: batchBody });
+
       await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
         headers,
       });
     } catch (e) {
       console.log(e);
     }
-    res.status(201).json("Job concluded!");
+    res.status(201).json(codesResponse);
   };
 }
 
