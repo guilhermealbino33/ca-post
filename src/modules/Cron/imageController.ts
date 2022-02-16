@@ -18,7 +18,7 @@ class ImageController {
       return count++;
     }
 
-    const queue = await queueAdvisorService.pullQueue(5);
+    const queue = await queueAdvisorService.pullQueue(50);
     await createToken();
 
     const batchBody: IBatchBody[] = [];
@@ -73,13 +73,9 @@ class ImageController {
     });
     try {
       // console.log("external body", { requests: batchBody });
-      await api.post(
-        `/v1/$batch`,
-        { requests: batchBody },
-        {
-          headers,
-        }
-      );
+      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+        headers,
+      });
     } catch (e) {
       console.log(e);
     }

@@ -8,7 +8,7 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 
 class ProductController {
   products = async (req: Request, res: Response) => {
-    const queue = await queueAdvisorService.pullOne();
+    const queue = await queueAdvisorService.pullQueue(100);
     const headers = {
       "Content-Type": "application/json",
     };
