@@ -1,6 +1,5 @@
 class utils {
   static toHtml = (text: string[]) => {
-    console.log("Short Description", text);
     if (text.length < 1) {
       return "";
     }
