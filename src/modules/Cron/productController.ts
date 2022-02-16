@@ -8,7 +8,7 @@ import queueAdvisorService from "./Services/queueAdvisorService";
 
 class ProductController {
   products = async (req: Request, res: Response) => {
-    const queue = await queueAdvisorService.pullQueue(100);
+    const queue = await queueAdvisorService.pullOne();
     const headers = {
       "Content-Type": "application/json",
     };
@@ -90,7 +90,6 @@ class ProductController {
           ],
         },
       };
-
       type IAttribQBP = {
         name: string;
         value: string;

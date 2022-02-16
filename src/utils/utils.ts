@@ -1,5 +1,9 @@
 class utils {
   static toHtml = (text: string[]) => {
+    console.log("Short Description", text);
+    if (text.length < 1) {
+      return "";
+    }
     let output = text.join("- ");
     output = `<ul><li>${output.replaceAll("- ", "</li><li>")}</li></ul>`;
 
