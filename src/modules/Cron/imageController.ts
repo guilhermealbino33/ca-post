@@ -13,15 +13,16 @@ class ImageController {
     };
 
     let count = 0;
-    function increment() {
+    function incrementIndex() {
       // eslint-disable-next-line no-plusplus
       return count++;
     }
 
-    const queue = await queueAdvisorService.pullOne();
+    const queue = await queueAdvisorService.pullQueue(5);
     await createToken();
 
     const batchBody: IBatchBody[] = [];
+
     const bodyCodes = {
       requests: queue.map((item: IQueueAdvisorUpdate, index: number) => ({
         id: String(index),
@@ -54,12 +55,11 @@ class ImageController {
         product.data.images.map(async (image: string, i: number) => {
           console.log(`code ${code.body.value[0].ID}, image: ${image}`);
 
+          const placementName = `'ITEMIMAGEURL${1 + i}'`;
           const config = {
-            id: String(increment()),
+            id: String(incrementIndex()),
             method: "patch",
-            url: `/v1/Products(${code.body.value[0].ID})/Images('ITEMIMAGEURL${
-              1 + i
-            }')`,
+            url: `/v1/Images(ProductID=${code.body.value[0].ID}, PlacementName=${placementName})`,
             body: {
               Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
             },
@@ -72,10 +72,14 @@ class ImageController {
       }
     });
     try {
-      console.log("external body", JSON.stringify({ requests: batchBody }));
-      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
-        headers,
-      });
+      // console.log("external body", { requests: batchBody });
+      await api.post(
+        `/v1/$batch`,
+        { requests: batchBody },
+        {
+          headers,
+        }
+      );
     } catch (e) {
       console.log(e);
     }
