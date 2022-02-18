@@ -34,7 +34,7 @@ class ProductController {
       if (!product || !product.data || !product.data.manufacturerPartNumber) {
         console.log(`Product ${product.code} not exists`);
         return;
-      } // console.log("SKU", JSON.stringify(codes.data.responses));
+      }
 
       const data = {
         Value: {
@@ -104,31 +104,30 @@ class ProductController {
           data.Value.Attributes.push(attribute);
         }
       );
-      if (codes.data.responses[0].body.value[0].Sku !== undefined) {
-        const code = await codes.data.responses.find(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (code: any) =>
-            code.body.value[0].Sku === product.data.manufacturerPartNumber
-        );
 
-        codesResponse.push(code.body.value[0].ID);
-        console.log(`code ${code.body.value[0].ID}`);
-
-        const config = {
-          id: String(i),
-          method: "post",
-          url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
-          body: data,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        };
-        batchBody.push(config);
-      } else {
-        console.log(
-          `Product code ${product.data.code} isn't on Channel Advisor`
-        );
+      const code = codes.data.responses.find(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (code: any) =>
+          code.body.value[0].Sku === product.data.manufacturerPartNumber
+      );
+      if (code.body.value[0].Sku === undefined) {
+        console.log(`Product ${code.body.value[0].ID} has undefined SKU!`);
+        return;
       }
+
+      codesResponse.push(code.body.value[0].ID);
+      console.log(`code ${code.body.value[0].ID}`);
+
+      const config = {
+        id: String(i),
+        method: "post",
+        url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      batchBody.push(config);
     });
     try {
       // console.log("body ", { requests: batchBody });
