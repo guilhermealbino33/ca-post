@@ -1,6 +1,6 @@
 class utils {
   static toHtml = (text: string[]) => {
-    if (text.length < 1) {
+    if (text.length === 0) {
       return "";
     }
     let output = text.join("- ");
