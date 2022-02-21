@@ -30,7 +30,10 @@ class ProductController {
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
-
+      if (codes.data.responses[i].body.value.length === 0) {
+        console.log(`Product ${product.code} not exists on Channel Advisor`);
+        return;
+      }
       if (!product || !product.data || !product.data.manufacturerPartNumber) {
         console.log(`Product ${product.code} not exists`);
         return;
@@ -104,16 +107,11 @@ class ProductController {
           data.Value.Attributes.push(attribute);
         }
       );
-
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
-          code.body.value[0].Sku === product.data.manufacturerPartNumber
+          code.body?.value[0]?.Sku === product.data.manufacturerPartNumber
       );
-      if (code.body.value[0].Sku === undefined) {
-        console.log(`Product ${code.body.value[0].ID} has undefined SKU!`);
-        return;
-      }
 
       codesResponse.push(code.body.value[0].ID);
       console.log(`code ${code.body.value[0].ID}`);
@@ -131,13 +129,17 @@ class ProductController {
     });
     try {
       // console.log("body ", { requests: batchBody });
-
+      if (batchBody.length === 0) {
+        res.status(201).json("Products doesn't exists on Channel Advisor");
+        return;
+      }
       await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
         headers,
       });
     } catch (e) {
       console.log(e);
     }
+
     res.status(201).json(codesResponse);
   };
 }
