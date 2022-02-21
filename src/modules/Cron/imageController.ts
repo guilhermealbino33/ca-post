@@ -18,7 +18,7 @@ class ImageController {
       return count++;
     }
 
-    const queue = await queueAdvisorService.pullQueue(50);
+    const queue = await queueAdvisorService.pullImageQueue(5);
     await createToken();
 
     const batchBody: IBatchBody[] = [];
@@ -36,22 +36,24 @@ class ImageController {
       headers,
     });
 
-    queue.forEach(async (item: IQueueAdvisorUpdate) => {
+    queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
 
+      if (codes.data.responses[i].body.value.length === 0) {
+        console.log(`Product ${product.code} not exists on Channel Advisor`);
+        return;
+      }
+
       if (!product || !product.data) {
-        console.log(`Product ${product.code} not exists`);
+        console.log(`Product ${product.code} don't exists`);
         return;
       }
 
       const code = codes.data.responses.find(
         (code: any) =>
-          code.body.value[0].Sku === product.data.manufacturerPartNumber
+          code.body?.value[0]?.Sku === product.data.manufacturerPartNumber
       );
-      if (code.body.value[0].Sku === undefined) {
-        console.log(`Product ${code.body.value[0].ID} has undefined SKU!`);
-        return;
-      }
+
       if (product.data.images.length > 0) {
         product.data.images.map(async (image: string, i: number) => {
           codesResponse.push(`code ${code.body.value[0].ID}, image: ${image}`);
@@ -75,6 +77,10 @@ class ImageController {
     });
     try {
       // console.log("external body", { requests: batchBody });
+      if (batchBody.length === 0) {
+        res.status(201).json("Products doesn't exists on Channel Advisor");
+        return;
+      }
 
       await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
         headers,

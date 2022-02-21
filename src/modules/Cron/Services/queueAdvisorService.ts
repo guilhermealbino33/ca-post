@@ -1,4 +1,7 @@
-import { QueueAdvisorUpdateRepository } from "../repositories/QueueAdvisorUpdateRepository";
+import {
+  QueueAdvisorImageUpdateRepository,
+  QueueAdvisorUpdateRepository,
+} from "../repositories/QueueAdvisorUpdateRepository";
 
 class QueueAdvisorService {
   async pullQueue(quantity: number) {
@@ -28,9 +31,36 @@ class QueueAdvisorService {
     );
     return items;
   }
+  async pullImageQueue(quantity: number) {
+    const items = await QueueAdvisorImageUpdateRepository.find({})
+      .populate("product")
+      .sort({
+        lastUpdate: 1,
+      })
+      .limit(quantity);
+
+    await QueueAdvisorImageUpdateRepository.collection.bulkWrite(
+      items.map((item) => {
+        return {
+          updateOne: {
+            filter: {
+              code: item.code,
+            },
+            update: {
+              $set: {
+                code: item.code,
+                lastUpdate: Date.now(),
+              },
+            },
+          },
+        };
+      })
+    );
+    return items;
+  }
   async pullOne() {
     // for tests with a single item
-    const items = await QueueAdvisorUpdateRepository.find({ code: "RM1824" })
+    const items = await QueueAdvisorUpdateRepository.find({ code: "HD5805" })
       .populate("product")
       .sort({
         lastUpdate: 1,

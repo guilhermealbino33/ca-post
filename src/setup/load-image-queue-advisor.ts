@@ -1,6 +1,6 @@
 import axios from "axios";
 import _ from "lodash";
-import { QueueAdvisorUpdateRepository } from "modules/Cron/repositories/QueueAdvisorUpdateRepository";
+import { QueueAdvisorImageUpdateRepository } from "modules/Cron/repositories/QueueAdvisorUpdateRepository";
 
 import { setup } from "../database/mongoDB";
 import "../infra/config-env";
@@ -32,7 +32,7 @@ const execute = async () => {
 
     const chunk = chunks[index];
 
-    await QueueAdvisorUpdateRepository.collection.bulkWrite(
+    await QueueAdvisorImageUpdateRepository.collection.bulkWrite(
       chunk.map((code) => ({
         updateOne: {
           filter: {
