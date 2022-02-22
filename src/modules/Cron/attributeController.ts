@@ -6,8 +6,8 @@ import { IBatchBody } from "./interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
 import queueAdvisorService from "./Services/queueAdvisorService";
 
-class ProductController {
-  products = async (req: Request, res: Response) => {
+class AttributeController {
+  attributes = async (req: Request, res: Response) => {
     const queue = await queueAdvisorService.pullQueue(100);
     const headers = {
       "Content-Type": "application/json",
@@ -144,4 +144,4 @@ class ProductController {
   };
 }
 
-export { ProductController };
+export { AttributeController };
