@@ -2,12 +2,12 @@ import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
 
-import { IBatchBody } from "./interfaces/Interfaces";
-import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
-import queueAdvisorService from "./Services/queueAdvisorService";
+import { IBatchBody } from "../interfaces/Interfaces";
+import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
+import queueAdvisorService from "../Services/queueAdvisorService";
 
 class AttributeController {
-  attributes = async (req: Request, res: Response) => {
+  handle = async (req: Request, res: Response) => {
     const queue = await queueAdvisorService.pullQueue(100);
     const headers = {
       "Content-Type": "application/json",

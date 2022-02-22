@@ -2,12 +2,12 @@
 import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 
-import { IBatchBody } from "./interfaces/Interfaces";
-import { IQueueAdvisorUpdate } from "./models/QueueAdvisorUpdate";
-import queueAdvisorService from "./Services/queueAdvisorService";
+import { IBatchBody } from "../interfaces/Interfaces";
+import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
+import queueAdvisorService from "../Services/queueAdvisorService";
 
 class ImageController {
-  images = async (req: Request, res: Response) => {
+  handle = async (req: Request, res: Response) => {
     const headers = {
       "Content-Type": "application/json",
     };
