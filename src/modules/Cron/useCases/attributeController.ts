@@ -4,7 +4,10 @@ import { utils } from "utils/utils";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
+import { CreateParentProductService } from "../Services/createParentProductService";
 import queueAdvisorService from "../Services/queueAdvisorService";
+
+const createParentProductService = new CreateParentProductService();
 
 class AttributeController {
   handle = async (req: Request, res: Response) => {
@@ -30,8 +33,17 @@ class AttributeController {
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
+      console.log(`Outer index ${i}`);
+      if (!codes.data.responses[i].body) {
+        console.log("body is undefined!");
+        console.log(`Inner index ${i}`);
+
+        return;
+      }
       if (codes.data.responses[i].body.value.length === 0) {
+        // Chamar service de cadastro de produtos. metodo sem rota para ele
         console.log(`Product ${product.code} not exists on Channel Advisor`);
+        createParentProductService.handle(req, res);
         return;
       }
       if (!product || !product.data || !product.data.manufacturerPartNumber) {
@@ -112,6 +124,9 @@ class AttributeController {
         (code: any) =>
           code.body?.value[0]?.Sku === product.data.manufacturerPartNumber
       );
+      if (!code.body) {
+        return;
+      }
 
       codesResponse.push(code.body.value[0].ID);
       console.log(`code ${code.body.value[0].ID}`);
