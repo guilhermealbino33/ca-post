@@ -33,24 +33,21 @@ class AttributeController {
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
-      console.log(`Outer index ${i}`);
       if (!codes.data.responses[i].body) {
         console.log("body is undefined!");
-        console.log(`Inner index ${i}`);
-
         return;
       }
       if (codes.data.responses[i].body.value.length === 0) {
         // Chamar service de cadastro de produtos. metodo sem rota para ele
         console.log(`Product ${product.code} not exists on Channel Advisor`);
-        createParentProductService.handle(req, res);
+        // createParentProductService.handle(req, res);
         return;
       }
       if (!product || !product.data || !product.data.manufacturerPartNumber) {
         console.log(`Product ${product.code} not exists`);
         return;
       }
-
+      const { prettyName, toHtml, removeDuplicateCharacters } = utils;
       const data = {
         Value: {
           Attributes: [
@@ -60,10 +57,22 @@ class AttributeController {
             },
             {
               Name: "QBP Name",
-              Value: utils.prettyName(
-                product.data.name,
-                product.data.model.name,
-                product.data.brand.name
+              Value: removeDuplicateCharacters(
+                prettyName(
+                  product.data.name,
+                  product.data.model.name,
+                  product.data.brand.name
+                )
+              ),
+            },
+            {
+              Name: "Choose Option",
+              Value: removeDuplicateCharacters(
+                prettyName(
+                  product.data.name,
+                  product.data.model.name,
+                  product.data.brand.name
+                )
               ),
             },
             {
@@ -76,7 +85,7 @@ class AttributeController {
             },
             {
               Name: "QBP Short Description",
-              Value: utils.toHtml(product.data.model.bulletPoints),
+              Value: toHtml(product.data.model.bulletPoints),
             },
             {
               Name: "QBP Cost",
