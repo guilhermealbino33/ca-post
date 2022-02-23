@@ -10,7 +10,7 @@ class CreateChildProductService {
     };
     const data = {
       Sku: req.body.data.manufacturerPartNumber,
-      ParentProductID: `PARENT-${req.body.data.model.code}`,
+      ParentProductID: req.body.data.ProductID,
       IsParent: false,
       IsInRelationship: true,
       Title: `${req.body.data.brand.name} ${req.body.data.model.name}`,
@@ -24,10 +24,12 @@ class CreateChildProductService {
         },
         {
           Name: "QBP Name",
-          Value: utils.prettyName(
-            req.body.data.name,
-            req.body.data.model.name,
-            req.body.data.brand.name
+          Value: utils.removeDuplicateCharacters(
+            utils.prettyName(
+              req.body.data.name,
+              req.body.data.model.name,
+              req.body.data.brand.name
+            )
           ),
         },
         {
