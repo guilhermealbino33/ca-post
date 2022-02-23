@@ -18,7 +18,7 @@ class ImageController {
       return count++;
     }
 
-    const queue = await queueAdvisorService.pullOne();
+    const queue = await queueAdvisorService.pullQueue(30);
     await createToken();
 
     const batchBody: IBatchBody[] = [];
@@ -37,6 +37,10 @@ class ImageController {
     });
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
+      if (!codes.data.responses[i].body) {
+        console.log("body is undefined!");
+        return;
+      }
       const { product } = item;
 
       if (codes.data.responses[i].body.value.length === 0) {

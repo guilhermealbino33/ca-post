@@ -5,9 +5,13 @@ import { utils } from "utils/utils";
 class CreateChildProductService {
   handle = async (req: Request, res: Response) => {
     console.log("ENTERED");
+
     const headers = {
       "Content-Type": "application/json",
     };
+
+    const { prettyName, toHtml, removeDuplicateWords } = utils;
+
     const data = {
       Sku: req.body.data.manufacturerPartNumber,
       ParentProductID: req.body.data.ProductID,
@@ -15,7 +19,7 @@ class CreateChildProductService {
       IsInRelationship: true,
       Title: `${req.body.data.brand.name} ${req.body.data.model.name}`,
       Description: req.body.data.model.description,
-      ShortDescription: utils.toHtml(req.body.data.model.bulletPoints),
+      ShortDescription: toHtml(req.body.data.model.bulletPoints),
       VaryBy: "Choose Option",
       Attributes: [
         {
@@ -24,8 +28,8 @@ class CreateChildProductService {
         },
         {
           Name: "QBP Name",
-          Value: utils.removeDuplicateCharacters(
-            utils.prettyName(
+          Value: removeDuplicateWords(
+            prettyName(
               req.body.data.name,
               req.body.data.model.name,
               req.body.data.brand.name
@@ -42,7 +46,7 @@ class CreateChildProductService {
         },
         {
           Name: "QBP Short Description",
-          Value: utils.toHtml(req.body.data.model.bulletPoints),
+          Value: toHtml(req.body.data.model.bulletPoints),
         },
         {
           Name: "QBP Cost",

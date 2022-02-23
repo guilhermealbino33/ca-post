@@ -38,7 +38,6 @@ class AttributeController {
         return;
       }
       if (codes.data.responses[i].body.value.length === 0) {
-        // Chamar service de cadastro de produtos. metodo sem rota para ele
         console.log(`Product ${product.code} not exists on Channel Advisor`);
         // createParentProductService.handle(req, res);
         return;
@@ -47,7 +46,7 @@ class AttributeController {
         console.log(`Product ${product.code} not exists`);
         return;
       }
-      const { prettyName, toHtml, removeDuplicateCharacters } = utils;
+      const { prettyName, toHtml, removeDuplicateWords } = utils;
       const data = {
         Value: {
           Attributes: [
@@ -57,7 +56,7 @@ class AttributeController {
             },
             {
               Name: "QBP Name",
-              Value: removeDuplicateCharacters(
+              Value: removeDuplicateWords(
                 prettyName(
                   product.data.name,
                   product.data.model.name,
@@ -67,7 +66,7 @@ class AttributeController {
             },
             {
               Name: "Choose Option",
-              Value: removeDuplicateCharacters(
+              Value: removeDuplicateWords(
                 prettyName(
                   product.data.name,
                   product.data.model.name,
