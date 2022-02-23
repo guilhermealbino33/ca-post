@@ -12,8 +12,16 @@ class utils {
     let output = nameStr.replace(modelStr, "");
     output = output.replace(brandStr, "");
     output = output.replaceAll(",", "");
-
+    // output = Array.from(new Set(output.split(","))).toString();
     return output.trim();
+  };
+  static removeDuplicateCharacters = (statement: string) => {
+    return statement
+      .split(" ")
+      .filter((item, pos, self) => {
+        return self.indexOf(item) === pos;
+      })
+      .join(" ");
   };
 }
 export { utils };
