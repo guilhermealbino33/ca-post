@@ -10,7 +10,7 @@ class CreateChildProductService {
       "Content-Type": "application/json",
     };
 
-    const { prettyName, toHtml, removeDuplicateWords } = utils;
+    const { toHtml, removeDuplicatedWordsBetween } = utils;
 
     const data = {
       Sku: req.body.data.manufacturerPartNumber,
@@ -27,13 +27,19 @@ class CreateChildProductService {
           Value: req.body.data.code,
         },
         {
+          Name: "Choose Option",
+          Value: removeDuplicatedWordsBetween(
+            req.body.data.name,
+            req.body.data.model.name,
+            req.body.data.brand.name
+          ),
+        },
+        {
           Name: "QBP Name",
-          Value: removeDuplicateWords(
-            prettyName(
-              req.body.data.name,
-              req.body.data.model.name,
-              req.body.data.brand.name
-            )
+          Value: removeDuplicatedWordsBetween(
+            req.body.data.name,
+            req.body.data.model.name,
+            req.body.data.brand.name
           ),
         },
         {

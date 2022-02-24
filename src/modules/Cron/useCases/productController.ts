@@ -4,12 +4,9 @@ import { utils } from "utils/utils";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
-import { CreateParentProductService } from "../Services/createParentProductService";
 import queueAdvisorService from "../Services/queueAdvisorService";
 
-const createParentProductService = new CreateParentProductService();
-
-class AttributeController {
+class ProductController {
   handle = async (req: Request, res: Response) => {
     const queue = await queueAdvisorService.pullQueue(100);
     const headers = {
@@ -46,7 +43,8 @@ class AttributeController {
         console.log(`Product ${product.code} not exists`);
         return;
       }
-      const { prettyName, toHtml, removeDuplicateWords } = utils;
+      const { toHtml, removeDuplicatedWordsBetween } = utils;
+
       const data = {
         Value: {
           Attributes: [
@@ -56,22 +54,18 @@ class AttributeController {
             },
             {
               Name: "QBP Name",
-              Value: removeDuplicateWords(
-                prettyName(
-                  product.data.name,
-                  product.data.model.name,
-                  product.data.brand.name
-                )
+              Value: removeDuplicatedWordsBetween(
+                product.data.name,
+                product.data.model.name,
+                product.data.brand.name
               ),
             },
             {
               Name: "Choose Option",
-              Value: removeDuplicateWords(
-                prettyName(
-                  product.data.name,
-                  product.data.model.name,
-                  product.data.brand.name
-                )
+              Value: removeDuplicatedWordsBetween(
+                product.data.name,
+                product.data.model.name,
+                product.data.brand.name
               ),
             },
             {
@@ -167,4 +161,4 @@ class AttributeController {
   };
 }
 
-export { AttributeController };
+export { ProductController };
