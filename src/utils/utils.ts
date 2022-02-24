@@ -33,7 +33,12 @@ class utils {
     const output = name.filter(
       (item) => !model.includes(item) && !brand.includes(item)
     );
-    return output.join(" ").replaceAll(",", "").trim();
+    return output
+      .join(" ")
+      .replaceAll(",", "")
+      .replaceAll(":", "")
+      .replaceAll(/\s+/g, " ")
+      .trim();
   };
 }
 export { utils };
