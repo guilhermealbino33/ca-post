@@ -22,5 +22,18 @@ class utils {
       )
       .join(" ");
   };
+  static removeDuplicatedWordsBetween = (
+    nameStr: string,
+    modelStr: string,
+    brandStr: string
+  ) => {
+    const name = nameStr.split(" ");
+    const model = modelStr.split(" ");
+    const brand = brandStr.split(" ");
+    const output = name.filter(
+      (item) => !model.includes(item) && !brand.includes(item)
+    );
+    return output.join(" ").replaceAll(",", "").trim();
+  };
 }
 export { utils };
