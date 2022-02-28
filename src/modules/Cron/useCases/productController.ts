@@ -4,10 +4,13 @@ import { utils } from "utils/utils";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
+import { CreateParentProductService } from "../Services/createParentProductService";
 import queueAdvisorService from "../Services/queueAdvisorService";
 
 class ProductController {
   handle = async (req: Request, res: Response) => {
+    const createParentProductService = new CreateParentProductService();
+
     const queue = await queueAdvisorService.pullQueue(100);
     const headers = {
       "Content-Type": "application/json",
@@ -34,17 +37,11 @@ class ProductController {
         console.log("body is undefined!");
         return;
       }
-      if (codes.data.responses[i].body.value.length === 0) {
-        console.log(`Product ${product.code} not exists on Channel Advisor`);
-        // createParentProductService.handle(req, res);
-        return;
-      }
       if (!product || !product.data || !product.data.manufacturerPartNumber) {
         console.log(`Product ${product.code} not exists`);
         return;
       }
       const { toHtml, removeDuplicatedWordsBetween } = utils;
-
       const data = {
         Value: {
           Attributes: [
@@ -112,6 +109,17 @@ class ProductController {
         value: string;
       };
 
+      if (codes.data.responses[i].body.value.length === 0) {
+        console.log(`Product ${product.code} not exists on Channel Advisor`);
+        createParentProductService.handle({
+          Sku: product.data.model.code,
+          Brand: product.data.brand.name,
+          Description: product.data.model.description,
+          ShortDescription: toHtml(product.data.model.bulletPoints),
+          Title: `${product.data.brand.name} ${product.data.model.name}`,
+        });
+        return;
+      }
       product.data.productAttributes.forEach(
         (attrib: IAttribQBP, i: number) => {
           const attribute = {
@@ -124,14 +132,13 @@ class ProductController {
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
-          code.body?.value[0]?.Sku === product.data.manufacturerPartNumber
+          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber
       );
-      if (!code.body) {
-        return;
-      }
 
-      codesResponse.push(code.body.value[0].ID);
-      console.log(`code ${code.body.value[0].ID}`);
+      if (code.body.value[0].ID) {
+        codesResponse.push(code.body.value[0].ID);
+        console.log(`code ${code.body.value[0].ID}`);
+      }
 
       const config = {
         id: String(i),
