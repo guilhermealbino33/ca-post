@@ -1,31 +1,47 @@
-import { Request, Response } from "express";
 import api from "services/api";
-import { utils } from "utils/utils";
+
+type ParentProduct = {
+  Sku: string;
+  IsParent?: boolean;
+  IsInRelationship?: boolean;
+  Brand: string;
+  Title: string;
+  Description: string;
+  ShortDescription: string;
+  VaryBy?: string;
+};
 
 class CreateParentProductService {
-  handle = async (req: Request, res: Response) => {
+  handle = async ({
+    Sku,
+    Brand,
+    Description,
+    ShortDescription,
+    Title,
+  }: ParentProduct): Promise<string> => {
     console.log("ENTERED");
     const headers = {
       "Content-Type": "application/json",
     };
     const body = {
-      Sku: `PARENT-${req.body.data.model.code}`,
+      Sku: `PARENT-${Sku}`,
       IsParent: true,
       IsInRelationship: true,
-      Brand: req.body.data.brand.name,
-      Title: `${req.body.data.brand.name} ${req.body.data.model.name}`,
-      Description: req.body.data.model.description,
-      ShortDescription: utils.toHtml(req.body.data.model.bulletPoints),
+      Brand,
+      Title,
+      Description,
+      ShortDescription,
       VaryBy: "Choose Option",
     };
     try {
       await api.post(`/v1/Products`, JSON.stringify(body), {
         headers,
       });
+      return `Product created SKU ${body.Sku}`;
     } catch (e) {
       console.log(e);
+      return `Error creating product SKU ${body.Sku}`;
     }
-    res.status(201).json(body);
   };
 }
 
