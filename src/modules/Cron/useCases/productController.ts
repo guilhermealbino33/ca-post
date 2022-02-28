@@ -136,7 +136,7 @@ class ProductController {
       );
 
       if (!code) {
-        console.log("undefined body");
+        console.log(`Product ${product.code} has undefined body`);
         return;
       }
       codesResponse.push(code.body.value[0].ID);

@@ -57,7 +57,7 @@ class ImageController {
       if (product.data.images.length > 0) {
         product.data.images.map(async (image: string, i: number) => {
           if (!code) {
-            console.log("undefined body");
+            console.log(`Product ${product.code} has undefined body`);
             return;
           }
           codesResponse.push(`code ${code.body.value[0].ID}, image: ${image}`);
