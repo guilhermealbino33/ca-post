@@ -33,7 +33,7 @@ class CreateParentProductService {
       VaryBy: "Choose Option",
     };
     try {
-      await api.post(`/v1/Products`, JSON.stringify(body), {
+      api.post(`/v1/Products`, JSON.stringify(body), {
         headers,
       });
       return console.log(`Product created SKU ${body.Sku}`);
