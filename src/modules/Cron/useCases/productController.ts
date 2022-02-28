@@ -37,7 +37,7 @@ class ProductController {
         console.log("body is undefined!");
         return;
       }
-      if (!product || !product.data || !product.data.manufacturerPartNumber) {
+      if (!product || !product.data) {
         console.log(`Product ${product.code} not exists`);
         return;
       }
@@ -110,15 +110,47 @@ class ProductController {
       };
 
       if (codes.data.responses[i].body.value.length === 0) {
-        console.log(`Product ${product.code} not exists on Channel Advisor`);
-        createParentProductService.handle({
-          Sku: product.data.model.code,
-          Brand: product.data.brand.name,
-          Description: product.data.model.description,
-          ShortDescription: toHtml(product.data.model.bulletPoints),
-          Title: `${product.data.brand.name} ${product.data.model.name}`,
-        });
-        return;
+        const sku = await api.get(
+          `/v1/products?$filter=Sku eq 'PARENT-${product.data.model.code}'&$select=ID, Sku`,
+          { headers }
+        );
+        console.log("Model code", `PARENT-${product.data.model.code}`);
+        console.log("SKU", sku.data.value[i]?.Sku);
+        if (`PARENT-${product.data.model.code}` === sku.data.value[i]?.Sku) {
+          console.log("in future call child product here");
+          return;
+        }
+        if (
+          !product.data.manufacturerPartNumber &&
+          `PARENT-${product.data.model.code}` === sku.data.value[i]?.Sku
+        ) {
+          console.log("in future call child without MPN product here");
+        }
+        if (
+          !product.data.manufacturerPartNumber &&
+          `PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku
+        ) {
+          createParentProductService.handle({
+            Sku: product.data.model.code,
+            Brand: product.data.brand.name,
+            Description: product.data.model.description,
+            ShortDescription: toHtml(product.data.model.bulletPoints),
+            Title: `${product.data.brand.name} ${product.data.model.name}`,
+          });
+          return;
+        }
+
+        if (`PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku) {
+          console.log(`Product ${product.code} not exists on Channel Advisor`);
+          createParentProductService.handle({
+            Sku: product.data.model.code,
+            Brand: product.data.brand.name,
+            Description: product.data.model.description,
+            ShortDescription: toHtml(product.data.model.bulletPoints),
+            Title: `${product.data.brand.name} ${product.data.model.name}`,
+          });
+          return;
+        }
       }
       product.data.productAttributes.forEach(
         (attrib: IAttribQBP, i: number) => {
@@ -132,13 +164,12 @@ class ProductController {
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
-          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber
+          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber ||
+          code?.body.value[0]?.Sku === product.data.code
       );
-
+      // se o SKU for null no QBP, considerar o CODE
       if (!code) {
-        console.log(
-          `Product ${product.code} has null manufacturer part number!`
-        );
+        console.log(`Product ${product.code} has undefined body!`);
         return;
       }
       codesResponse.push(code.body.value[0].ID);
@@ -161,6 +192,7 @@ class ProductController {
         res.status(201).json("Products doesn't exists on Channel Advisor");
         return;
       }
+
       await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
         headers,
       });
