@@ -27,6 +27,10 @@ class utils {
     modelStr: string,
     brandStr: string
   ) => {
+    if (nameStr === null || modelStr === null || brandStr === null) {
+      console.log("name is null");
+      return "";
+    }
     const name = nameStr.split(" ");
     const model = modelStr.split(" ");
     const brand = brandStr.split(" ");
