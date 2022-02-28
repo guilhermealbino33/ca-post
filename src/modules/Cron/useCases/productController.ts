@@ -136,7 +136,9 @@ class ProductController {
       );
 
       if (!code) {
-        console.log(`Product ${product.code} has undefined body`);
+        console.log(
+          `Product ${product.code} has null manufacturer part number!`
+        );
         return;
       }
       codesResponse.push(code.body.value[0].ID);
