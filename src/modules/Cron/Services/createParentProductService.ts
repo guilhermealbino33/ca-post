@@ -18,8 +18,7 @@ class CreateParentProductService {
     Description,
     ShortDescription,
     Title,
-  }: ParentProduct): Promise<string> => {
-    console.log("ENTERED");
+  }: ParentProduct): Promise<void> => {
     const headers = {
       "Content-Type": "application/json",
     };
@@ -37,10 +36,10 @@ class CreateParentProductService {
       await api.post(`/v1/Products`, JSON.stringify(body), {
         headers,
       });
-      return `Product created SKU ${body.Sku}`;
+      return console.log(`Product created SKU ${body.Sku}`);
     } catch (e) {
       console.log(e);
-      return `Error creating product SKU ${body.Sku}`;
+      return console.log(`Error creating product SKU ${body.Sku}`);
     }
   };
 }
