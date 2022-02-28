@@ -14,7 +14,7 @@ class CreateChildProductService {
 
     const data = {
       Sku: req.body.data.manufacturerPartNumber,
-      ParentProductID: req.body.data.ProductID,
+      ParentProductID: req.body.data.ProductID /* valor test alterer */,
       IsParent: false,
       IsInRelationship: true,
       Title: `${req.body.data.brand.name} ${req.body.data.model.name}`,
