@@ -18,7 +18,7 @@ class ImageController {
       return count++;
     }
 
-    const queue = await queueAdvisorService.pullOne();
+    const queue = await queueAdvisorService.pullQueue(30);
     await createToken();
 
     const batchBody: IBatchBody[] = [];
@@ -51,14 +51,17 @@ class ImageController {
 
       const code = codes.data.responses.find(
         (code: any) =>
-          code.body?.value[0]?.Sku === product.data.manufacturerPartNumber
+          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber
       );
 
       if (product.data.images.length > 0) {
         product.data.images.map(async (image: string, i: number) => {
-          codesResponse.push(`code ${code.body.value[0].ID}, image: ${image}`);
-          console.log(`code full ${JSON.stringify(code)}`);
-          console.log(`code ${code.body.value[0].ID}, image: ${image}`);
+          if (code.body.value[0].ID) {
+            codesResponse.push(
+              `code ${code.body.value[0].ID}, image: ${image}`
+            );
+            console.log(`code ${code.body.value[0].ID}, image: ${image}`);
+          }
 
           const placementName = `'ITEMIMAGEURL${1 + i}'`;
           const config = {
@@ -82,11 +85,10 @@ class ImageController {
         res.status(201).json("Products doesn't exists on Channel Advisor");
         return;
       }
-      /*
+
       await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
         headers,
       });
-      */
     } catch (e) {
       console.log(e);
     }
