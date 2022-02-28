@@ -56,12 +56,12 @@ class ImageController {
 
       if (product.data.images.length > 0) {
         product.data.images.map(async (image: string, i: number) => {
-          if (code.body.value[0].ID) {
-            codesResponse.push(
-              `code ${code.body.value[0].ID}, image: ${image}`
-            );
-            console.log(`code ${code.body.value[0].ID}, image: ${image}`);
+          if (!code) {
+            console.log("undefined body");
+            return;
           }
+          codesResponse.push(`code ${code.body.value[0].ID}, image: ${image}`);
+          console.log(`code ${code.body.value[0].ID}, image: ${image}`);
 
           const placementName = `'ITEMIMAGEURL${1 + i}'`;
           const config = {

@@ -135,10 +135,12 @@ class ProductController {
           code?.body.value[0]?.Sku === product.data.manufacturerPartNumber
       );
 
-      if (code.body.value[0].ID) {
-        codesResponse.push(code.body.value[0].ID);
-        console.log(`code ${code.body.value[0].ID}`);
+      if (!code) {
+        console.log("undefined body");
+        return;
       }
+      codesResponse.push(code.body.value[0].ID);
+      console.log(`code ${code.body.value[0].ID}`);
 
       const config = {
         id: String(i),
