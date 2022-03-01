@@ -4,14 +4,16 @@ import { utils } from "utils/utils";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
+import { CreateChildProductService } from "../Services/createChildProductService ";
 import { CreateParentProductService } from "../Services/createParentProductService";
 import queueAdvisorService from "../Services/queueAdvisorService";
 
 class ProductController {
   handle = async (req: Request, res: Response) => {
     const createParentProductService = new CreateParentProductService();
+    const createChildProductService = new CreateChildProductService();
 
-    const queue = await queueAdvisorService.pullQueue(100);
+    const queue = await queueAdvisorService.pullQueue(5);
     const headers = {
       "Content-Type": "application/json",
     };
@@ -23,20 +25,16 @@ class ProductController {
       requests: queue.map((item: IQueueAdvisorUpdate, index) => ({
         id: String(index),
         method: "get",
-        url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku`,
+        url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku, ParentProductID`,
       })),
     };
-
     const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
       headers,
     });
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
-      if (!codes.data.responses[i].body) {
-        console.log("body is undefined!");
-        return;
-      }
+
       if (!product || !product.data) {
         console.log(`Product ${product.code} not exists`);
         return;
@@ -108,39 +106,44 @@ class ProductController {
         name: string;
         value: string;
       };
-
+      console.log(
+        "ParentProductID",
+        codes.data.responses[0].body.value[0].ParentProductID
+      );
       if (codes.data.responses[i].body.value.length === 0) {
         const sku = await api.get(
           `/v1/products?$filter=Sku eq 'PARENT-${product.data.model.code}'&$select=ID, Sku`,
           { headers }
         );
+        console.log("MPN", product.data.manufacturerPartNumber);
         console.log("Model code", `PARENT-${product.data.model.code}`);
         console.log("SKU", sku.data.value[i]?.Sku);
+
         if (`PARENT-${product.data.model.code}` === sku.data.value[i]?.Sku) {
-          console.log("in future call child product here");
-          return;
-        }
-        if (
-          !product.data.manufacturerPartNumber &&
-          `PARENT-${product.data.model.code}` === sku.data.value[i]?.Sku
-        ) {
-          console.log("in future call child without MPN product here");
-        }
-        if (
-          !product.data.manufacturerPartNumber &&
+          if (!product.data.manufacturerPartNumber) {
+            console.log("in future call child without MPN product here");
+
+            // createChildProductService.handle({
+            //   Sku: product.code,
+            //   ParentProductID: sku.data.value[i]?.Sku,
+            //   VaryBy: "Choose Option",
+            //   Title: `${product.data.brand.name} ${product.data.model.name}`,
+            //   Attributes: data,
+            // });
+          } else {
+            console.log("in future call child product here");
+
+            // createChildProductService.handle({
+            //   Sku: product.data.manufacturerPartNumber,
+            //   ParentProductID: sku.data.value[i]?.Sku,
+            //   VaryBy: "Choose Option",
+            //   Title: `${product.data.brand.name} ${product.data.model.name}`,
+            //   Attributes: data,
+            // });
+          }
+        } else if (
           `PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku
         ) {
-          await createParentProductService.handle({
-            Sku: product.data.model.code,
-            Brand: product.data.brand.name,
-            Description: product.data.model.description,
-            ShortDescription: toHtml(product.data.model.bulletPoints),
-            Title: `${product.data.brand.name} ${product.data.model.name}`,
-          });
-          return;
-        }
-
-        if (`PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku) {
           console.log(`Product ${product.code} not exists on Channel Advisor`);
           await createParentProductService.handle({
             Sku: product.data.model.code,
@@ -148,8 +151,8 @@ class ProductController {
             Description: product.data.model.description,
             ShortDescription: toHtml(product.data.model.bulletPoints),
             Title: `${product.data.brand.name} ${product.data.model.name}`,
+            VaryBy: "Choose Option",
           });
-          return;
         }
       }
       product.data.productAttributes.forEach(
@@ -164,10 +167,16 @@ class ProductController {
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
-          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber ||
-          code?.body.value[0]?.Sku === product.data.code
+          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber
+        // ||
+        // code?.body.value[0]?.Sku === product.data.code
+        // ||
+        // code?.body.value[0]?.ParentProductID ===
+        //   `PARENT-${product.data.manufacturerPartNumber}`
       );
       // se o SKU for null no QBP, considerar o CODE
+      console.log("code THIS", code.body.value[0]);
+
       if (!code) {
         console.log(`Product ${product.code} has undefined body!`);
         return;
