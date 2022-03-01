@@ -21,6 +21,7 @@ class CreateParentProductService {
   }: ParentProduct): Promise<void> => {
     const headers = {
       "Content-Type": "application/json",
+      "Retry-After": "3600",
     };
     const body = {
       Sku: `PARENT-${Sku}`,
@@ -33,7 +34,7 @@ class CreateParentProductService {
       VaryBy: "Choose Option",
     };
     try {
-      api.post(`/v1/Products`, JSON.stringify(body), {
+      await api.post(`/v1/Products`, JSON.stringify(body), {
         headers,
       });
       return console.log(`Product created SKU ${body.Sku}`);
