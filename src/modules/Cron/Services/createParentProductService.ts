@@ -8,7 +8,7 @@ type ParentProduct = {
   Title: string;
   Description: string;
   ShortDescription: string;
-  VaryBy?: string;
+  VaryBy: string;
 };
 
 class CreateParentProductService {
@@ -18,6 +18,7 @@ class CreateParentProductService {
     Description,
     ShortDescription,
     Title,
+    VaryBy,
   }: ParentProduct): Promise<void> => {
     const headers = {
       "Content-Type": "application/json",
@@ -31,13 +32,13 @@ class CreateParentProductService {
       Title,
       Description,
       ShortDescription,
-      VaryBy: "Choose Option",
+      VaryBy,
     };
     try {
-      await api.post(`/v1/Products`, JSON.stringify(body), {
+      api.post(`/v1/Products`, JSON.stringify(body), {
         headers,
       });
-      return console.log(`Product created SKU ${body.Sku}`);
+      return console.log(`Parent product created SKU ${body.Sku}`);
     } catch (e) {
       console.log(e);
       return console.log(`Error creating product SKU ${body.Sku}`);
