@@ -5,11 +5,9 @@ type ChildProduct = {
   IsParent?: boolean;
   IsInRelationship?: boolean;
   ParentProductID: string;
-  VaryBy?: string;
+  VaryBy: string;
   Title: string;
-  Description: string;
-  ShortDescription: string;
-  Attributes: object[];
+  Attributes: object;
 };
 
 class CreateChildProductService {
@@ -18,8 +16,6 @@ class CreateChildProductService {
     ParentProductID,
     VaryBy,
     Title,
-    Description,
-    ShortDescription,
     Attributes,
   }: ChildProduct) => {
     console.log("ENTERED");
@@ -35,8 +31,6 @@ class CreateChildProductService {
       IsParent: false,
       IsInRelationship: true,
       Title,
-      Description,
-      ShortDescription,
       Attributes,
     };
 
