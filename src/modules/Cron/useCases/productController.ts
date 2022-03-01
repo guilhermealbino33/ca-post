@@ -130,7 +130,7 @@ class ProductController {
           !product.data.manufacturerPartNumber &&
           `PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku
         ) {
-          createParentProductService.handle({
+          await createParentProductService.handle({
             Sku: product.data.model.code,
             Brand: product.data.brand.name,
             Description: product.data.model.description,
@@ -142,7 +142,7 @@ class ProductController {
 
         if (`PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku) {
           console.log(`Product ${product.code} not exists on Channel Advisor`);
-          createParentProductService.handle({
+          await createParentProductService.handle({
             Sku: product.data.model.code,
             Brand: product.data.brand.name,
             Description: product.data.model.description,
