@@ -19,7 +19,9 @@ export const createToken = async () => {
     .post("/oauth2/token", config, { headers })
     .then(async (response) => {
       api.defaults.headers.common.Authorization = `Bearer ${response.data.access_token}`;
-      console.log("************ refresh token ************");
+      console.log(
+        "************************ refresh token ************************"
+      );
       return response.data;
     });
 };
