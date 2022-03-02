@@ -13,7 +13,7 @@ class ProductController {
     const createParentProductService = new CreateParentProductService();
     const createChildProductService = new CreateChildProductService();
 
-    const queue = await queueAdvisorService.pullQueue(5);
+    const queue = await queueAdvisorService.pullQueue(10);
     const headers = {
       "Content-Type": "application/json",
     };
@@ -106,55 +106,7 @@ class ProductController {
         name: string;
         value: string;
       };
-      console.log(
-        "ParentProductID",
-        codes.data.responses[0].body.value[0].ParentProductID
-      );
-      if (codes.data.responses[i].body.value.length === 0) {
-        const sku = await api.get(
-          `/v1/products?$filter=Sku eq 'PARENT-${product.data.model.code}'&$select=ID, Sku`,
-          { headers }
-        );
-        console.log("MPN", product.data.manufacturerPartNumber);
-        console.log("Model code", `PARENT-${product.data.model.code}`);
-        console.log("SKU", sku.data.value[i]?.Sku);
 
-        if (`PARENT-${product.data.model.code}` === sku.data.value[i]?.Sku) {
-          if (!product.data.manufacturerPartNumber) {
-            console.log("in future call child without MPN product here");
-
-            // createChildProductService.handle({
-            //   Sku: product.code,
-            //   ParentProductID: sku.data.value[i]?.Sku,
-            //   VaryBy: "Choose Option",
-            //   Title: `${product.data.brand.name} ${product.data.model.name}`,
-            //   Attributes: data,
-            // });
-          } else {
-            console.log("in future call child product here");
-
-            // createChildProductService.handle({
-            //   Sku: product.data.manufacturerPartNumber,
-            //   ParentProductID: sku.data.value[i]?.Sku,
-            //   VaryBy: "Choose Option",
-            //   Title: `${product.data.brand.name} ${product.data.model.name}`,
-            //   Attributes: data,
-            // });
-          }
-        } else if (
-          `PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku
-        ) {
-          console.log(`Product ${product.code} not exists on Channel Advisor`);
-          await createParentProductService.handle({
-            Sku: product.data.model.code,
-            Brand: product.data.brand.name,
-            Description: product.data.model.description,
-            ShortDescription: toHtml(product.data.model.bulletPoints),
-            Title: `${product.data.brand.name} ${product.data.model.name}`,
-            VaryBy: "Choose Option",
-          });
-        }
-      }
       product.data.productAttributes.forEach(
         (attrib: IAttribQBP, i: number) => {
           const attribute = {
@@ -164,30 +116,76 @@ class ProductController {
           data.Value.Attributes.push(attribute);
         }
       );
+
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
-          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber
-        // ||
-        // code?.body.value[0]?.Sku === product.data.code
-        // ||
-        // code?.body.value[0]?.ParentProductID ===
-        //   `PARENT-${product.data.manufacturerPartNumber}`
+          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber ||
+          code?.body.value[0]?.Sku === product.data.code ||
+          code?.body.value[0]?.ParentProductID ===
+            `PARENT-${product.data.model.code}`
       );
-      // se o SKU for null no QBP, considerar o CODE
-      console.log("code THIS", code.body.value[0]);
 
-      if (!code) {
-        console.log(`Product ${product.code} has undefined body!`);
-        return;
+      if (code?.body.value.length === 0 || !code) {
+        const sku = await api.get(
+          `/v1/products?$filter=Sku eq 'PARENT-${product.data.model.code}'&$select=ID, Sku`,
+          { headers }
+        );
+        // console.log("MPN", product.data.manufacturerPartNumber);
+        // console.log("Model code", `PARENT-${product.data.model.code}`);
+        // console.log("SKU", sku.data.value[i]?.Sku);
+        // console.log("SKU from CODE", code?.body.value[i]?.Sku);
+        // console.log("ParentProductID", sku.data.value[i]?.ParentProductID);
+
+        if (`PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku) {
+          console.log(`Product ${product.code} not exists on Channel Advisor`);
+          await createParentProductService.handle({
+            Sku: product.data.model.code,
+            Brand: product.data.brand.name,
+            Description: product.data.model.description,
+            ShortDescription: toHtml(product.data.model.bulletPoints),
+            Title: `${product.data.brand.name} ${product.data.model.name}`,
+            VaryBy: "Choose Option",
+          });
+          return;
+        }
+        if (`PARENT-${product.data.model.code}` === sku.data.value[i]?.Sku) {
+          if (!product.data.manufacturerPartNumber) {
+            // console.log(
+            //   `in future call child without MPN, product ${product.code} here`
+            // );
+
+            createChildProductService.handle({
+              Sku: product.code,
+              IsParent: "False",
+              IsInRelationship: "True",
+              ParentProductID: sku.data.value[i]?.ID, // STUDY
+              Title: `${product.data.brand.name} ${product.data.model.name}`,
+              Attributes: data.Value.Attributes,
+              ThirdPartyAllowed: product.data.thirdPartyAllowed,
+            });
+          } else {
+            console.log("in future call child product here");
+
+            createChildProductService.handle({
+              Sku: product.data.manufacturerPartNumber,
+              IsParent: "False",
+              IsInRelationship: "True",
+              ParentProductID: sku.data.value[i]?.ID,
+              Title: `${product.data.brand.name} ${product.data.model.name}`,
+              Attributes: data.Value.Attributes,
+              ThirdPartyAllowed: product.data.thirdPartyAllowed,
+            });
+          }
+        }
       }
-      codesResponse.push(code.body.value[0].ID);
-      console.log(`code ${code.body.value[0].ID}`);
+      codesResponse.push(code?.body.value[0].ID);
+      console.log(`code ${code?.body.value[0].ID}`);
 
       const config = {
         id: String(i),
         method: "post",
-        url: `/v1/Products(${code.body.value[0].ID})/UpdateAttributes`,
+        url: `/v1/Products(${code?.body.value[0].ID})/UpdateAttributes`,
         body: data,
         headers: {
           "Content-Type": "application/json",
@@ -198,7 +196,9 @@ class ProductController {
     try {
       // console.log("body ", { requests: batchBody });
       if (batchBody.length === 0) {
-        res.status(201).json("Products doesn't exists on Channel Advisor");
+        res
+          .status(201)
+          .json("No products have been updated on Channel Advisor!");
         return;
       }
 
