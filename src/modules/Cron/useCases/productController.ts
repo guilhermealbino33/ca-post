@@ -131,11 +131,11 @@ class ProductController {
           `/v1/products?$filter=Sku eq 'PARENT-${product.data.model.code}'&$select=ID, Sku`,
           { headers }
         );
-        // console.log("MPN", product.data.manufacturerPartNumber);
-        // console.log("Model code", `PARENT-${product.data.model.code}`);
-        // console.log("SKU", sku.data.value[i]?.Sku);
-        // console.log("SKU from CODE", code?.body.value[i]?.Sku);
-        // console.log("ParentProductID", sku.data.value[i]?.ParentProductID);
+        console.log("MPN", product.data.manufacturerPartNumber);
+        console.log("Model code", `PARENT-${product.data.model.code}`);
+        console.log("SKU", sku.data.value[i]?.Sku);
+        console.log("SKU from CODE", code?.body.value[i]?.Sku);
+        console.log("ParentProductID", sku.data.value[i]?.ParentProductID);
 
         if (`PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku) {
           console.log(`Product ${product.code} not exists on Channel Advisor`);
