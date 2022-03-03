@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import api from "services/api";
 
 type ParentProduct = {
@@ -19,7 +20,7 @@ class CreateParentProductService {
     ShortDescription,
     Title,
     VaryBy,
-  }: ParentProduct): Promise<void> => {
+  }: ParentProduct): Promise<any> => {
     const headers = {
       "Content-Type": "application/json",
       "Retry-After": "3600",
@@ -35,13 +36,20 @@ class CreateParentProductService {
       VaryBy,
     };
     try {
-      api.post(`/v1/Products`, JSON.stringify(body), {
-        headers,
-      });
-      return console.log(`Parent product created SKU ${body.Sku}`);
-    } catch (e) {
-      console.log(e);
-      return console.log(`Error creating product SKU ${body.Sku}`);
+      const createParent = await api.post(
+        `/v1/Products`,
+        JSON.stringify(body),
+        {
+          headers,
+        }
+      );
+      console.log(`parent product created SKU ${body.Sku}`);
+      return createParent.data;
+    } catch (e: any) {
+      return console.log(
+        `Error creating product SKU ${body.Sku}`,
+        e.response.data
+      );
     }
   };
 }
