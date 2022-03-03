@@ -5,6 +5,7 @@ type ChildProduct = {
   Sku: string;
   IsParent: string;
   IsInRelationship: string;
+  ParentSku?: string;
   ParentProductID: string;
   Title: string;
   Attributes: object;
@@ -35,11 +36,13 @@ class CreateChildProductService {
     };
 
     try {
-      const apiTest = await api.post(`/v1/Products`, JSON.stringify(body), {
-        headers,
-      });
-      console.log("ThirdPartyAllowed", ThirdPartyAllowed);
-      console.log("apiTest", apiTest.data.ID);
+      const childProduct = await api.post(
+        `/v1/Products`,
+        JSON.stringify(body),
+        {
+          headers,
+        }
+      );
 
       if (ThirdPartyAllowed === true) {
         try {
@@ -48,34 +51,37 @@ class CreateChildProductService {
             JSON.stringify({
               requests: [
                 {
-                  id: 0,
+                  id: "0",
                   method: "put",
-                  url: `/v1/Products(${apiTest.data.ID})/Labels('eBay Fixed')`,
+                  url: `/v1/ProductLabels(ProductID=${childProduct.data.ID}, Name='eBay Fixed')`,
                   headers: {
                     "Content-Type": "application/json",
                     "Content-Length": "0",
                   },
                 },
                 {
-                  id: 1,
+                  id: "1",
                   method: "put",
-                  url: `/v1/Products(${apiTest.data.ID})/Labels('Incycle.com')`,
+                  url: `/v1/ProductLabels(ProductID=${childProduct.data.ID}, Name='Incycle.com')`,
                   headers: {
                     "Content-Type": "application/json",
                     "Content-Length": "0",
                   },
                 },
               ],
-            })
+            }),
+            { headers }
           );
         } catch (e: any) {
-          console.log("Error", e.response);
+          console.log(
+            `Error creating child product SKU ${body.Sku}`,
+            e.response.data
+          );
         }
       } else {
-        const link = `'Incycle.com'`;
         try {
           await api.patch(
-            `/v1/Products(${apiTest.data.ID})/Labels(${link})`,
+            `/v1/Products(${childProduct.data.ID})/Labels('Incycle.com')`,
             null,
             {
               headers: {
@@ -91,8 +97,10 @@ class CreateChildProductService {
 
       return console.log(`Child product created SKU ${body.Sku}`);
     } catch (e: any) {
-      console.log("Error", e.response.data);
-      return console.log(`Error creating child product SKU ${body.Sku}`);
+      return console.log(
+        `Error creating child product SKU ${body.Sku}`,
+        e.response.data
+      );
     }
   };
 }
