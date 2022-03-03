@@ -61,7 +61,7 @@ class QueueAdvisorService {
   async pullOne() {
     // for tests with a single item
     /// TU1203 do not exists on Channel Advisor`
-    const items = await QueueAdvisorUpdateRepository.find({ code: "TU1203" })
+    const items = await QueueAdvisorUpdateRepository.find({ code: "ST4501" })
       .populate("product")
       .sort({
         lastUpdate: 1,
