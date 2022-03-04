@@ -13,7 +13,7 @@ class ProductController {
     const createParentProductService = new CreateParentProductService();
     const createChildProductService = new CreateChildProductService();
 
-    const queue = await queueAdvisorService.pullQueue(15);
+    const queue = await queueAdvisorService.pullQueue(5);
     const headers = {
       "Content-Type": "application/json",
     };
@@ -31,6 +31,8 @@ class ProductController {
     const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
       headers,
     });
+
+    let lastSku = "";
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
@@ -130,14 +132,15 @@ class ProductController {
           `/v1/products?$filter=Sku eq 'PARENT-${product.data.model.code}'&$select=ID, Sku`,
           { headers }
         );
-        console.log("MPN", product.data.manufacturerPartNumber);
-        console.log(
-          "*********** Model code",
-          `PARENT-${product.data.model.code}`
-        );
-        console.log("*********** SKU", sku.data.value[i]?.Sku);
-        console.log("SKU from CODE", code?.body.value[i]?.Sku);
-        console.log("ParentProductID", sku.data.value[i]?.ParentProductID);
+        // console.log("MPN", product.data.manufacturerPartNumber);
+        // console.log(
+        //   "*********** Model code",
+        //   `PARENT-${product.data.model.code}`
+        // );
+        // console.log("*********** SKU", sku.data.value[i]?.Sku);
+        // console.log("SKU from CODE", code?.body.value[i]?.Sku);
+        // console.log("ParentProductID", sku.data.value[i]?.ParentProductID);
+        console.log("lastSku 1", lastSku);
 
         if (`PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku) {
           console.log(
@@ -151,6 +154,9 @@ class ProductController {
             Title: `${product.data.brand.name} ${product.data.model.name}`,
             VaryBy: "Choose Option",
           });
+
+          lastSku = newParent?.Sku;
+          console.log("lastSku 2", lastSku);
 
           if (newParent) {
             if (!product.data.manufacturerPartNumber) {
@@ -236,6 +242,13 @@ class ProductController {
       };
       batchBody.push(config);
     });
+
+    /*
+    verificar de instanciar variavel global como LASTSKU antes do FOR
+    se LASTSKU for !== 0 ou null, cai no processo de verificação
+
+    */
+
     try {
       // console.log("body ", { requests: batchBody });
       if (batchBody.length === 0) {
