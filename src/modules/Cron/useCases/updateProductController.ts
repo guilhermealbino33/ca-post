@@ -13,7 +13,7 @@ class UpdateProductController {
     };
     const batchBody: IBatchBody[] = [];
     const queue = req.body.Sku;
-    const newSku = req.body.NewSku;
+    // const newSku = req.body.NewSku;
 
     const bodyCodes = {
       requests: queue.map((sku: string, index: number) => ({
@@ -26,7 +26,7 @@ class UpdateProductController {
       headers,
     });
 
-    newSku.forEach(async (newSku: string, index: number) => {
+    queue.forEach(async (sku: string, index: number) => {
       const productID = codes.data?.responses[index]?.body.value[0].ID;
 
       // if (!productID) {
@@ -40,7 +40,7 @@ class UpdateProductController {
         method: "put",
         url: `/v1/Products(${productID})`,
         body: {
-          Sku: newSku,
+          Sku: `PARENT-${sku}`,
         },
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ class UpdateProductController {
       console.log(`code ${productID}`);
       batchBody.push(config);
     });
-    console.log(batchBody);
+    // console.log(batchBody);
     try {
       await api.post(
         `/v1/$batch`,
