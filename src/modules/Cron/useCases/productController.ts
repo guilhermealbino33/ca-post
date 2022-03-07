@@ -37,8 +37,8 @@ class ProductController {
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
 
-      if (!product || !product.data) {
-        console.log(`Product ${product.code} not exists`);
+      if (!product || !product?.data) {
+        console.log(`Product not exists`);
         return;
       }
       const { toHtml, removeDuplicatedWordsBetween } = utils;
