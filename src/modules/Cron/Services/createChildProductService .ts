@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import api from "services/api";
 
+import { IBatchBody } from "../interfaces/Interfaces";
+
 type ChildProduct = {
   Sku: string;
   IsParent: string;
@@ -10,6 +12,7 @@ type ChildProduct = {
   Title: string;
   Attributes: object;
   ThirdPartyAllowed: boolean;
+  Images: string[];
 };
 
 class CreateChildProductService {
@@ -21,11 +24,19 @@ class CreateChildProductService {
     IsInRelationship,
     Attributes,
     ThirdPartyAllowed,
+    Images,
   }: ChildProduct) => {
     const headers = {
       "Content-Type": "application/json",
     };
 
+    let count = 0;
+    function incrementIndex() {
+      // eslint-disable-next-line no-plusplus
+      return count++;
+    }
+
+    const batchBody: IBatchBody[] = [];
     const body = {
       Sku,
       ParentProductID,
@@ -92,6 +103,35 @@ class CreateChildProductService {
           );
         } catch (e: any) {
           console.log("Error", e.response.data);
+        }
+      }
+
+      if (Images.length > 0) {
+        Images.map(async (image: string, i: number) => {
+          const placementName = `'ITEMIMAGEURL${1 + i}'`;
+          const config = {
+            id: String(incrementIndex()),
+            method: "patch",
+            url: `/v1/Images(ProductID=${childProduct.data.ID}, PlacementName=${placementName})`,
+            body: {
+              Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
+            },
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          batchBody.push(config);
+        });
+        try {
+          await api.post(
+            `/v1/$batch`,
+            JSON.stringify({ requests: batchBody }),
+            {
+              headers,
+            }
+          );
+        } catch (e) {
+          console.log(e);
         }
       }
 
