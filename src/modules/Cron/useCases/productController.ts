@@ -170,9 +170,14 @@ class ProductController {
                   IsInRelationship: "True",
                   ParentProductID: newParent.ID,
                   ParentSku: newParent.Sku,
-                  Title: `${product.data.brand.name} ${product.data.model.name}`,
+                  Title: removeDuplicatedWordsBetween(
+                    product.data.name,
+                    product.data.model.name,
+                    product.data.brand.name
+                  ),
                   Attributes: data.Value.Attributes,
                   ThirdPartyAllowed: product.data.thirdPartyAllowed,
+                  Images: product.data.images,
                 });
               } else {
                 createChildProductService.handle({
@@ -181,9 +186,14 @@ class ProductController {
                   IsInRelationship: "True",
                   ParentProductID: newParent.ID,
                   ParentSku: newParent.Sku,
-                  Title: `${product.data.brand.name} ${product.data.model.name}`,
+                  Title: removeDuplicatedWordsBetween(
+                    product.data.name,
+                    product.data.model.name,
+                    product.data.brand.name
+                  ),
                   Attributes: data.Value.Attributes,
                   ThirdPartyAllowed: product.data.thirdPartyAllowed,
+                  Images: product.data.images,
                 });
               }
             }
@@ -214,9 +224,14 @@ class ProductController {
               IsParent: "False",
               IsInRelationship: "True",
               ParentProductID: currentID, // STUDY
-              Title: `${product.data.brand.name} ${product.data.model.name}`,
+              Title: removeDuplicatedWordsBetween(
+                product.data.name,
+                product.data.model.name,
+                product.data.brand.name
+              ),
               Attributes: data.Value.Attributes,
               ThirdPartyAllowed: product.data.thirdPartyAllowed,
+              Images: product.data.images,
             });
           } else {
             createChildProductService.handle({
@@ -224,9 +239,14 @@ class ProductController {
               IsParent: "False",
               IsInRelationship: "True",
               ParentProductID: currentID,
-              Title: `${product.data.brand.name} ${product.data.model.name}`,
+              Title: removeDuplicatedWordsBetween(
+                product.data.name,
+                product.data.model.name,
+                product.data.brand.name
+              ),
               Attributes: data.Value.Attributes,
               ThirdPartyAllowed: product.data.thirdPartyAllowed,
+              Images: product.data.images,
             });
           }
         }
