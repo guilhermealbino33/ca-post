@@ -13,7 +13,7 @@ class ProductController {
     const createParentProductService = new CreateParentProductService();
     const createChildProductService = new CreateChildProductService();
 
-    const queue = await queueAdvisorService.pullQueue(5);
+    const queue = await queueAdvisorService.pullQueue(10);
     const headers = {
       "Content-Type": "application/json",
     };
@@ -25,7 +25,7 @@ class ProductController {
       requests: queue.map((item: IQueueAdvisorUpdate, index) => ({
         id: String(index),
         method: "get",
-        url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku, ParentProductID`,
+        url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku, ParentSku`,
       })),
     };
     const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
@@ -132,55 +132,60 @@ class ProductController {
           `/v1/products?$filter=Sku eq 'PARENT-${product.data.model.code}'&$select=ID, Sku`,
           { headers }
         );
+        const currentSku = sku.data.value[0]?.Sku;
+        const currentID = sku.data.value[0]?.ID;
         // console.log("MPN", product.data.manufacturerPartNumber);
-        // console.log(
-        //   "*********** Model code",
-        //   `PARENT-${product.data.model.code}`
-        // );
-        // console.log("*********** SKU", sku.data.value[i]?.Sku);
-        // console.log("SKU from CODE", code?.body.value[i]?.Sku);
+        console.log(
+          "*********** Model code",
+          `PARENT-${product.data.model.code}`
+        );
+        console.log("*********** SKU", currentSku);
         // console.log("ParentProductID", sku.data.value[i]?.ParentProductID);
-        console.log("lastSku 1", lastSku);
 
-        if (`PARENT-${product.data.model.code}` !== sku.data.value[i]?.Sku) {
+        if (`PARENT-${product.data.model.code}` !== currentSku) {
           console.log(
             `Product ${product.code} doesn't exists on Channel Advisor`
           );
-          const newParent = await createParentProductService.handle({
-            Sku: product.data.model.code,
-            Brand: product.data.brand.name,
-            Description: product.data.model.description,
-            ShortDescription: toHtml(product.data.model.bulletPoints),
-            Title: `${product.data.brand.name} ${product.data.model.name}`,
-            VaryBy: "Choose Option",
-          });
+          if (currentSku !== `PARENT-${product.data.model.code}`) {
+            const newParent = await createParentProductService.handle({
+              Sku: product.data.model.code,
+              Brand: product.data.brand.name,
+              Description: product.data.model.description,
+              ShortDescription: toHtml(product.data.model.bulletPoints),
+              Title: `${product.data.brand.name} ${product.data.model.name}`,
+              VaryBy: "Choose Option",
+            });
 
-          lastSku = newParent?.Sku;
-          console.log("lastSku 2", lastSku);
+            lastSku = newParent?.Sku;
+            if (lastSku === `PARENT-${product.data.model.code}`) {
+              console.log("lastSku ENTERED", lastSku);
+              return;
+            }
 
-          if (newParent) {
-            if (!product.data.manufacturerPartNumber) {
-              createChildProductService.handle({
-                Sku: product.code,
-                IsParent: "False",
-                IsInRelationship: "True",
-                ParentProductID: newParent.ID,
-                ParentSku: newParent.Sku,
-                Title: `${product.data.brand.name} ${product.data.model.name}`,
-                Attributes: data.Value.Attributes,
-                ThirdPartyAllowed: product.data.thirdPartyAllowed,
-              });
-            } else {
-              createChildProductService.handle({
-                Sku: product.data.manufacturerPartNumber,
-                IsParent: "False",
-                IsInRelationship: "True",
-                ParentProductID: newParent.ID,
-                ParentSku: newParent.Sku,
-                Title: `${product.data.brand.name} ${product.data.model.name}`,
-                Attributes: data.Value.Attributes,
-                ThirdPartyAllowed: product.data.thirdPartyAllowed,
-              });
+            if (newParent) {
+              if (!product.data.manufacturerPartNumber) {
+                createChildProductService.handle({
+                  Sku: product.code,
+                  IsParent: "False",
+                  IsInRelationship: "True",
+                  ParentProductID: newParent.ID,
+                  ParentSku: newParent.Sku,
+                  Title: `${product.data.brand.name} ${product.data.model.name}`,
+                  Attributes: data.Value.Attributes,
+                  ThirdPartyAllowed: product.data.thirdPartyAllowed,
+                });
+              } else {
+                createChildProductService.handle({
+                  Sku: product.data.manufacturerPartNumber,
+                  IsParent: "False",
+                  IsInRelationship: "True",
+                  ParentProductID: newParent.ID,
+                  ParentSku: newParent.Sku,
+                  Title: `${product.data.brand.name} ${product.data.model.name}`,
+                  Attributes: data.Value.Attributes,
+                  ThirdPartyAllowed: product.data.thirdPartyAllowed,
+                });
+              }
             }
           }
           /* else if (newParent.Sku !== product.data.model.code) {
@@ -202,25 +207,23 @@ class ProductController {
           return;
         }
 
-        if (`PARENT-${product.data.model.code}` === sku.data.value[i]?.Sku) {
+        if (`PARENT-${product.data.model.code}` === currentSku) {
           if (!product.data.manufacturerPartNumber) {
             createChildProductService.handle({
               Sku: product.code,
               IsParent: "False",
               IsInRelationship: "True",
-              ParentProductID: sku.data.value[i]?.ID, // STUDY
+              ParentProductID: currentID, // STUDY
               Title: `${product.data.brand.name} ${product.data.model.name}`,
               Attributes: data.Value.Attributes,
               ThirdPartyAllowed: product.data.thirdPartyAllowed,
             });
           } else {
-            console.log("in future call child product here");
-
             createChildProductService.handle({
               Sku: product.data.manufacturerPartNumber,
               IsParent: "False",
               IsInRelationship: "True",
-              ParentProductID: sku.data.value[i]?.ID,
+              ParentProductID: currentID,
               Title: `${product.data.brand.name} ${product.data.model.name}`,
               Attributes: data.Value.Attributes,
               ThirdPartyAllowed: product.data.thirdPartyAllowed,
@@ -258,9 +261,9 @@ class ProductController {
         return;
       }
 
-      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
-        headers,
-      });
+      // await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+      //   headers,
+      // });
     } catch (e) {
       console.log(e);
     }
