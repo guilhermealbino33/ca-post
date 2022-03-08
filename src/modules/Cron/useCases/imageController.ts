@@ -18,7 +18,7 @@ class ImageController {
       return count++;
     }
 
-    const queue = await queueAdvisorService.pullQueue(30);
+    const queue = await queueAdvisorService.pullImageQueue(30);
     await createToken();
 
     const batchBody: IBatchBody[] = [];

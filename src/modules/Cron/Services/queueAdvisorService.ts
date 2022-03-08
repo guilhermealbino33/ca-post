@@ -1,4 +1,5 @@
 import {
+  QueueAdvisorCreateRepository,
   QueueAdvisorImageUpdateRepository,
   QueueAdvisorUpdateRepository,
 } from "../repositories/QueueAdvisorUpdateRepository";
@@ -40,6 +41,33 @@ class QueueAdvisorService {
       .limit(quantity);
 
     await QueueAdvisorImageUpdateRepository.collection.bulkWrite(
+      items.map((item) => {
+        return {
+          updateOne: {
+            filter: {
+              code: item.code,
+            },
+            update: {
+              $set: {
+                code: item.code,
+                lastUpdate: Date.now(),
+              },
+            },
+          },
+        };
+      })
+    );
+    return items;
+  }
+  async pullCreateQueue(quantity: number) {
+    const items = await QueueAdvisorCreateRepository.find({})
+      .populate("product")
+      .sort({
+        lastUpdate: 1,
+      })
+      .limit(quantity);
+
+    await QueueAdvisorCreateRepository.collection.bulkWrite(
       items.map((item) => {
         return {
           updateOne: {

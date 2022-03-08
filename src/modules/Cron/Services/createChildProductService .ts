@@ -37,6 +37,8 @@ class CreateChildProductService {
     }
 
     const batchBody: IBatchBody[] = [];
+    const batchProduct: IBatchBody[] = [];
+
     const body = {
       Sku,
       ParentProductID,
@@ -46,10 +48,21 @@ class CreateChildProductService {
       Attributes,
     };
 
+    const config = {
+      id: String(incrementIndex()),
+      method: "post",
+      url: "/v1/Products",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    batchProduct.push(config);
+    // console.log("batchProduct", batchProduct);
     try {
       const childProduct = await api.post(
-        `/v1/Products`,
-        JSON.stringify(body),
+        `/v1/$batch`,
+        JSON.stringify({ requests: batchProduct }),
         {
           headers,
         }
@@ -64,7 +77,7 @@ class CreateChildProductService {
                 {
                   id: "0",
                   method: "put",
-                  url: `/v1/ProductLabels(ProductID=${childProduct.data.ID}, Name='eBay Fixed')`,
+                  url: `/v1/ProductLabels(ProductID=${childProduct.data.responses[0].body.ID}, Name='eBay Fixed')`,
                   headers: {
                     "Content-Type": "application/json",
                     "Content-Length": "0",
@@ -73,7 +86,7 @@ class CreateChildProductService {
                 {
                   id: "1",
                   method: "put",
-                  url: `/v1/ProductLabels(ProductID=${childProduct.data.ID}, Name='Incycle.com')`,
+                  url: `/v1/ProductLabels(ProductID=${childProduct.data.responses[0].body.ID}, Name='Incycle.com')`,
                   headers: {
                     "Content-Type": "application/json",
                     "Content-Length": "0",
@@ -92,7 +105,7 @@ class CreateChildProductService {
       } else {
         try {
           await api.patch(
-            `/v1/Products(${childProduct.data.ID})/Labels('Incycle.com')`,
+            `/v1/Products(${childProduct.data.responses[0].body.ID})/Labels('Incycle.com')`,
             null,
             {
               headers: {
@@ -112,7 +125,7 @@ class CreateChildProductService {
           const config = {
             id: String(incrementIndex()),
             method: "patch",
-            url: `/v1/Images(ProductID=${childProduct.data.ID}, PlacementName=${placementName})`,
+            url: `/v1/Images(ProductID=${childProduct.data.responses[0].body.ID}, PlacementName=${placementName})`,
             body: {
               Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
             },
