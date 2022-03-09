@@ -6,14 +6,20 @@ import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
 import { CreateChildProductService } from "../Services/createChildProductService ";
 import { CreateParentProductService } from "../Services/createParentProductService";
+import { UpdateAttributeService } from "../Services/updateAttributeService";
+import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
 import queueAdvisorService from "../Services/queueAdvisorService";
 
 class ProductController {
   handle = async (req: Request, res: Response) => {
+    const { toHtml, removeDuplicatedWordsBetween } = utils;
+
     const createParentProductService = new CreateParentProductService();
     const createChildProductService = new CreateChildProductService();
+    const updateAttributeService = new UpdateAttributeService();
+    const getProductsBySkuService = new GetProductsBySkuService();
 
-    const queue = await queueAdvisorService.pullQueue(10);
+    const queue = await queueAdvisorService.pullQueue(100);
     const headers = {
       "Content-Type": "application/json",
     };
@@ -21,18 +27,17 @@ class ProductController {
     const codesResponse: string[] = ["Job concluded!"];
     await createToken();
 
-    const bodyCodes = {
-      requests: queue.map((item: IQueueAdvisorUpdate, index) => ({
-        id: String(index),
-        method: "get",
-        url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku, ParentSku`,
-      })),
-    };
-    const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
-      headers,
-    });
+    const codes = await getProductsBySkuService.handle(
+      queue.map((item) => item.product?.data.manufacturerPartNumber)
+    );
 
     let lastSku = "";
+
+    let createdParents: {
+      id: string;
+      queuePosition: number;
+      childData: any;
+    }[] = [];
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
@@ -41,83 +46,7 @@ class ProductController {
         console.log(`Product not exists`);
         return;
       }
-      const { toHtml, removeDuplicatedWordsBetween } = utils;
-      const data = {
-        Value: {
-          Attributes: [
-            {
-              Name: "QBP Code",
-              Value: product.data.code,
-            },
-            {
-              Name: "QBP Name",
-              Value: removeDuplicatedWordsBetween(
-                product.data.name,
-                product.data.model.name,
-                product.data.brand.name
-              ),
-            },
-            {
-              Name: "Choose Option",
-              Value: removeDuplicatedWordsBetween(
-                product.data.name,
-                product.data.model.name,
-                product.data.brand.name
-              ),
-            },
-            {
-              Name: "QBP Model",
-              Value: `${product.data.brand.name} ${product.data.model.name}`,
-            },
-            {
-              Name: "QBP Description",
-              Value: product.data.model.description,
-            },
-            {
-              Name: "QBP Short Description",
-              Value: toHtml(product.data.model.bulletPoints),
-            },
-            {
-              Name: "QBP Cost",
-              Value: JSON.stringify(product.data.basePrice),
-            },
-            {
-              Name: "QBP MAP",
-              Value: JSON.stringify(product.data.mapPrice),
-            },
-            {
-              Name: "QBP MSRP",
-              Value: JSON.stringify(product.data.msrp),
-            },
-            {
-              Name: "QBP Brand",
-              Value: product.data.brand.name,
-            },
-            {
-              Name: "QBP Discontinued",
-              Value: JSON.stringify(product.data.discontinued),
-            },
-            {
-              Name: "QBP Thirdpartyallowed",
-              Value: JSON.stringify(product.data.thirdPartyAllowed),
-            },
-          ],
-        },
-      };
-      type IAttribQBP = {
-        name: string;
-        value: string;
-      };
-
-      product.data.productAttributes.forEach(
-        (attrib: IAttribQBP, i: number) => {
-          const attribute = {
-            Name: `Metafield${1 + i}`,
-            Value: `• ${attrib.name}: ${attrib.value}`,
-          };
-          data.Value.Attributes.push(attribute);
-        }
-      );
+      const data = updateAttributeService.handle(product);
 
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -128,140 +57,27 @@ class ProductController {
       );
 
       if (code?.body.value.length === 0 || !code) {
-        const currentBody = {
-          requests: queue.map((item: IQueueAdvisorUpdate, index: number) => ({
-            id: String(index),
-            method: "get",
-            url: `/v1/products?$filter=Sku eq '${product.data.model.code}'&$select=ID, Sku`,
-          })),
-        };
-
-        const currentProduct = await api.post(
-          `/v1/$batch`,
-          JSON.stringify(currentBody),
-          {
-            headers,
-          }
-        );
-        const currentSku = currentProduct.data.responses[0].body.Sku;
-        const currentID = currentProduct.data.responses[0]?.ID;
         // console.log("MPN", product.data.manufacturerPartNumber);
-        console.log(
-          "*********** Model code",
-          `PARENT-${product.data.model.code}`
+        const newParentRequest = createParentProductService.handle(
+          {
+            Sku: product.data.model.code,
+            Brand: product.data.brand.name,
+            Description: product.data.model.description,
+            ShortDescription: toHtml(product.data.model.bulletPoints),
+            Title: `${product.data.brand.name} ${product.data.model.name}`,
+            VaryBy: "Choose Option",
+          },
+          i
         );
-        console.log("*********** SKU", currentSku);
-        // console.log("ParentProductID", sku.data.value[i]?.ParentProductID);
 
-        if (`PARENT-${product.data.model.code}` !== currentSku) {
-          console.log(
-            `Product ${product.code} doesn't exists on Channel Advisor`
-          );
-          const newParent = await createParentProductService.handle([
-            {
-              Sku: product.data.model.code,
-              Brand: product.data.brand.name,
-              Description: product.data.model.description,
-              ShortDescription: toHtml(product.data.model.bulletPoints),
-              Title: `${product.data.brand.name} ${product.data.model.name}`,
-              VaryBy: "Choose Option",
-            },
-          ]);
-
-          lastSku = newParent?.Sku;
-          if (lastSku === `PARENT-${product.data.model.code}`) {
-            console.log("lastSku ENTERED", lastSku);
-            return;
-          }
-
-          if (newParent) {
-            if (!product.data.manufacturerPartNumber) {
-              createChildProductService.handle({
-                Sku: product.code,
-                IsParent: "False",
-                IsInRelationship: "True",
-                ParentProductID: newParent.ID,
-                ParentSku: newParent.Sku,
-                Title: removeDuplicatedWordsBetween(
-                  product.data.name,
-                  product.data.model.name,
-                  product.data.brand.name
-                ),
-                Attributes: data.Value.Attributes,
-                ThirdPartyAllowed: product.data.thirdPartyAllowed,
-                Images: product.data.images,
-              });
-            } else {
-              createChildProductService.handle({
-                Sku: product.data.manufacturerPartNumber,
-                IsParent: "False",
-                IsInRelationship: "True",
-                ParentProductID: newParent.ID,
-                ParentSku: newParent.Sku,
-                Title: removeDuplicatedWordsBetween(
-                  product.data.name,
-                  product.data.model.name,
-                  product.data.brand.name
-                ),
-                Attributes: data.Value.Attributes,
-                ThirdPartyAllowed: product.data.thirdPartyAllowed,
-                Images: product.data.images,
-              });
-            }
-          }
-          /* else if (newParent.Sku !== product.data.model.code) {
-            console.log("ParentSku", newParent.Sku);
-
-            console.log("entrou");
-            await api.put(
-              `/v1/Products(${sku.data.value[i]?.ID})`,
-              JSON.stringify({
-                IsInRelationship: true,
-                ParentProductID: newParent.ID,
-              }),
-              {
-                headers,
-              }
-            );
-          }
-          */
-          return;
-        }
-
-        if (`PARENT-${product.data.model.code}` === currentSku) {
-          if (!product.data.manufacturerPartNumber) {
-            createChildProductService.handle({
-              Sku: product.code,
-              IsParent: "False",
-              IsInRelationship: "True",
-              ParentProductID: currentID, // STUDY
-              Title: removeDuplicatedWordsBetween(
-                product.data.name,
-                product.data.model.name,
-                product.data.brand.name
-              ),
-              Attributes: data.Value.Attributes,
-              ThirdPartyAllowed: product.data.thirdPartyAllowed,
-              Images: product.data.images,
-            });
-          } else {
-            createChildProductService.handle({
-              Sku: product.data.manufacturerPartNumber,
-              IsParent: "False",
-              IsInRelationship: "True",
-              ParentProductID: currentID,
-              Title: removeDuplicatedWordsBetween(
-                product.data.name,
-                product.data.model.name,
-                product.data.brand.name
-              ),
-              Attributes: data.Value.Attributes,
-              ThirdPartyAllowed: product.data.thirdPartyAllowed,
-              Images: product.data.images,
-            });
-          }
-        }
+        createdParents.push({
+          id: `PARENT-${product.data.model.code}`,
+          queuePosition: i,
+          childData: data,
+        });
+        batchBody.push(newParentRequest);
       }
+
       codesResponse.push(code?.body.value[0].ID);
       console.log(`${i} - code: ${code?.body.value[0].ID}`);
 
@@ -284,7 +100,6 @@ class ProductController {
     */
 
     try {
-      // console.log("body ", { requests: batchBody });
       if (batchBody.length === 0) {
         res
           .status(201)
@@ -292,9 +107,60 @@ class ProductController {
         return;
       }
 
-      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
-        headers,
+      const codes = await getProductsBySkuService.handle(
+        createdParents.map((parent) => parent.id)
+      );
+
+      type CreatedParentType = { ID: string; Sku: string };
+
+      const parents: CreatedParentType[] = codes.data.responses.map(
+        (item: any) => item.body.value[0]
+      );
+
+      const batch = parents.map(({ ID: channelId, Sku }) => {
+        const createdParent = createdParents.find(({ id }) => id === Sku);
+
+        const productPosition = createdParent?.queuePosition;
+
+        if (!productPosition) return;
+
+        const { product } = queue[productPosition];
+
+        return createChildProductService.handle({
+          Sku: product.data.manufacturerPartNumber ?? product.code,
+          IsParent: "False",
+          IsInRelationship: "True",
+          ParentProductID: channelId,
+          ParentSku: Sku,
+          Title: removeDuplicatedWordsBetween(
+            product.data.name,
+            product.data.model.name,
+            product.data.brand.name
+          ),
+          Attributes: createdParent.childData.Value.Attributes,
+          ThirdPartyAllowed: product.data.thirdPartyAllowed,
+          Images: product.data.images,
+        });
       });
+
+      /**
+       * @todo
+       * -> executar variável batch com o request $batch, exemplo:
+       * 
+          await api.post(
+            `/v1/$batch`,
+            JSON.stringify({ requests: batch }),
+            {
+              headers,
+            }
+          );
+       * 
+       * -> createChildProductService.handle 
+       *    deve retornar um request para criar o produto, apenas variavel "config"
+       * 
+       * -> usando a resposta do createChild, 
+       *    criar um outro batch para usar o ThirdPartyAllowed e fazer o vínculo das imagens
+       */
     } catch (e) {
       console.log(e);
     }

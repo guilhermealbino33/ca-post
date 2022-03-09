@@ -4,6 +4,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --fix src --ext ts,tsx",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/infra/server.ts",
     "loadQueueAdvisor": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/setup/load-queue-advisor.ts",
     "loadImageQueueAdvisor": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/setup/load-image-queue-advisor.ts",
