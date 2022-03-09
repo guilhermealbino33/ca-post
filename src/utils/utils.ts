@@ -42,6 +42,7 @@ class utils {
       .replaceAll(",", "")
       .replaceAll(":", "")
       .replaceAll(/\s+/g, " ")
+      .replace("-", "")
       .trim();
   };
 }
