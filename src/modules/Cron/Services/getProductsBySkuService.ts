@@ -1,4 +1,4 @@
-import api, { createToken } from "services/api";
+import api from "services/api";
 
 class GetProductsBySkuService {
   async handle(skus: string[]) {
