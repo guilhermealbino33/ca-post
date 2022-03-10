@@ -34,16 +34,19 @@ class utils {
     const name = nameStr.split(" ");
     const model = modelStr.split(" ");
     const brand = brandStr.split(" ");
-    const output = name.filter(
+    const str = name.filter(
       (item) => !model.includes(item) && !brand.includes(item)
     );
-    return output
+    const output = str
       .join(" ")
       .replaceAll(",", "")
       .replaceAll(":", "")
-      .replaceAll(/\s+/g, " ")
-      .replace("-", "")
-      .trim();
+      .replaceAll(/\s+/g, " ");
+
+    if (output[0] === "-") {
+      return output.replace(str[0], "");
+    }
+    return output.trim();
   };
 }
 export { utils };
