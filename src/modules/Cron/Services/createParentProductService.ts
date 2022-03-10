@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import api from "services/api";
-
 import { IBatchBody } from "../interfaces/Interfaces";
 
 type ParentProduct = {
