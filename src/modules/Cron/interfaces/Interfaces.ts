@@ -2,7 +2,8 @@ interface IBatchBody {
   id: string;
   method: string;
   url: string;
-  body: object;
+  headers?: object;
+  body?: object;
 }
 
 export { IBatchBody };
