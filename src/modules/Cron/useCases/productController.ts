@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
@@ -6,9 +7,9 @@ import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
 import { CreateChildProductService } from "../Services/createChildProductService ";
 import { CreateParentProductService } from "../Services/createParentProductService";
-import { UpdateAttributeService } from "../Services/updateAttributeService";
 import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
 import queueAdvisorService from "../Services/queueAdvisorService";
+import { UpdateAttributeService } from "../Services/updateAttributeService";
 
 class ProductController {
   handle = async (req: Request, res: Response) => {
@@ -31,9 +32,9 @@ class ProductController {
       queue.map((item) => item.product?.data.manufacturerPartNumber)
     );
 
-    let lastSku = "";
+    const lastSku = "";
 
-    let createdParents: {
+    const createdParents: {
       id: string;
       queuePosition: number;
       childData: any;
@@ -121,8 +122,7 @@ class ProductController {
         const createdParent = createdParents.find(({ id }) => id === Sku);
 
         const productPosition = createdParent?.queuePosition;
-
-        if (!productPosition) return;
+        if (!productPosition) return {};
 
         const { product } = queue[productPosition];
 
