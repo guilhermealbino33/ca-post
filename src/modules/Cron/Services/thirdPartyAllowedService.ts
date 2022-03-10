@@ -3,7 +3,6 @@ import { IBatchBody } from "../interfaces/Interfaces";
 class ThirdPartyAllowedService {
   handle = (
     childProductId: string,
-    images: string[],
     ThirdPartyAllowed: boolean,
     index: number
   ): IBatchBody[] => {

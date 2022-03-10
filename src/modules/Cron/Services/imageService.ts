@@ -1,7 +1,11 @@
 import { IBatchBody } from "../interfaces/Interfaces";
 
 class ImageService {
-  handle = (childProductId: string, Images: string[]): IBatchBody[] => {
+  handle = (
+    childProductId: string,
+    index: number,
+    Images: string[]
+  ): IBatchBody[] => {
     const config: IBatchBody[] = [];
 
     let count = 0;
@@ -14,7 +18,7 @@ class ImageService {
       const placementName = `'ITEMIMAGEURL${1 + i}'`;
 
       const body = {
-        id: `image${incrementIndex()}`,
+        id: `image${incrementIndex() + index}`,
         method: "patch",
         url: `/v1/Images(ProductID=${childProductId}, PlacementName=${placementName})`,
         body: {
