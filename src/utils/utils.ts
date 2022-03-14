@@ -48,5 +48,11 @@ class utils {
     }
     return output.trim();
   };
+  static nonZeroReturn = (value: number) => {
+    if (value !== 0) {
+      return JSON.stringify(value);
+    }
+    return "";
+  };
 }
 export { utils };

@@ -32,6 +32,14 @@ const removeDuplicatedWordsBetween = (nameStr, modelStr, brandStr) => {
   return output.trim();
 }
 
+const nonZeroReturn = (value) => {
+  if (value !== 0) {
+    return JSON.stringify(value);
+  }
+  return null;
+};
+
+const msrp = 0;
 const nameStr = "- DT Swiss Champion Spoke:              2.0mm, 272mm, J - bend, Silver, Box of 100";
 const modelStr = "Champion             2.0 Silver         Spokes: Box        of 100"; 
 const brandStr = "DT Swiss";
@@ -39,7 +47,7 @@ const brandStr = "DT Swiss";
 // console.log("nameStr", nameStr.split(" "));
 // console.log("modelStr", modelStr.split(" "));
 // console.log("brandStr", brandStr.split(" "));
-
+console.log("MSRP", nonZeroReturn(msrp));
 console.log("Old:", 
 prettyName(nameStr, modelStr, brandStr));
 console.log("New:", removeDuplicatedWordsBetween(nameStr, modelStr, brandStr));
