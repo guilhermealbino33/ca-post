@@ -8,7 +8,7 @@ type IAttribQBP = {
 
 class UpdateAttributeService {
   handle(product: IProductInterface) {
-    const { toHtml, removeDuplicatedWordsBetween } = utils;
+    const { toHtml, removeDuplicatedWordsBetween, nonZeroReturn } = utils;
 
     const data = {
       Value: {
@@ -51,11 +51,11 @@ class UpdateAttributeService {
           },
           {
             Name: "QBP MAP",
-            Value: JSON.stringify(product.data.mapPrice),
+            Value: nonZeroReturn(product.data.mapPrice),
           },
           {
             Name: "QBP MSRP",
-            Value: JSON.stringify(product.data.msrp),
+            Value: nonZeroReturn(product.data.msrp),
           },
           {
             Name: "QBP Brand",
