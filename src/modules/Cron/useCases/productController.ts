@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, Response } from "express";
+import { Request, response, Response } from "express";
 import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
 
@@ -8,7 +8,9 @@ import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
 import { CreateChildProductService } from "../Services/createChildProductService ";
 import { CreateParentProductService } from "../Services/createParentProductService";
 import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
+import { ImageService } from "../Services/imageService";
 import queueAdvisorService from "../Services/queueAdvisorService";
+import { ThirdPartyAllowedService } from "../Services/thirdPartyAllowedService";
 import { UpdateAttributeService } from "../Services/updateAttributeService";
 
 class ProductController {
@@ -19,11 +21,11 @@ class ProductController {
     const createChildProductService = new CreateChildProductService();
     const updateAttributeService = new UpdateAttributeService();
     const getProductsBySkuService = new GetProductsBySkuService();
+    const thirdPartyAllowedService = new ThirdPartyAllowedService();
+    const imageService = new ImageService();
 
-    const queue = await queueAdvisorService.pullQueue(100);
-    const headers = {
-      "Content-Type": "application/json",
-    };
+    const headers = { "Content-Type": "application/json" };
+    const queue = await queueAdvisorService.pullQueue(50);
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
     await createToken();
@@ -31,8 +33,6 @@ class ProductController {
     const codes = await getProductsBySkuService.handle(
       queue.map((item) => item.product?.data.manufacturerPartNumber)
     );
-
-    const lastSku = "";
 
     const createdParents: {
       id: string;
@@ -48,16 +48,16 @@ class ProductController {
         return;
       }
       const data = updateAttributeService.handle(product);
-
+      // console.log("codes.data.responses", codes.data.responses);
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
-          code?.body.value[0]?.Sku === product.data.manufacturerPartNumber ||
-          code?.body.value[0]?.Sku === product.data.code ||
-          code?.body.value[0]?.Sku === `PARENT-${product.data.model.code}`
+          code?.body.value?.[0]?.Sku === product.data.manufacturerPartNumber ||
+          code?.body.value?.[0]?.Sku === product.data.code ||
+          code?.body.value?.[0]?.Sku === `PARENT-${product.data.model.code}`
       );
 
-      if (code?.body.value.length === 0 || !code) {
+      if (code?.body.value?.length === 0 || !code) {
         // console.log("MPN", product.data.manufacturerPartNumber);
         const newParentRequest = createParentProductService.handle(
           {
@@ -79,8 +79,8 @@ class ProductController {
         batchBody.push(newParentRequest);
       }
 
-      codesResponse.push(code?.body.value[0].ID);
-      console.log(`${i} - code: ${code?.body.value[0].ID}`);
+      codesResponse.push(code?.body.value?.[0].ID);
+      // console.log(`${i} - code: ${code?.body.value[0].ID}`);
 
       const config = {
         id: String(i),
@@ -98,8 +98,8 @@ class ProductController {
     verificar de instanciar variavel global como LASTSKU antes do FOR
     se LASTSKU for !== 0 ou null, cai no processo de verificação
 
+    console.log("createdParents", createdParents);
     */
-
     try {
       if (batchBody.length === 0) {
         res
@@ -107,6 +107,9 @@ class ProductController {
           .json("No products have been updated on Channel Advisor!");
         return;
       }
+      // await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+      //   headers,
+      // });
 
       const codes = await getProductsBySkuService.handle(
         createdParents.map((parent) => parent.id)
@@ -118,51 +121,79 @@ class ProductController {
         (item: any) => item.body.value[0]
       );
 
-      const batch = parents.map(({ ID: channelId, Sku }) => {
-        const createdParent = createdParents.find(({ id }) => id === Sku);
+      const batch = parents
+        .filter(Boolean)
+        .map(({ ID: channelId, Sku }, index): any => {
+          const createdParent = createdParents.find(({ id }) => id === Sku);
 
-        const productPosition = createdParent?.queuePosition;
-        if (!productPosition) return {};
+          const productPosition = createdParent?.queuePosition;
+          if (!productPosition) return;
 
-        const { product } = queue[productPosition];
+          const { product } = queue[productPosition];
+          // eslint-disable-next-line consistent-return
+          const creatingChild = createChildProductService.handle(
+            {
+              Sku: product.data.manufacturerPartNumber ?? product.code,
+              IsParent: "False",
+              IsInRelationship: "True",
+              ParentProductID: channelId,
+              ParentSku: Sku,
+              Title: removeDuplicatedWordsBetween(
+                product.data.name,
+                product.data.model.name,
+                product.data.brand.name
+              ),
+              Attributes: createdParent.childData.Value.Attributes,
+              ThirdPartyAllowed: product.data.thirdPartyAllowed,
+              Images: product.data.images,
+            },
+            index
+          );
+          if (!creatingChild) {
+            return;
+          }
+          // eslint-disable-next-line consistent-return
+          return {
+            creatingChild,
+            ThirdPartyAllowed: product.data.thirdPartyAllowed,
+            Images: product.data.images,
+            Sku: product.data.manufacturerPartNumber ?? product.code,
+          };
+        })
+        .filter(Boolean);
 
-        return createChildProductService.handle({
-          Sku: product.data.manufacturerPartNumber ?? product.code,
-          IsParent: "False",
-          IsInRelationship: "True",
-          ParentProductID: channelId,
-          ParentSku: Sku,
-          Title: removeDuplicatedWordsBetween(
-            product.data.name,
-            product.data.model.name,
-            product.data.brand.name
-          ),
-          Attributes: createdParent.childData.Value.Attributes,
-          ThirdPartyAllowed: product.data.thirdPartyAllowed,
-          Images: product.data.images,
+      if (batch.length === 0) {
+        console.log("No children to create.");
+        return;
+      }
+      const createChild = await api.post(
+        `/v1/$batch`,
+        JSON.stringify({ requests: batch.map((item) => item.creatingChild) }),
+        {
+          headers,
+        }
+      );
+      // console.log("children", createChild.data.responses);
+      type CreatedChildType = {
+        ID: string;
+        ThirdPartyAllowed: boolean;
+        Images: string[];
+        Sku: string;
+      };
+      const children: CreatedChildType[] = createChild.data.responses
+        .map((item: any) => item.body)
+        .filter(Boolean);
+      console.log("children", children);
+
+      const batchPopulate = children.map(({ ID: childProductId }, index) => {
+        return thirdPartyAllowedService.handle({
+          childProductId,
+          ThirdPartyAllowed,
+          index,
         });
       });
-
-      /**
-       * @todo
-       * -> executar variável batch com o request $batch, exemplo:
-       * 
-          await api.post(
-            `/v1/$batch`,
-            JSON.stringify({ requests: batch }),
-            {
-              headers,
-            }
-          );
-       * 
-       * -> createChildProductService.handle 
-       *    deve retornar um request para criar o produto, apenas variavel "config"
-       * 
-       * -> usando a resposta do createChild, 
-       *    criar um outro batch para usar o ThirdPartyAllowed e fazer o vínculo das imagens
-       */
-    } catch (e) {
-      console.log(e);
+    } catch (e: any) {
+      console.log("Error", e);
     }
 
     res.status(201).json(codesResponse);
