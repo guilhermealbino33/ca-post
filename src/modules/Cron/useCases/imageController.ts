@@ -91,8 +91,9 @@ class ImageController {
       await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
         headers,
       });
-    } catch (e) {
-      console.log(e);
+    } catch (e: any) {
+      // eslint-disable-next-line consistent-return
+      return console.log("Error", e.response.data);
     }
     res.status(201).json(codesResponse);
   };
