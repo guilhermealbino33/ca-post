@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 import { utils } from "utils/utils";
 
@@ -25,7 +25,7 @@ class ProductController {
     const imageService = new ImageService();
 
     const headers = { "Content-Type": "application/json" };
-    const queue = await queueAdvisorService.pullQueue(20);
+    const queue = await queueAdvisorService.pullQueue(50);
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
     await createToken();
@@ -80,7 +80,7 @@ class ProductController {
       }
 
       codesResponse.push(code?.body.value?.[0].ID);
-      // console.log(`${i} - code: ${code?.body.value[0].ID}`);
+      console.log(`${i} - code: ${code?.body.value[0].ID}`);
 
       const config = {
         id: String(i),
@@ -155,7 +155,7 @@ class ProductController {
             if (!creatingChild) {
               return;
             }
-            console.log("product data", product.data);
+            // console.log("product data", product.data);
             // eslint-disable-next-line consistent-return
             return {
               creatingChild,
@@ -207,16 +207,17 @@ class ProductController {
               ];
             })
             .reduce((previous, current) => [...previous, ...current]);
-
-          // await api.post(
-          //   `/v1/$batch`,
-          //   JSON.stringify({
-          //     requests: batchPopulate,
-          //   }),
-          //   {
-          //     headers,
-          //   }
-          // );
+          // console.log("batchPopulate", batchPopulate);
+          await api.post(
+            `/v1/$batch`,
+            JSON.stringify({
+              requests: batchPopulate,
+            }),
+            {
+              headers,
+            }
+          );
+          // console.log("finalProduct", finalProduct);
         }
       }
     } catch (e: any) {
