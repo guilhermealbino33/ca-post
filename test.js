@@ -36,10 +36,10 @@ const nonZeroReturn = (value) => {
   if (value !== 0) {
     return JSON.stringify(value);
   }
-  return null;
+  return "";
 };
 
-const msrp = 0;
+const msrp = 110;
 const nameStr = "- DT Swiss Champion Spoke:              2.0mm, 272mm, J - bend, Silver, Box of 100";
 const modelStr = "Champion             2.0 Silver         Spokes: Box        of 100"; 
 const brandStr = "DT Swiss";

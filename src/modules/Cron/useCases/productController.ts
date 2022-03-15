@@ -25,7 +25,7 @@ class ProductController {
     const imageService = new ImageService();
 
     const headers = { "Content-Type": "application/json" };
-    const queue = await queueAdvisorService.pullQueue(50);
+    const queue = await queueAdvisorService.pullOne();
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
     await createToken();
@@ -42,7 +42,7 @@ class ProductController {
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
-
+      // console.log("product", product);
       if (!product || !product?.data) {
         console.log(`Product not exists`);
         return;
@@ -97,7 +97,8 @@ class ProductController {
     /*
     verificar de instanciar variavel global como LASTSKU antes do FOR
     se LASTSKU for !== 0 ou null, cai no processo de verificação
-
+    
+    console.log("batchBody", batchBody);
     console.log("createdParents", createdParents);
     */
     try {
@@ -107,93 +108,95 @@ class ProductController {
           .json("No products have been updated on Channel Advisor!");
         return;
       }
-      // await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
-      //   headers,
-      // });
+      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+        headers,
+      });
 
-      const codes = await getProductsBySkuService.handle(
-        createdParents.map((parent) => parent.id)
-      );
+      // se não criou parent, não precisa entrar aqui
+      if (createdParents.length !== 0) {
+        const codes = await getProductsBySkuService.handle(
+          createdParents.map((parent) => parent.id)
+        );
 
-      type CreatedParentType = { ID: string; Sku: string };
+        type CreatedParentType = { ID: string; Sku: string };
 
-      const parents: CreatedParentType[] = codes.data.responses.map(
-        (item: any) => item.body.value[0]
-      );
+        const parents: CreatedParentType[] = codes.data.responses.map(
+          (item: any) => item.body.value[0]
+        );
 
-      const batch = parents
-        .filter(Boolean)
-        .map(({ ID: channelId, Sku }, index): any => {
-          const createdParent = createdParents.find(({ id }) => id === Sku);
+        const batch = parents
+          .filter(Boolean)
+          .map(({ ID: channelId, Sku }, index): any => {
+            const createdParent = createdParents.find(({ id }) => id === Sku);
 
-          const productPosition = createdParent?.queuePosition;
-          if (!productPosition) return;
+            const productPosition = createdParent?.queuePosition;
+            if (!productPosition) return;
 
-          const { product } = queue[productPosition];
-          // eslint-disable-next-line consistent-return
-          const creatingChild = createChildProductService.handle(
-            {
-              Sku: product.data.manufacturerPartNumber ?? product.code,
-              IsParent: "False",
-              IsInRelationship: "True",
-              ParentProductID: channelId,
-              ParentSku: Sku,
-              Title: removeDuplicatedWordsBetween(
-                product.data.name,
-                product.data.model.name,
-                product.data.brand.name
-              ),
-              Attributes: createdParent.childData.Value.Attributes,
+            const { product } = queue[productPosition];
+            // eslint-disable-next-line consistent-return
+            const creatingChild = createChildProductService.handle(
+              {
+                Sku: product.data.manufacturerPartNumber ?? product.code,
+                IsParent: "False",
+                IsInRelationship: "True",
+                ParentProductID: channelId,
+                ParentSku: Sku,
+                Title: removeDuplicatedWordsBetween(
+                  product.data.name,
+                  product.data.model.name,
+                  product.data.brand.name
+                ),
+                Attributes: createdParent.childData.Value.Attributes,
+                ThirdPartyAllowed: product.data.thirdPartyAllowed,
+                Images: product.data.images,
+              },
+              index
+            );
+            if (!creatingChild) {
+              return;
+            }
+            // eslint-disable-next-line consistent-return
+            return {
+              creatingChild,
               ThirdPartyAllowed: product.data.thirdPartyAllowed,
               Images: product.data.images,
-            },
-            index
+              SkuFromQBP: product.data.manufacturerPartNumber ?? product.code,
+            };
+          })
+          .filter(Boolean);
+
+        if (batch.length !== 0) {
+          const createChild = await api.post(
+            `/v1/$batch`,
+            JSON.stringify({
+              requests: batch.map((item) => item.creatingChild),
+            }),
+            {
+              headers,
+            }
           );
-          if (!creatingChild) {
-            return;
-          }
-          // eslint-disable-next-line consistent-return
-          return {
-            creatingChild,
-            ThirdPartyAllowed: product.data.thirdPartyAllowed,
-            Images: product.data.images,
-            Sku: product.data.manufacturerPartNumber ?? product.code,
+          // console.log("children", createChild.data.responses);
+          type CreatedChildType = {
+            ID: string;
+            ThirdPartyAllowed: boolean;
+            Images: string[];
+            Sku: string;
           };
-        })
-        .filter(Boolean);
-
-      if (batch.length === 0) {
-        console.log("No children to create.");
-        return;
-      }
-      const createChild = await api.post(
-        `/v1/$batch`,
-        JSON.stringify({ requests: batch.map((item) => item.creatingChild) }),
-        {
-          headers,
+          const children: CreatedChildType[] = createChild.data.responses
+            .map((item: any) => item.body)
+            .filter(Boolean);
+          console.log("children", children);
         }
-      );
-      // console.log("children", createChild.data.responses);
-      type CreatedChildType = {
-        ID: string;
-        ThirdPartyAllowed: boolean;
-        Images: string[];
-        Sku: string;
-      };
-      const children: CreatedChildType[] = createChild.data.responses
-        .map((item: any) => item.body)
-        .filter(Boolean);
-      console.log("children", children);
-
-      const batchPopulate = children.map(({ ID: childProductId }, index) => {
-        return thirdPartyAllowedService.handle({
-          childProductId,
-          ThirdPartyAllowed,
-          index,
-        });
-      });
+      }
+      // const batchPopulate = children.map(({ ID: childProductId }, index) => {
+      //   return thirdPartyAllowedService.handle({
+      //     childProductId,
+      //     ThirdPartyAllowed,
+      //     index,
+      //   });
+      // });
     } catch (e: any) {
-      console.log("Error", e);
+      console.log("Error", e.response);
     }
 
     res.status(201).json(codesResponse);
