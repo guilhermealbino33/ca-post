@@ -44,7 +44,7 @@ class CreateChildProductService {
       body,
       headers,
     };
-
+    console.log(`Child product SKU ${body.Sku} created`);
     return config;
   };
 }

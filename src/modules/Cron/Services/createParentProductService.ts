@@ -36,7 +36,7 @@ class CreateParentProductService {
         "Content-Type": "application/json",
       },
     };
-
+    console.log(`Parent product SKU ${body.Sku} created`);
     return config;
   };
 }
