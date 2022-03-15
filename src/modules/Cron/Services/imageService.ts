@@ -1,11 +1,13 @@
 import { IBatchBody } from "../interfaces/Interfaces";
 
+type InputType = {
+  childProductId: string;
+  index: number;
+  Images: string[];
+};
+
 class ImageService {
-  handle = (
-    childProductId: string,
-    index: number,
-    Images: string[]
-  ): IBatchBody[] => {
+  handle = ({ childProductId, index, Images }: InputType): IBatchBody[] => {
     const config: IBatchBody[] = [];
 
     let count = 0;
