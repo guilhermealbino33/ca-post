@@ -25,7 +25,7 @@ class ProductController {
     const imageService = new ImageService();
 
     const headers = { "Content-Type": "application/json" };
-    const queue = await queueAdvisorService.pullOne();
+    const queue = await queueAdvisorService.pullQueue(20);
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
     await createToken();
@@ -155,6 +155,7 @@ class ProductController {
             if (!creatingChild) {
               return;
             }
+            console.log("product data", product.data);
             // eslint-disable-next-line consistent-return
             return {
               creatingChild,
@@ -175,7 +176,7 @@ class ProductController {
               headers,
             }
           );
-          // console.log("children", createChild.data.responses);
+
           type CreatedChildType = {
             ID: string;
             ThirdPartyAllowed: boolean;
@@ -184,17 +185,35 @@ class ProductController {
           };
           const children: CreatedChildType[] = createChild.data.responses
             .map((item: any) => item.body)
-            .filter(Boolean);
-          console.log("children", children);
+            .filter((body: any) => !body.error);
+
+          const batchPopulate = children
+            .map(({ ID: childProductId, Sku }, index) => {
+              const { ThirdPartyAllowed, Images } = batch.find(
+                ({ SkuFromQBP }) => SkuFromQBP === Sku
+              );
+
+              return [
+                ...thirdPartyAllowedService.handle({
+                  childProductId,
+                  ThirdPartyAllowed,
+                  index,
+                }) /** ...imageServicehandle handle Images */,
+              ];
+            })
+            .reduce((previous, current) => [...previous, ...current]);
+
+          // await api.post(
+          //   `/v1/$batch`,
+          //   JSON.stringify({
+          //     requests: batchPopulate,
+          //   }),
+          //   {
+          //     headers,
+          //   }
+          // );
         }
       }
-      // const batchPopulate = children.map(({ ID: childProductId }, index) => {
-      //   return thirdPartyAllowedService.handle({
-      //     childProductId,
-      //     ThirdPartyAllowed,
-      //     index,
-      //   });
-      // });
     } catch (e: any) {
       console.log("Error", e.response);
     }

@@ -1,11 +1,17 @@
 import { IBatchBody } from "../interfaces/Interfaces";
 
+type InputType = {
+  childProductId: string;
+  ThirdPartyAllowed: boolean;
+  index: number;
+};
+
 class ThirdPartyAllowedService {
-  handle = (
-    childProductId: string,
-    ThirdPartyAllowed: boolean,
-    index: number
-  ): IBatchBody[] => {
+  handle = ({
+    childProductId,
+    ThirdPartyAllowed,
+    index,
+  }: InputType): IBatchBody[] => {
     const headers = {
       "Content-Type": "application/json",
       "Content-Length": "0",
