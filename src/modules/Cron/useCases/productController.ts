@@ -198,7 +198,12 @@ class ProductController {
                   childProductId,
                   ThirdPartyAllowed,
                   index,
-                }) /** ...imageServicehandle handle Images */,
+                }),
+                ...imageService.handle({
+                  childProductId,
+                  Images,
+                  index,
+                }),
               ];
             })
             .reduce((previous, current) => [...previous, ...current]);
