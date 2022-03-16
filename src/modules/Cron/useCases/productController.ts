@@ -5,13 +5,13 @@ import { utils } from "utils/utils";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
+import { AttributesService } from "../Services/attributesService";
 import { CreateChildProductService } from "../Services/createChildProductService ";
 import { CreateParentProductService } from "../Services/createParentProductService";
 import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
 import { ImageService } from "../Services/imageService";
 import queueAdvisorService from "../Services/queueAdvisorService";
 import { ThirdPartyAllowedService } from "../Services/thirdPartyAllowedService";
-import { UpdateAttributeService } from "../Services/updateAttributeService";
 
 class ProductController {
   handle = async (req: Request, res: Response) => {
@@ -19,13 +19,13 @@ class ProductController {
 
     const createParentProductService = new CreateParentProductService();
     const createChildProductService = new CreateChildProductService();
-    const updateAttributeService = new UpdateAttributeService();
+    const attributeService = new AttributesService();
     const getProductsBySkuService = new GetProductsBySkuService();
     const thirdPartyAllowedService = new ThirdPartyAllowedService();
     const imageService = new ImageService();
 
     const headers = { "Content-Type": "application/json" };
-    const queue = await queueAdvisorService.pullQueue(50);
+    const queue = await queueAdvisorService.pullOne();
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
     await createToken();
@@ -47,7 +47,7 @@ class ProductController {
         console.log(`Product not exists`);
         return;
       }
-      const data = updateAttributeService.handle(product);
+      const data = attributeService.handle(product);
       // console.log("codes.data.responses", codes.data.responses);
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -56,9 +56,9 @@ class ProductController {
           code?.body.value?.[0]?.Sku === product.data.code ||
           code?.body.value?.[0]?.Sku === `PARENT-${product.data.model.code}`
       );
+      console.log("code variable", code);
 
       if (code?.body.value?.length === 0 || !code) {
-        // console.log("MPN", product.data.manufacturerPartNumber);
         const newParentRequest = createParentProductService.handle(
           {
             Sku: product.data.model.code,
@@ -80,7 +80,7 @@ class ProductController {
       }
 
       codesResponse.push(code?.body.value?.[0].ID);
-      console.log(`${i} - code: ${code?.body.value[0].ID}`);
+      console.log(`${i + 1} - code: ${code?.body.value[0].ID}`);
 
       const config = {
         id: String(i),
@@ -95,11 +95,11 @@ class ProductController {
     });
 
     /*
+    console.log("createdParents", createdParents);
     verificar de instanciar variavel global como LASTSKU antes do FOR
     se LASTSKU for !== 0 ou null, cai no processo de verificação
     
     console.log("batchBody", batchBody);
-    console.log("createdParents", createdParents);
     */
     try {
       if (batchBody.length === 0) {
@@ -197,7 +197,6 @@ class ProductController {
                 ...thirdPartyAllowedService.handle({
                   childProductId,
                   ThirdPartyAllowed,
-                  index,
                 }),
                 ...imageService.handle({
                   childProductId,

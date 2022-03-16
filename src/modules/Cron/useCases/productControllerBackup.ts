@@ -5,11 +5,11 @@ import { utils } from "utils/utils";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
+import { AttributesService } from "../Services/attributesService";
 import { CreateChildProductService } from "../Services/createChildProductService ";
 import { CreateParentProductService } from "../Services/createParentProductService";
 import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
 import queueAdvisorService from "../Services/queueAdvisorService";
-import { UpdateAttributeService } from "../Services/updateAttributeService";
 
 class ProductController {
   handle = async (req: Request, res: Response) => {
@@ -17,7 +17,7 @@ class ProductController {
 
     const createParentProductService = new CreateParentProductService();
     const createChildProductService = new CreateChildProductService();
-    const updateAttributeService = new UpdateAttributeService();
+    const updateAttributeService = new AttributesService();
     const getProductsBySkuService = new GetProductsBySkuService();
 
     const queue = await queueAdvisorService.pullQueue(10);
