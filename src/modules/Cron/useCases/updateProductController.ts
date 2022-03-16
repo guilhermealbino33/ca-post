@@ -27,13 +27,14 @@ class UpdateProductController {
     });
 
     queue.forEach(async (sku: string, index: number) => {
-      const productID = codes.data?.responses[index]?.body.value[0].ID;
+      const productID = codes.data?.responses[index]?.body.value[0]?.ID;
+      // const productSKU = codes.data?.responses[index]?.body.value[0]?.Sku;
 
-      // if (!productID) {
-      //   console.log("Sku not found");
-      //   return;
-      // }
-
+      if (!productID) {
+        console.log(`*************** Sku ${sku} not found ***************`);
+        return;
+      }
+      // console.log("productSKU", productSKU);
       /** BATCH REQUEST MODEL TESTED ON POSTMAN */
       const config = {
         id: String(index),
@@ -46,7 +47,7 @@ class UpdateProductController {
           "Content-Type": "application/json",
         },
       };
-      console.log(`code ${productID}`);
+      console.log(`${index + 1} - code ${productID}`);
       batchBody.push(config);
     });
     // console.log(batchBody);
@@ -62,7 +63,7 @@ class UpdateProductController {
       );
       return res.json("Concluded");
     } catch (e: any) {
-      return console.log("Error", e.response.data);
+      return console.log("Error", e);
     }
   };
 }
