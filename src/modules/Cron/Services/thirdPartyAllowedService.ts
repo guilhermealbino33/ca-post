@@ -1,17 +1,14 @@
+import { v4 as uuidV4 } from "uuid";
+
 import { IBatchBody } from "../interfaces/Interfaces";
 
 type InputType = {
   childProductId: string;
   ThirdPartyAllowed: boolean;
-  index: number;
 };
 
 class ThirdPartyAllowedService {
-  handle = ({
-    childProductId,
-    ThirdPartyAllowed,
-    index,
-  }: InputType): IBatchBody[] => {
+  handle = ({ childProductId, ThirdPartyAllowed }: InputType): IBatchBody[] => {
     const headers = {
       "Content-Type": "application/json",
       "Content-Length": "0",
@@ -21,13 +18,13 @@ class ThirdPartyAllowedService {
     if (ThirdPartyAllowed === true) {
       config = [
         {
-          id: `true ${index}`,
+          id: String(uuidV4()),
           method: "put",
           url: `/v1/ProductLabels(ProductID=${childProductId}, Name='eBay Fixed')`,
           headers,
         },
         {
-          id: `true ${index + 1}`,
+          id: String(uuidV4()),
           method: "put",
           url: `/v1/ProductLabels(ProductID=${childProductId}, Name='Incycle.com')`,
           headers,
@@ -36,7 +33,7 @@ class ThirdPartyAllowedService {
     } else {
       config = [
         {
-          id: `false ${index}`,
+          id: String(uuidV4()),
           method: "put",
           url: `/v1/ProductLabels(ProductID=${childProductId}, Name='Incycle.com')`,
           headers,

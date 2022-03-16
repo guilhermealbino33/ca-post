@@ -1,3 +1,5 @@
+import { v4 as uuidV4 } from "uuid";
+
 import { IBatchBody } from "../interfaces/Interfaces";
 
 type InputType = {
@@ -7,20 +9,14 @@ type InputType = {
 };
 
 class ImageService {
-  handle = ({ childProductId, index, Images }: InputType): IBatchBody[] => {
+  handle = ({ childProductId, Images }: InputType): IBatchBody[] => {
     const config: IBatchBody[] = [];
-
-    let count = 0;
-    function incrementIndex() {
-      // eslint-disable-next-line no-plusplus
-      return count++;
-    }
 
     Images.map(async (image: string, i: number) => {
       const placementName = `'ITEMIMAGEURL${1 + i}'`;
 
       const body = {
-        id: `image${incrementIndex() + index}`,
+        id: String(uuidV4()),
         method: "patch",
         url: `/v1/Images(ProductID=${childProductId}, PlacementName=${placementName})`,
         body: {
