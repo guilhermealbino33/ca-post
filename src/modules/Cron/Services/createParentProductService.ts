@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { v4 as uuidV4 } from "uuid";
+
 import { IBatchBody } from "../interfaces/Interfaces";
 
 type ParentProduct = {
@@ -28,7 +29,7 @@ class CreateParentProductService {
       VaryBy,
     };
     const config = {
-      id: `parent-${index}`,
+      id: String(uuidV4()),
       method: "post",
       url: "/v1/Products",
       body,
