@@ -6,7 +6,7 @@ type IAttribQBP = {
   value: string;
 };
 
-class UpdateAttributeService {
+class AttributesService {
   handle(product: IProductInterface) {
     const { toHtml, removeDuplicatedWordsBetween, nonZeroReturn } = utils;
 
@@ -85,4 +85,4 @@ class UpdateAttributeService {
   }
 }
 
-export { UpdateAttributeService };
+export { AttributesService };
