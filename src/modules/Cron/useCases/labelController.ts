@@ -15,28 +15,29 @@ class LabelController {
       "Content-Type": "application/json",
     };
 
-    const queue = await queueAdvisorService.pullQueue(30);
+    const queue = await queueAdvisorService.pullQueue(100);
     await createToken();
 
-    const batchBody: IBatchBody[] = [];
+    let batchBody: IBatchBody[] = [];
+    const batchPopulate: any[] = [];
     const codesResponse: string[] = ["Job concluded!"];
 
     const bodyCodes = {
       requests: queue.map((item: IQueueAdvisorUpdate, index: number) => ({
         id: String(index),
         method: "get",
-        url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku`,
+        url: `/v1/products?$filter=Sku eq '${item.product?.data.manufacturerPartNumber}'&$select=ID, Sku`,
       })),
     };
 
     const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
       headers,
     });
-
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
+      // console.log("codes", codes.data.responses[i].body);
 
-      if (codes.data.responses[i].body.value.length === 0) {
+      if (codes.data.responses[i].body.value?.length === 0) {
         console.log(`Product ${product.code} do not exists on Channel Advisor`);
         return;
       }
@@ -52,24 +53,38 @@ class LabelController {
           code?.body.value?.[0]?.Sku === product.data.code ||
           code?.body.value?.[0]?.Sku === `PARENT-${product.data.model.code}`
       );
-      if (code) {
-        console.log("code", code?.value?.[0]);
+      // console.log("code outside", code);
+      if (!code) {
+        console.log("Nada");
+        return;
       }
-      // thirdPartyAllowedService.handle({
-      //   childProductId,
-      //   ThirdPartyAllowed,
-      // });
+      const productId = code?.body.value?.[0].ID;
+      const ThirdPartyAllowed = product.data.thirdPartyAllowed;
+      console.log(`${i + 1} - ID ${productId}`);
+      // console.log("thirdPartyAllowed", product.data.thirdPartyAllowed);
+      // console.log("MPN", product.data.manufacturerPartNumber);
+      // console.log("SKU", code?.body.value?.[0].Sku);
+
+      const config = thirdPartyAllowedService.handle({
+        childProductId: productId,
+        ThirdPartyAllowed,
+      });
+      batchPopulate.push(config);
     });
+    batchBody = batchPopulate.reduce((previous, current) => [
+      ...previous,
+      ...current,
+    ]);
+    console.log("batchPopulate", batchBody);
 
     try {
-      // console.log("external body", { requests: batchBody });
       if (batchBody.length === 0) {
         res.status(201).json("Products doesn't exists on Channel Advisor");
         return;
       }
-      // await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
-      //   headers,
-      // });
+      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+        headers,
+      });
     } catch (e: any) {
       // eslint-disable-next-line consistent-return
       return console.log("Error", e.response.data);
