@@ -10,7 +10,7 @@ class GetProductsBySkuService {
       requests: skus.map((sku: string, index) => ({
         id: String(index),
         method: "get",
-        url: `/v1/products?$filter=Sku eq '${sku}'&$select=ID, Sku, ParentSku`,
+        url: `/v1/products?$filter=Sku eq '${sku}'&$select=ID, Sku, ParentSku, IsParent`,
       })),
     };
 
