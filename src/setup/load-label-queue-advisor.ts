@@ -1,6 +1,6 @@
 import axios from "axios";
 import _ from "lodash";
-import { QueueAdvisorCreateRepository } from "modules/Cron/repositories/QueueAdvisorUpdateRepository";
+import { QueueAdvisorLabelRepository } from "modules/Cron/repositories/QueueAdvisorUpdateRepository";
 
 import { setup } from "../database/mongoDB";
 import "../infra/config-env";
@@ -17,10 +17,7 @@ const getProductCodeList = async () => {
     },
   };
 
-  const response = await axios.get(
-    "/productchange/list?startDate=2022-01-01&endDate=2022-03-08",
-    config
-  );
+  const response = await axios.get("/productcode/list", config);
 
   return response.data;
 };
@@ -35,7 +32,7 @@ const execute = async () => {
 
     const chunk = chunks[index];
 
-    await QueueAdvisorCreateRepository.collection.bulkWrite(
+    await QueueAdvisorLabelRepository.collection.bulkWrite(
       chunk.map((code) => ({
         updateOne: {
           filter: {

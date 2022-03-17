@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-import { QueueAdvisorCreate } from "../models/QueueAdvisorCreate";
 import { QueueAdvisorImageUpdate } from "../models/QueueAdvisorImageUpdate";
+import { QueueAdvisorLabel } from "../models/QueueAdvisorLabel";
 import { QueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
 
 const QueueAdvisorUpdateRepository = mongoose.model(
@@ -12,13 +12,13 @@ const QueueAdvisorImageUpdateRepository = mongoose.model(
   "queueAdvisorImageUpdate",
   QueueAdvisorImageUpdate
 );
-const QueueAdvisorCreateRepository = mongoose.model(
-  "queueAdvisorCreate",
-  QueueAdvisorCreate
+const QueueAdvisorLabelRepository = mongoose.model(
+  "QueueAdvisorLabel",
+  QueueAdvisorLabel
 );
 
 export {
   QueueAdvisorUpdateRepository,
   QueueAdvisorImageUpdateRepository,
-  QueueAdvisorCreateRepository,
+  QueueAdvisorLabelRepository,
 };
