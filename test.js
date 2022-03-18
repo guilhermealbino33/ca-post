@@ -40,9 +40,9 @@ const nonZeroReturn = (value) => {
 };
 
 const msrp = 110;
-const nameStr = "- DT Swiss Champion Spoke:              2.0mm, 272mm, J - bend, Silver, Box of 100";
-const modelStr = "Champion             2.0 Silver         Spokes: Box        of 100"; 
-const brandStr = "DT Swiss";
+const nameStr = "Sutherland's Repair/Maintenance Guide: 7th Edition Book & CD";
+const modelStr = "Sutherland's 7th Edition Book & CD"; 
+const brandStr = "Sutherlands";
 
 // console.log("nameStr", nameStr.split(" "));
 // console.log("modelStr", modelStr.split(" "));

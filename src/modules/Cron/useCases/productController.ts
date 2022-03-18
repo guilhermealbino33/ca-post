@@ -23,7 +23,6 @@ class ProductController {
     const getProductsBySkuService = new GetProductsBySkuService();
     const thirdPartyAllowedService = new ThirdPartyAllowedService();
     const imageService = new ImageService();
-
     const headers = { "Content-Type": "application/json" };
     const queue = await queueAdvisorService.pullOne();
     const batchBody: IBatchBody[] = [];
@@ -31,9 +30,18 @@ class ProductController {
     await createToken();
 
     const codes = await getProductsBySkuService.handle(
-      queue.map((item) => item.product?.data.manufacturerPartNumber)
+      queue.map(
+        (item) =>
+          item.product?.data.manufacturerPartNumber ??
+          `PARENT-${item.product?.data.model.code}`
+      )
     );
-
+    // if (codes.data.responses[0].body?.value.length === 0) {
+    //   console.log("entrou");
+    //   codes = await getProductsBySkuService.handle(
+    //     queue.map((item) => `PARENT-${item.product?.data.model.code}`)
+    //   );
+    // }
     const createdParents: {
       id: string;
       queuePosition: number;
@@ -48,7 +56,7 @@ class ProductController {
         return;
       }
       const data = attributeService.handle(product);
-      // console.log("codes.data.responses", codes.data.responses);
+      console.log("codes.data.responses", codes.data.responses);
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
@@ -59,6 +67,15 @@ class ProductController {
       console.log("code variable", code);
 
       if (code?.body.value?.length === 0 || !code) {
+        const parentCodes = await getProductsBySkuService.handle(
+          queue.map((item) => `PARENT-${item.product?.data.model.code}`)
+        );
+        console.log("parentCodes", parentCodes.data.responses[0].body.value);
+
+        if (parentCodes.data.responses[0].body.value.length === 0) {
+          console.log("entrou");
+          return;
+        }
         const newParentRequest = createParentProductService.handle(
           {
             Sku: product.data.model.code,
@@ -108,9 +125,9 @@ class ProductController {
           .json("No products have been updated on Channel Advisor!");
         return;
       }
-      await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
-        headers,
-      });
+      // await api.post(`/v1/$batch`, JSON.stringify({ requests: batchBody }), {
+      //   headers,
+      // });
 
       // se não criou parent, não precisa entrar aqui
       if (createdParents.length !== 0) {
@@ -167,55 +184,52 @@ class ProductController {
           .filter(Boolean);
 
         if (batch.length !== 0) {
-          const createChild = await api.post(
-            `/v1/$batch`,
-            JSON.stringify({
-              requests: batch.map((item) => item.creatingChild),
-            }),
-            {
-              headers,
-            }
-          );
-
-          type CreatedChildType = {
-            ID: string;
-            ThirdPartyAllowed: boolean;
-            Images: string[];
-            Sku: string;
-          };
-          const children: CreatedChildType[] = createChild.data.responses
-            .map((item: any) => item.body)
-            .filter((body: any) => !body.error);
-
-          const batchPopulate = children
-            .map(({ ID: childProductId, Sku }, index) => {
-              const { ThirdPartyAllowed, Images } = batch.find(
-                ({ SkuFromQBP }) => SkuFromQBP === Sku
-              );
-
-              return [
-                ...thirdPartyAllowedService.handle({
-                  childProductId,
-                  ThirdPartyAllowed,
-                }),
-                ...imageService.handle({
-                  childProductId,
-                  Images,
-                  index,
-                }),
-              ];
-            })
-            .reduce((previous, current) => [...previous, ...current]);
+          // const createChild = await api.post(
+          //   `/v1/$batch`,
+          //   JSON.stringify({
+          //     requests: batch.map((item) => item.creatingChild),
+          //   }),
+          //   {
+          //     headers,
+          //   }
+          // );
+          // type CreatedChildType = {
+          //   ID: string;
+          //   ThirdPartyAllowed: boolean;
+          //   Images: string[];
+          //   Sku: string;
+          // };
+          // const children: CreatedChildType[] = createChild.data.responses
+          //   .map((item: any) => item.body)
+          //   .filter((body: any) => !body.error);
+          // const batchPopulate = children
+          //   .map(({ ID: childProductId, Sku }, index) => {
+          //     const { ThirdPartyAllowed, Images } = batch.find(
+          //       ({ SkuFromQBP }) => SkuFromQBP === Sku
+          //     );
+          //     return [
+          //       ...thirdPartyAllowedService.handle({
+          //         childProductId,
+          //         ThirdPartyAllowed,
+          //       }),
+          //       ...imageService.handle({
+          //         childProductId,
+          //         Images,
+          //         index,
+          //       }),
+          //     ];
+          //   })
+          //   .reduce((previous, current) => [...previous, ...current]);
           // console.log("batchPopulate", batchPopulate);
-          await api.post(
-            `/v1/$batch`,
-            JSON.stringify({
-              requests: batchPopulate,
-            }),
-            {
-              headers,
-            }
-          );
+          // await api.post(
+          //   `/v1/$batch`,
+          //   JSON.stringify({
+          //     requests: batchPopulate,
+          //   }),
+          //   {
+          //     headers,
+          //   }
+          // );
           // console.log("finalProduct", finalProduct);
         }
       }

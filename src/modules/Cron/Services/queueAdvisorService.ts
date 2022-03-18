@@ -1,5 +1,5 @@
 import {
-  QueueAdvisorCreateRepository,
+  QueueAdvisorLabelRepository,
   QueueAdvisorImageUpdateRepository,
   QueueAdvisorUpdateRepository,
 } from "../repositories/QueueAdvisorUpdateRepository";
@@ -59,15 +59,15 @@ class QueueAdvisorService {
     );
     return items;
   }
-  async pullCreateQueue(quantity: number) {
-    const items = await QueueAdvisorCreateRepository.find({})
+  async pullLabelQueue(quantity: number) {
+    const items = await QueueAdvisorLabelRepository.find({})
       .populate("product")
       .sort({
         lastUpdate: 1,
       })
       .limit(quantity);
 
-    await QueueAdvisorCreateRepository.collection.bulkWrite(
+    await QueueAdvisorLabelRepository.collection.bulkWrite(
       items.map((item) => {
         return {
           updateOne: {
@@ -89,7 +89,7 @@ class QueueAdvisorService {
   async pullOne() {
     // for tests with a single item
     /// TU1203 do not exists on Channel Advisor`
-    const items = await QueueAdvisorUpdateRepository.find({ code: "HB5126" })
+    const items = await QueueAdvisorUpdateRepository.find({ code: "OW6203" })
       .populate("product")
       .sort({
         lastUpdate: 1,

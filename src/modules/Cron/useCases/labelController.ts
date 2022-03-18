@@ -15,7 +15,7 @@ class LabelController {
       "Content-Type": "application/json",
     };
 
-    const queue = await queueAdvisorService.pullQueue(100);
+    const queue = await queueAdvisorService.pullLabelQueue(50);
     await createToken();
 
     let batchBody: IBatchBody[] = [];
@@ -55,7 +55,7 @@ class LabelController {
       );
       // console.log("code outside", code);
       if (!code) {
-        console.log("Nada");
+        console.log("Undefined code.");
         return;
       }
       const productId = code?.body.value?.[0].ID;
@@ -75,7 +75,7 @@ class LabelController {
       ...previous,
       ...current,
     ]);
-    console.log("batchPopulate", batchBody);
+    // console.log("batchPopulate", batchBody);
 
     try {
       if (batchBody.length === 0) {
@@ -87,7 +87,7 @@ class LabelController {
       });
     } catch (e: any) {
       // eslint-disable-next-line consistent-return
-      return console.log("Error", e.response.data);
+      return console.log("Error", e.response);
     }
     res.status(201).json(codesResponse);
   };
