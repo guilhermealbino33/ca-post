@@ -14,7 +14,7 @@ type ParentProduct = {
 };
 
 class CreateParentProductService {
-  handle = (parentProduct: ParentProduct, index: number): IBatchBody => {
+  handle = (parentProduct: ParentProduct): IBatchBody => {
     const { Sku, Brand, Description, ShortDescription, Title, VaryBy } =
       parentProduct;
 
