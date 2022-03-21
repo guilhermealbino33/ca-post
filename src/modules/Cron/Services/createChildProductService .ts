@@ -1,3 +1,5 @@
+import { v4 as uuidV4 } from "uuid";
+
 import { IBatchBody } from "../interfaces/Interfaces";
 
 type ChildProduct = {
@@ -13,32 +15,33 @@ type ChildProduct = {
 };
 
 class CreateChildProductService {
-  handle = (childProduct: ChildProduct, index: number): IBatchBody => {
+  handle = (childProduct: ChildProduct): IBatchBody => {
     const {
       Sku,
       IsParent,
       IsInRelationship,
       ParentSku,
-      ParentProductID,
       Title,
       Attributes,
+      ParentProductID,
     } = childProduct;
+
     const headers = {
       "Content-Type": "application/json",
     };
 
     const body = {
       Sku,
-      ParentProductID,
       ParentSku,
       IsParent,
       IsInRelationship,
       Title,
       Attributes,
+      ParentProductID,
     };
 
     const config = {
-      id: String(index),
+      id: String(uuidV4()),
       method: "post",
       url: "/v1/Products",
       body,
