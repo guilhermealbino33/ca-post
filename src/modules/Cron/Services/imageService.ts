@@ -20,7 +20,7 @@ class ImageService {
         method: "patch",
         url: `/v1/Images(ProductID=${childProductId}, PlacementName=${placementName})`,
         body: {
-          Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
+          Url: `https://images.qbp.com/imageservice/image/${process.env.IMG_CODE}/prodxl/${image}`,
         },
         headers: {
           "Content-Type": "application/json",

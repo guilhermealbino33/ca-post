@@ -71,7 +71,7 @@ class ImageController {
             method: "patch",
             url: `/v1/Images(ProductID=${code.body.value[0].ID}, PlacementName=${placementName})`,
             body: {
-              Url: `https://images.qbp.com/imageservice/image/1d59103516e0/prodxl/${image}`,
+              Url: `https://images.qbp.com/imageservice/image/${process.env.IMG_CODE}/prodxl/${image}`,
             },
             headers: {
               "Content-Type": "application/json",
@@ -82,7 +82,7 @@ class ImageController {
       }
     });
     try {
-      // console.log("external body", { requests: batchBody });
+      //  console.log("external body", { requests: batchBody });
       if (batchBody.length === 0) {
         res.status(201).json("Products doesn't exists on Channel Advisor");
         return;
