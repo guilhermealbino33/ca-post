@@ -25,7 +25,7 @@ class ProductController {
     const thirdPartyAllowedService = new ThirdPartyAllowedService();
     const imageService = new ImageService();
     let lastSku: string;
-    const queue = await queueAdvisorService.pullQueue(30);
+    const queue = await queueAdvisorService.pullQueue(60);
     const headers = { "Content-Type": "application/json" };
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
@@ -38,16 +38,10 @@ class ProductController {
     const parentSku = queue.map(
       (item) => `PARENT-${item.product?.data.model.code}`
     );
-    // console.log("parentSku", parentSku);
-    console.log("sku", sku);
+
     const codes = await getProductsBySkuService.handle(sku);
     const parentCodes = await getProductsBySkuService.handle(parentSku);
-    // if (codes.data.responses[0].body?.value.length === 0) {
-    //   console.log("entrou");
-    //   codes = await getProductsBySkuService.handle(
-    //     queue.map((item) => `PARENT-${item.product?.data.model.code}`)
-    //   );
-    // }
+
     const createdParents: {
       id: string;
       queuePosition: number;
@@ -56,20 +50,19 @@ class ProductController {
 
     queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
       const { product } = item;
-      // console.log("product", product);
+
       if (!product || !product?.data) {
         console.log(`Product not exists`);
         return;
       }
       const data = attributeService.handle(product);
-      // console.log("codes.data.responses", codes.data.responses);
+
       const code = codes.data.responses.find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (code: any) =>
           code?.body.value?.[0]?.Sku === product.data.manufacturerPartNumber ||
           code?.body.value?.[0]?.Sku === product.data.code
       );
-      // console.log("code variable", code);
 
       if (code?.body.value?.length === 0 || !code) {
         const parentCode = parentCodes.data.responses.find(
@@ -78,8 +71,7 @@ class ProductController {
             code?.body.value?.[i]?.Sku ===
             `PARENT-${item.product?.data.model.code}`
         );
-        // console.log("parentCode", parentCode);
-        // console.log("lastSku", lastSku);
+
         if (lastSku === `PARENT-${product.data.model.code}`) {
           console.log("Parent already created!");
           createdParents.push({
@@ -124,13 +116,6 @@ class ProductController {
       batchBody.push(config);
     });
 
-    /*
-    console.log("createdParents", createdParents);
-    verificar de instanciar variavel global como LASTSKU antes do FOR
-    se LASTSKU for !== 0 ou null, cai no processo de verificação
-    
-    console.log("batchBody", batchBody);
-    */
     try {
       if (batchBody.length === 0) {
         res
@@ -142,7 +127,6 @@ class ProductController {
         headers,
       });
 
-      // se não criou parent, não precisa entrar aqui
       if (createdParents.length !== 0) {
         const codes = await getProductsBySkuService.handle(
           createdParents.map((parent) => parent.id)
@@ -182,7 +166,6 @@ class ProductController {
             if (!creatingChild) {
               return;
             }
-            // console.log("product data", product.data);
             // eslint-disable-next-line consistent-return
             return {
               creatingChild,
@@ -203,7 +186,7 @@ class ProductController {
               headers,
             }
           );
-          // console.log("createChild", createChild.data.responses);
+
           type CreatedChildType = {
             ID: string;
             ThirdPartyAllowed: boolean;
@@ -231,10 +214,9 @@ class ProductController {
               ];
             })
             .reduce((previous, current) => [...previous, ...current], []);
-          // console.log("batchPopulate", batchPopulate);
+
           if (batchPopulate.length === 0) {
-            console.log("Empty");
-            return;
+            res.status(500).json("An error ocurred!");
           }
 
           await api.post(
