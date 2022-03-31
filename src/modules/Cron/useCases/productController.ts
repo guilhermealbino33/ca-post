@@ -231,10 +231,10 @@ class ProductController {
         }
       }
     } catch (e: any) {
-      console.log("Error", e);
+      console.log(e.response.data);
     }
 
-    res.status(201).json(codesResponse);
+    res.status(201).json("Success!");
   };
 }
 
