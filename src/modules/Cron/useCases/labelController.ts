@@ -61,9 +61,6 @@ class LabelController {
       const productId = code?.body.value?.[0].ID;
       const ThirdPartyAllowed = product.data.thirdPartyAllowed;
       console.log(`${i + 1} - ID ${productId}`);
-      // console.log("thirdPartyAllowed", product.data.thirdPartyAllowed);
-      // console.log("MPN", product.data.manufacturerPartNumber);
-      // console.log("SKU", code?.body.value?.[0].Sku);
 
       const config = thirdPartyAllowedService.handle({
         childProductId: productId,
