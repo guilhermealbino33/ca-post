@@ -38,9 +38,9 @@ class ProductCategoryController {
         return;
       }
       // console.log("categories", categories.categories[1]);
-      let categoryCode = "";
+      // let categoryCode = "";
       let parent: string | null;
-      const name = "";
+      // const name = "";
 
       /**
        FAZER FOR SEMELHANTE AOS DO METAFIELDS.
@@ -55,27 +55,38 @@ class ProductCategoryController {
         product.data.categoryCodes[0] !== "g0" ||
         product.data.categoryCodes?.length === 0
       ) {
-        for (let i = 0; i < categoriesMock.length; i++) {
-          console.log("categoryCodeName", categoryCode);
-          if (categoriesMock[i].code === product.data.categoryCodes[0]) {
-            categoryCode = categoriesMock[i].name;
-            parent = categoriesMock[i].parentCode;
-
+        categoriesMock.forEach((category): string | null => {
+          if (category.code === product.data.categoryCodes[0]) {
             const categoryName = {
               Name: `QBP Category ${i + 1}`,
-              Value: categoriesMock[i].name,
+              Value: category.code,
             };
 
             attributes.push(categoryName);
-          } else if (categoriesMock[i].code === parent) {
-            const categoryParent = {
-              Name: `QBP Category ${i + 1}`,
-              Value: categoriesMock[i].name,
-            };
-            attributes.push(categoryParent);
           }
-        }
+        });
       }
+      console.log("attributes", attributes);
+      // for (let i = 0; i < categoriesMock.length; i++) {
+      //   console.log("categoryCodeName", categoryCode);
+      //   if (categoriesMock[i].code === product.data.categoryCodes[0]) {
+      //     categoryCode = categoriesMock[i].name;
+      //     parent = categoriesMock[i].parentCode;
+      //     const categoryName = {
+      //       Name: `QBP Category ${i + 1}`,
+      //       Value: categoriesMock[i].name,
+      //     };
+
+      //     attributes.push(categoryName);
+      //   }
+      //   if (categoriesMock[i].code === parent) {
+      //     const categoryParent = {
+      //       Name: `QBP Category ${i + 1}`,
+      //       Value: categoriesMock[i].name,
+      //     };
+      //     attributes.push(categoryParent);
+      //   }
+      // }
       // console.log("categoriesMock[i].code", categoriesMock[i].code);
       // console.log(
       //   "product.data.categoryCodes[i]",
