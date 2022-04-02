@@ -5,5 +5,9 @@ interface IBatchBody {
   headers?: object;
   body?: object;
 }
+interface IAttribute {
+  Name: string;
+  Value: string;
+}
 
-export { IBatchBody };
+export { IBatchBody, IAttribute };
