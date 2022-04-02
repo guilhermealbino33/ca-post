@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import api, { createToken } from "services/api";
 
 import categories from "../../QBP/database/categories.json";
-import { IBatchBody } from "../interfaces/Interfaces";
+import { IAttribute, IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
 import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
 import queueAdvisorService from "../Services/queueAdvisorService";
@@ -18,6 +18,7 @@ class ProductCategoryController {
       "Content-Type": "application/json",
     };
     const batchBody: IBatchBody[] = [];
+    const attributes: IAttribute[] = [];
     const queue = await queueAdvisorService.pullQueue(5);
 
     const sku = queue.map(
@@ -32,7 +33,7 @@ class ProductCategoryController {
       console.log("product", product.code);
       const productID = codes.data?.responses[i]?.body.value[0]?.ID;
 
-      if (!productID) {
+      if (!productID || !product) {
         console.log(`*************** Sku ${sku} not found ***************`);
         return;
       }
@@ -50,19 +51,31 @@ class ProductCategoryController {
        Por montar o body com esse array criado
        */
 
-      for (let i = 0; i < categoriesMock.length; i++) {
-        console.log("categoryCodeName", categoryCode);
-        if (categoriesMock[i].code === product.data.categoryCodes[0]) {
-          categoryCode = categoriesMock[i].name;
-          parent = categoriesMock[i].parentCode;
-          console.log("parent", parent);
-        }
-      }
-
       while (
         product.data.categoryCodes[0] !== "g0" ||
         product.data.categoryCodes?.length === 0
-      ) {}
+      ) {
+        for (let i = 0; i < categoriesMock.length; i++) {
+          console.log("categoryCodeName", categoryCode);
+          if (categoriesMock[i].code === product.data.categoryCodes[0]) {
+            categoryCode = categoriesMock[i].name;
+            parent = categoriesMock[i].parentCode;
+
+            const categoryName = {
+              Name: `QBP Category ${i + 1}`,
+              Value: categoriesMock[i].name,
+            };
+
+            attributes.push(categoryName);
+          } else if (categoriesMock[i].code === parent) {
+            const categoryParent = {
+              Name: `QBP Category ${i + 1}`,
+              Value: categoriesMock[i].name,
+            };
+            attributes.push(categoryParent);
+          }
+        }
+      }
       // console.log("categoriesMock[i].code", categoriesMock[i].code);
       // console.log(
       //   "product.data.categoryCodes[i]",
