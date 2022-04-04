@@ -1,7 +1,7 @@
 import { Router } from "express";
+import { CategoryController } from "modules/Cron/useCases/categoryController";
 import { ImageController } from "modules/Cron/useCases/imageController";
 import { LabelController } from "modules/Cron/useCases/labelController";
-import { ProductCategoryController } from "modules/Cron/useCases/productCategoryController";
 import { ProductController } from "modules/Cron/useCases/productController";
 import { UpdateProductController } from "modules/Cron/useCases/updateProductController";
 
@@ -10,7 +10,7 @@ const productController = new ProductController();
 const imageController = new ImageController();
 const updateProductController = new UpdateProductController();
 const labelController = new LabelController();
-const categoriesController = new ProductCategoryController();
+const categoriesController = new CategoryController();
 
 cronRoutes.post("/products/update", updateProductController.handle);
 cronRoutes.post("/categories", categoriesController.handle);
