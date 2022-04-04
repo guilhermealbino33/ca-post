@@ -1,17 +1,17 @@
+/* eslint-disable no-loop-func */
+/* eslint-disable consistent-return */
 /* eslint-disable no-plusplus */
 import { IProductInterface } from "modules/QBP/models/ProductInterface";
 
 import categories from "../../QBP/database/categories.json";
-import { IAttribute } from "../interfaces/Interfaces";
 
 class CategoryService {
   handle(product: IProductInterface) {
-    const attributes: IAttribute[] = [];
     const categoriesMock = categories.categories;
-    console.log("product code", product.data.code);
+    // console.log("product code", product.data.code);
 
     let categoryCode = product.data.categoryCodes[0];
-    const data: object[] = [];
+    const data = [];
     let index = 1;
 
     while (categoryCode !== "g0") {
@@ -19,14 +19,23 @@ class CategoryService {
       if (!category) {
         return;
       }
+
       data.push({
         Name: `QBP Category ${index++}`,
         Value: category.name,
       });
+
       categoryCode = category.parentCode;
     }
 
-    console.log("data", data);
+    // console.log("data", data);
+    const config = {
+      Value: {
+        Attributes: data,
+      },
+    };
+
+    return config;
   }
 }
 
