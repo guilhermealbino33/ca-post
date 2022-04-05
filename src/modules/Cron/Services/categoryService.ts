@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-loop-func */
 /* eslint-disable consistent-return */
 /* eslint-disable no-plusplus */
@@ -8,31 +9,39 @@ import categories from "../../QBP/database/categories.json";
 class CategoryService {
   handle(product: IProductInterface) {
     const categoriesMock = categories.categories;
-
-    let categoryCode = product.data.categoryCodes[0];
-    const data = [];
-    let index = 1;
-
-    while (categoryCode !== "g0") {
-      const category = categoriesMock.find(({ code }) => code === categoryCode);
-      if (!category) {
-        return;
+    const categoryCode = product.data.categoryCodes.map(
+      (category: string | null) => {
+        return category;
       }
+    );
+    console.log("categoryCode", categoryCode);
+    const data: any = [];
+    let index = 1;
+    categoryCode.forEach((categoryCode) => {
+      while (categoryCode !== "g0") {
+        const category = categoriesMock.find(
+          ({ code }) => code === categoryCode
+        );
+        if (!category) {
+          return;
+        }
 
-      data.push({
-        Name: `QBP Category ${index++}`,
-        Value: category.name,
-      });
+        data.push({
+          Name: `QBP Category ${index++}`,
+          Value: category.name,
+        });
 
-      categoryCode = category.parentCode;
-    }
+        // eslint-disable-next-line no-param-reassign
+        categoryCode = category.parentCode;
+      }
+    });
 
     const config = {
       Value: {
         Attributes: data,
       },
     };
-
+    console.log(config.Value.Attributes);
     return config;
   }
 }
