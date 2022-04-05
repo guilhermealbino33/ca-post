@@ -7,7 +7,7 @@ import { v4 as uuidV4 } from "uuid";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
-import { CategoryService } from "../Services/categoryServiceCopy";
+import { CategoryService } from "../Services/categoryService";
 import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
 import queueAdvisorService from "../Services/queueAdvisorService";
 
@@ -22,7 +22,7 @@ class CategoryController {
     };
     const batchBody: IBatchBody[] = [];
 
-    const queue = await queueAdvisorService.pullQueue(100);
+    const queue = await queueAdvisorService.pullCategoryQueue(100);
 
     const sku = queue.map(
       (item) => item.product?.data.manufacturerPartNumber ?? item.product?.code
