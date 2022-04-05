@@ -1,6 +1,6 @@
 import axios from "axios";
 import _ from "lodash";
-import { QueueAdvisorLabelRepository } from "modules/Cron/repositories/QueueAdvisorUpdateRepository";
+import { QueueAdvisorLabelRepository } from "modules/Cron/repositories/QueueAdvisorRepository";
 
 import { setup } from "../database/mongoDB";
 import "../infra/config-env";

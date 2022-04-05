@@ -9,6 +9,7 @@
     "loadQueueAdvisor": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/setup/load-queue-advisor.ts",
     "loadImageQueueAdvisor": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/setup/load-image-queue-advisor.ts",
     "loadLabelQueueAdvisor": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/setup/load-label-queue-advisor.ts",
+    "loadCategoryQueueAdvisor": "ts-node-dev -r tsconfig-paths/register --inspect --poll --transpile-only --ignore-watch node_modules --respawn src/setup/load-category-queue-advisor.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "build:linux": "tsc-silent -p tsconfig.json --suppress 2307,2571,2339,7006,7016,2769,2345@src && tsc-alias && cp package.json dist/package.json && cp .env dist/.env",
     "build:windows": "tsc-silent -p tsconfig.json --suppress 2307,2571,2339,7006,7016,2769,2345@src && tsc-alias && copy package.json dist/package.json && copy .env dist/.env"
