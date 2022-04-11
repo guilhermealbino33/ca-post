@@ -26,23 +26,17 @@ class CategoryService {
 
         data.push({
           name: category.name,
-          fullPathName: "Bath/accessories", // fazer breadcrumbs
+          fullPathName: category.name, // fazer breadcrumbs
           parentID: category.parentCode,
         });
-
-        // fazer api para baixar a api da lightspeed
 
         // eslint-disable-next-line no-param-reassign
         categoryCode = category.parentCode;
       }
     });
 
-    const config = {
-      Value: {
-        Attributes: data,
-      },
-    };
-    console.log(config.Value.Attributes);
+    const config = data;
+    console.log(data, "data");
     return config;
   }
 }
