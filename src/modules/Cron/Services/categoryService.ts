@@ -14,7 +14,6 @@ class CategoryService {
         return category;
       }
     );
-    console.log("categoryCode", categoryCode);
     const data: any = [];
     let index = 1;
     categoryCode.forEach((categoryCode) => {
@@ -41,7 +40,6 @@ class CategoryService {
         Attributes: data,
       },
     };
-    console.log(config.Value.Attributes);
     return config;
   }
 }

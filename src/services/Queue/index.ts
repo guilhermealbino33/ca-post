@@ -3,7 +3,7 @@ import {
   QueueAdvisorImageUpdateRepository,
   QueueAdvisorUpdateRepository,
   QueueAdvisorCategoryRepository,
-} from "../repositories/QueueAdvisorRepository";
+} from "./repositories/QueueAdvisorRepository";
 
 class QueueAdvisorService {
   async pullQueue(quantity: number) {
@@ -117,7 +117,7 @@ class QueueAdvisorService {
   async pullOne() {
     // for tests with a single item
     /// TU1203 do not exists on Channel Advisor`
-    const items = await QueueAdvisorUpdateRepository.find({ code: "OW6203" })
+    const items = await QueueAdvisorUpdateRepository.find({ code: "RM8365" })
       .populate("product")
       .sort({
         lastUpdate: 1,
