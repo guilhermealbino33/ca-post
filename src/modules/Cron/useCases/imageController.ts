@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
-import api, { createToken } from "../../../services/ChannelAdvisor/api";
 
+import api, { createToken } from "../../../services/ChannelAdvisor/api";
+import queueAdvisorService from "../../../services/Queue";
+import { IQueueAdvisor } from "../../../services/Queue/interfaces/interfaces";
 import { IBatchBody } from "../interfaces/Interfaces";
-import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
-import queueAdvisorService from "../Services/queueAdvisorService";
 
 class ImageController {
   handle = async (req: Request, res: Response) => {
@@ -25,7 +25,7 @@ class ImageController {
     const codesResponse: string[] = ["Job concluded!"];
 
     const bodyCodes = {
-      requests: queue.map((item: IQueueAdvisorUpdate, index: number) => ({
+      requests: queue.map((item: IQueueAdvisor, index: number) => ({
         id: String(index),
         method: "get",
         url: `/v1/products?$filter=Sku eq '${item.product.data.manufacturerPartNumber}'&$select=ID, Sku`,
@@ -36,7 +36,7 @@ class ImageController {
       headers,
     });
 
-    queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
+    queue.forEach(async (item: IQueueAdvisor, i: number) => {
       const { product } = item;
 
       if (codes.data.responses[i].body.value.length === 0) {

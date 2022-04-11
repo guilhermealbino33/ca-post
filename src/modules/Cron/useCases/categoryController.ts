@@ -2,14 +2,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Request, Response } from "express";
-import api, { createToken } from "../../../services/ChannelAdvisor/api";
 import { v4 as uuidV4 } from "uuid";
 
+import api, { createToken } from "../../../services/ChannelAdvisor/api";
+import queueAdvisorService from "../../../services/Queue";
+import { IQueueAdvisor } from "../../../services/Queue/interfaces/interfaces";
 import { IBatchBody } from "../interfaces/Interfaces";
-import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
-import { CategoryService } from "../Services/categoryService";
-import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
-import queueAdvisorService from "../Services/queueAdvisorService";
+import { CategoryService } from "../services/categoryService";
+import { GetProductsBySkuService } from "../services/getProductsBySkuService";
 
 class CategoryController {
   handle = async (req: Request, res: Response) => {
@@ -30,7 +30,7 @@ class CategoryController {
 
     const codes = await getProductsBySkuService.handle(sku);
 
-    queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
+    queue.forEach(async (item: IQueueAdvisor, i: number) => {
       const { product } = item;
       const productID = codes.data?.responses[i]?.body.value[0]?.ID;
 
