@@ -3,14 +3,18 @@
 
 import { Request, Response } from "express";
 import { IBatchBody } from "modules/Cron/interfaces/Interfaces";
-import { IQueueAdvisorUpdate } from "modules/Cron/models/QueueAdvisorUpdate";
+import { GetProductsBySkuService } from "modules/Cron/services/getProductsBySkuService";
+import api, { getAuthToken } from "services/LightSpeed/api";
+import queueAdvisorService from "services/Queue";
+import { IQueueAdvisor } from "services/Queue/interfaces/interfaces";
 import { v4 as uuidV4 } from "uuid";
+
 import { CategoryService } from "../services/categoryService";
 
 class CategoryController {
   handle = async (req: Request, res: Response) => {
     const categoryService = new CategoryService();
-    await createToken();
+    await getAuthToken();
     const getProductsBySkuService = new GetProductsBySkuService();
 
     const headers = {
@@ -26,7 +30,7 @@ class CategoryController {
 
     const codes = await getProductsBySkuService.handle(sku);
 
-    queue.forEach(async (item: IQueueAdvisorUpdate, i: number) => {
+    queue.forEach(async (item: IQueueAdvisor, i: number) => {
       const { product } = item;
       const productID = codes.data?.responses[i]?.body.value[0]?.ID;
 
@@ -49,15 +53,15 @@ class CategoryController {
       batchBody.push(config);
     });
     try {
-      await api.post(
-        `/v1/$batch`,
-        JSON.stringify({
-          requests: batchBody,
-        }),
-        {
-          headers,
-        }
-      );
+      // await api.post(
+      //   `/v1/$batch`,
+      //   JSON.stringify({
+      //     requests: batchBody,
+      //   }),
+      //   {
+      //     headers,
+      //   }
+      // );
       return res.json("Concluded");
     } catch (e: any) {
       return console.log("Error", e);
