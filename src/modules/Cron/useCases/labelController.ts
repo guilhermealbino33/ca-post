@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
+import api, { createToken } from "services/ChannelAdvisor/api";
+import queueAdvisorService from "services/Queue";
+import { IQueueAdvisor } from "services/Queue/interfaces/interfaces";
 
-import api, { createToken } from "../../../services/ChannelAdvisor/api";
-import queueAdvisorService from "../../../services/Queue";
-import { IQueueAdvisor } from "../../../services/Queue/interfaces/interfaces";
 import { IBatchBody } from "../interfaces/Interfaces";
 import { ThirdPartyAllowedService } from "../services/thirdPartyAllowedService";
 

@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
+import api, { createToken } from "services/ChannelAdvisor/api";
+import queueAdvisorService from "services/Queue";
+import { IQueueAdvisor } from "services/Queue/interfaces/interfaces";
+import { utils } from "utils/utils";
 import { v4 as uuidV4 } from "uuid";
 
-import api, { createToken } from "../../../services/ChannelAdvisor/api";
-import queueAdvisorService from "../../../services/Queue";
-import { IQueueAdvisor } from "../../../services/Queue/interfaces/interfaces";
-import { utils } from "../../../utils/utils";
 import { IBatchBody } from "../interfaces/Interfaces";
 import { AttributesService } from "../services/attributesService";
 import { CreateChildProductService } from "../services/createChildProductService ";

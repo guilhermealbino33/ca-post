@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
+import api, { createToken } from "services/ChannelAdvisor/api";
 
-import api, { createToken } from "../../../services/ChannelAdvisor/api";
 import { IBatchBody } from "../interfaces/Interfaces";
 
 class UpdateProductController {

@@ -1,4 +1,4 @@
-import api from "../../../services/ChannelAdvisor/api";
+import api from "services/ChannelAdvisor/api";
 
 class GetProductsBySkuService {
   async handle(skus: string[]) {
