@@ -1,3 +1,4 @@
+/* eslint-disable no-return-await */
 /* eslint-disable func-names */
 import axios, { AxiosResponse } from "axios";
 
@@ -20,22 +21,10 @@ export const getAuthToken = async (): Promise<string> => {
     refresh_token: process.env.LS_REFRESH_TOKEN,
   };
 
-  //   return await axios({
-  //     method: "POST",
-  //     url,
-  //     data: config,
-  //   })
-  //     .then(function (response: AxiosResponse<ITokenResponse>) {
-  //       return response.data.access_token;
-  //     })
-  //     .catch(function (response) {
-  //       logging.error("Failed to get LSH token!", response);
-  //       return null;
-  //     });
-  // };
   return api
     .post("/oauth/access_token.php", config)
     .then(function (response: AxiosResponse<ITokenResponse>) {
+      console.log("response.data.access_token", response.data.access_token);
       return response.data.access_token;
     })
     .catch(function (response) {
@@ -43,4 +32,5 @@ export const getAuthToken = async (): Promise<string> => {
       return "";
     });
 };
+
 export default api;
