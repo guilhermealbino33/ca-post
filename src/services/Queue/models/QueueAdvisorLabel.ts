@@ -3,15 +3,9 @@ import "modules/QBP/repositories/productRepository";
 
 import { Schema } from "mongoose";
 
-import { IProductInterface } from "../../../modules/QBP/models/ProductInterface";
+import { IQueueAdvisor } from "../interfaces/interfaces";
 
-export interface IQueueAdvisorLabel {
-  code: string;
-  lastUpdate: number;
-  product: IProductInterface;
-}
-
-const QueueAdvisorLabel = new Schema<IQueueAdvisorLabel>({
+const QueueAdvisorLabel = new Schema<IQueueAdvisor>({
   code: String,
   lastUpdate: Number,
 });

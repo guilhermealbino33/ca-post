@@ -4,7 +4,7 @@ import { v4 as uuidV4 } from "uuid";
 
 import api, { createToken } from "../../../services/ChannelAdvisor/api";
 import queueAdvisorService from "../../../services/Queue";
-import { IQueueAdvisorUpdate } from "../../../services/Queue/models";
+import { IQueueAdvisorUpdate } from "../../../services/Queue/models/";
 import { utils } from "../../../utils/utils";
 import { IBatchBody } from "../interfaces/Interfaces";
 import { AttributesService } from "../services/attributesService";
