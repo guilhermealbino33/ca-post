@@ -1,5 +1,5 @@
-import { IProductInterface } from "modules/QBP/models/ProductInterface";
-import { utils } from "utils/utils";
+import { utils } from "../../../utils/utils";
+import { IProductInterface } from "../../QBP/models/ProductInterface";
 
 type IAttribQBP = {
   name: string;

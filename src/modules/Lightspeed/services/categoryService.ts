@@ -26,7 +26,7 @@ class CategoryService {
 
         data.push({
           name: category.name,
-          fullPathName: "Bath/acessories", // fazer breadcrumbs
+          fullPathName: "Bath/accessories", // fazer breadcrumbs
           parentID: category.parentCode,
         });
 

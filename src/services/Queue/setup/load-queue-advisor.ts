@@ -2,8 +2,8 @@ import axios from "axios";
 import _ from "lodash";
 import { QueueAdvisorUpdateRepository } from "modules/Cron/repositories/QueueAdvisorRepository";
 
-import { setup } from "../database/mongoDB";
-import "../infra/config-env";
+import { setup } from "../../../database/mongoDB";
+import "../../../infra/config-env";
 
 const getProductCodeList = async () => {
   const url = "https://clsdev.qbp.com/api3/1";

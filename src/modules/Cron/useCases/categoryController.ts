@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Request, Response } from "express";
-import api, { createToken } from "services/api";
+import api, { createToken } from "../../../services/ChannelAdvisor/api";
 import { v4 as uuidV4 } from "uuid";
 
 import { IBatchBody } from "../interfaces/Interfaces";

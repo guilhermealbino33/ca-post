@@ -2,9 +2,9 @@
 /* eslint-disable no-loop-func */
 /* eslint-disable consistent-return */
 /* eslint-disable no-plusplus */
-import { IProductInterface } from "modules/QBP/models/ProductInterface";
 
 import categories from "../../QBP/database/categories.json";
+import { IProductInterface } from "../../QBP/models/ProductInterface";
 
 class CategoryService {
   handle(product: IProductInterface) {

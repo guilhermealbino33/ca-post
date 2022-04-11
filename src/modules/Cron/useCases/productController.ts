@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
-import api, { createToken } from "services/api";
-import { utils } from "utils/utils";
 import { v4 as uuidV4 } from "uuid";
 
+import api, { createToken } from "../../../services/ChannelAdvisor/api";
+import queueAdvisorService from "../../../services/Queue";
+import { IQueueAdvisorUpdate } from "../../../services/Queue/models";
+import { utils } from "../../../utils/utils";
 import { IBatchBody } from "../interfaces/Interfaces";
-import { IQueueAdvisorUpdate } from "../models/QueueAdvisorUpdate";
-import { AttributesService } from "../Services/attributesService";
-import { CreateChildProductService } from "../Services/createChildProductService ";
-import { CreateParentProductService } from "../Services/createParentProductService";
-import { GetProductsBySkuService } from "../Services/getProductsBySkuService";
-import { ImageService } from "../Services/imageService";
-import queueAdvisorService from "../Services/queueAdvisorService";
-import { ThirdPartyAllowedService } from "../Services/thirdPartyAllowedService";
+import { AttributesService } from "../services/attributesService";
+import { CreateChildProductService } from "../services/createChildProductService ";
+import { CreateParentProductService } from "../services/createParentProductService";
+import { GetProductsBySkuService } from "../services/getProductsBySkuService";
+import { ImageService } from "../services/imageService";
+import { ThirdPartyAllowedService } from "../services/thirdPartyAllowedService";
 
 class ProductController {
   handle = async (req: Request, res: Response) => {
@@ -24,6 +24,7 @@ class ProductController {
     const getProductsBySkuService = new GetProductsBySkuService();
     const thirdPartyAllowedService = new ThirdPartyAllowedService();
     const imageService = new ImageService();
+
     let lastSku: string;
     const queue = await queueAdvisorService.pullQueue(60);
     const headers = { "Content-Type": "application/json" };
