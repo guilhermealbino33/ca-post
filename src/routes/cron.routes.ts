@@ -3,10 +3,11 @@ import { Router } from "express";
 import { CategoryController } from "../modules/Cron/useCases/categoryController";
 import { ImageController } from "../modules/Cron/useCases/imageController";
 import { LabelController } from "../modules/Cron/useCases/labelController";
+import { ProductController } from "../modules/Cron/useCases/productController";
 import { UpdateProductController } from "../modules/Cron/useCases/updateProductController";
 
 const cronRoutes = Router();
-const productController = new UpdateProductController();
+const productController = new ProductController();
 const imageController = new ImageController();
 const updateProductController = new UpdateProductController();
 const labelController = new LabelController();
