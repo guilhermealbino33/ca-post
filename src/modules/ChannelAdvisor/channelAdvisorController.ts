@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { utils } from "utils/utils";
 
-import api from "../../services/api";
+import api from "../../services/ChannelAdvisor/api";
+import { utils } from "../../utils/utils";
 
 class ChannelAdvisorController {
   list = async (req: Request, res: Response) => {

@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { ChannelAdvisorController } from "modules/ChannelAdvisor/channelAdvisorController";
+
+import { ChannelAdvisorController } from "../modules/ChannelAdvisor/channelAdvisorController";
 
 const channelRoutes = Router();
 const channelAdvisorController = new ChannelAdvisorController();
