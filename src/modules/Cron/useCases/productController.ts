@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
 import api, { createToken } from "services/ChannelAdvisor/api";
-import queueAdvisorService from "services/Queue";
+import queueService from "services/Queue";
 import { IQueueInterface } from "services/Queue/interfaces/interfaces";
 import { utils } from "utils/utils";
 import { v4 as uuidV4 } from "uuid";
@@ -26,7 +26,7 @@ class ProductController {
     const imageService = new ImageService();
 
     let lastSku: string;
-    const queue = await queueAdvisorService.pullQueue(60);
+    const queue = await queueService.pullQueue(60);
     const headers = { "Content-Type": "application/json" };
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];

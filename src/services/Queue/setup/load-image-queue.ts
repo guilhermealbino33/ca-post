@@ -7,13 +7,12 @@ import { ImageQueueRepository } from "../repositories/QueueRepository";
 
 const getProductCodeList = async () => {
   const url = "https://clsdev.qbp.com/api3/1";
-  const key = "994675804a77949ba12e40dad5afaaf6";
 
   const config = {
     baseURL: url,
     headers: {
       Accept: "application/json",
-      "X-QBPAPI-KEY": key,
+      "X-QBPAPI-KEY": `${process.env.API_KEY}`,
     },
   };
 

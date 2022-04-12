@@ -5,7 +5,7 @@ import {
   CategoryQueueRepository,
 } from "./repositories/QueueRepository";
 
-class QueueAdvisorService {
+class QueueService {
   async pullQueue(quantity: number) {
     const items = await ProductQueueRepository.find({})
       .populate("product")
@@ -127,4 +127,4 @@ class QueueAdvisorService {
   }
 }
 
-export default new QueueAdvisorService();
+export default new QueueService();

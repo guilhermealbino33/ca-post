@@ -3,17 +3,16 @@ import _ from "lodash";
 
 import { setup } from "../../../database/mongoDB";
 import "../../../infra/config-env";
-import { ProductQueueRepository } from "../repositories/QueueRepository";
+import { LabelQueueRepository } from "../repositories/QueueRepository";
 
 const getProductCodeList = async () => {
   const url = "https://clsdev.qbp.com/api3/1";
-  const key = "994675804a77949ba12e40dad5afaaf6";
 
   const config = {
     baseURL: url,
     headers: {
       Accept: "application/json",
-      "X-QBPAPI-KEY": key,
+      "X-QBPAPI-KEY": `${process.env.API_KEY}`,
     },
   };
 
@@ -32,7 +31,7 @@ const execute = async () => {
 
     const chunk = chunks[index];
 
-    await ProductQueueRepository.collection.bulkWrite(
+    await LabelQueueRepository.collection.bulkWrite(
       chunk.map((code) => ({
         updateOne: {
           filter: {
