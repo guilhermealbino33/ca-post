@@ -12,7 +12,7 @@ class ProductController {
 
     try {
       const apiReturn = await api.get(
-        `/API/V3/Account/${process.env.ACCOUNT_ID}/Category.json`,
+        `/API/V3/Account/${process.env.ACCOUNT_ID}/Item.json`,
         {
           headers,
         }
