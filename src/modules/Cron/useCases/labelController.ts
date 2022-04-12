@@ -2,7 +2,7 @@
 import { Request, Response } from "express";
 import api, { createToken } from "services/ChannelAdvisor/api";
 import queueAdvisorService from "services/Queue";
-import { IQueueAdvisor } from "services/Queue/interfaces/interfaces";
+import { IQueueInterface } from "services/Queue/interfaces/interfaces";
 
 import { IBatchBody } from "../interfaces/Interfaces";
 import { ThirdPartyAllowedService } from "../services/thirdPartyAllowedService";
@@ -23,7 +23,7 @@ class LabelController {
     const codesResponse: string[] = ["Job concluded!"];
 
     const bodyCodes = {
-      requests: queue.map((item: IQueueAdvisor, index: number) => ({
+      requests: queue.map((item: IQueueInterface, index: number) => ({
         id: String(index),
         method: "get",
         url: `/v1/products?$filter=Sku eq '${item.product?.data.manufacturerPartNumber}'&$select=ID, Sku`,
@@ -33,7 +33,7 @@ class LabelController {
     const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
       headers,
     });
-    queue.forEach(async (item: IQueueAdvisor, i: number) => {
+    queue.forEach(async (item: IQueueInterface, i: number) => {
       const { product } = item;
       // console.log("codes", codes.data.responses[i].body);
 

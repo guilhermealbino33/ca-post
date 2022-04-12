@@ -2,7 +2,7 @@
 import { Request, Response } from "express";
 import api, { createToken } from "services/ChannelAdvisor/api";
 import queueAdvisorService from "services/Queue";
-import { IQueueAdvisor } from "services/Queue/interfaces/interfaces";
+import { IQueueInterface } from "services/Queue/interfaces/interfaces";
 import { utils } from "utils/utils";
 import { v4 as uuidV4 } from "uuid";
 
@@ -49,7 +49,7 @@ class ProductController {
       childData: any;
     }[] = [];
 
-    queue.forEach(async (item: IQueueAdvisor, i: number) => {
+    queue.forEach(async (item: IQueueInterface, i: number) => {
       const { product } = item;
 
       if (!product || !product?.data) {

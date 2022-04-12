@@ -4,7 +4,7 @@
 import { Request, Response } from "express";
 import api, { createToken } from "services/ChannelAdvisor/api";
 import queueAdvisorService from "services/Queue";
-import { IQueueAdvisor } from "services/Queue/interfaces/interfaces";
+import { IQueueInterface } from "services/Queue/interfaces/interfaces";
 import { v4 as uuidV4 } from "uuid";
 
 import { IBatchBody } from "../interfaces/Interfaces";
@@ -30,7 +30,7 @@ class CategoryController {
 
     const codes = await getProductsBySkuService.handle(sku);
 
-    queue.forEach(async (item: IQueueAdvisor, i: number) => {
+    queue.forEach(async (item: IQueueInterface, i: number) => {
       const { product } = item;
       const productID = codes.data?.responses[i]?.body.value[0]?.ID;
 

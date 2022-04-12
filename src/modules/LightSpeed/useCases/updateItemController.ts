@@ -15,7 +15,7 @@ class UpdateItemController {
       Authorization: `Bearer ${token}`,
     };
 
-    const queue = await queueAdvisorService.pullImageQueue(30);
+    const queue = /* await queueAdvisorService.pullImageQueue(30); */
 
     queue.forEach(async (item: IQueueInterface, i: number) => {
       return null;
