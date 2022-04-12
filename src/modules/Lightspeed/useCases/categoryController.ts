@@ -3,7 +3,7 @@
 import { Request, Response } from "express";
 import api, { getAuthToken } from "services/LightSpeed/api";
 import queueAdvisorService from "services/Queue";
-import { IQueueAdvisor } from "services/Queue/interfaces/interfaces";
+import { IQueueInterface } from "services/Queue/interfaces/interfaces";
 
 import { CategoryService } from "../services/categoryService";
 
@@ -18,7 +18,7 @@ class CategoryController {
       Authorization: `Bearer ${token}`,
     };
 
-    queue.forEach(async (item: IQueueAdvisor) => {
+    queue.forEach(async (item: IQueueInterface) => {
       const { product } = item;
 
       if (!product) {

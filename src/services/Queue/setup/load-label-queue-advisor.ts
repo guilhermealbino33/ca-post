@@ -1,9 +1,9 @@
 import axios from "axios";
 import _ from "lodash";
-import { QueueAdvisorLabelRepository } from "modules/Cron/repositories/QueueAdvisorRepository";
 
-import { setup } from "../database/mongoDB";
-import "../infra/config-env";
+import { setup } from "../../../database/mongoDB";
+import "../../../infra/config-env";
+import { LabelQueueRepository } from "../repositories/QueueRepository";
 
 const getProductCodeList = async () => {
   const url = "https://clsdev.qbp.com/api3/1";
@@ -32,7 +32,7 @@ const execute = async () => {
 
     const chunk = chunks[index];
 
-    await QueueAdvisorLabelRepository.collection.bulkWrite(
+    await LabelQueueRepository.collection.bulkWrite(
       chunk.map((code) => ({
         updateOne: {
           filter: {

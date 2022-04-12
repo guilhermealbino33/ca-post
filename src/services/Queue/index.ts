@@ -1,20 +1,20 @@
 import {
-  QueueAdvisorLabelRepository,
-  QueueAdvisorImageUpdateRepository,
-  QueueAdvisorUpdateRepository,
-  QueueAdvisorCategoryRepository,
-} from "./repositories/QueueAdvisorRepository";
+  ProductQueueRepository,
+  ImageQueueRepository,
+  LabelQueueRepository,
+  CategoryQueueRepository,
+} from "./repositories/QueueRepository";
 
 class QueueAdvisorService {
   async pullQueue(quantity: number) {
-    const items = await QueueAdvisorUpdateRepository.find({})
+    const items = await ProductQueueRepository.find({})
       .populate("product")
       .sort({
         lastUpdate: 1,
       })
       .limit(quantity);
 
-    await QueueAdvisorUpdateRepository.collection.bulkWrite(
+    await ProductQueueRepository.collection.bulkWrite(
       items.map((item) => {
         return {
           updateOne: {
@@ -34,14 +34,14 @@ class QueueAdvisorService {
     return items;
   }
   async pullImageQueue(quantity: number) {
-    const items = await QueueAdvisorImageUpdateRepository.find({})
+    const items = await ImageQueueRepository.find({})
       .populate("product")
       .sort({
         lastUpdate: 1,
       })
       .limit(quantity);
 
-    await QueueAdvisorImageUpdateRepository.collection.bulkWrite(
+    await ImageQueueRepository.collection.bulkWrite(
       items.map((item) => {
         return {
           updateOne: {
@@ -61,14 +61,14 @@ class QueueAdvisorService {
     return items;
   }
   async pullLabelQueue(quantity: number) {
-    const items = await QueueAdvisorLabelRepository.find({})
+    const items = await LabelQueueRepository.find({})
       .populate("product")
       .sort({
         lastUpdate: 1,
       })
       .limit(quantity);
 
-    await QueueAdvisorLabelRepository.collection.bulkWrite(
+    await LabelQueueRepository.collection.bulkWrite(
       items.map((item) => {
         return {
           updateOne: {
@@ -88,14 +88,14 @@ class QueueAdvisorService {
     return items;
   }
   async pullCategoryQueue(quantity: number) {
-    const items = await QueueAdvisorCategoryRepository.find({})
+    const items = await CategoryQueueRepository.find({})
       .populate("product")
       .sort({
         lastUpdate: 1,
       })
       .limit(quantity);
 
-    await QueueAdvisorCategoryRepository.collection.bulkWrite(
+    await CategoryQueueRepository.collection.bulkWrite(
       items.map((item) => {
         return {
           updateOne: {
@@ -117,7 +117,7 @@ class QueueAdvisorService {
   async pullOne() {
     // for tests with a single item
     /// TU1203 do not exists on Channel Advisor`
-    const items = await QueueAdvisorUpdateRepository.find({ code: "RM8365" })
+    const items = await ProductQueueRepository.find({ code: "RM8365" })
       .populate("product")
       .sort({
         lastUpdate: 1,
