@@ -2,7 +2,7 @@
 import { Request, Response } from "express";
 import api, { getAuthToken } from "services/LightSpeed/api";
 
-class ProductController {
+class GetItemsController {
   handle = async (req: Request, res: Response) => {
     const token = await getAuthToken();
     const headers = {
@@ -23,4 +23,4 @@ class ProductController {
     }
   };
 }
-export { ProductController };
+export { GetItemsController };
