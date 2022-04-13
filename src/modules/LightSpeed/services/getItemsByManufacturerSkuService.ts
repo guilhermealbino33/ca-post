@@ -3,7 +3,6 @@ import api from "services/LightSpeed/api";
 class GetItemsByManufacturerSkuService {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async handle(manufacturerSku: string, token: any) {
-    console.log("manufacturerSku", manufacturerSku);
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -15,7 +14,8 @@ class GetItemsByManufacturerSkuService {
       );
       const itemId = item.data?.Item?.itemID;
       if (itemId && itemId !== undefined) {
-        return `${itemId}`;
+        console.log("manufacturerSku Returned", manufacturerSku);
+        return itemId;
       }
       return "";
     } catch (error) {
