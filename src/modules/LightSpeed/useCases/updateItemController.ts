@@ -47,22 +47,20 @@ class UpdateItemController {
 
     items.forEach((item) => {
       const url = `/API/V3/Account/{accountID}/Item/${item.id}.json`;
-      const categoryCode = item.categoryId.map(
-        (category: string | null) => {
-          return category;
-        }
-      );
+      const categoryCode = item.categoryId.map((category: string | null) => {
+        return category;
+      });
 
       /**
        * Verificar:
        * - Itens com mais de uma categoria
        * - Se há possibilidade de criar categoria com um QBP CODE para usar de referencia
        * - Testar rota put categories no postman
+       * - Fazer for nas categorias dentro deste for procurando as correspondentes na LightSpeed
        */
 
       const body = {
         categoryID: item.categoryId[0],
-        categoryName: 
       };
       console.log("url", url);
       console.log("body", body);
