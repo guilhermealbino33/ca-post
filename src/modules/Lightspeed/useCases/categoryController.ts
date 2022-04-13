@@ -1,40 +1,68 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
+/* eslint-disable no-loop-func */
 import { Request, Response } from "express";
 import api, { getAuthToken } from "services/LightSpeed/api";
-import queueAdvisorService from "services/Queue";
-import { IQueueInterface } from "services/Queue/interfaces/interfaces";
 
-import { CategoryService } from "../services/categoryService";
+import categories from "../../QBP/database/categories.json";
+import { IProductInterface } from "../../QBP/models/ProductInterface";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 class CategoryController {
   handle = async (req: Request, res: Response) => {
     const token = await getAuthToken();
-    const categoryService = new CategoryService();
-    const queue = await queueAdvisorService.pullCategoryQueue(1);
     const data: any = [];
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     };
 
-    queue.forEach(async (item: IQueueInterface) => {
-      const { product } = item;
+    const categoriesMock = categories.categories;
 
-      if (!product) {
-        console.log(`*************** Sku not found ***************`);
-        return;
+    categoriesMock.forEach((category) => {
+      if (category.parentCode === "g0") {
+        data.push({
+          name: category.name,
+        });
       }
-      data.push(categoryService.handle(product));
+
+      // switch (category.parentCode) {
+      //   case "g0":
+      //     data.push({
+      //       name: category.name,
+      //       // fullPathName: category.name, // fazer breadcrumbs
+      //       parentID: category.parentCode,
+      //     });
+
+      //     break;
+      //   case "cw-special-categories":
+      //     data.push({
+      //       name: category.name,
+      //       // fullPathName: category.name, // fazer breadcrumbs
+      //       parentID: category.parentCode,
+      //     });
+
+      //     break;
+
+      //   default:
+      //     break;
+      // }
+
+      // while (category.parentCode === "g0") {
+      //   data.push({
+      //     name: category.name,
+      //     // fullPathName: category.name, // fazer breadcrumbs
+      //     parentID: category.parentCode,
+      //   });
+      // }
     });
+    console.log("data", data);
     try {
-      await api.post(
-        `/API/V3/Account/${process.env.ACCOUNT_ID}/Category.json`,
-        data,
-        {
-          headers,
-        }
-      );
+      // await api.post(
+      //   `/API/V3/Account/${process.env.ACCOUNT_ID}/Category.json`,
+      //   data,
+      //   {
+      //     headers,
+      //   }
+      // );
       return res.json("Concluded");
     } catch (e: any) {
       return console.log("Error", e);
