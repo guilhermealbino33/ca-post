@@ -7,96 +7,22 @@
     {
       "code": "g0",
       "name": "QBP Product Catalog",
-      "parentCode": null,
-      "childCodes": [
-        "cw-special-categories",
-        "g27",
-        "g43",
-        "g501",
-        "g28",
-        "c0_emp_clothing",
-        "g1",
-        "cblank",
-        "g639",
-        "g632",
-        "g459",
-        "g618",
-        "g29",
-        "g562",
-        "g20",
-        "g612",
-        "cKits",
-        "c0_dealers_choice",
-        "g549",
-        "g459e"
-      ]
+      "parentCode": null
     },
     {
       "code": "cw-special-categories",
       "name": "CW Special",
-      "parentCode": "g0",
-      "childCodes": [
-        "cw-rims",
-        "cw-custom-spokes",
-        "cw-custom-nipples",
-        "cw-labor",
-        "cw-additional-labor",
-        "cw-lacing",
-        "cw-offset",
-        "cw-wheel-type"
-      ]
+      "parentCode": "g0"
     },
     {
       "code": "cw-rims",
       "name": "CW Rims",
-      "parentCode": "cw-special-categories",
-      "childCodes": [
-        "c_dropship_rim"
-      ]
+      "parentCode": "cw-special-categories"
     },
     {
       "code": "g27",
       "name": "Components",
-      "parentCode": "g0",
-      "childCodes": [
-        "g456",
-        "g86",
-        "g51",
-        "g394",
-        "g219",
-        "g438",
-        "g89",
-        "g172",
-        "g577",
-        "g453",
-        "g517",
-        "g491",
-        "g652",
-        "g576",
-        "g50",
-        "c2085",
-        "g575",
-        "g59",
-        "g573",
-        "g574",
-        "g678",
-        "g490",
-        "g541",
-        "g452",
-        "g544",
-        "g530",
-        "g583",
-        "g75",
-        "g63",
-        "g604",
-        "g546",
-        "g572",
-        "g634",
-        "g457",
-        "g720",
-        "g722",
-        "g724"
-      ]
+      "parentCode": "g0"
     }
   ]
 }

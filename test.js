@@ -39,6 +39,8 @@ const nonZeroReturn = (value) => {
   return "";
 };
 
+
+
 const msrp = 110;
 const nameStr = "Sutherland's Repair/Maintenance Guide: 7th Edition Book & CD";
 const modelStr = "Sutherland's 7th Edition Book & CD"; 
