@@ -6,6 +6,7 @@
 /* eslint-disable no-loop-func */
 import { Request, Response } from "express";
 import api, { getAuthToken } from "services/LightSpeed/api";
+import { lockRequest } from "utils/lock-request/lock-request";
 
 import categories from "../../QBP/database/categories.json";
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -17,14 +18,13 @@ export async function createCategoryHandle(req: Request, res: Response) {
     for (const category of categoriesMock) {
       const parentId = findParentID(category, createdCategories);
 
-      console.log("parentId", parentId);
       const data = {
         name: category.name,
         parentID: parentId,
       };
       console.log("data", data);
       const createdCategory = await createCategory(data);
-      console.log("createdCategory", createdCategory);
+      // console.log("createdCategory", createdCategory);
       const categoryId = createdCategory.Category.categoryID;
       console.log("categoryId :", categoryId);
       createdCategories.push({
@@ -39,7 +39,6 @@ export async function createCategoryHandle(req: Request, res: Response) {
 }
 
 function findParentID(category: any, createdCategories: any[]): any {
-  // console.log("category inside", category);
   if (category.parentCode === null) {
     return "0";
   }
@@ -63,6 +62,9 @@ async function createCategory(body: any): Promise<any> {
         headers,
       }
     );
+
+    await lockRequest(response);
+
     return response.data;
   } catch (error) {
     console.log(error);
