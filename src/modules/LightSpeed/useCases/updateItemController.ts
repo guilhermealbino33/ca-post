@@ -54,9 +54,8 @@ class UpdateItemController {
       /**
        * Verificar:
        * - Itens com mais de uma categoria
-       * - Se há possibilidade de criar categoria com um QBP CODE para usar de referencia
-       * - Testar rota put categories no postman
        * - Fazer for nas categorias dentro deste for procurando as correspondentes na LightSpeed
+       * - dar um get na API Centralizer
        */
 
       const body = {

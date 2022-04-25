@@ -5,6 +5,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-loop-func */
 import { Request, Response } from "express";
+import fs from "fs";
 import api, { getAuthToken } from "services/LightSpeed/api";
 import { lockRequest } from "utils/lock-request/lock-request";
 
@@ -13,8 +14,8 @@ import categories from "../../QBP/database/categories.json";
 
 export async function createCategoryHandle(req: Request, res: Response) {
   try {
-    const createdCategories: any = [];
-    const categoriesMock = categories.categories;
+    const categoriesMock = categories.categories as any;
+
     for (const category of categoriesMock) {
       const data = {
         name: category.name,
@@ -23,28 +24,36 @@ export async function createCategoryHandle(req: Request, res: Response) {
       // console.log("createdCategory", createdCategory);
       const categoryId = createdCategory.Category.categoryID;
       console.log("categoryId :", categoryId);
-      createdCategories.push({
-        categoryID: categoryId,
-        code: category.code,
-      });
+
+      category.lightspeedID = categoryId;
     }
+    fs.writeFile(
+      "src/modules/QBP/database/categories-common-codes.json",
+      JSON.stringify(categoriesMock),
+      (err) => {
+        // Checking for errors
+        if (err) throw err;
+
+        console.log("Done writing");
+      }
+    );
 
     for (const category of categoriesMock) {
-      const parentId = findParentID(category, createdCategories);
+      const parentId = findParentID(category, categoriesMock);
       // console.log("category new for", category);
       console.log("parentId new for", parentId);
       const data = {
         parentID: parentId,
       };
       // console.log("data", data);
-      const categoryId = findID(category, createdCategories);
+      const categoryId = findID(category, categoriesMock);
       await updateCategory(data, categoryId);
       // console.log("createdCategory", createdCategory);
       console.log("categoryId new for:", categoryId);
       console.log("data new for:", data);
     }
 
-    return res.json("Concluded");
+    return res.json(categoriesMock);
   } catch (e: any) {
     return console.log("Error", e);
   }
@@ -52,21 +61,21 @@ export async function createCategoryHandle(req: Request, res: Response) {
 
 function findParentID(category: any, createdCategories: any[]): any {
   if (category.parentCode === null) {
-    return null;
+    return "0";
   }
   const foundCategory = createdCategories.find(
     (createdCategory) => createdCategory.code === category.parentCode
   );
-  return foundCategory.categoryID;
+  return foundCategory.lightspeedID;
 }
 function findID(category: any, createdCategories: any[]): any {
-  if (category.parentCode === null) {
+  if (category.code === null) {
     return "0";
   }
   const foundCategory = createdCategories.find(
     (createdCategory) => createdCategory.code === category.code
   );
-  return foundCategory.categoryID;
+  return foundCategory.lightspeedID;
 }
 
 async function createCategory(body: any): Promise<any> {
