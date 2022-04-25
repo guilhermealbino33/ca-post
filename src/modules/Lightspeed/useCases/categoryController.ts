@@ -6,10 +6,11 @@
 /* eslint-disable no-loop-func */
 import { Request, Response } from "express";
 import fs from "fs";
-import api, { getAuthToken } from "services/LightSpeed/api";
+import api, { getToken } from "services/LightSpeed/api";
 import { lockRequest } from "utils/lock-request/lock-request";
 
 import categories from "../../QBP/database/categories.json";
+import { findID, findParentID } from "../services/categoryService";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export async function createCategoryHandle(req: Request, res: Response) {
@@ -59,27 +60,8 @@ export async function createCategoryHandle(req: Request, res: Response) {
   }
 }
 
-function findParentID(category: any, createdCategories: any[]): any {
-  if (category.parentCode === null) {
-    return "0";
-  }
-  const foundCategory = createdCategories.find(
-    (createdCategory) => createdCategory.code === category.parentCode
-  );
-  return foundCategory.lightspeedID;
-}
-function findID(category: any, createdCategories: any[]): any {
-  if (category.code === null) {
-    return "0";
-  }
-  const foundCategory = createdCategories.find(
-    (createdCategory) => createdCategory.code === category.code
-  );
-  return foundCategory.lightspeedID;
-}
-
 async function createCategory(body: any): Promise<any> {
-  const token = await getAuthToken();
+  const token = await getToken();
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -102,7 +84,7 @@ async function createCategory(body: any): Promise<any> {
   }
 }
 async function updateCategory(body: any, categoryId: string): Promise<any> {
-  const token = await getAuthToken();
+  const token = await getToken();
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,

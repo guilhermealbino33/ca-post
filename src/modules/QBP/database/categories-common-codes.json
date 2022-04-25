@@ -1,1 +1,26 @@
-[{"code":"g0","name":"QBP Product Catalog","parentCode":null,"lightspeedID":"1633"},{"code":"cw-special-categories","name":"CW Special","parentCode":"g0","lightspeedID":"1634"},{"code":"cw-rims","name":"CW Rims","parentCode":"cw-special-categories","lightspeedID":"1635"},{"code":"g27","name":"Components","parentCode":"g0","lightspeedID":"1636"}]
+[
+  {
+    "code": "g0",
+    "name": "QBP Product Catalog",
+    "parentCode": null,
+    "lightspeedID": "1633"
+  },
+  {
+    "code": "cw-special-categories",
+    "name": "CW Special",
+    "parentCode": "g0",
+    "lightspeedID": "1634"
+  },
+  {
+    "code": "cw-rims",
+    "name": "CW Rims",
+    "parentCode": "cw-special-categories",
+    "lightspeedID": "1635"
+  },
+  {
+    "code": "g27",
+    "name": "Components",
+    "parentCode": "g0",
+    "lightspeedID": "1636"
+  }
+]

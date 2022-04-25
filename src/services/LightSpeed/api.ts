@@ -13,7 +13,7 @@ const api = axios.create({
   baseURL: "https://api.lightspeedapp.com",
 });
 
-export const getAuthToken = async (): Promise<string> => {
+export const getToken = async (): Promise<string> => {
   const config = {
     client_id: process.env.LS_CLIENT_ID,
     client_secret: process.env.LS_CLIENT_SECRET,
