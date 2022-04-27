@@ -28,8 +28,8 @@ export class UpdateItemsService {
       const data = {
         categoryID: foundID,
       };
-      console.log("commonItem code", commonItem.code);
-      console.log("data", data);
+      console.log("commonItem", commonItem);
+      console.log("body", data);
       // await this.updateItem(data, commonItem.lightspeedID);
     }
   }
@@ -40,14 +40,14 @@ export class UpdateItemsService {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       };
-      const params = new URLSearchParams();
       const response = await apiCentralizer.get(
         "/products/common-products-lsh-qbp",
         {
           headers,
-          params,
+          params: await this.axiosParams(),
         }
       );
+      // console.log("response", response);
       return response.data as any;
     } catch (error) {
       console.log("error");
@@ -90,5 +90,11 @@ export class UpdateItemsService {
     if (foundCategory) {
       return foundCategory.lightspeedID;
     }
+  }
+  private async axiosParams() {
+    const params = new URLSearchParams();
+    params.append("page", "1");
+    params.append("limit", "15");
+    return params;
   }
 }
