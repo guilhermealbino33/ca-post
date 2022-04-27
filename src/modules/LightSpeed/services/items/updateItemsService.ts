@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable consistent-return */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -13,9 +14,19 @@ import categories from "../../../QBP/database/categories-common-codes.json";
 export class UpdateItemsService {
   async execute(): Promise<any> {
     const categoriesMock = categories as any;
-    const items = await this.getCommonLshQbpItems();
+    const commonProducts = [];
 
-    for (const item of items) {
+    for (let index = 0; index < 9999; index++) {
+      const _commonProducts = await this.getCommonLshQbpItems(index);
+
+      if (_commonProducts) {
+        commonProducts.push(_commonProducts);
+      } else {
+        break;
+      }
+    }
+
+    for (const item of commonProducts) {
       const commonItem = {
         code: item.qbpProduct.categoryCodes[
           item.qbpProduct.categoryCodes.length - 1
@@ -33,7 +44,8 @@ export class UpdateItemsService {
       // await this.updateItem(data, commonItem.lightspeedID);
     }
   }
-  private async getCommonLshQbpItems() {
+  private async getCommonLshQbpItems(page: number) {
+    // recebe parametro page e passa para o axiosParams
     try {
       const token = await getAuthToken();
       const headers = {
@@ -44,7 +56,7 @@ export class UpdateItemsService {
         "/products/common-products-lsh-qbp",
         {
           headers,
-          params: await this.axiosParams(),
+          params: await this.axiosParams(page),
         }
       );
       // console.log("response", response);
@@ -91,10 +103,11 @@ export class UpdateItemsService {
       return foundCategory.lightspeedID;
     }
   }
-  private async axiosParams() {
+  private async axiosParams(page: number) {
     const params = new URLSearchParams();
-    params.append("page", "1");
-    params.append("limit", "15");
+    params.append("page", String(page));
+    params.append("limit", "100");
+    console.log("params", params);
     return params;
   }
 }
