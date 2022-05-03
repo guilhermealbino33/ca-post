@@ -3,73 +3,9612 @@
     "code": "g0",
     "name": "QBP Product Catalog",
     "parentCode": null,
-    "lightspeedID": "1641"
+    "childCodes": [
+      "cw-special-categories",
+      "g27",
+      "g43",
+      "g501",
+      "g28",
+      "c0_emp_clothing",
+      "g1",
+      "cblank",
+      "g639",
+      "g632",
+      "g459",
+      "g618",
+      "g29",
+      "g562",
+      "g20",
+      "g612",
+      "cKits",
+      "c0_dealers_choice",
+      "g549",
+      "g459e"
+    ],
+    "lightspeedID": "1648"
   },
   {
     "code": "cw-special-categories",
     "name": "CW Special",
     "parentCode": "g0",
-    "lightspeedID": "1642"
+    "childCodes": [
+      "cw-rims",
+      "cw-custom-spokes",
+      "cw-custom-nipples",
+      "cw-labor",
+      "cw-additional-labor",
+      "cw-lacing",
+      "cw-offset",
+      "cw-wheel-type"
+    ],
+    "lightspeedID": "1649"
   },
   {
     "code": "cw-rims",
     "name": "CW Rims",
     "parentCode": "cw-special-categories",
-    "lightspeedID": "1643"
+    "childCodes": ["c_dropship_rim"],
+    "lightspeedID": "1650"
   },
   {
     "code": "g27",
     "name": "Components",
     "parentCode": "g0",
-    "lightspeedID": "1644"
+    "childCodes": [
+      "g456",
+      "g86",
+      "g51",
+      "g394",
+      "g219",
+      "g438",
+      "g89",
+      "g172",
+      "g577",
+      "g453",
+      "g517",
+      "g491",
+      "g652",
+      "g576",
+      "g50",
+      "c2085",
+      "g575",
+      "g59",
+      "g573",
+      "g574",
+      "g678",
+      "g490",
+      "g541",
+      "g452",
+      "g544",
+      "g530",
+      "g583",
+      "g75",
+      "g63",
+      "g604",
+      "g546",
+      "g572",
+      "g634",
+      "g457",
+      "g720",
+      "g722",
+      "g724"
+    ],
+    "lightspeedID": "1651"
   },
   {
-    "code": "c1280",
-    "name": "Gel",
-    "parentCode": "g20",
-    "childCodes": [],
-    "lightspeedID": "1645"
+    "code": "g456",
+    "name": "Rim",
+    "parentCode": "g27",
+    "childCodes": ["c527", "c761"],
+    "lightspeedID": "1652"
   },
   {
-    "code": "c321",
-    "name": "Degreaser / Cleaner",
-    "parentCode": "g562",
+    "code": "c527",
+    "name": "Rims",
+    "parentCode": "g456",
     "childCodes": [],
-    "lightspeedID": "1646"
+    "lightspeedID": "1653"
   },
   {
-    "code": "c362",
-    "name": "Patch Kit",
-    "parentCode": "g582",
-    "childCodes": [],
-    "lightspeedID": "1647"
+    "code": "g43",
+    "name": "Skin Care",
+    "parentCode": "g0",
+    "childCodes": [
+      "c998",
+      "c_a1",
+      "c1003",
+      "c999",
+      "c116",
+      "c1002",
+      "c1004",
+      "c1006",
+      "c1001",
+      "c1005",
+      "c116_topical_pain_relief"
+    ],
+    "lightspeedID": "1654"
   },
   {
-    "code": "c316",
-    "name": "Lubricant",
-    "parentCode": "g562",
+    "code": "c998",
+    "name": "Anti Chafe",
+    "parentCode": "g43",
     "childCodes": [],
-    "lightspeedID": "1648"
+    "lightspeedID": "1655"
+  },
+  {
+    "code": "c_a1",
+    "name": "Embrocation",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "1656"
+  },
+  {
+    "code": "c1003",
+    "name": "Hair Removal",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "1657"
+  },
+  {
+    "code": "g501",
+    "name": "Frames",
+    "parentCode": "g0",
+    "childCodes": [
+      "c680",
+      "c1188",
+      "c630",
+      "c629",
+      "c1048",
+      "c580",
+      "c_900_tandem_frame",
+      "c626",
+      "c1291",
+      "c628",
+      "c822",
+      "c632",
+      "c1027",
+      "c767-do-not-use",
+      "c1047-do-not-use",
+      "c628-do-not-use",
+      "c631-do-not-use",
+      "cDNU696-do-not-use",
+      "cK1319_cargo_frame",
+      "c1049_cityframe_master",
+      "c627-do-not-use"
+    ],
+    "lightspeedID": "1658"
+  },
+  {
+    "code": "g28",
+    "name": "Apparel",
+    "parentCode": "g0",
+    "childCodes": [
+      "g622",
+      "g568",
+      "g646",
+      "g620",
+      "g558",
+      "g700",
+      "g621",
+      "g598",
+      "g233",
+      "g579",
+      "c211",
+      "g124",
+      "g545",
+      "g569",
+      "c219",
+      "g591",
+      "c309",
+      "c865",
+      "c1186",
+      "c99_custom_apparel",
+      "g92_fitness",
+      "g_swim"
+    ],
+    "lightspeedID": "1659"
+  },
+  {
+    "code": "g622",
+    "name": "Cycling",
+    "parentCode": "g28",
+    "childCodes": [
+      "c307",
+      "c260",
+      "c277",
+      "c308",
+      "c306",
+      "c1260",
+      "g230",
+      "c305",
+      "g683",
+      "c233",
+      "g666",
+      "c1244_do_not_use"
+    ],
+    "lightspeedID": "1660"
+  },
+  {
+    "code": "c307",
+    "name": "Short/Bib Short",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1661"
+  },
+  {
+    "code": "c260",
+    "name": "Short Liner",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1662"
+  },
+  {
+    "code": "c0_emp_clothing",
+    "name": "QBP Employee Clothing",
+    "parentCode": "g0",
+    "childCodes": [],
+    "lightspeedID": "1663"
+  },
+  {
+    "code": "g568",
+    "name": "Multi-Sport",
+    "parentCode": "g28",
+    "childCodes": ["c753", "c741", "c1139", "c754", "c999_swimskin"],
+    "lightspeedID": "1664"
+  },
+  {
+    "code": "c753",
+    "name": "Multi-Sport Bottom",
+    "parentCode": "g568",
+    "childCodes": [],
+    "lightspeedID": "1665"
+  },
+  {
+    "code": "c741",
+    "name": "Multi-Sport Suit",
+    "parentCode": "g568",
+    "childCodes": [],
+    "lightspeedID": "1666"
+  },
+  {
+    "code": "g646",
+    "name": "Outerwear",
+    "parentCode": "g28",
+    "childCodes": ["c1246", "c235", "c1138"],
+    "lightspeedID": "1667"
+  },
+  {
+    "code": "c1246",
+    "name": "Pant",
+    "parentCode": "g646",
+    "childCodes": [],
+    "lightspeedID": "1668"
+  },
+  {
+    "code": "c277",
+    "name": "Cycling Pants",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1669"
+  },
+  {
+    "code": "g620",
+    "name": "Running Apparel",
+    "parentCode": "g28",
+    "childCodes": [
+      "c959",
+      "c964",
+      "c969",
+      "c960",
+      "c963",
+      "c961",
+      "c1245_do_not_use"
+    ],
+    "lightspeedID": "1670"
+  },
+  {
+    "code": "c959",
+    "name": "Running Short",
+    "parentCode": "g620",
+    "childCodes": [],
+    "lightspeedID": "1671"
+  },
+  {
+    "code": "c964",
+    "name": "Running Knicker",
+    "parentCode": "g620",
+    "childCodes": [],
+    "lightspeedID": "1672"
+  },
+  {
+    "code": "c969",
+    "name": "Running Skirt",
+    "parentCode": "g620",
+    "childCodes": [],
+    "lightspeedID": "1673"
+  },
+  {
+    "code": "c960",
+    "name": "Running Tight",
+    "parentCode": "g620",
+    "childCodes": [],
+    "lightspeedID": "1674"
+  },
+  {
+    "code": "g558",
+    "name": "Casual Wear",
+    "parentCode": "g28",
+    "childCodes": [
+      "c958",
+      "c886",
+      "c1168",
+      "c740",
+      "c218",
+      "c216",
+      "c217",
+      "c808",
+      "c954"
+    ],
+    "lightspeedID": "1675"
+  },
+  {
+    "code": "c958",
+    "name": "Casual Short",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1676"
+  },
+  {
+    "code": "g700",
+    "name": "Compression Gear",
+    "parentCode": "g28",
+    "childCodes": ["c1284", "c1283", "c1321", "c1127"],
+    "lightspeedID": "1677"
+  },
+  {
+    "code": "c1284",
+    "name": "Compression Bottom",
+    "parentCode": "g700",
+    "childCodes": [],
+    "lightspeedID": "1678"
+  },
+  {
+    "code": "c308",
+    "name": "Tights/Bib Tights",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1679"
+  },
+  {
+    "code": "c963",
+    "name": "Running Pant",
+    "parentCode": "g620",
+    "childCodes": [],
+    "lightspeedID": "1680"
+  },
+  {
+    "code": "g621",
+    "name": "Skiing",
+    "parentCode": "g28",
+    "childCodes": ["c966", "c965_do_not_use", "c968", "c967"],
+    "lightspeedID": "1681"
+  },
+  {
+    "code": "c966",
+    "name": "Ski Bottom",
+    "parentCode": "g621",
+    "childCodes": [],
+    "lightspeedID": "1682"
+  },
+  {
+    "code": "c886",
+    "name": "Casual Pants",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1683"
+  },
+  {
+    "code": "c306",
+    "name": "Knickers",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1684"
+  },
+  {
+    "code": "c1139",
+    "name": "Speedsuit",
+    "parentCode": "g568",
+    "childCodes": [],
+    "lightspeedID": "1685"
+  },
+  {
+    "code": "c1168",
+    "name": "Dresses and Skirts",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1686"
+  },
+  {
+    "code": "g598",
+    "name": "Protective Gear / Body Armor",
+    "parentCode": "g28",
+    "childCodes": [
+      "c585",
+      "c584",
+      "c279",
+      "c2792_arm",
+      "c2791_leg",
+      "c2793_torso",
+      "c2791_set"
+    ],
+    "lightspeedID": "1687"
+  },
+  {
+    "code": "c585",
+    "name": "Protective Short",
+    "parentCode": "g598",
+    "childCodes": [],
+    "lightspeedID": "1688"
+  },
+  {
+    "code": "c740",
+    "name": "Casual Shirt",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1689"
+  },
+  {
+    "code": "c1260",
+    "name": "Cycling Skirt/Dress",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1690"
+  },
+  {
+    "code": "g233",
+    "name": "Under Garments / Base Layers",
+    "parentCode": "g28",
+    "childCodes": ["c576", "c310", "c1032"],
+    "lightspeedID": "1691"
+  },
+  {
+    "code": "c576",
+    "name": "Bottom",
+    "parentCode": "g233",
+    "childCodes": [],
+    "lightspeedID": "1692"
+  },
+  {
+    "code": "c584",
+    "name": "Protective Pant",
+    "parentCode": "g598",
+    "childCodes": [],
+    "lightspeedID": "1693"
+  },
+  {
+    "code": "c961",
+    "name": "Running Top",
+    "parentCode": "g620",
+    "childCodes": [],
+    "lightspeedID": "1694"
+  },
+  {
+    "code": "c842",
+    "name": "Swim Wear",
+    "parentCode": "g_swim",
+    "childCodes": [],
+    "lightspeedID": "1695"
+  },
+  {
+    "code": "g1",
+    "name": "Accessories",
+    "parentCode": "g0",
+    "childCodes": [
+      "g33",
+      "g32",
+      "g2",
+      "g633",
+      "g607",
+      "g17",
+      "G_travel",
+      "g585",
+      "g10",
+      "c271",
+      "g592",
+      "g24",
+      "g653",
+      "g605",
+      "g31",
+      "g15",
+      "c50",
+      "g676",
+      "g22",
+      "c18",
+      "c17",
+      "g570",
+      "g12",
+      "g13",
+      "g42",
+      "g701",
+      "g16",
+      "c47",
+      "g25",
+      "g14",
+      "g593",
+      "c77"
+    ],
+    "lightspeedID": "1696"
+  },
+  {
+    "code": "g33",
+    "name": "Auto Rack",
+    "parentCode": "g1",
+    "childCodes": [
+      "g40",
+      "c821",
+      "g54",
+      "g34",
+      "c237",
+      "g35",
+      "g37",
+      "g38",
+      "g36"
+    ],
+    "lightspeedID": "1697"
+  },
+  {
+    "code": "g40",
+    "name": "Rack Accessories/Service Parts",
+    "parentCode": "g33",
+    "childCodes": [],
+    "lightspeedID": "1698"
+  },
+  {
+    "code": "c821",
+    "name": "Rack Accessories",
+    "parentCode": "g33",
+    "childCodes": [],
+    "lightspeedID": "1699"
+  },
+  {
+    "code": "g54",
+    "name": "Luggage/Cargo Carriers",
+    "parentCode": "g33",
+    "childCodes": ["c97"],
+    "lightspeedID": "1700"
+  },
+  {
+    "code": "c97",
+    "name": "Cargo Carrier",
+    "parentCode": "g54",
+    "childCodes": [],
+    "lightspeedID": "1701"
+  },
+  {
+    "code": "g34",
+    "name": "Roof Racks",
+    "parentCode": "g33",
+    "childCodes": [
+      "c102",
+      "c103",
+      "c94",
+      "c105",
+      "c99",
+      "c100",
+      "c96",
+      "c98",
+      "c820",
+      "c101"
+    ],
+    "lightspeedID": "1702"
+  },
+  {
+    "code": "c102",
+    "name": "Roof Rack Accessory",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1703"
+  },
+  {
+    "code": "c237",
+    "name": "Rack Service Part",
+    "parentCode": "g33",
+    "childCodes": [],
+    "lightspeedID": "1704"
+  },
+  {
+    "code": "c103",
+    "name": "Rack Fit Kits and Clips",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1705"
+  },
+  {
+    "code": "g35",
+    "name": "Hitch Racks",
+    "parentCode": "g33",
+    "childCodes": ["c106", "c90", "c1134", "c91", "c1133"],
+    "lightspeedID": "1706"
+  },
+  {
+    "code": "c106",
+    "name": "Hitch Rack Accessory",
+    "parentCode": "g35",
+    "childCodes": [],
+    "lightspeedID": "1707"
+  },
+  {
+    "code": "g37",
+    "name": "Trunk Rack",
+    "parentCode": "g33",
+    "childCodes": ["c114", "c112"],
+    "lightspeedID": "1708"
+  },
+  {
+    "code": "c114",
+    "name": "Trunk Rack Accessory",
+    "parentCode": "g37",
+    "childCodes": [],
+    "lightspeedID": "1709"
+  },
+  {
+    "code": "c90",
+    "name": "Hitch Bike Rack",
+    "parentCode": "g35",
+    "childCodes": [],
+    "lightspeedID": "1710"
+  },
+  {
+    "code": "c94",
+    "name": "Roof Rack Bike Carrier",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1711"
+  },
+  {
+    "code": "g38",
+    "name": "Van/Truck Bed Racks",
+    "parentCode": "g33",
+    "childCodes": ["c109", "c108", "c108_1"],
+    "lightspeedID": "1712"
+  },
+  {
+    "code": "c109",
+    "name": "Van/Truck Bed Rack Part",
+    "parentCode": "g38",
+    "childCodes": [],
+    "lightspeedID": "1713"
+  },
+  {
+    "code": "c108",
+    "name": "Van/Truck Bed Rack",
+    "parentCode": "g38",
+    "childCodes": [],
+    "lightspeedID": "1714"
+  },
+  {
+    "code": "c112",
+    "name": "Trunk Racks",
+    "parentCode": "g37",
+    "childCodes": [],
+    "lightspeedID": "1715"
+  },
+  {
+    "code": "g36",
+    "name": "Spare Tire Racks",
+    "parentCode": "g33",
+    "childCodes": ["c92", "c93"],
+    "lightspeedID": "1716"
+  },
+  {
+    "code": "c92",
+    "name": "Spare Tire Rack",
+    "parentCode": "g36",
+    "childCodes": [],
+    "lightspeedID": "1717"
+  },
+  {
+    "code": "c93",
+    "name": "Spare Tire Rack Part",
+    "parentCode": "g36",
+    "childCodes": [],
+    "lightspeedID": "1718"
+  },
+  {
+    "code": "g32",
+    "name": "Rack, Display/Storage",
+    "parentCode": "g1",
+    "childCodes": ["c89", "c1070", "c765"],
+    "lightspeedID": "1719"
+  },
+  {
+    "code": "c89",
+    "name": "Racks, Display/Storage",
+    "parentCode": "g32",
+    "childCodes": [],
+    "lightspeedID": "1720"
+  },
+  {
+    "code": "c105",
+    "name": "Roof Rack Wheel Fork",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1721"
+  },
+  {
+    "code": "c99",
+    "name": "Load Bar",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1722"
+  },
+  {
+    "code": "c100",
+    "name": "Load Bar Tower",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1723"
+  },
+  {
+    "code": "cblank",
+    "name": "Blank ProductCategory",
+    "parentCode": "g0",
+    "childCodes": [],
+    "lightspeedID": "1724"
+  },
+  {
+    "code": "c1134",
+    "name": "Hitch Watersport Rack",
+    "parentCode": "g35",
+    "childCodes": [],
+    "lightspeedID": "1725"
+  },
+  {
+    "code": "c96",
+    "name": "Ski Carrier",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1726"
+  },
+  {
+    "code": "c98",
+    "name": "Watersport Carrier",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1727"
+  },
+  {
+    "code": "c91",
+    "name": "Hitch Rack Part",
+    "parentCode": "g35",
+    "childCodes": [],
+    "lightspeedID": "1728"
+  },
+  {
+    "code": "c820",
+    "name": "Fairing",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1729"
+  },
+  {
+    "code": "c101",
+    "name": "Load Bar/Tower Set",
+    "parentCode": "g34",
+    "childCodes": [],
+    "lightspeedID": "1730"
+  },
+  {
+    "code": "g2",
+    "name": "Bag",
+    "parentCode": "g1",
+    "childCodes": [
+      "c4",
+      "c11",
+      "c904",
+      "c1165",
+      "c1320",
+      "c12",
+      "c76",
+      "g690",
+      "c1",
+      "c2",
+      "c3",
+      "c13",
+      "c1166",
+      "c10",
+      "c1126",
+      "c5",
+      "c7",
+      "c6",
+      "g44",
+      "c775",
+      "c4_tool_wrap",
+      "c786_8_trailer_bag",
+      "c995"
+    ],
+    "lightspeedID": "1731"
+  },
+  {
+    "code": "c4",
+    "name": "Seat Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1732"
+  },
+  {
+    "code": "g633",
+    "name": "Hydration",
+    "parentCode": "g1",
+    "childCodes": ["g46", "g45", "g703", "c840"],
+    "lightspeedID": "1733"
+  },
+  {
+    "code": "g46",
+    "name": "Water Bottle Cage",
+    "parentCode": "g633",
+    "childCodes": ["c126", "c125"],
+    "lightspeedID": "1734"
+  },
+  {
+    "code": "c126",
+    "name": "Water Bottle Cage Hardware",
+    "parentCode": "g46",
+    "childCodes": [],
+    "lightspeedID": "1735"
+  },
+  {
+    "code": "c125",
+    "name": "Water Bottle Cages",
+    "parentCode": "g46",
+    "childCodes": [],
+    "lightspeedID": "1736"
+  },
+  {
+    "code": "c11",
+    "name": "Backpack",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1737"
+  },
+  {
+    "code": "c904",
+    "name": "Handbag/Shoulder Bag/Tote",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1738"
+  },
+  {
+    "code": "c1165",
+    "name": "Transition Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1739"
+  },
+  {
+    "code": "c1320",
+    "name": "Top Tube/ Stem Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1740"
+  },
+  {
+    "code": "g639",
+    "name": "Outdoor",
+    "parentCode": "g0",
+    "childCodes": [
+      "c1103",
+      "g637",
+      "g649",
+      "g677",
+      "g656",
+      "g680",
+      "g643",
+      "g655",
+      "g687",
+      "g641",
+      "g640",
+      "g691",
+      "g657",
+      "g664",
+      "g638",
+      "c1224",
+      "c1298"
+    ],
+    "lightspeedID": "1741"
+  },
+  {
+    "code": "c1103",
+    "name": "Dry Bag/Stuff Sack",
+    "parentCode": "g639",
+    "childCodes": [],
+    "lightspeedID": "1742"
+  },
+  {
+    "code": "c12",
+    "name": "Bag Accessories",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1743"
+  },
+  {
+    "code": "c76",
+    "name": "Wallet",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1744"
+  },
+  {
+    "code": "g690",
+    "name": "Phone and Electronics Bags",
+    "parentCode": "g2",
+    "childCodes": ["c1261", "c1263", "c8", "c1262"],
+    "lightspeedID": "1745"
+  },
+  {
+    "code": "c1261",
+    "name": "Phone Bag and Holder",
+    "parentCode": "g690",
+    "childCodes": [],
+    "lightspeedID": "1746"
+  },
+  {
+    "code": "c1",
+    "name": "Lumbar/Fanny Pack",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1747"
+  },
+  {
+    "code": "g607",
+    "name": "Basket",
+    "parentCode": "g1",
+    "childCodes": ["c21", "c24"],
+    "lightspeedID": "1748"
+  },
+  {
+    "code": "c21",
+    "name": "Baskets",
+    "parentCode": "g607",
+    "childCodes": [],
+    "lightspeedID": "1749"
+  },
+  {
+    "code": "c24",
+    "name": "Basket Accessory",
+    "parentCode": "g607",
+    "childCodes": [],
+    "lightspeedID": "1750"
+  },
+  {
+    "code": "c2",
+    "name": "Handlebar Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1751"
+  },
+  {
+    "code": "c3",
+    "name": "Panniers",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1752"
+  },
+  {
+    "code": "c13",
+    "name": "Frame Pack",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1753"
+  },
+  {
+    "code": "c1166",
+    "name": "Bag Part",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1754"
+  },
+  {
+    "code": "c10",
+    "name": "Rack Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1755"
+  },
+  {
+    "code": "c1126",
+    "name": "Bag & Tool Kit",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1756"
+  },
+  {
+    "code": "c5",
+    "name": "Messenger Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1757"
+  },
+  {
+    "code": "c1263",
+    "name": "Laptop Computer and Tablet Cases",
+    "parentCode": "g690",
+    "childCodes": [],
+    "lightspeedID": "1758"
+  },
+  {
+    "code": "c8",
+    "name": "Other Electronics Bags and Holders",
+    "parentCode": "g690",
+    "childCodes": [],
+    "lightspeedID": "1759"
+  },
+  {
+    "code": "c7",
+    "name": "Luggage/Duffel Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1760"
+  },
+  {
+    "code": "c6",
+    "name": "Wheel Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "1761"
+  },
+  {
+    "code": "g637",
+    "name": "Pet Accessories",
+    "parentCode": "g639",
+    "childCodes": [
+      "c835",
+      "c1225",
+      "c1194",
+      "c1072",
+      "c1223",
+      "c1158",
+      "c1157"
+    ],
+    "lightspeedID": "1762"
+  },
+  {
+    "code": "c835",
+    "name": "Dog Pack",
+    "parentCode": "g637",
+    "childCodes": [],
+    "lightspeedID": "1763"
+  },
+  {
+    "code": "c1262",
+    "name": "Camera Bags and Cases",
+    "parentCode": "g690",
+    "childCodes": [],
+    "lightspeedID": "1764"
+  },
+  {
+    "code": "g632",
+    "name": "Dealer Items",
+    "parentCode": "g0",
+    "childCodes": ["g623", "c1051", "c135", "c1118", "c2008"],
+    "lightspeedID": "1765"
+  },
+  {
+    "code": "g623",
+    "name": "Branded Product Displays",
+    "parentCode": "g632",
+    "childCodes": [
+      "c979",
+      "c1202",
+      "c985",
+      "c984",
+      "c983",
+      "c976",
+      "c978",
+      "c986",
+      "c973",
+      "c975",
+      "c972",
+      "c_component_display",
+      "c982",
+      "c1008",
+      "c977",
+      "c974",
+      "c941",
+      "c997",
+      "c1030",
+      "c1116",
+      "c980",
+      "c981"
+    ],
+    "lightspeedID": "1766"
+  },
+  {
+    "code": "c979",
+    "name": "Helmet Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "1767"
+  },
+  {
+    "code": "g579",
+    "name": "Helmet",
+    "parentCode": "g28",
+    "childCodes": ["g669", "c300"],
+    "lightspeedID": "1768"
+  },
+  {
+    "code": "g669",
+    "name": "Helmet Accessories",
+    "parentCode": "g579",
+    "childCodes": ["c225", "c1153", "c1154"],
+    "lightspeedID": "1769"
+  },
+  {
+    "code": "c225",
+    "name": "Helmet Parts and Accessories",
+    "parentCode": "g669",
+    "childCodes": [],
+    "lightspeedID": "1770"
+  },
+  {
+    "code": "g17",
+    "name": "Lock",
+    "parentCode": "g1",
+    "childCodes": [
+      "c46",
+      "c1318",
+      "c45",
+      "c44",
+      "c42",
+      "c815",
+      "c1316",
+      "c43",
+      "c2100"
+    ],
+    "lightspeedID": "1771"
+  },
+  {
+    "code": "c46",
+    "name": "Bracket/Accessory",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "1772"
+  },
+  {
+    "code": "G_travel",
+    "name": "Travel",
+    "parentCode": "g1",
+    "childCodes": ["c_travel_accessories"],
+    "lightspeedID": "1773"
+  },
+  {
+    "code": "g585",
+    "name": "Travel / Shipping Case",
+    "parentCode": "g1",
+    "childCodes": ["c776", "c1243", "c866"],
+    "lightspeedID": "1774"
+  },
+  {
+    "code": "c776",
+    "name": "Travel / Shipping Cases",
+    "parentCode": "g585",
+    "childCodes": [],
+    "lightspeedID": "1775"
+  },
+  {
+    "code": "c211",
+    "name": "Apron",
+    "parentCode": "g28",
+    "childCodes": [],
+    "lightspeedID": "1776"
+  },
+  {
+    "code": "g10",
+    "name": "Electronics",
+    "parentCode": "g1",
+    "childCodes": [
+      "g686",
+      "c947",
+      "g627",
+      "g689",
+      "c1259",
+      "g667",
+      "g629",
+      "c1195",
+      "g709",
+      "c1045",
+      "c907",
+      "c291_sus_data"
+    ],
+    "lightspeedID": "1777"
+  },
+  {
+    "code": "g686",
+    "name": "Cameras",
+    "parentCode": "g10",
+    "childCodes": ["c1250", "c_a2", "c827"],
+    "lightspeedID": "1778"
+  },
+  {
+    "code": "c1250",
+    "name": "Camera Accessory",
+    "parentCode": "g686",
+    "childCodes": [],
+    "lightspeedID": "1779"
+  },
+  {
+    "code": "g459",
+    "name": "Bikes",
+    "parentCode": "g0",
+    "childCodes": [
+      "c790",
+      "c664",
+      "c1049",
+      "c662",
+      "c957",
+      "c663",
+      "c905",
+      "c1191",
+      "c900_tandem_mountain",
+      "c1290",
+      "c823",
+      "c897",
+      "c946",
+      "c1000_kids_bike",
+      "c_k1049_folding_bike",
+      "c1319_cargo_bike",
+      "c1049_ebike"
+    ],
+    "lightspeedID": "1780"
+  },
+  {
+    "code": "c790",
+    "name": "BMX Bikes",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1781"
+  },
+  {
+    "code": "c664",
+    "name": "Cyclocross Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1782"
+  },
+  {
+    "code": "g618",
+    "name": "ZZ Market Blocks",
+    "parentCode": "g0",
+    "childCodes": ["c572", "c917", "c1300"],
+    "lightspeedID": "1783"
+  },
+  {
+    "code": "c572",
+    "name": "ZZ- Numbers For Market Block",
+    "parentCode": "g618",
+    "childCodes": [],
+    "lightspeedID": "1784"
+  },
+  {
+    "code": "c1049",
+    "name": "City Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1785"
+  },
+  {
+    "code": "c662",
+    "name": "Mountain Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1786"
+  },
+  {
+    "code": "c957",
+    "name": "Dirt Jump Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1787"
+  },
+  {
+    "code": "c663",
+    "name": "Road Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1788"
+  },
+  {
+    "code": "c905",
+    "name": "Touring Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1789"
+  },
+  {
+    "code": "c917",
+    "name": "Items to be categorized",
+    "parentCode": "g618",
+    "childCodes": [],
+    "lightspeedID": "1790"
+  },
+  {
+    "code": "c1191",
+    "name": "Fat Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1791"
+  },
+  {
+    "code": "c900_tandem_mountain",
+    "name": "Tandem Bikes",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1792"
+  },
+  {
+    "code": "c1290",
+    "name": "All-Road Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1793"
+  },
+  {
+    "code": "c823",
+    "name": "Tri and TT Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1794"
+  },
+  {
+    "code": "c897",
+    "name": "Track Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "1795"
+  },
+  {
+    "code": "c310",
+    "name": "Top",
+    "parentCode": "g233",
+    "childCodes": [],
+    "lightspeedID": "1796"
+  },
+  {
+    "code": "c271",
+    "name": "Heating Pack",
+    "parentCode": "g1",
+    "childCodes": [],
+    "lightspeedID": "1797"
+  },
+  {
+    "code": "c1032",
+    "name": "Set",
+    "parentCode": "g233",
+    "childCodes": [],
+    "lightspeedID": "1798"
+  },
+  {
+    "code": "c1283",
+    "name": "Compression Top",
+    "parentCode": "g700",
+    "childCodes": [],
+    "lightspeedID": "1799"
+  },
+  {
+    "code": "g86",
+    "name": "Brake Lever",
+    "parentCode": "g27",
+    "childCodes": ["g461", "g106", "g87", "c172"],
+    "lightspeedID": "1800"
+  },
+  {
+    "code": "g461",
+    "name": "Brake Lever Part",
+    "parentCode": "g86",
+    "childCodes": ["c491", "c488", "c487", "c860", "c489", "c490"],
+    "lightspeedID": "1801"
+  },
+  {
+    "code": "c491",
+    "name": "Brake Lever Hood",
+    "parentCode": "g461",
+    "childCodes": [],
+    "lightspeedID": "1802"
+  },
+  {
+    "code": "g51",
+    "name": "Brake",
+    "parentCode": "g27",
+    "childCodes": [
+      "g79",
+      "g77",
+      "g80",
+      "g76",
+      "g525",
+      "g608",
+      "g609",
+      "c933",
+      "g554",
+      "c725"
+    ],
+    "lightspeedID": "1803"
+  },
+  {
+    "code": "g79",
+    "name": "Road Caliper Brake",
+    "parentCode": "g51",
+    "childCodes": ["c164", "c165", "c645_do_not_use", "c1014"],
+    "lightspeedID": "1804"
+  },
+  {
+    "code": "c164",
+    "name": "Road Caliper Brakes",
+    "parentCode": "g79",
+    "childCodes": [],
+    "lightspeedID": "1805"
+  },
+  {
+    "code": "g394",
+    "name": "Cable",
+    "parentCode": "g27",
+    "childCodes": [
+      "g606",
+      "g600",
+      "g560",
+      "g561",
+      "g548",
+      "g407",
+      "g401",
+      "g555"
+    ],
+    "lightspeedID": "1806"
+  },
+  {
+    "code": "g606",
+    "name": "Small Parts/Adaptors",
+    "parentCode": "g394",
+    "childCodes": [
+      "c800",
+      "c801",
+      "c449",
+      "c451",
+      "c450",
+      "c916",
+      "c993",
+      "c994",
+      "c852"
+    ],
+    "lightspeedID": "1807"
+  },
+  {
+    "code": "c800",
+    "name": "Travel Agent",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1808"
+  },
+  {
+    "code": "c801",
+    "name": "In-Line Travel Agent",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1809"
+  },
+  {
+    "code": "g600",
+    "name": "Cable Carrier",
+    "parentCode": "g394",
+    "childCodes": ["c810"],
+    "lightspeedID": "1810"
+  },
+  {
+    "code": "c810",
+    "name": "Cable Carriers",
+    "parentCode": "g600",
+    "childCodes": [],
+    "lightspeedID": "1811"
+  },
+  {
+    "code": "g560",
+    "name": "Cable Hanger",
+    "parentCode": "g394",
+    "childCodes": ["c742", "c743"],
+    "lightspeedID": "1812"
+  },
+  {
+    "code": "c742",
+    "name": "Front Cable Hanger",
+    "parentCode": "g560",
+    "childCodes": [],
+    "lightspeedID": "1813"
+  },
+  {
+    "code": "g77",
+    "name": "Disc Brake",
+    "parentCode": "g51",
+    "childCodes": ["g78", "c713", "c642"],
+    "lightspeedID": "1814"
+  },
+  {
+    "code": "g78",
+    "name": "Disc Brake Parts",
+    "parentCode": "g77",
+    "childCodes": [
+      "c693",
+      "c726",
+      "c666",
+      "c788",
+      "c690",
+      "c691",
+      "c667",
+      "c167"
+    ],
+    "lightspeedID": "1815"
+  },
+  {
+    "code": "c693",
+    "name": "Disc Rotor Parts and Lockrings",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1816"
+  },
+  {
+    "code": "c726",
+    "name": "Disc Rotor Adaptor",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1817"
+  },
+  {
+    "code": "c488",
+    "name": "Other Brake Lever Part",
+    "parentCode": "g461",
+    "childCodes": [],
+    "lightspeedID": "1818"
+  },
+  {
+    "code": "c666",
+    "name": "Disc Brake Hose Kit",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1819"
+  },
+  {
+    "code": "c788",
+    "name": "Disc Brake Workshop Kit",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1820"
+  },
+  {
+    "code": "c690",
+    "name": "Disc Brake Hose Parts",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1821"
+  },
+  {
+    "code": "c691",
+    "name": "Disc Caliper Part",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1822"
+  },
+  {
+    "code": "g29",
+    "name": "Tool",
+    "parentCode": "g0",
+    "childCodes": [
+      "c829",
+      "g253",
+      "g304",
+      "c312",
+      "g311",
+      "c749",
+      "g582",
+      "g675",
+      "g659",
+      "g564",
+      "c359",
+      "g255",
+      "g588",
+      "c2010"
+    ],
+    "lightspeedID": "1823"
+  },
+  {
+    "code": "c829",
+    "name": "Bleed Kit",
+    "parentCode": "g29",
+    "childCodes": [],
+    "lightspeedID": "1824"
+  },
+  {
+    "code": "g80",
+    "name": "Cantilever Brake",
+    "parentCode": "g51",
+    "childCodes": ["c160", "c1060", "g665"],
+    "lightspeedID": "1825"
+  },
+  {
+    "code": "c160",
+    "name": "Cantilever Brakes",
+    "parentCode": "g80",
+    "childCodes": [],
+    "lightspeedID": "1826"
+  },
+  {
+    "code": "g106",
+    "name": "Flat Bar/BMX Brake Lever",
+    "parentCode": "g86",
+    "childCodes": ["c648", "c647"],
+    "lightspeedID": "1827"
+  },
+  {
+    "code": "c648",
+    "name": "Brake Lever, Flat Bar/BMX Pair",
+    "parentCode": "g106",
+    "childCodes": [],
+    "lightspeedID": "1828"
+  },
+  {
+    "code": "c713",
+    "name": "Disc Brake Calipers",
+    "parentCode": "g77",
+    "childCodes": [],
+    "lightspeedID": "1829"
+  },
+  {
+    "code": "g76",
+    "name": "Linear Pull Brake",
+    "parentCode": "g51",
+    "childCodes": ["c159", "c161", "c162", "c850"],
+    "lightspeedID": "1830"
+  },
+  {
+    "code": "c159",
+    "name": "Linear Pull Brakes",
+    "parentCode": "g76",
+    "childCodes": [],
+    "lightspeedID": "1831"
+  },
+  {
+    "code": "c647",
+    "name": "Brake Lever, Flat Bar/BMX- Individual",
+    "parentCode": "g106",
+    "childCodes": [],
+    "lightspeedID": "1832"
+  },
+  {
+    "code": "c667",
+    "name": "Disc Rotor",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1833"
+  },
+  {
+    "code": "g87",
+    "name": "Drop Bar Brake Lever",
+    "parentCode": "g86",
+    "childCodes": ["c650", "c1037", "c707", "c171"],
+    "lightspeedID": "1834"
+  },
+  {
+    "code": "c650",
+    "name": "Brake Lever, Drop Bar Pair",
+    "parentCode": "g87",
+    "childCodes": [],
+    "lightspeedID": "1835"
+  },
+  {
+    "code": "c487",
+    "name": "Hydraulic Brake Lever Part",
+    "parentCode": "g461",
+    "childCodes": [],
+    "lightspeedID": "1836"
+  },
+  {
+    "code": "c642",
+    "name": "Disc Brake & Lever",
+    "parentCode": "g77",
+    "childCodes": [],
+    "lightspeedID": "1837"
+  },
+  {
+    "code": "g525",
+    "name": "Brake Pad",
+    "parentCode": "g51",
+    "childCodes": ["c639", "c634", "c640"],
+    "lightspeedID": "1838"
+  },
+  {
+    "code": "c639",
+    "name": "Brake Shoe and Pad",
+    "parentCode": "g525",
+    "childCodes": [],
+    "lightspeedID": "1839"
+  },
+  {
+    "code": "c172",
+    "name": "TT/Aero Lever Pair",
+    "parentCode": "g86",
+    "childCodes": [],
+    "lightspeedID": "1840"
+  },
+  {
+    "code": "c860",
+    "name": "TT/Aero Lever Adaptor",
+    "parentCode": "g461",
+    "childCodes": [],
+    "lightspeedID": "1841"
+  },
+  {
+    "code": "c634",
+    "name": "Disc Brake Pad",
+    "parentCode": "g525",
+    "childCodes": [],
+    "lightspeedID": "1842"
+  },
+  {
+    "code": "c165",
+    "name": "Caliper Brake Part",
+    "parentCode": "g79",
+    "childCodes": [],
+    "lightspeedID": "1843"
+  },
+  {
+    "code": "c640",
+    "name": "Brake Pad and Shoe Part",
+    "parentCode": "g525",
+    "childCodes": [],
+    "lightspeedID": "1844"
+  },
+  {
+    "code": "c167",
+    "name": "Disc Brake Adaptor",
+    "parentCode": "g78",
+    "childCodes": [],
+    "lightspeedID": "1845"
+  },
+  {
+    "code": "g608",
+    "name": "U-Brake",
+    "parentCode": "g51",
+    "childCodes": ["c168", "c996"],
+    "lightspeedID": "1846"
+  },
+  {
+    "code": "c168",
+    "name": "U-Brakes",
+    "parentCode": "g608",
+    "childCodes": [],
+    "lightspeedID": "1847"
+  },
+  {
+    "code": "c996",
+    "name": "U-Brake Part",
+    "parentCode": "g608",
+    "childCodes": [],
+    "lightspeedID": "1848"
+  },
+  {
+    "code": "g561",
+    "name": "Cable And Housing Set",
+    "parentCode": "g394",
+    "childCodes": ["c442", "c441", "c453"],
+    "lightspeedID": "1849"
+  },
+  {
+    "code": "c442",
+    "name": "Brake Cable & Housing Set",
+    "parentCode": "g561",
+    "childCodes": [],
+    "lightspeedID": "1850"
+  },
+  {
+    "code": "g548",
+    "name": "Cables",
+    "parentCode": "g394",
+    "childCodes": ["c443", "c444"],
+    "lightspeedID": "1851"
+  },
+  {
+    "code": "c443",
+    "name": "Brake Cable",
+    "parentCode": "g548",
+    "childCodes": [],
+    "lightspeedID": "1852"
+  },
+  {
+    "code": "c1037",
+    "name": "Brake Lever, Drop Bar Individual",
+    "parentCode": "g87",
+    "childCodes": [],
+    "lightspeedID": "1853"
+  },
+  {
+    "code": "c161",
+    "name": "Linear Pull Brake Noodle",
+    "parentCode": "g76",
+    "childCodes": [],
+    "lightspeedID": "1854"
+  },
+  {
+    "code": "c489",
+    "name": "Brake Lever Adjusting Barrel",
+    "parentCode": "g461",
+    "childCodes": [],
+    "lightspeedID": "1855"
+  },
+  {
+    "code": "g609",
+    "name": "BMX Caliper Brake",
+    "parentCode": "g51",
+    "childCodes": ["c169", "c848"],
+    "lightspeedID": "1856"
+  },
+  {
+    "code": "c169",
+    "name": "BMX Caliper Brakes",
+    "parentCode": "g609",
+    "childCodes": [],
+    "lightspeedID": "1857"
+  },
+  {
+    "code": "c1060",
+    "name": "Cantilever Brake Set",
+    "parentCode": "g80",
+    "childCodes": [],
+    "lightspeedID": "1858"
+  },
+  {
+    "code": "c707",
+    "name": "Drop Bar Stoker Lever",
+    "parentCode": "g87",
+    "childCodes": [],
+    "lightspeedID": "1859"
+  },
+  {
+    "code": "c743",
+    "name": "Rear Cable Hanger",
+    "parentCode": "g560",
+    "childCodes": [],
+    "lightspeedID": "1860"
+  },
+  {
+    "code": "c449",
+    "name": "Other Cable & Housing Parts",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1861"
+  },
+  {
+    "code": "g665",
+    "name": "Cantilever Brake Parts",
+    "parentCode": "g80",
+    "childCodes": ["c166"],
+    "lightspeedID": "1862"
+  },
+  {
+    "code": "c166",
+    "name": "Cantilever Brake Part",
+    "parentCode": "g665",
+    "childCodes": [],
+    "lightspeedID": "1863"
+  },
+  {
+    "code": "g407",
+    "name": "Straddle Wire",
+    "parentCode": "g394",
+    "childCodes": ["c448"],
+    "lightspeedID": "1864"
+  },
+  {
+    "code": "c448",
+    "name": "Straddle Wires",
+    "parentCode": "g407",
+    "childCodes": [],
+    "lightspeedID": "1865"
+  },
+  {
+    "code": "c451",
+    "name": "Housing End Cap",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1866"
+  },
+  {
+    "code": "g219",
+    "name": "Frame Part",
+    "parentCode": "g27",
+    "childCodes": [
+      "c286",
+      "c715",
+      "c903",
+      "c244",
+      "c287",
+      "g702",
+      "c288",
+      "c289",
+      "c291",
+      "c948"
+    ],
+    "lightspeedID": "1867"
+  },
+  {
+    "code": "c286",
+    "name": "Brake Boss",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "1868"
+  },
+  {
+    "code": "c450",
+    "name": "Cable End Crimp",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1869"
+  },
+  {
+    "code": "g253",
+    "name": "Component Specific Tool",
+    "parentCode": "g29",
+    "childCodes": [
+      "c349",
+      "g338",
+      "c331",
+      "g660",
+      "g662",
+      "g376",
+      "g661",
+      "g663",
+      "c405",
+      "c409",
+      "g287",
+      "c410",
+      "c399",
+      "c1131",
+      "c409_chain_whip_cog_holder"
+    ],
+    "lightspeedID": "1870"
+  },
+  {
+    "code": "c349",
+    "name": "Brake Tool",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "1871"
+  },
+  {
+    "code": "g438",
+    "name": "Hub",
+    "parentCode": "g27",
+    "childCodes": ["g586", "g540", "g594", "c1095"],
+    "lightspeedID": "1872"
+  },
+  {
+    "code": "g586",
+    "name": "Hub Parts",
+    "parentCode": "g438",
+    "childCodes": [
+      "c483",
+      "c991",
+      "c481",
+      "c482",
+      "c478",
+      "c1067",
+      "c1068",
+      "c480",
+      "c695",
+      "c476",
+      "c568",
+      "c479"
+    ],
+    "lightspeedID": "1873"
+  },
+  {
+    "code": "c483",
+    "name": "Other Hub Part",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "1874"
+  },
+  {
+    "code": "c171",
+    "name": "Drop Bar Inline Levers",
+    "parentCode": "g87",
+    "childCodes": [],
+    "lightspeedID": "1875"
+  },
+  {
+    "code": "c916",
+    "name": "Housing Guide",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1876"
+  },
+  {
+    "code": "c715",
+    "name": "Cable Stop and Guides",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "1877"
+  },
+  {
+    "code": "c933",
+    "name": "Roller Brake",
+    "parentCode": "g51",
+    "childCodes": [],
+    "lightspeedID": "1878"
+  },
+  {
+    "code": "g89",
+    "name": "Shifter",
+    "parentCode": "g27",
+    "childCodes": [
+      "g552",
+      "g567",
+      "g705",
+      "g631",
+      "g688",
+      "c1044",
+      "c1029",
+      "g512",
+      "g553",
+      "c728",
+      "c1235",
+      "c_k1044_electronic_shift_part_sram",
+      "c1044k_fsa_electronic_shift_part"
+    ],
+    "lightspeedID": "1879"
+  },
+  {
+    "code": "g552",
+    "name": "Drop Bar Brake/Shift Levers",
+    "parentCode": "g89",
+    "childCodes": ["c660", "c657", "c661", "c661_1"],
+    "lightspeedID": "1880"
+  },
+  {
+    "code": "c660",
+    "name": "Brake/Shift Lever, Drop Bar-Right",
+    "parentCode": "g552",
+    "childCodes": [],
+    "lightspeedID": "1881"
+  },
+  {
+    "code": "c657",
+    "name": "Brake/Shift Lever, Drop Bar-Left",
+    "parentCode": "g552",
+    "childCodes": [],
+    "lightspeedID": "1882"
+  },
+  {
+    "code": "g567",
+    "name": "Shifter Parts",
+    "parentCode": "g89",
+    "childCodes": ["c750", "c552", "c898", "c752", "c553"],
+    "lightspeedID": "1883"
+  },
+  {
+    "code": "c750",
+    "name": "Road Shifter Part",
+    "parentCode": "g567",
+    "childCodes": [],
+    "lightspeedID": "1884"
+  },
+  {
+    "code": "g304",
+    "name": "General Shop Tool",
+    "parentCode": "g29",
+    "childCodes": [
+      "c393",
+      "c392",
+      "c340",
+      "c390",
+      "g601",
+      "c382",
+      "c419",
+      "c394",
+      "c579",
+      "c1142",
+      "g587",
+      "g276",
+      "c1143",
+      "c583",
+      "c10022_y_wrench"
+    ],
+    "lightspeedID": "1885"
+  },
+  {
+    "code": "c393",
+    "name": "Torque Wrench",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "1886"
+  },
+  {
+    "code": "g705",
+    "name": "TT/Aero Brake/Shift Lever",
+    "parentCode": "g89",
+    "childCodes": ["c1303", "c1302", "c1301"],
+    "lightspeedID": "1887"
+  },
+  {
+    "code": "c1303",
+    "name": "TT/Aero Brake/Shift Lever, Pair",
+    "parentCode": "g705",
+    "childCodes": [],
+    "lightspeedID": "1888"
+  },
+  {
+    "code": "g592",
+    "name": "Trailer",
+    "parentCode": "g1",
+    "childCodes": ["c785", "c1200", "c1201_do_not_use", "g592_1"],
+    "lightspeedID": "1889"
+  },
+  {
+    "code": "c786",
+    "name": "Trailer Wheels and Axle Parts",
+    "parentCode": "g592_1",
+    "childCodes": [],
+    "lightspeedID": "1890"
+  },
+  {
+    "code": "c785",
+    "name": "Trailers",
+    "parentCode": "g592",
+    "childCodes": [],
+    "lightspeedID": "1891"
+  },
+  {
+    "code": "g24",
+    "name": "Rack, Bicycle Mounted",
+    "parentCode": "g1",
+    "childCodes": [
+      "c1319",
+      "c88",
+      "c84",
+      "c85",
+      "c87",
+      "c86",
+      "c1323",
+      "c1227"
+    ],
+    "lightspeedID": "1892"
+  },
+  {
+    "code": "c1319",
+    "name": "Cargo Bike Accessory",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "1893"
+  },
+  {
+    "code": "g653",
+    "name": "Child Carriers",
+    "parentCode": "g1",
+    "childCodes": ["c1059"],
+    "lightspeedID": "1894"
+  },
+  {
+    "code": "c1059",
+    "name": "Child Carrier",
+    "parentCode": "g653",
+    "childCodes": [],
+    "lightspeedID": "1895"
+  },
+  {
+    "code": "g605",
+    "name": "Stroller",
+    "parentCode": "g1",
+    "childCodes": ["c838", "c837"],
+    "lightspeedID": "1896"
+  },
+  {
+    "code": "c838",
+    "name": "Stroller Accessory",
+    "parentCode": "g605",
+    "childCodes": [],
+    "lightspeedID": "1897"
+  },
+  {
+    "code": "c837",
+    "name": "Strollers",
+    "parentCode": "g605",
+    "childCodes": [],
+    "lightspeedID": "1898"
+  },
+  {
+    "code": "c1200",
+    "name": "Child Carrier Trailer",
+    "parentCode": "g592",
+    "childCodes": [],
+    "lightspeedID": "1899"
+  },
+  {
+    "code": "g31",
+    "name": "Trainer",
+    "parentCode": "g1",
+    "childCodes": ["c82", "g670", "c1163", "c80", "c81"],
+    "lightspeedID": "1900"
+  },
+  {
+    "code": "c82",
+    "name": "Trainer Part",
+    "parentCode": "g31",
+    "childCodes": [],
+    "lightspeedID": "1901"
+  },
+  {
+    "code": "c1202",
+    "name": "Child Carrier Displays",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "1902"
+  },
+  {
+    "code": "c441",
+    "name": "Derailleur Cable & Housing Set",
+    "parentCode": "g561",
+    "childCodes": [],
+    "lightspeedID": "1903"
+  },
+  {
+    "code": "c444",
+    "name": "Derailleur Cable",
+    "parentCode": "g548",
+    "childCodes": [],
+    "lightspeedID": "1904"
+  },
+  {
+    "code": "g401",
+    "name": "Housing",
+    "parentCode": "g394",
+    "childCodes": ["c447", "c446", "g399"],
+    "lightspeedID": "1905"
+  },
+  {
+    "code": "c447",
+    "name": "Derailleur Housing",
+    "parentCode": "g401",
+    "childCodes": [],
+    "lightspeedID": "1906"
+  },
+  {
+    "code": "g555",
+    "name": "Detangler",
+    "parentCode": "g394",
+    "childCodes": ["c720_5", "c721", "c720"],
+    "lightspeedID": "1907"
+  },
+  {
+    "code": "c720_5",
+    "name": "Detangler Plate",
+    "parentCode": "g555",
+    "childCodes": [],
+    "lightspeedID": "1908"
+  },
+  {
+    "code": "c721",
+    "name": "Detangler Cable & Housing",
+    "parentCode": "g555",
+    "childCodes": [],
+    "lightspeedID": "1909"
+  },
+  {
+    "code": "c720",
+    "name": "Detanglers",
+    "parentCode": "g555",
+    "childCodes": [],
+    "lightspeedID": "1910"
+  },
+  {
+    "code": "c446",
+    "name": "Brake Housing",
+    "parentCode": "g401",
+    "childCodes": [],
+    "lightspeedID": "1911"
+  },
+  {
+    "code": "c991",
+    "name": "Internally Geared Hub Part",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "1912"
+  },
+  {
+    "code": "c993",
+    "name": "Cable Coupler, Brake",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1913"
+  },
+  {
+    "code": "c994",
+    "name": "Cable Coupler, Derailleur",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1914"
+  },
+  {
+    "code": "c852",
+    "name": "Cable Doubler",
+    "parentCode": "g606",
+    "childCodes": [],
+    "lightspeedID": "1915"
+  },
+  {
+    "code": "g172",
+    "name": "Chain",
+    "parentCode": "g27",
+    "childCodes": ["c242", "c243", "g176", "c682", "g496", "c1093", "c794"],
+    "lightspeedID": "1916"
+  },
+  {
+    "code": "c242",
+    "name": "Chains",
+    "parentCode": "g172",
+    "childCodes": [],
+    "lightspeedID": "1917"
+  },
+  {
+    "code": "c243",
+    "name": "Chain Link and Pin",
+    "parentCode": "g172",
+    "childCodes": [],
+    "lightspeedID": "1918"
+  },
+  {
+    "code": "g176",
+    "name": "Chain Retention Systems",
+    "parentCode": "g172",
+    "childCodes": ["c245", "c746"],
+    "lightspeedID": "1919"
+  },
+  {
+    "code": "c245",
+    "name": "Chain Retention System",
+    "parentCode": "g176",
+    "childCodes": [],
+    "lightspeedID": "1920"
+  },
+  {
+    "code": "g577",
+    "name": "Chainrings",
+    "parentCode": "g27",
+    "childCodes": [
+      "c226",
+      "c201",
+      "c203",
+      "c238",
+      "c202",
+      "c239",
+      "c240",
+      "c203_direct_mount"
+    ],
+    "lightspeedID": "1921"
+  },
+  {
+    "code": "c226",
+    "name": "Chainring Guard",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "1922"
+  },
+  {
+    "code": "c746",
+    "name": "Chain Retention System Part",
+    "parentCode": "g176",
+    "childCodes": [],
+    "lightspeedID": "1923"
+  },
+  {
+    "code": "c682",
+    "name": "Chain Deflector",
+    "parentCode": "g172",
+    "childCodes": [],
+    "lightspeedID": "1924"
+  },
+  {
+    "code": "g453",
+    "name": "Derailleur",
+    "parentCode": "g27",
+    "childCodes": ["g470", "g563", "c571", "c586"],
+    "lightspeedID": "1925"
+  },
+  {
+    "code": "g470",
+    "name": "Front Derailleur Part",
+    "parentCode": "g453",
+    "childCodes": ["c498", "c_front_derailleur_cover", "c523", "c494", "c685"],
+    "lightspeedID": "1926"
+  },
+  {
+    "code": "c498",
+    "name": "Front Derailleur Adaptor",
+    "parentCode": "g470",
+    "childCodes": [],
+    "lightspeedID": "1927"
+  },
+  {
+    "code": "c201",
+    "name": "Chainring Bolt",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "1928"
+  },
+  {
+    "code": "c903",
+    "name": "Miscellaneous Frame Supplies",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "1929"
+  },
+  {
+    "code": "c_front_derailleur_cover",
+    "name": "Front Derailleur Mount Cover",
+    "parentCode": "g470",
+    "childCodes": [],
+    "lightspeedID": "1930"
+  },
+  {
+    "code": "g562",
+    "name": "Lube",
+    "parentCode": "g0",
+    "childCodes": [
+      "c324",
+      "c322",
+      "c314",
+      "c321",
+      "c316",
+      "c320",
+      "c317",
+      "c327",
+      "c326",
+      "c315",
+      "c325"
+    ],
+    "lightspeedID": "1931"
   },
   {
     "code": "c312",
     "name": "Cleaning Tool",
     "parentCode": "g29",
     "childCodes": [],
-    "lightspeedID": "1649"
+    "lightspeedID": "1932"
   },
   {
-    "code": "c334",
-    "name": "Spoke Wrench",
-    "parentCode": "g564",
+    "code": "c244",
+    "name": "Chainstay/Frame Protection",
+    "parentCode": "g219",
     "childCodes": [],
-    "lightspeedID": "1650"
+    "lightspeedID": "1933"
+  },
+  {
+    "code": "g517",
+    "name": "Headset",
+    "parentCode": "g27",
+    "childCodes": ["g519", "c600", "c1063", "c1064"],
+    "lightspeedID": "1934"
+  },
+  {
+    "code": "g519",
+    "name": "Headset Parts",
+    "parentCode": "g517",
+    "childCodes": [
+      "c611",
+      "c153",
+      "c614",
+      "c608",
+      "c615",
+      "c613",
+      "c791",
+      "c610",
+      "c763",
+      "c_k615_crown_race"
+    ],
+    "lightspeedID": "1935"
+  },
+  {
+    "code": "c611",
+    "name": "Headset Stack Spacer",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "1936"
+  },
+  {
+    "code": "g496",
+    "name": "Chain Tensioners",
+    "parentCode": "g172",
+    "childCodes": ["c806", "c570", "c747"],
+    "lightspeedID": "1937"
+  },
+  {
+    "code": "c806",
+    "name": "Single-Speed / Dingle-Speed Tensioners",
+    "parentCode": "g496",
+    "childCodes": [],
+    "lightspeedID": "1938"
+  },
+  {
+    "code": "g491",
+    "name": "Cassette",
+    "parentCode": "g27",
+    "childCodes": [
+      "g492",
+      "c_k556_range_extending_cog",
+      "c556",
+      "c706",
+      "g493"
+    ],
+    "lightspeedID": "1939"
+  },
+  {
+    "code": "g492",
+    "name": "Cassette Parts",
+    "parentCode": "g491",
+    "childCodes": ["c921", "c705", "c561", "c559", "c567"],
+    "lightspeedID": "1940"
+  },
+  {
+    "code": "c921",
+    "name": "Single Speed Spacer Kit",
+    "parentCode": "g492",
+    "childCodes": [],
+    "lightspeedID": "1941"
+  },
+  {
+    "code": "c570",
+    "name": "Axle/Chain Tensioner",
+    "parentCode": "g496",
+    "childCodes": [],
+    "lightspeedID": "1942"
+  },
+  {
+    "code": "c203",
+    "name": "Chainring",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "1943"
+  },
+  {
+    "code": "g338",
+    "name": "Chain Tool",
+    "parentCode": "g253",
+    "childCodes": ["c330", "c329"],
+    "lightspeedID": "1944"
+  },
+  {
+    "code": "c331",
+    "name": "Wear Indicator",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "1945"
+  },
+  {
+    "code": "c747",
+    "name": "Chain Tensioner Part",
+    "parentCode": "g496",
+    "childCodes": [],
+    "lightspeedID": "1946"
+  },
+  {
+    "code": "g652",
+    "name": "Belt Drive Systems",
+    "parentCode": "g27",
+    "childCodes": ["c1128", "c1129", "c1222", "c1130", "c1292"],
+    "lightspeedID": "1947"
+  },
+  {
+    "code": "c1128",
+    "name": "Belt Drive Belt",
+    "parentCode": "g652",
+    "childCodes": [],
+    "lightspeedID": "1948"
+  },
+  {
+    "code": "g15",
+    "name": "Gift Item/Misc",
+    "parentCode": "g1",
+    "childCodes": [
+      "c66",
+      "c68",
+      "g706",
+      "c71",
+      "c731",
+      "c70",
+      "g668",
+      "c69",
+      "c78",
+      "c1117",
+      "c592",
+      "c_music"
+    ],
+    "lightspeedID": "1949"
+  },
+  {
+    "code": "c66",
+    "name": "Beverage Essentials",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "1950"
+  },
+  {
+    "code": "g576",
+    "name": "Crank",
+    "parentCode": "g27",
+    "childCodes": ["c774", "c181", "c303", "g647", "c204", "c832", "c858"],
+    "lightspeedID": "1951"
+  },
+  {
+    "code": "c774",
+    "name": "BMX Crankset",
+    "parentCode": "g576",
+    "childCodes": [],
+    "lightspeedID": "1952"
+  },
+  {
+    "code": "g50",
+    "name": "Bottom Bracket",
+    "parentCode": "g27",
+    "childCodes": ["c770", "c173", "g91", "c1132"],
+    "lightspeedID": "1953"
+  },
+  {
+    "code": "c770",
+    "name": "BMX Bottom Bracket",
+    "parentCode": "g50",
+    "childCodes": [],
+    "lightspeedID": "1954"
+  },
+  {
+    "code": "c181",
+    "name": "Crankset",
+    "parentCode": "g576",
+    "childCodes": [],
+    "lightspeedID": "1955"
+  },
+  {
+    "code": "c238",
+    "name": "Sprocket",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "1956"
+  },
+  {
+    "code": "c303",
+    "name": "Crank/Bottom Bracket Set",
+    "parentCode": "g576",
+    "childCodes": [],
+    "lightspeedID": "1957"
+  },
+  {
+    "code": "c173",
+    "name": "Bottom Brackets",
+    "parentCode": "g50",
+    "childCodes": [],
+    "lightspeedID": "1958"
+  },
+  {
+    "code": "g647",
+    "name": "Crank Parts",
+    "parentCode": "g576",
+    "childCodes": ["c1105", "c212", "c210", "c177", "c205", "c1061"],
+    "lightspeedID": "1959"
+  },
+  {
+    "code": "c1105",
+    "name": "Crank Part",
+    "parentCode": "g647",
+    "childCodes": [],
+    "lightspeedID": "1960"
+  },
+  {
+    "code": "c2085",
+    "name": "Power Meter",
+    "parentCode": "g27",
+    "childCodes": [],
+    "lightspeedID": "1961"
+  },
+  {
+    "code": "c212",
+    "name": "Crank Spider",
+    "parentCode": "g647",
+    "childCodes": [],
+    "lightspeedID": "1962"
+  },
+  {
+    "code": "g124",
+    "name": "Head Wear",
+    "parentCode": "g28",
+    "childCodes": [
+      "c1231",
+      "c232",
+      "c252",
+      "c1230",
+      "c231",
+      "c214",
+      "c250",
+      "c215",
+      "c231_ear_protection",
+      "c231_multi_function_headwear"
+    ],
+    "lightspeedID": "1963"
+  },
+  {
+    "code": "c1231",
+    "name": "Run Hats and Visors",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "1964"
+  },
+  {
+    "code": "c232",
+    "name": "Cycling Cap",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "1965"
+  },
+  {
+    "code": "g230",
+    "name": "Warmer",
+    "parentCode": "g622",
+    "childCodes": ["c573", "c575", "c574"],
+    "lightspeedID": "1966"
+  },
+  {
+    "code": "c573",
+    "name": "Arm Warmer",
+    "parentCode": "g230",
+    "childCodes": [],
+    "lightspeedID": "1967"
+  },
+  {
+    "code": "c575",
+    "name": "Knee Warmer",
+    "parentCode": "g230",
+    "childCodes": [],
+    "lightspeedID": "1968"
+  },
+  {
+    "code": "c252",
+    "name": "Balaclava",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "1969"
+  },
+  {
+    "code": "c218",
+    "name": "Sweatshirt/Hoodie",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1970"
+  },
+  {
+    "code": "c1321",
+    "name": "Compression Sleeve",
+    "parentCode": "g700",
+    "childCodes": [],
+    "lightspeedID": "1971"
+  },
+  {
+    "code": "c305",
+    "name": "Jersey",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1972"
+  },
+  {
+    "code": "c216",
+    "name": "T-Shirt",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1973"
+  },
+  {
+    "code": "g545",
+    "name": "Shoe",
+    "parentCode": "g28",
+    "childCodes": [
+      "c301",
+      "c861",
+      "c207",
+      "c209",
+      "c928",
+      "c296",
+      "c297",
+      "c915",
+      "c302",
+      "c1125",
+      "c1192",
+      "c1073",
+      "c296_sandal"
+    ],
+    "lightspeedID": "1974"
+  },
+  {
+    "code": "c301",
+    "name": "Shoe Cover",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "1975"
+  },
+  {
+    "code": "c1230",
+    "name": "Caps and Beanies",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "1976"
+  },
+  {
+    "code": "c231",
+    "name": "Headbands",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "1977"
+  },
+  {
+    "code": "c1153",
+    "name": "Rain Cover",
+    "parentCode": "g669",
+    "childCodes": [],
+    "lightspeedID": "1978"
+  },
+  {
+    "code": "c214",
+    "name": "Hats",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "1979"
+  },
+  {
+    "code": "c217",
+    "name": "Mechanics Shirt",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1980"
+  },
+  {
+    "code": "g683",
+    "name": "Cooling and Sun Protection",
+    "parentCode": "g622",
+    "childCodes": ["c1226", "c1228"],
+    "lightspeedID": "1981"
+  },
+  {
+    "code": "c1226",
+    "name": "Sun Sleeve",
+    "parentCode": "g683",
+    "childCodes": [],
+    "lightspeedID": "1982"
+  },
+  {
+    "code": "c574",
+    "name": "Leg Warmer",
+    "parentCode": "g230",
+    "childCodes": [],
+    "lightspeedID": "1983"
+  },
+  {
+    "code": "c250",
+    "name": "Neck Protection",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "1984"
+  },
+  {
+    "code": "c808",
+    "name": "Belt and  Buckle",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1985"
+  },
+  {
+    "code": "c235",
+    "name": "Scarf",
+    "parentCode": "g646",
+    "childCodes": [],
+    "lightspeedID": "1986"
+  },
+  {
+    "code": "c68",
+    "name": "Patch",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "1987"
+  },
+  {
+    "code": "c233",
+    "name": "Jackets",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "1988"
+  },
+  {
+    "code": "c954",
+    "name": "Sweater",
+    "parentCode": "g558",
+    "childCodes": [],
+    "lightspeedID": "1989"
+  },
+  {
+    "code": "c50",
+    "name": "Bike Protector",
+    "parentCode": "g1",
+    "childCodes": [],
+    "lightspeedID": "1990"
+  },
+  {
+    "code": "c1243",
+    "name": "Travel / Shipping Case Part",
+    "parentCode": "g585",
+    "childCodes": [],
+    "lightspeedID": "1991"
+  },
+  {
+    "code": "c866",
+    "name": "Travel / Shipping Case Accessory",
+    "parentCode": "g585",
+    "childCodes": [],
+    "lightspeedID": "1992"
+  },
+  {
+    "code": "g676",
+    "name": "Batteries",
+    "parentCode": "g1",
+    "childCodes": ["c23", "c1196"],
+    "lightspeedID": "1993"
+  },
+  {
+    "code": "c23",
+    "name": "Battery",
+    "parentCode": "g676",
+    "childCodes": [],
+    "lightspeedID": "1994"
+  },
+  {
+    "code": "c1196",
+    "name": "Rechargeable",
+    "parentCode": "g676",
+    "childCodes": [],
+    "lightspeedID": "1995"
+  },
+  {
+    "code": "g22",
+    "name": "Light",
+    "parentCode": "g1",
+    "childCodes": ["c57", "c56", "c52", "c54", "c55", "c51", "c784", "c52a"],
+    "lightspeedID": "1996"
+  },
+  {
+    "code": "c57",
+    "name": "Light Part",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "1997"
+  },
+  {
+    "code": "g631",
+    "name": "Electronic Shifter Parts, Shimano",
+    "parentCode": "g89",
+    "childCodes": [
+      "c1040",
+      "c1042",
+      "c1307",
+      "c1041",
+      "c1216",
+      "c1039",
+      "c1043",
+      "c1217"
+    ],
+    "lightspeedID": "1998"
+  },
+  {
+    "code": "c1040",
+    "name": "Shifter Battery",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "1999"
+  },
+  {
+    "code": "g575",
+    "name": "Grip/Bar Tape",
+    "parentCode": "g27",
+    "childCodes": [
+      "c131",
+      "c454",
+      "c782",
+      "c132",
+      "c457",
+      "c455",
+      "c458",
+      "c944",
+      "c1010_control_tape"
+    ],
+    "lightspeedID": "2000"
+  },
+  {
+    "code": "c131",
+    "name": "Grip",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2001"
+  },
+  {
+    "code": "g59",
+    "name": "Bearing",
+    "parentCode": "g27",
+    "childCodes": ["c150", "c151", "c1220", "c155"],
+    "lightspeedID": "2002"
+  },
+  {
+    "code": "c150",
+    "name": "Cartridge Bearing",
+    "parentCode": "g59",
+    "childCodes": [],
+    "lightspeedID": "2003"
+  },
+  {
+    "code": "c153",
+    "name": "Headset Bearing",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2004"
+  },
+  {
+    "code": "c151",
+    "name": "Loose Ball Bearing",
+    "parentCode": "g59",
+    "childCodes": [],
+    "lightspeedID": "2005"
+  },
+  {
+    "code": "g91",
+    "name": "Bottom Bracket Parts",
+    "parentCode": "g50",
+    "childCodes": [
+      "c178",
+      "c174",
+      "c772",
+      "c179",
+      "c769",
+      "c175",
+      "c771",
+      "c180",
+      "c176"
+    ],
+    "lightspeedID": "2006"
+  },
+  {
+    "code": "c178",
+    "name": "Small Part",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2007"
+  },
+  {
+    "code": "c174",
+    "name": "Spindle",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2008"
+  },
+  {
+    "code": "c772",
+    "name": "Cup and Bearing Kit",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2009"
+  },
+  {
+    "code": "c481",
+    "name": "Freehub Body",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2010"
+  },
+  {
+    "code": "c179",
+    "name": "Bottom Bracket Bearing Retainer",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2011"
+  },
+  {
+    "code": "c1220",
+    "name": "Hub Bearing Retainer",
+    "parentCode": "g59",
+    "childCodes": [],
+    "lightspeedID": "2012"
+  },
+  {
+    "code": "c215",
+    "name": "Insect Net",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "2013"
+  },
+  {
+    "code": "c155",
+    "name": "Bearing Kit",
+    "parentCode": "g59",
+    "childCodes": [],
+    "lightspeedID": "2014"
+  },
+  {
+    "code": "c1132",
+    "name": "Bottom Bracket Adaptor",
+    "parentCode": "g50",
+    "childCodes": [],
+    "lightspeedID": "2015"
+  },
+  {
+    "code": "c18",
+    "name": "Horn",
+    "parentCode": "g1",
+    "childCodes": [],
+    "lightspeedID": "2016"
+  },
+  {
+    "code": "c17",
+    "name": "Bell",
+    "parentCode": "g1",
+    "childCodes": [],
+    "lightspeedID": "2017"
+  },
+  {
+    "code": "c947",
+    "name": "Music Device Accessory",
+    "parentCode": "g10",
+    "childCodes": [],
+    "lightspeedID": "2018"
+  },
+  {
+    "code": "g45",
+    "name": "Water Bottle",
+    "parentCode": "g633",
+    "childCodes": ["c739", "c123", "c121"],
+    "lightspeedID": "2019"
+  },
+  {
+    "code": "c739",
+    "name": "Water Bottle Part and Accessory",
+    "parentCode": "g45",
+    "childCodes": [],
+    "lightspeedID": "2020"
+  },
+  {
+    "code": "g44",
+    "name": "Hydration Pack",
+    "parentCode": "g2",
+    "childCodes": ["c117", "c118", "c119", "c120"],
+    "lightspeedID": "2021"
+  },
+  {
+    "code": "c117",
+    "name": "Hydration Packs",
+    "parentCode": "g44",
+    "childCodes": [],
+    "lightspeedID": "2022"
+  },
+  {
+    "code": "c775",
+    "name": "Bottle Cage Storage",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "2023"
+  },
+  {
+    "code": "g569",
+    "name": "Eyewear",
+    "parentCode": "g28",
+    "childCodes": ["c910", "c228", "c913", "c276", "c911", "c298"],
+    "lightspeedID": "2024"
+  },
+  {
+    "code": "c910",
+    "name": "Sunglass Accessories",
+    "parentCode": "g569",
+    "childCodes": [],
+    "lightspeedID": "2025"
+  },
+  {
+    "code": "c219",
+    "name": "Sock",
+    "parentCode": "g28",
+    "childCodes": [],
+    "lightspeedID": "2026"
+  },
+  {
+    "code": "c861",
+    "name": "Flat Shoe",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2027"
+  },
+  {
+    "code": "c210",
+    "name": "Left Crank Arm",
+    "parentCode": "g647",
+    "childCodes": [],
+    "lightspeedID": "2028"
+  },
+  {
+    "code": "g573",
+    "name": "Pedal",
+    "parentCode": "g27",
+    "childCodes": ["c1106", "c467", "c463", "c464", "c461", "c459", "g654"],
+    "lightspeedID": "2029"
+  },
+  {
+    "code": "c1106",
+    "name": "Pedal Washer",
+    "parentCode": "g573",
+    "childCodes": [],
+    "lightspeedID": "2030"
+  },
+  {
+    "code": "c769",
+    "name": "Eccentric",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2031"
+  },
+  {
+    "code": "c202",
+    "name": "Chainring Spacer",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "2032"
+  },
+  {
+    "code": "c177",
+    "name": "Crank Arm Fixing Bolt",
+    "parentCode": "g647",
+    "childCodes": [],
+    "lightspeedID": "2033"
+  },
+  {
+    "code": "c1093",
+    "name": "Chainguard",
+    "parentCode": "g172",
+    "childCodes": [],
+    "lightspeedID": "2034"
+  },
+  {
+    "code": "c175",
+    "name": "Dust Cap",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2035"
+  },
+  {
+    "code": "c705",
+    "name": "Cassette Cog",
+    "parentCode": "g492",
+    "childCodes": [],
+    "lightspeedID": "2036"
+  },
+  {
+    "code": "g660",
+    "name": "Crank Arm Tools",
+    "parentCode": "g253",
+    "childCodes": ["c407"],
+    "lightspeedID": "2037"
+  },
+  {
+    "code": "c407",
+    "name": "Crank Arm Tool",
+    "parentCode": "g660",
+    "childCodes": [],
+    "lightspeedID": "2038"
+  },
+  {
+    "code": "c771",
+    "name": "Cup Conversion Kit",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2039"
+  },
+  {
+    "code": "c_k556_range_extending_cog",
+    "name": "Range Extending Cassette Cogs",
+    "parentCode": "g491",
+    "childCodes": [],
+    "lightspeedID": "2040"
+  },
+  {
+    "code": "c204",
+    "name": "Crank Arm Set",
+    "parentCode": "g576",
+    "childCodes": [],
+    "lightspeedID": "2041"
+  },
+  {
+    "code": "c180",
+    "name": "Bottom Bracket Lockring",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2042"
+  },
+  {
+    "code": "c176",
+    "name": "Cotter Pin",
+    "parentCode": "g91",
+    "childCodes": [],
+    "lightspeedID": "2043"
+  },
+  {
+    "code": "c205",
+    "name": "Right Crank Arm",
+    "parentCode": "g647",
+    "childCodes": [],
+    "lightspeedID": "2044"
+  },
+  {
+    "code": "c239",
+    "name": "Sprocket Adaptor",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "2045"
+  },
+  {
+    "code": "c287",
+    "name": "Bottom Bracket Shell and Parts",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "2046"
+  },
+  {
+    "code": "c240",
+    "name": "Sprocket Grind Guard",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "2047"
+  },
+  {
+    "code": "c556",
+    "name": "Cassettes",
+    "parentCode": "g491",
+    "childCodes": [],
+    "lightspeedID": "2048"
+  },
+  {
+    "code": "g574",
+    "name": "Spoke",
+    "parentCode": "g27",
+    "childCodes": [
+      "c1203",
+      "c485",
+      "c471",
+      "c1267",
+      "c1268",
+      "c470_bulk_spoke",
+      "c470_individual_spoke",
+      "c926",
+      "c927",
+      "c937"
+    ],
+    "lightspeedID": "2049"
+  },
+  {
+    "code": "cw-custom-spokes",
+    "name": "Custom Spokes",
+    "parentCode": "cw-special-categories",
+    "childCodes": [],
+    "lightspeedID": "2050"
+  },
+  {
+    "code": "cw-custom-nipples",
+    "name": "Custom Nipples",
+    "parentCode": "cw-special-categories",
+    "childCodes": [],
+    "lightspeedID": "2051"
+  },
+  {
+    "code": "cw-labor",
+    "name": "Labor",
+    "parentCode": "cw-special-categories",
+    "childCodes": [],
+    "lightspeedID": "2052"
+  },
+  {
+    "code": "cw-additional-labor",
+    "name": "Additional Labor",
+    "parentCode": "cw-special-categories",
+    "childCodes": [],
+    "lightspeedID": "2053"
+  },
+  {
+    "code": "cw-lacing",
+    "name": "Lacing",
+    "parentCode": "cw-special-categories",
+    "childCodes": [],
+    "lightspeedID": "2054"
+  },
+  {
+    "code": "cw-offset",
+    "name": "Offset",
+    "parentCode": "cw-special-categories",
+    "childCodes": [],
+    "lightspeedID": "2055"
+  },
+  {
+    "code": "cw-wheel-type",
+    "name": "Wheel Type",
+    "parentCode": "cw-special-categories",
+    "childCodes": [],
+    "lightspeedID": "2056"
+  },
+  {
+    "code": "g627",
+    "name": "Bike Computer",
+    "parentCode": "g10",
+    "childCodes": ["c1016"],
+    "lightspeedID": "2057"
+  },
+  {
+    "code": "c1016",
+    "name": "Bike Computers",
+    "parentCode": "g627",
+    "childCodes": [],
+    "lightspeedID": "2058"
+  },
+  {
+    "code": "g689",
+    "name": "Fitness Computer group",
+    "parentCode": "g10",
+    "childCodes": [],
+    "lightspeedID": "2059"
+  },
+  {
+    "code": "c1259",
+    "name": "Fitness Computers",
+    "parentCode": "g10",
+    "childCodes": [],
+    "lightspeedID": "2060"
+  },
+  {
+    "code": "g667",
+    "name": "Watches",
+    "parentCode": "g10",
+    "childCodes": ["c824", "c1147", "c1240"],
+    "lightspeedID": "2061"
+  },
+  {
+    "code": "c824",
+    "name": "Sport Watch",
+    "parentCode": "g667",
+    "childCodes": [],
+    "lightspeedID": "2062"
+  },
+  {
+    "code": "g629",
+    "name": "Computer Accessories and Parts",
+    "parentCode": "g10",
+    "childCodes": [
+      "c1022",
+      "c1020",
+      "c1023",
+      "c1025",
+      "c1024",
+      "c1028",
+      "c1026"
+    ],
+    "lightspeedID": "2063"
+  },
+  {
+    "code": "c1022",
+    "name": "Cadence/Speed Sensor",
+    "parentCode": "g629",
+    "childCodes": [],
+    "lightspeedID": "2064"
+  },
+  {
+    "code": "c1020",
+    "name": "Computer Mount Kit/Adapter",
+    "parentCode": "g629",
+    "childCodes": [],
+    "lightspeedID": "2065"
+  },
+  {
+    "code": "c1023",
+    "name": "Magnet",
+    "parentCode": "g629",
+    "childCodes": [],
+    "lightspeedID": "2066"
+  },
+  {
+    "code": "c1025",
+    "name": "Power Kit/Charger",
+    "parentCode": "g629",
+    "childCodes": [],
+    "lightspeedID": "2067"
+  },
+  {
+    "code": "c1024",
+    "name": "Heart Rate Straps and Accessories",
+    "parentCode": "g629",
+    "childCodes": [],
+    "lightspeedID": "2068"
+  },
+  {
+    "code": "c1028",
+    "name": "Computer Accessories",
+    "parentCode": "g629",
+    "childCodes": [],
+    "lightspeedID": "2069"
+  },
+  {
+    "code": "g688",
+    "name": "Electronic Shifter Parts, Campagnolo",
+    "parentCode": "g89",
+    "childCodes": [
+      "c1253",
+      "c1288",
+      "c1254",
+      "c1252",
+      "c1255",
+      "c1287",
+      "c1256"
+    ],
+    "lightspeedID": "2070"
+  },
+  {
+    "code": "c1253",
+    "name": "Interface Unit",
+    "parentCode": "g688",
+    "childCodes": [],
+    "lightspeedID": "2071"
+  },
+  {
+    "code": "c1288",
+    "name": "Power Unit",
+    "parentCode": "g688",
+    "childCodes": [],
+    "lightspeedID": "2072"
+  },
+  {
+    "code": "c1254",
+    "name": "Mounts",
+    "parentCode": "g688",
+    "childCodes": [],
+    "lightspeedID": "2073"
+  },
+  {
+    "code": "c1252",
+    "name": "Cable Kit",
+    "parentCode": "g688",
+    "childCodes": [],
+    "lightspeedID": "2074"
+  },
+  {
+    "code": "c1255",
+    "name": "EPS Charger",
+    "parentCode": "g688",
+    "childCodes": [],
+    "lightspeedID": "2075"
+  },
+  {
+    "code": "c1287",
+    "name": "Charger Accessory",
+    "parentCode": "g688",
+    "childCodes": [],
+    "lightspeedID": "2076"
+  },
+  {
+    "code": "c1256",
+    "name": "Extra Parts",
+    "parentCode": "g688",
+    "childCodes": [],
+    "lightspeedID": "2077"
+  },
+  {
+    "code": "c1044",
+    "name": "Electronic Shifter Extra Part",
+    "parentCode": "g89",
+    "childCodes": [],
+    "lightspeedID": "2078"
+  },
+  {
+    "code": "c118",
+    "name": "Water Pack Part",
+    "parentCode": "g44",
+    "childCodes": [],
+    "lightspeedID": "2079"
+  },
+  {
+    "code": "g570",
+    "name": "Multi-Sport Accessories",
+    "parentCode": "g1",
+    "childCodes": ["c757", "c839", "c1007", "c952"],
+    "lightspeedID": "2080"
+  },
+  {
+    "code": "c757",
+    "name": "Swim Accessory",
+    "parentCode": "g570",
+    "childCodes": [],
+    "lightspeedID": "2081"
+  },
+  {
+    "code": "g563",
+    "name": "Rear Derailleur Part",
+    "parentCode": "g453",
+    "childCodes": ["c526", "c519", "c518", "c512", "c513", "c736", "c517"],
+    "lightspeedID": "2082"
+  },
+  {
+    "code": "c526",
+    "name": "Miscellaneous Rear Derailleur Part",
+    "parentCode": "g563",
+    "childCodes": [],
+    "lightspeedID": "2083"
+  },
+  {
+    "code": "c523",
+    "name": "Miscellaneous Front Derailleur Part",
+    "parentCode": "g470",
+    "childCodes": [],
+    "lightspeedID": "2084"
+  },
+  {
+    "code": "c519",
+    "name": "Cable Anchor Assembly",
+    "parentCode": "g563",
+    "childCodes": [],
+    "lightspeedID": "2085"
+  },
+  {
+    "code": "c518",
+    "name": "Cable Adjustment Assembly",
+    "parentCode": "g563",
+    "childCodes": [],
+    "lightspeedID": "2086"
+  },
+  {
+    "code": "c512",
+    "name": "Pulley Assembly",
+    "parentCode": "g563",
+    "childCodes": [],
+    "lightspeedID": "2087"
+  },
+  {
+    "code": "c494",
+    "name": "Cable Fixing Assembly",
+    "parentCode": "g470",
+    "childCodes": [],
+    "lightspeedID": "2088"
+  },
+  {
+    "code": "c513",
+    "name": "Pulley Bolt",
+    "parentCode": "g563",
+    "childCodes": [],
+    "lightspeedID": "2089"
+  },
+  {
+    "code": "c736",
+    "name": "Upper Bolt and Spring",
+    "parentCode": "g563",
+    "childCodes": [],
+    "lightspeedID": "2090"
+  },
+  {
+    "code": "c517",
+    "name": "Cage Assembly",
+    "parentCode": "g563",
+    "childCodes": [],
+    "lightspeedID": "2091"
+  },
+  {
+    "code": "c985",
+    "name": "Authorized Dealer Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2092"
+  },
+  {
+    "code": "c1051",
+    "name": "Retail Store Fixture and Accessory",
+    "parentCode": "g632",
+    "childCodes": [],
+    "lightspeedID": "2093"
+  },
+  {
+    "code": "c207",
+    "name": "Shoe Part and Accessory",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2094"
+  },
+  {
+    "code": "c1070",
+    "name": "Fixtures & Accessories",
+    "parentCode": "g32",
+    "childCodes": [],
+    "lightspeedID": "2095"
+  },
+  {
+    "code": "c984",
+    "name": "Glove Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2096"
+  },
+  {
+    "code": "c983",
+    "name": "Tube Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2097"
+  },
+  {
+    "code": "c56",
+    "name": "Dynamo & Generator Light",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "2098"
+  },
+  {
+    "code": "c52",
+    "name": "Headlightz",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "2099"
+  },
+  {
+    "code": "c976",
+    "name": "Lubricant, Lube Tool, Cleaner Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2100"
+  },
+  {
+    "code": "c978",
+    "name": "Eyewear Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2101"
+  },
+  {
+    "code": "c986",
+    "name": "Tire Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2102"
+  },
+  {
+    "code": "g670",
+    "name": "Trainer Accessories-x",
+    "parentCode": "g31",
+    "childCodes": ["c1161", "c1162", "c1160X"],
+    "lightspeedID": "2103"
+  },
+  {
+    "code": "c1163",
+    "name": "Trainer Accessories",
+    "parentCode": "g31",
+    "childCodes": [],
+    "lightspeedID": "2104"
+  },
+  {
+    "code": "c973",
+    "name": "Lighting Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2105"
+  },
+  {
+    "code": "g311",
+    "name": "Shop Supply",
+    "parentCode": "g29",
+    "childCodes": ["c1146", "c335", "c428"],
+    "lightspeedID": "2106"
+  },
+  {
+    "code": "c1146",
+    "name": "Zip Tie",
+    "parentCode": "g311",
+    "childCodes": [],
+    "lightspeedID": "2107"
+  },
+  {
+    "code": "c975",
+    "name": "Wheel Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2108"
+  },
+  {
+    "code": "c765",
+    "name": "Commercial Rack",
+    "parentCode": "g32",
+    "childCodes": [],
+    "lightspeedID": "2109"
+  },
+  {
+    "code": "g20",
+    "name": "Nutritionals",
+    "parentCode": "g0",
+    "childCodes": [
+      "c49",
+      "c1281",
+      "c923",
+      "c1282",
+      "c1280",
+      "c1279",
+      "c_100_snack",
+      "g698",
+      "c1159",
+      "c1279waffle",
+      "c1281A",
+      "c100_sport_fuel"
+    ],
+    "lightspeedID": "2110"
+  },
+  {
+    "code": "c49",
+    "name": "Supplement and Mineral",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2111"
+  },
+  {
+    "code": "c1281",
+    "name": "Sport Hydration",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2112"
+  },
+  {
+    "code": "c923",
+    "name": "Nutritional Item Accessory",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2113"
+  },
+  {
+    "code": "c1282",
+    "name": "Chew",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2114"
+  },
+  {
+    "code": "c1280",
+    "name": "Gel",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2115"
+  },
+  {
+    "code": "c1279",
+    "name": "Bars",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2116"
+  },
+  {
+    "code": "c_100_snack",
+    "name": "Snack",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2117"
+  },
+  {
+    "code": "g698",
+    "name": "Camping and Backpacking Food",
+    "parentCode": "g20",
+    "childCodes": ["c1276", "c1275", "c1277"],
+    "lightspeedID": "2118"
+  },
+  {
+    "code": "c1276",
+    "name": "Desserts and Snacks",
+    "parentCode": "g698",
+    "childCodes": [],
+    "lightspeedID": "2119"
+  },
+  {
+    "code": "c972",
+    "name": "Nutritional Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2120"
+  },
+  {
+    "code": "c_component_display",
+    "name": "Component Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2121"
+  },
+  {
+    "code": "c_a2",
+    "name": "Camera Mounts",
+    "parentCode": "g686",
+    "childCodes": [],
+    "lightspeedID": "2122"
+  },
+  {
+    "code": "c1026",
+    "name": "Electronic Map",
+    "parentCode": "g629",
+    "childCodes": [],
+    "lightspeedID": "2123"
+  },
+  {
+    "code": "c1195",
+    "name": "Device Charger",
+    "parentCode": "g10",
+    "childCodes": [],
+    "lightspeedID": "2124"
+  },
+  {
+    "code": "c982",
+    "name": "Computer/Electronics Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2125"
+  },
+  {
+    "code": "c827",
+    "name": "Camera",
+    "parentCode": "g686",
+    "childCodes": [],
+    "lightspeedID": "2126"
+  },
+  {
+    "code": "g649",
+    "name": "First Aid and Survival Gear",
+    "parentCode": "g639",
+    "childCodes": ["c1219", "g697", "g696", "c1112"],
+    "lightspeedID": "2127"
+  },
+  {
+    "code": "c1219",
+    "name": "First Responder Assistance",
+    "parentCode": "g649",
+    "childCodes": [],
+    "lightspeedID": "2128"
+  },
+  {
+    "code": "g677",
+    "name": "Outdoor Lighting",
+    "parentCode": "g639",
+    "childCodes": ["c1249", "c1031", "c1249_1", "c1249_2", "c1306"],
+    "lightspeedID": "2129"
+  },
+  {
+    "code": "c1249",
+    "name": "Lanterns",
+    "parentCode": "g677",
+    "childCodes": [],
+    "lightspeedID": "2130"
+  },
+  {
+    "code": "g709",
+    "name": "Phone Accessories",
+    "parentCode": "g10",
+    "childCodes": ["c1310", "c1311"],
+    "lightspeedID": "2131"
+  },
+  {
+    "code": "c1310",
+    "name": "Smart Phone Accessory",
+    "parentCode": "g709",
+    "childCodes": [],
+    "lightspeedID": "2132"
+  },
+  {
+    "code": "c1311",
+    "name": "Phone Charger",
+    "parentCode": "g709",
+    "childCodes": [],
+    "lightspeedID": "2133"
+  },
+  {
+    "code": "g678",
+    "name": "Electric Bike Kits",
+    "parentCode": "g27",
+    "childCodes": ["c953", "c1211", "c1209", "c1207", "c1210", "c1208"],
+    "lightspeedID": "2134"
+  },
+  {
+    "code": "c953",
+    "name": "Complete System",
+    "parentCode": "g678",
+    "childCodes": [],
+    "lightspeedID": "2135"
+  },
+  {
+    "code": "c1203",
+    "name": "Spoke Kit",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2136"
+  },
+  {
+    "code": "c1211",
+    "name": "Replacement Part",
+    "parentCode": "g678",
+    "childCodes": [],
+    "lightspeedID": "2137"
+  },
+  {
+    "code": "c1209",
+    "name": "Charger",
+    "parentCode": "g678",
+    "childCodes": [],
+    "lightspeedID": "2138"
+  },
+  {
+    "code": "g490",
+    "name": "Wheel",
+    "parentCode": "g27",
+    "childCodes": ["c1213", "c555", "c618", "c617", "c924", "c925"],
+    "lightspeedID": "2139"
+  },
+  {
+    "code": "c1213",
+    "name": "Electric Bike Rear Wheel",
+    "parentCode": "g490",
+    "childCodes": [],
+    "lightspeedID": "2140"
+  },
+  {
+    "code": "c1207",
+    "name": "Wiring Extension",
+    "parentCode": "g678",
+    "childCodes": [],
+    "lightspeedID": "2141"
+  },
+  {
+    "code": "g541",
+    "name": "Freewheel",
+    "parentCode": "g27",
+    "childCodes": ["c692", "c292", "c551"],
+    "lightspeedID": "2142"
+  },
+  {
+    "code": "c692",
+    "name": "Multi-Speed Freewheel",
+    "parentCode": "g541",
+    "childCodes": [],
+    "lightspeedID": "2143"
+  },
+  {
+    "code": "c1210",
+    "name": "E Bike Tool",
+    "parentCode": "g678",
+    "childCodes": [],
+    "lightspeedID": "2144"
+  },
+  {
+    "code": "c1208",
+    "name": "Universal Small Part",
+    "parentCode": "g678",
+    "childCodes": [],
+    "lightspeedID": "2145"
+  },
+  {
+    "code": "c228",
+    "name": "Sunglasses",
+    "parentCode": "g569",
+    "childCodes": [],
+    "lightspeedID": "2146"
+  },
+  {
+    "code": "c913",
+    "name": "Safety Glasses",
+    "parentCode": "g569",
+    "childCodes": [],
+    "lightspeedID": "2147"
+  },
+  {
+    "code": "c276",
+    "name": "Goggle",
+    "parentCode": "g569",
+    "childCodes": [],
+    "lightspeedID": "2148"
+  },
+  {
+    "code": "c911",
+    "name": "Eyewear Promotional Package",
+    "parentCode": "g569",
+    "childCodes": [],
+    "lightspeedID": "2149"
+  },
+  {
+    "code": "c571",
+    "name": "Front Derailleur",
+    "parentCode": "g453",
+    "childCodes": [],
+    "lightspeedID": "2150"
+  },
+  {
+    "code": "g12",
+    "name": "Fender",
+    "parentCode": "g1",
+    "childCodes": ["c27", "c79", "c26", "c25_donotusse"],
+    "lightspeedID": "2151"
+  },
+  {
+    "code": "c27",
+    "name": "Full Coverage Fender",
+    "parentCode": "g12",
+    "childCodes": [],
+    "lightspeedID": "2152"
+  },
+  {
+    "code": "c79",
+    "name": "Fender Part",
+    "parentCode": "g12",
+    "childCodes": [],
+    "lightspeedID": "2153"
+  },
+  {
+    "code": "c26",
+    "name": "Clip-On Fender",
+    "parentCode": "g12",
+    "childCodes": [],
+    "lightspeedID": "2154"
+  },
+  {
+    "code": "g452",
+    "name": "Fork",
+    "parentCode": "g27",
+    "childCodes": ["g477", "g474", "c606"],
+    "lightspeedID": "2155"
+  },
+  {
+    "code": "g477",
+    "name": "Fork Parts",
+    "parentCode": "g452",
+    "childCodes": [
+      "c531",
+      "c1327",
+      "c547",
+      "c1326",
+      "c528",
+      "c1328",
+      "c1330",
+      "c1325",
+      "c539",
+      "c802",
+      "c864",
+      "c529",
+      "c945",
+      "c534",
+      "c535",
+      "c1329",
+      "c530",
+      "c1331",
+      "c869",
+      "c533"
+    ],
+    "lightspeedID": "2156"
+  },
+  {
+    "code": "c531",
+    "name": "Top Cap",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2157"
+  },
+  {
+    "code": "c1327",
+    "name": "Lowers & Bushing Sets",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2158"
+  },
+  {
+    "code": "c547",
+    "name": "Other Fork Part",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2159"
+  },
+  {
+    "code": "c1326",
+    "name": "Coil Springs & Parts",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2160"
+  },
+  {
+    "code": "g474",
+    "name": "Rigid Fork",
+    "parentCode": "g452",
+    "childCodes": ["c604", "c601", "c605", "c633"],
+    "lightspeedID": "2161"
+  },
+  {
+    "code": "c604",
+    "name": "BMX Fork",
+    "parentCode": "g474",
+    "childCodes": [],
+    "lightspeedID": "2162"
+  },
+  {
+    "code": "c601",
+    "name": "Road Fork",
+    "parentCode": "g474",
+    "childCodes": [],
+    "lightspeedID": "2163"
+  },
+  {
+    "code": "c605",
+    "name": "Cyclocross/Hybrid Fork",
+    "parentCode": "g474",
+    "childCodes": [],
+    "lightspeedID": "2164"
+  },
+  {
+    "code": "c633",
+    "name": "Rigid Mountain Fork",
+    "parentCode": "g474",
+    "childCodes": [],
+    "lightspeedID": "2165"
+  },
+  {
+    "code": "c606",
+    "name": "Suspension Fork",
+    "parentCode": "g452",
+    "childCodes": [],
+    "lightspeedID": "2166"
+  },
+  {
+    "code": "c528",
+    "name": "Seal Kit",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2167"
+  },
+  {
+    "code": "g540",
+    "name": "Hub Skewers & Thru Axles",
+    "parentCode": "g438",
+    "childCodes": ["c687", "c922", "c940", "c688", "c_K922"],
+    "lightspeedID": "2168"
+  },
+  {
+    "code": "c1328",
+    "name": "Damper, Compression",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2169"
+  },
+  {
+    "code": "c1330",
+    "name": "Rebound Damper Parts",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2170"
+  },
+  {
+    "code": "c1325",
+    "name": "Air Springs & Parts",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2171"
+  },
+  {
+    "code": "c614",
+    "name": "Headset Top Cap",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2172"
+  },
+  {
+    "code": "c539",
+    "name": "Adjuster Knob & External Hardware",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2173"
+  },
+  {
+    "code": "c802",
+    "name": "Remote Upgrade Kits",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2174"
+  },
+  {
+    "code": "c864",
+    "name": "Service Kit",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2175"
+  },
+  {
+    "code": "c529",
+    "name": "Axles & Axle Parts",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2176"
+  },
+  {
+    "code": "g544",
+    "name": "Rear Shock",
+    "parentCode": "g27",
+    "childCodes": ["c1333", "c1334", "c700", "c699", "c698", "c697", "c1332"],
+    "lightspeedID": "2177"
+  },
+  {
+    "code": "c1333",
+    "name": "Rear Shock Service Kits",
+    "parentCode": "g544",
+    "childCodes": [],
+    "lightspeedID": "2178"
+  },
+  {
+    "code": "c945",
+    "name": "Damper Part",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2179"
+  },
+  {
+    "code": "c1334",
+    "name": "Eyelet Bushings",
+    "parentCode": "g544",
+    "childCodes": [],
+    "lightspeedID": "2180"
+  },
+  {
+    "code": "c534",
+    "name": "Lower Leg Assembly",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2181"
+  },
+  {
+    "code": "c535",
+    "name": "Crown/Steerer/Uppertube Assembly",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2182"
+  },
+  {
+    "code": "c608",
+    "name": "Compression Plug",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2183"
+  },
+  {
+    "code": "c1329",
+    "name": "Damper, Rebound",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2184"
+  },
+  {
+    "code": "c749",
+    "name": "Suspension Tool",
+    "parentCode": "g29",
+    "childCodes": [],
+    "lightspeedID": "2185"
+  },
+  {
+    "code": "c530",
+    "name": "Brake Posts",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2186"
+  },
+  {
+    "code": "c1331",
+    "name": "Remotes & Parts",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2187"
+  },
+  {
+    "code": "c869",
+    "name": "Steerer Tube",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2188"
+  },
+  {
+    "code": "c700",
+    "name": "Rear Shock Part",
+    "parentCode": "g544",
+    "childCodes": [],
+    "lightspeedID": "2189"
+  },
+  {
+    "code": "c533",
+    "name": "Spring Kit",
+    "parentCode": "g477",
+    "childCodes": [],
+    "lightspeedID": "2190"
+  },
+  {
+    "code": "c680",
+    "name": "Road Frames",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2191"
+  },
+  {
+    "code": "c1188",
+    "name": "Fat Bike Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2192"
+  },
+  {
+    "code": "c630",
+    "name": "Track Frames",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2193"
+  },
+  {
+    "code": "c629",
+    "name": "Touring Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2194"
+  },
+  {
+    "code": "c1048",
+    "name": "Transportation Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2195"
+  },
+  {
+    "code": "c580",
+    "name": "BMX Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2196"
+  },
+  {
+    "code": "c_900_tandem_frame",
+    "name": "Tandem Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2197"
+  },
+  {
+    "code": "c626",
+    "name": "Mountain Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2198"
+  },
+  {
+    "code": "c1291",
+    "name": "All-Road Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2199"
+  },
+  {
+    "code": "g13",
+    "name": "Balance Training Aids",
+    "parentCode": "g1",
+    "childCodes": ["c846", "c34", "c36"],
+    "lightspeedID": "2200"
+  },
+  {
+    "code": "c946",
+    "name": "Balance Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "2201"
+  },
+  {
+    "code": "c1000_kids_bike",
+    "name": "Kids Bikes",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "2202"
+  },
+  {
+    "code": "c628",
+    "name": "Cyclocross Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2203"
+  },
+  {
+    "code": "g612",
+    "name": "Snow Sports",
+    "parentCode": "g0",
+    "childCodes": [
+      "g672",
+      "g685",
+      "c1167",
+      "c1099",
+      "g671",
+      "c1053",
+      "g624",
+      "g625",
+      "g704",
+      "g673",
+      "g613"
+    ],
+    "lightspeedID": "2204"
+  },
+  {
+    "code": "g672",
+    "name": "Poles",
+    "parentCode": "g612",
+    "childCodes": ["g674", "c1176", "c1175"],
+    "lightspeedID": "2205"
+  },
+  {
+    "code": "g674",
+    "name": "Pole Parts",
+    "parentCode": "g672",
+    "childCodes": ["c1181", "c1182", "c1183"],
+    "lightspeedID": "2206"
+  },
+  {
+    "code": "c1181",
+    "name": "Glue",
+    "parentCode": "g674",
+    "childCodes": [],
+    "lightspeedID": "2207"
+  },
+  {
+    "code": "c822",
+    "name": "Tri and Time Trial Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2208"
+  },
+  {
+    "code": "c561",
+    "name": "Cassette Spacer",
+    "parentCode": "g492",
+    "childCodes": [],
+    "lightspeedID": "2209"
+  },
+  {
+    "code": "c559",
+    "name": "Cassette Lockring",
+    "parentCode": "g492",
+    "childCodes": [],
+    "lightspeedID": "2210"
+  },
+  {
+    "code": "c1129",
+    "name": "Belt Drive Cog",
+    "parentCode": "g652",
+    "childCodes": [],
+    "lightspeedID": "2211"
+  },
+  {
+    "code": "c1222",
+    "name": "Belt Drive Retaining Ring",
+    "parentCode": "g652",
+    "childCodes": [],
+    "lightspeedID": "2212"
+  },
+  {
+    "code": "c706",
+    "name": "Driver and Single Cog",
+    "parentCode": "g491",
+    "childCodes": [],
+    "lightspeedID": "2213"
+  },
+  {
+    "code": "g493",
+    "name": "Track Cog",
+    "parentCode": "g491",
+    "childCodes": ["c565", "c562", "c863"],
+    "lightspeedID": "2214"
+  },
+  {
+    "code": "c565",
+    "name": "Track Cog Lockring",
+    "parentCode": "g493",
+    "childCodes": [],
+    "lightspeedID": "2215"
+  },
+  {
+    "code": "c562",
+    "name": "Track Cogs",
+    "parentCode": "g493",
+    "childCodes": [],
+    "lightspeedID": "2216"
+  },
+  {
+    "code": "c567",
+    "name": "Cassette Conversion Kits",
+    "parentCode": "g492",
+    "childCodes": [],
+    "lightspeedID": "2217"
+  },
+  {
+    "code": "c335",
+    "name": "Miscellaneous Shop Supply",
+    "parentCode": "g311",
+    "childCodes": [],
+    "lightspeedID": "2218"
+  },
+  {
+    "code": "g591",
+    "name": "Glove",
+    "parentCode": "g28",
+    "childCodes": ["c299", "c577", "c1092"],
+    "lightspeedID": "2219"
+  },
+  {
+    "code": "c299",
+    "name": "Gloves",
+    "parentCode": "g591",
+    "childCodes": [],
+    "lightspeedID": "2220"
+  },
+  {
+    "code": "c279",
+    "name": "Body Armor",
+    "parentCode": "g598",
+    "childCodes": [],
+    "lightspeedID": "2221"
+  },
+  {
+    "code": "c577",
+    "name": "Glove Liner",
+    "parentCode": "g591",
+    "childCodes": [],
+    "lightspeedID": "2222"
+  },
+  {
+    "code": "g530",
+    "name": "Stem",
+    "parentCode": "g27",
+    "childCodes": ["g533", "c149", "c809", "ck149"],
+    "lightspeedID": "2223"
+  },
+  {
+    "code": "g533",
+    "name": "Stem Parts",
+    "parentCode": "g530",
+    "childCodes": ["c677", "c671", "c734", "c673", "c675", "c672", "c676"],
+    "lightspeedID": "2224"
+  },
+  {
+    "code": "c677",
+    "name": "Stem Small Part",
+    "parentCode": "g533",
+    "childCodes": [],
+    "lightspeedID": "2225"
+  },
+  {
+    "code": "c482",
+    "name": "Axle Nut and Bolt",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2226"
+  },
+  {
+    "code": "g583",
+    "name": "Seatpost",
+    "parentCode": "g27",
+    "childCodes": [
+      "c190",
+      "c185",
+      "c192",
+      "c1237",
+      "c931",
+      "c188",
+      "c1236",
+      "c189",
+      "c807",
+      "c191",
+      "g1322"
+    ],
+    "lightspeedID": "2227"
+  },
+  {
+    "code": "c190",
+    "name": "Seatpost Binder Bolt",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2228"
+  },
+  {
+    "code": "g75",
+    "name": "Bolts/Nuts/Washer",
+    "parentCode": "g27",
+    "childCodes": ["c158", "c157", "c156", "c681"],
+    "lightspeedID": "2229"
+  },
+  {
+    "code": "c158",
+    "name": "Bolt",
+    "parentCode": "g75",
+    "childCodes": [],
+    "lightspeedID": "2230"
+  },
+  {
+    "code": "c157",
+    "name": "Washer",
+    "parentCode": "g75",
+    "childCodes": [],
+    "lightspeedID": "2231"
+  },
+  {
+    "code": "c156",
+    "name": "Nut",
+    "parentCode": "g75",
+    "childCodes": [],
+    "lightspeedID": "2232"
+  },
+  {
+    "code": "c467",
+    "name": "Pedal Small Part",
+    "parentCode": "g573",
+    "childCodes": [],
+    "lightspeedID": "2233"
+  },
+  {
+    "code": "c681",
+    "name": "Fastener Kits",
+    "parentCode": "g75",
+    "childCodes": [],
+    "lightspeedID": "2234"
+  },
+  {
+    "code": "g63",
+    "name": "Handlebar",
+    "parentCode": "g27",
+    "childCodes": [
+      "c194",
+      "g520",
+      "g71",
+      "g64",
+      "g109",
+      "c603",
+      "c607",
+      "c603_1"
+    ],
+    "lightspeedID": "2235"
+  },
+  {
+    "code": "c194",
+    "name": "Flat/Riser Handlebar",
+    "parentCode": "g63",
+    "childCodes": [],
+    "lightspeedID": "2236"
+  },
+  {
+    "code": "g520",
+    "name": "Cruiser/Multi-Position Handlebars",
+    "parentCode": "g63",
+    "childCodes": ["c602", "c862"],
+    "lightspeedID": "2237"
+  },
+  {
+    "code": "c602",
+    "name": "Cruiser/Multi-Position Handlebar",
+    "parentCode": "g520",
+    "childCodes": [],
+    "lightspeedID": "2238"
+  },
+  {
+    "code": "g71",
+    "name": "Aero Bars",
+    "parentCode": "g63",
+    "childCodes": [
+      "c199",
+      "c147",
+      "c760",
+      "c195",
+      "c1470_aero_bar_extension",
+      "c196"
+    ],
+    "lightspeedID": "2239"
+  },
+  {
+    "code": "c199",
+    "name": "Aero Bar Part",
+    "parentCode": "g71",
+    "childCodes": [],
+    "lightspeedID": "2240"
+  },
+  {
+    "code": "c147",
+    "name": "Clip-On Aero Bar",
+    "parentCode": "g71",
+    "childCodes": [],
+    "lightspeedID": "2241"
+  },
+  {
+    "code": "c760",
+    "name": "Integrated Handlebar/Aero Bar",
+    "parentCode": "g71",
+    "childCodes": [],
+    "lightspeedID": "2242"
+  },
+  {
+    "code": "g64",
+    "name": "Drop Handlebars",
+    "parentCode": "g63",
+    "childCodes": ["c141", "c198"],
+    "lightspeedID": "2243"
+  },
+  {
+    "code": "c141",
+    "name": "Drop Handlebar",
+    "parentCode": "g64",
+    "childCodes": [],
+    "lightspeedID": "2244"
+  },
+  {
+    "code": "c162",
+    "name": "Linear Pull Brake Small Part",
+    "parentCode": "g76",
+    "childCodes": [],
+    "lightspeedID": "2245"
+  },
+  {
+    "code": "g109",
+    "name": "Handlebar Accessories",
+    "parentCode": "g63",
+    "childCodes": ["c200"],
+    "lightspeedID": "2246"
+  },
+  {
+    "code": "c200",
+    "name": "Handlebar Accessory Mount",
+    "parentCode": "g109",
+    "childCodes": [],
+    "lightspeedID": "2247"
+  },
+  {
+    "code": "c603",
+    "name": "Bar End",
+    "parentCode": "g63",
+    "childCodes": [],
+    "lightspeedID": "2248"
+  },
+  {
+    "code": "c324",
+    "name": "Grease",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2249"
+  },
+  {
+    "code": "c198",
+    "name": "Integrated Drop Handlebar/Stem",
+    "parentCode": "g64",
+    "childCodes": [],
+    "lightspeedID": "2250"
+  },
+  {
+    "code": "c850",
+    "name": "Linear Pull Brake Set",
+    "parentCode": "g76",
+    "childCodes": [],
+    "lightspeedID": "2251"
+  },
+  {
+    "code": "c607",
+    "name": "BMX Handlebar",
+    "parentCode": "g63",
+    "childCodes": [],
+    "lightspeedID": "2252"
+  },
+  {
+    "code": "c195",
+    "name": "TT and Base Bar",
+    "parentCode": "g71",
+    "childCodes": [],
+    "lightspeedID": "2253"
+  },
+  {
+    "code": "c490",
+    "name": "Small Parts Kit",
+    "parentCode": "g461",
+    "childCodes": [],
+    "lightspeedID": "2254"
+  },
+  {
+    "code": "c322",
+    "name": "Disc Brake Fluid",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2255"
+  },
+  {
+    "code": "g554",
+    "name": "Brake Adaptor",
+    "parentCode": "g51",
+    "childCodes": ["c683"],
+    "lightspeedID": "2256"
+  },
+  {
+    "code": "c683",
+    "name": "Brake Adaptors",
+    "parentCode": "g554",
+    "childCodes": [],
+    "lightspeedID": "2257"
+  },
+  {
+    "code": "c615",
+    "name": "Headset Small Part",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2258"
+  },
+  {
+    "code": "c600",
+    "name": "Headsets",
+    "parentCode": "g517",
+    "childCodes": [],
+    "lightspeedID": "2259"
+  },
+  {
+    "code": "c1063",
+    "name": "Headset Upper",
+    "parentCode": "g517",
+    "childCodes": [],
+    "lightspeedID": "2260"
+  },
+  {
+    "code": "c1064",
+    "name": "Headset Lower",
+    "parentCode": "g517",
+    "childCodes": [],
+    "lightspeedID": "2261"
+  },
+  {
+    "code": "c613",
+    "name": "Keyed Headset Washer",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2262"
+  },
+  {
+    "code": "c478",
+    "name": "Axle",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2263"
+  },
+  {
+    "code": "c791",
+    "name": "Headset Stack Spacer Dealer Kit",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2264"
+  },
+  {
+    "code": "c848",
+    "name": "BMX Caliper Brake Sets",
+    "parentCode": "g609",
+    "childCodes": [],
+    "lightspeedID": "2265"
+  },
+  {
+    "code": "g662",
+    "name": "Headset Tools",
+    "parentCode": "g253",
+    "childCodes": ["c412"],
+    "lightspeedID": "2266"
+  },
+  {
+    "code": "c412",
+    "name": "Headset Tool",
+    "parentCode": "g662",
+    "childCodes": [],
+    "lightspeedID": "2267"
+  },
+  {
+    "code": "c300",
+    "name": "Helmets",
+    "parentCode": "g579",
+    "childCodes": [],
+    "lightspeedID": "2268"
+  },
+  {
+    "code": "g399",
+    "name": "Brake & Derailleur Housing",
+    "parentCode": "g401",
+    "childCodes": ["c445"],
+    "lightspeedID": "2269"
+  },
+  {
+    "code": "c445",
+    "name": "Brake and Derailleur Housing",
+    "parentCode": "g399",
+    "childCodes": [],
+    "lightspeedID": "2270"
+  },
+  {
+    "code": "c453",
+    "name": "Brake & Derailleur Cable Housing Set",
+    "parentCode": "g561",
+    "childCodes": [],
+    "lightspeedID": "2271"
+  },
+  {
+    "code": "c725",
+    "name": "Drum Brake Part",
+    "parentCode": "g51",
+    "childCodes": [],
+    "lightspeedID": "2272"
+  },
+  {
+    "code": "g702",
+    "name": "Derailleur Hanger",
+    "parentCode": "g219",
+    "childCodes": ["c285", "c748"],
+    "lightspeedID": "2273"
+  },
+  {
+    "code": "c285",
+    "name": "Derailleur Hangers",
+    "parentCode": "g702",
+    "childCodes": [],
+    "lightspeedID": "2274"
+  },
+  {
+    "code": "c794",
+    "name": "Chains-Bulk",
+    "parentCode": "g172",
+    "childCodes": [],
+    "lightspeedID": "2275"
+  },
+  {
+    "code": "cKits",
+    "name": "Kits/Custom Wheels",
+    "parentCode": "g0",
+    "childCodes": [],
+    "lightspeedID": "2276"
+  },
+  {
+    "code": "g685",
+    "name": "Snow Helmet",
+    "parentCode": "g612",
+    "childCodes": ["c1248", "c1305"],
+    "lightspeedID": "2277"
+  },
+  {
+    "code": "c1248",
+    "name": "Snow Helmets",
+    "parentCode": "g685",
+    "childCodes": [],
+    "lightspeedID": "2278"
+  },
+  {
+    "code": "c454",
+    "name": "Bar End Plug",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2279"
+  },
+  {
+    "code": "c1092",
+    "name": "Pogies",
+    "parentCode": "g591",
+    "childCodes": [],
+    "lightspeedID": "2280"
+  },
+  {
+    "code": "c846",
+    "name": "Balance Bike Parts and Accessories",
+    "parentCode": "g13",
+    "childCodes": [],
+    "lightspeedID": "2281"
+  },
+  {
+    "code": "c782",
+    "name": "Locking Grip Clamp",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2282"
+  },
+  {
+    "code": "c132",
+    "name": "Bar Tape",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2283"
+  },
+  {
+    "code": "c552",
+    "name": "Mountain Shifter Part",
+    "parentCode": "g567",
+    "childCodes": [],
+    "lightspeedID": "2284"
+  },
+  {
+    "code": "c457",
+    "name": "Grip Donut",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2285"
+  },
+  {
+    "code": "c455",
+    "name": "Under-Tape Pad",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2286"
+  },
+  {
+    "code": "c458",
+    "name": "Finishing Tape",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2287"
+  },
+  {
+    "code": "g706",
+    "name": "Bicycle Streamers",
+    "parentCode": "g15",
+    "childCodes": ["c1304"],
+    "lightspeedID": "2288"
+  },
+  {
+    "code": "c1304",
+    "name": "Bicycle Streamer",
+    "parentCode": "g706",
+    "childCodes": [],
+    "lightspeedID": "2289"
+  },
+  {
+    "code": "c1228",
+    "name": "Sun Knee",
+    "parentCode": "g683",
+    "childCodes": [],
+    "lightspeedID": "2290"
+  },
+  {
+    "code": "c944",
+    "name": "Track Grip",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2291"
+  },
+  {
+    "code": "g594",
+    "name": "Hubs",
+    "parentCode": "g438",
+    "childCodes": [
+      "c474",
+      "c473",
+      "c475",
+      "c686",
+      "c_dropship_front_hub",
+      "c_dropship_rear_hub",
+      "ck101"
+    ],
+    "lightspeedID": "2292"
+  },
+  {
+    "code": "c474",
+    "name": "Rear Hub",
+    "parentCode": "g594",
+    "childCodes": [],
+    "lightspeedID": "2293"
+  },
+  {
+    "code": "c1067",
+    "name": "Rear Axle Conversion Kit",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2294"
+  },
+  {
+    "code": "c473",
+    "name": "Front Hub",
+    "parentCode": "g594",
+    "childCodes": [],
+    "lightspeedID": "2295"
+  },
+  {
+    "code": "g42",
+    "name": "Safety",
+    "parentCode": "g1",
+    "childCodes": ["c912", "c115", "c844", "c920"],
+    "lightspeedID": "2296"
+  },
+  {
+    "code": "c912",
+    "name": "Vest, Reflective",
+    "parentCode": "g42",
+    "childCodes": [],
+    "lightspeedID": "2297"
+  },
+  {
+    "code": "c694",
+    "name": "BMX Peg",
+    "parentCode": "g593",
+    "childCodes": [],
+    "lightspeedID": "2298"
+  },
+  {
+    "code": "c1095",
+    "name": "BMX Hub Guard",
+    "parentCode": "g438",
+    "childCodes": [],
+    "lightspeedID": "2299"
+  },
+  {
+    "code": "c694_bmx_peg_sleeve",
+    "name": "Peg Sleeve",
+    "parentCode": "g593",
+    "childCodes": [],
+    "lightspeedID": "2300"
+  },
+  {
+    "code": "c475",
+    "name": "Internally Geared Hub",
+    "parentCode": "g594",
+    "childCodes": [],
+    "lightspeedID": "2301"
+  },
+  {
+    "code": "c1068",
+    "name": "Front Axle Conversion Kit",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2302"
+  },
+  {
+    "code": "c1029",
+    "name": "Internally Geared Hub Shifter",
+    "parentCode": "g89",
+    "childCodes": [],
+    "lightspeedID": "2303"
+  },
+  {
+    "code": "c687",
+    "name": "Front QR Skewer",
+    "parentCode": "g540",
+    "childCodes": [],
+    "lightspeedID": "2304"
+  },
+  {
+    "code": "c922",
+    "name": "Rear QR Skewer",
+    "parentCode": "g540",
+    "childCodes": [],
+    "lightspeedID": "2305"
+  },
+  {
+    "code": "c480",
+    "name": "Cone",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2306"
+  },
+  {
+    "code": "c695",
+    "name": "Axle Set",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2307"
+  },
+  {
+    "code": "c686",
+    "name": "Hub Set",
+    "parentCode": "g594",
+    "childCodes": [],
+    "lightspeedID": "2308"
+  },
+  {
+    "code": "c476",
+    "name": "Axle Spacer",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2309"
+  },
+  {
+    "code": "c568",
+    "name": "Single Speed Conversion Kit",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2310"
+  },
+  {
+    "code": "g604",
+    "name": "Unicycle",
+    "parentCode": "g27",
+    "childCodes": ["c472", "c828", "c900"],
+    "lightspeedID": "2311"
+  },
+  {
+    "code": "c472",
+    "name": "Unicycle Hub",
+    "parentCode": "g604",
+    "childCodes": [],
+    "lightspeedID": "2312"
+  },
+  {
+    "code": "g376",
+    "name": "Hub Tools",
+    "parentCode": "g253",
+    "childCodes": ["c413", "c403"],
+    "lightspeedID": "2313"
+  },
+  {
+    "code": "c413",
+    "name": "Other Hub Tool",
+    "parentCode": "g376",
+    "childCodes": [],
+    "lightspeedID": "2314"
+  },
+  {
+    "code": "c1159",
+    "name": "Coffee",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2315"
+  },
+  {
+    "code": "c1245_do_not_use",
+    "name": "Run Jacket",
+    "parentCode": "g620",
+    "childCodes": [],
+    "lightspeedID": "2316"
+  },
+  {
+    "code": "g666",
+    "name": "Vests",
+    "parentCode": "g622",
+    "childCodes": ["c266"],
+    "lightspeedID": "2317"
+  },
+  {
+    "code": "c266",
+    "name": "Vest",
+    "parentCode": "g666",
+    "childCodes": [],
+    "lightspeedID": "2318"
+  },
+  {
+    "code": "c965_do_not_use",
+    "name": "Ski Jacket",
+    "parentCode": "g621",
+    "childCodes": [],
+    "lightspeedID": "2319"
+  },
+  {
+    "code": "g656",
+    "name": "Outdoor Accessories",
+    "parentCode": "g639",
+    "childCodes": ["c1090", "c67", "c1266", "c1251", "c1084"],
+    "lightspeedID": "2320"
+  },
+  {
+    "code": "c1090",
+    "name": "Gear Maintenance",
+    "parentCode": "g656",
+    "childCodes": [],
+    "lightspeedID": "2321"
+  },
+  {
+    "code": "c754",
+    "name": "Multi-Sport Top",
+    "parentCode": "g568",
+    "childCodes": [],
+    "lightspeedID": "2322"
+  },
+  {
+    "code": "c309",
+    "name": "Sports Bra",
+    "parentCode": "g28",
+    "childCodes": [],
+    "lightspeedID": "2323"
+  },
+  {
+    "code": "c832",
+    "name": "Unicycle Crank",
+    "parentCode": "g576",
+    "childCodes": [],
+    "lightspeedID": "2324"
+  },
+  {
+    "code": "c858",
+    "name": "One-Piece Crankset",
+    "parentCode": "g576",
+    "childCodes": [],
+    "lightspeedID": "2325"
+  },
+  {
+    "code": "c1061",
+    "name": "Internally Geared Crank Part",
+    "parentCode": "g647",
+    "childCodes": [],
+    "lightspeedID": "2326"
+  },
+  {
+    "code": "c1130",
+    "name": "Belt Drive Ring",
+    "parentCode": "g652",
+    "childCodes": [],
+    "lightspeedID": "2327"
+  },
+  {
+    "code": "c1045",
+    "name": "Power Measuring Device",
+    "parentCode": "g10",
+    "childCodes": [],
+    "lightspeedID": "2328"
+  },
+  {
+    "code": "c1042",
+    "name": "E-Tubes, Cables & Extensions",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "2329"
+  },
+  {
+    "code": "c1307",
+    "name": "Junction Box",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "2330"
+  },
+  {
+    "code": "c1041",
+    "name": "Shifter Battery Charger",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "2331"
+  },
+  {
+    "code": "c1216",
+    "name": "Battery Charger Cable",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "2332"
+  },
+  {
+    "code": "c1039",
+    "name": "Rear Wiring Kit",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "2333"
+  },
+  {
+    "code": "c1043",
+    "name": "Front Wiring Kit",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "2334"
+  },
+  {
+    "code": "c88",
+    "name": "Rack Strap, Tie, & Bungee",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "2335"
+  },
+  {
+    "code": "c0_dealers_choice",
+    "name": "DC Tracking Number",
+    "parentCode": "g0",
+    "childCodes": [],
+    "lightspeedID": "2336"
+  },
+  {
+    "code": "c1008",
+    "name": "Disc Golf Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2337"
+  },
+  {
+    "code": "g680",
+    "name": "Outdoor Recreation",
+    "parentCode": "g639",
+    "childCodes": ["c1214", "c1324", "g707", "g708"],
+    "lightspeedID": "2338"
+  },
+  {
+    "code": "c1214",
+    "name": "Disc Golf",
+    "parentCode": "g680",
+    "childCodes": [],
+    "lightspeedID": "2339"
+  },
+  {
+    "code": "c135",
+    "name": "Dealer Information",
+    "parentCode": "g632",
+    "childCodes": [],
+    "lightspeedID": "2340"
+  },
+  {
+    "code": "g512",
+    "name": "Flat Bar Shifters",
+    "parentCode": "g89",
+    "childCodes": ["c594", "c588", "c589"],
+    "lightspeedID": "2341"
+  },
+  {
+    "code": "c594",
+    "name": "Shifter, Flat Bar- Pair",
+    "parentCode": "g512",
+    "childCodes": [],
+    "lightspeedID": "2342"
+  },
+  {
+    "code": "c588",
+    "name": "Shifter, Flat Bar- Left",
+    "parentCode": "g512",
+    "childCodes": [],
+    "lightspeedID": "2343"
+  },
+  {
+    "code": "c589",
+    "name": "Shifter, Flat Bar-Right",
+    "parentCode": "g512",
+    "childCodes": [],
+    "lightspeedID": "2344"
+  },
+  {
+    "code": "c661",
+    "name": "Brake/Shift Lever, Drop Bar Pair",
+    "parentCode": "g552",
+    "childCodes": [],
+    "lightspeedID": "2345"
+  },
+  {
+    "code": "g553",
+    "name": "Flat Bar Brake/Shift Levers",
+    "parentCode": "g89",
+    "childCodes": ["c655", "c653", "c654"],
+    "lightspeedID": "2346"
+  },
+  {
+    "code": "c655",
+    "name": "Brake/Shift Lever, Flat Bar Pair",
+    "parentCode": "g553",
+    "childCodes": [],
+    "lightspeedID": "2347"
+  },
+  {
+    "code": "c728",
+    "name": "Shifter, Road",
+    "parentCode": "g89",
+    "childCodes": [],
+    "lightspeedID": "2348"
+  },
+  {
+    "code": "g701",
+    "name": "Health and Wellness Accessories",
+    "parentCode": "g1",
+    "childCodes": ["g648", "c1218", "c1286"],
+    "lightspeedID": "2349"
+  },
+  {
+    "code": "g648",
+    "name": "Electromuscle Stimulation",
+    "parentCode": "g701",
+    "childCodes": ["c1109", "c1110"],
+    "lightspeedID": "2350"
+  },
+  {
+    "code": "c1109",
+    "name": "EMS Device",
+    "parentCode": "g648",
+    "childCodes": [],
+    "lightspeedID": "2351"
+  },
+  {
+    "code": "c1110",
+    "name": "EMS Part",
+    "parentCode": "g648",
+    "childCodes": [],
+    "lightspeedID": "2352"
+  },
+  {
+    "code": "c653",
+    "name": "Brake/Shift Lever, Flat Bar- Left",
+    "parentCode": "g553",
+    "childCodes": [],
+    "lightspeedID": "2353"
+  },
+  {
+    "code": "c654",
+    "name": "Brake/Shift Lever, Flat Bar- Right",
+    "parentCode": "g553",
+    "childCodes": [],
+    "lightspeedID": "2354"
+  },
+  {
+    "code": "c1302",
+    "name": "TT/Aero Brake/Shift Lever, Right",
+    "parentCode": "g705",
+    "childCodes": [],
+    "lightspeedID": "2355"
+  },
+  {
+    "code": "c463",
+    "name": "Pedals",
+    "parentCode": "g573",
+    "childCodes": [],
+    "lightspeedID": "2356"
+  },
+  {
+    "code": "c907",
+    "name": "Pedometer",
+    "parentCode": "g10",
+    "childCodes": [],
+    "lightspeedID": "2357"
+  },
+  {
+    "code": "c1217",
+    "name": "Remote Shifter",
+    "parentCode": "g631",
+    "childCodes": [],
+    "lightspeedID": "2358"
+  },
+  {
+    "code": "c1301",
+    "name": "TT/Aero Brake/Shift Lever, Left",
+    "parentCode": "g705",
+    "childCodes": [],
+    "lightspeedID": "2359"
+  },
+  {
+    "code": "c1138",
+    "name": "Gaiter",
+    "parentCode": "g646",
+    "childCodes": [],
+    "lightspeedID": "2360"
+  },
+  {
+    "code": "c54",
+    "name": "Taillight",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "2361"
+  },
+  {
+    "code": "c55",
+    "name": "Headlight & Taillight Set",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "2362"
+  },
+  {
+    "code": "c51",
+    "name": "Headlights",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "2363"
+  },
+  {
+    "code": "c784",
+    "name": "Safety Light",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "2364"
+  },
+  {
+    "code": "c115",
+    "name": "Reflector",
+    "parentCode": "g42",
+    "childCodes": [],
+    "lightspeedID": "2365"
+  },
+  {
+    "code": "c1031",
+    "name": "Headlamp",
+    "parentCode": "g677",
+    "childCodes": [],
+    "lightspeedID": "2366"
+  },
+  {
+    "code": "c1249_1",
+    "name": "Flashlights",
+    "parentCode": "g677",
+    "childCodes": [],
+    "lightspeedID": "2367"
+  },
+  {
+    "code": "c67",
+    "name": "Carabiner/ Keychain/ Lanyard",
+    "parentCode": "g656",
+    "childCodes": [],
+    "lightspeedID": "2368"
+  },
+  {
+    "code": "c1249_2",
+    "name": "Other Light",
+    "parentCode": "g677",
+    "childCodes": [],
+    "lightspeedID": "2369"
+  },
+  {
+    "code": "g16",
+    "name": "Leg Band",
+    "parentCode": "g1",
+    "childCodes": ["c41"],
+    "lightspeedID": "2370"
+  },
+  {
+    "code": "c41",
+    "name": "Leg Bands",
+    "parentCode": "g16",
+    "childCodes": [],
+    "lightspeedID": "2371"
+  },
+  {
+    "code": "c71",
+    "name": "Sticker/Decal",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2372"
+  },
+  {
+    "code": "c1118",
+    "name": "Branded Sign/Banner",
+    "parentCode": "g632",
+    "childCodes": [],
+    "lightspeedID": "2373"
+  },
+  {
+    "code": "c731",
+    "name": "Map",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2374"
+  },
+  {
+    "code": "c70",
+    "name": "Poster/Banner",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2375"
+  },
+  {
+    "code": "g668",
+    "name": "Books / Magazines",
+    "parentCode": "g15",
+    "childCodes": ["c1150", "c1152", "c1149", "c1148", "c1151"],
+    "lightspeedID": "2376"
+  },
+  {
+    "code": "c1150",
+    "name": "Bike Repair/Maintenance Guide",
+    "parentCode": "g668",
+    "childCodes": [],
+    "lightspeedID": "2377"
+  },
+  {
+    "code": "c1152",
+    "name": "Literature",
+    "parentCode": "g668",
+    "childCodes": [],
+    "lightspeedID": "2378"
+  },
+  {
+    "code": "c428",
+    "name": "Repair Tags, Forms & Labels",
+    "parentCode": "g311",
+    "childCodes": [],
+    "lightspeedID": "2379"
+  },
+  {
+    "code": "g697",
+    "name": "Survival Gear",
+    "parentCode": "g649",
+    "childCodes": ["c1113", "c1265"],
+    "lightspeedID": "2380"
+  },
+  {
+    "code": "c1113",
+    "name": "Survival Tools, Kits and Accessories",
+    "parentCode": "g697",
+    "childCodes": [],
+    "lightspeedID": "2381"
+  },
+  {
+    "code": "c977",
+    "name": "Tool & Repair Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2382"
+  },
+  {
+    "code": "g643",
+    "name": "Camp Kitchen",
+    "parentCode": "g639",
+    "childCodes": [
+      "c1169",
+      "c1193",
+      "c1115",
+      "c_water_storage",
+      "c1088",
+      "c1085",
+      "c1086",
+      "c1087",
+      "c_coolers",
+      "c_camp_fuel"
+    ],
+    "lightspeedID": "2383"
+  },
+  {
+    "code": "c1169",
+    "name": "Coffee, Tea, Alcohol",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2384"
+  },
+  {
+    "code": "c761",
+    "name": "Rim Part",
+    "parentCode": "g456",
+    "childCodes": [],
+    "lightspeedID": "2385"
+  },
+  {
+    "code": "c47",
+    "name": "Mirror",
+    "parentCode": "g1",
+    "childCodes": [],
+    "lightspeedID": "2386"
+  },
+  {
+    "code": "c755",
+    "name": "Swim Goggle",
+    "parentCode": "g_swim",
+    "childCodes": [],
+    "lightspeedID": "2387"
+  },
+  {
+    "code": "c298",
+    "name": "Anti-Fog",
+    "parentCode": "g569",
+    "childCodes": [],
+    "lightspeedID": "2388"
+  },
+  {
+    "code": "c756",
+    "name": "Swim Cap",
+    "parentCode": "g_swim",
+    "childCodes": [],
+    "lightspeedID": "2389"
+  },
+  {
+    "code": "c839",
+    "name": "Running Accessory",
+    "parentCode": "g570",
+    "childCodes": [],
+    "lightspeedID": "2390"
+  },
+  {
+    "code": "c123",
+    "name": "Aero Water Bottle",
+    "parentCode": "g45",
+    "childCodes": [],
+    "lightspeedID": "2391"
+  },
+  {
+    "code": "c1007",
+    "name": "Towel",
+    "parentCode": "g570",
+    "childCodes": [],
+    "lightspeedID": "2392"
+  },
+  {
+    "code": "c999_swimskin",
+    "name": "Swimskins",
+    "parentCode": "g568",
+    "childCodes": [],
+    "lightspeedID": "2393"
+  },
+  {
+    "code": "c899",
+    "name": "Wetsuit",
+    "parentCode": "g_swim",
+    "childCodes": [],
+    "lightspeedID": "2394"
+  },
+  {
+    "code": "c952",
+    "name": "Transition Mat",
+    "parentCode": "g570",
+    "childCodes": [],
+    "lightspeedID": "2395"
+  },
+  {
+    "code": "c1218",
+    "name": "Yoga Accessory",
+    "parentCode": "g701",
+    "childCodes": [],
+    "lightspeedID": "2396"
+  },
+  {
+    "code": "c865",
+    "name": "Apparel Care",
+    "parentCode": "g28",
+    "childCodes": [],
+    "lightspeedID": "2397"
+  },
+  {
+    "code": "g703",
+    "name": "Run Hydration",
+    "parentCode": "g633",
+    "childCodes": ["c1295"],
+    "lightspeedID": "2398"
+  },
+  {
+    "code": "c1295",
+    "name": "Run Hydration Gear",
+    "parentCode": "g703",
+    "childCodes": [],
+    "lightspeedID": "2399"
+  },
+  {
+    "code": "c840",
+    "name": "Multi-Sport Hydration",
+    "parentCode": "g633",
+    "childCodes": [],
+    "lightspeedID": "2400"
+  },
+  {
+    "code": "c119",
+    "name": "Replacement Reservoir",
+    "parentCode": "g44",
+    "childCodes": [],
+    "lightspeedID": "2401"
+  },
+  {
+    "code": "c999",
+    "name": "Body Cleanser/Hygiene",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2402"
+  },
+  {
+    "code": "c1266",
+    "name": "Camp Accessory",
+    "parentCode": "g656",
+    "childCodes": [],
+    "lightspeedID": "2403"
+  },
+  {
+    "code": "c1193",
+    "name": "Tableware",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2404"
+  },
+  {
+    "code": "c1115",
+    "name": "Container",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2405"
+  },
+  {
+    "code": "c69",
+    "name": "Kitchen Essentials",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2406"
+  },
+  {
+    "code": "c_water_storage",
+    "name": "Water Storage",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2407"
+  },
+  {
+    "code": "c1324",
+    "name": "Outdoor Game",
+    "parentCode": "g680",
+    "childCodes": [],
+    "lightspeedID": "2408"
+  },
+  {
+    "code": "g655",
+    "name": "Shelter",
+    "parentCode": "g639",
+    "childCodes": ["c1082", "c1102"],
+    "lightspeedID": "2409"
+  },
+  {
+    "code": "c1082",
+    "name": "Shelter & Tent Accessories",
+    "parentCode": "g655",
+    "childCodes": [],
+    "lightspeedID": "2410"
+  },
+  {
+    "code": "g687",
+    "name": "Outdoor Tools",
+    "parentCode": "g639",
+    "childCodes": ["c1247", "c1264", "c1156"],
+    "lightspeedID": "2411"
+  },
+  {
+    "code": "c1247",
+    "name": "Wood Saw and Axe",
+    "parentCode": "g687",
+    "childCodes": [],
+    "lightspeedID": "2412"
+  },
+  {
+    "code": "g707",
+    "name": "Trekking Pole",
+    "parentCode": "g680",
+    "childCodes": ["c1083", "c1308"],
+    "lightspeedID": "2413"
+  },
+  {
+    "code": "c1083",
+    "name": "Trekking Poles",
+    "parentCode": "g707",
+    "childCodes": [],
+    "lightspeedID": "2414"
+  },
+  {
+    "code": "c1147",
+    "name": "Watch Accessory",
+    "parentCode": "g667",
+    "childCodes": [],
+    "lightspeedID": "2415"
+  },
+  {
+    "code": "c1251",
+    "name": "Phone Leash",
+    "parentCode": "g656",
+    "childCodes": [],
+    "lightspeedID": "2416"
+  },
+  {
+    "code": "c1265",
+    "name": "Lighters and Fire Starters",
+    "parentCode": "g697",
+    "childCodes": [],
+    "lightspeedID": "2417"
+  },
+  {
+    "code": "g696",
+    "name": "First Aid Medical Supplies",
+    "parentCode": "g649",
+    "childCodes": ["c1274", "c1114"],
+    "lightspeedID": "2418"
+  },
+  {
+    "code": "c1274",
+    "name": "Insect Bite Relief and Repellent",
+    "parentCode": "g696",
+    "childCodes": [],
+    "lightspeedID": "2419"
+  },
+  {
+    "code": "c1264",
+    "name": "Camp Tool",
+    "parentCode": "g687",
+    "childCodes": [],
+    "lightspeedID": "2420"
+  },
+  {
+    "code": "g25",
+    "name": "Pump",
+    "parentCode": "g1",
+    "childCodes": [
+      "c64",
+      "c62",
+      "c59",
+      "c134",
+      "c61",
+      "c63",
+      "c60",
+      "c361",
+      "c930"
+    ],
+    "lightspeedID": "2421"
+  },
+  {
+    "code": "c64",
+    "name": "Suspension Pump Accessory",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2422"
+  },
+  {
+    "code": "c1156",
+    "name": "Pocket Knives and Multi-tool",
+    "parentCode": "g687",
+    "childCodes": [],
+    "lightspeedID": "2423"
+  },
+  {
+    "code": "c1088",
+    "name": "Stove Accessory",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2424"
+  },
+  {
+    "code": "c1085",
+    "name": "Stove",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2425"
+  },
+  {
+    "code": "g641",
+    "name": "Sleeping Gear",
+    "parentCode": "g639",
+    "childCodes": ["c1080", "c1079", "c123_cot", "c1081"],
+    "lightspeedID": "2426"
+  },
+  {
+    "code": "c1080",
+    "name": "Sleeping Pad",
+    "parentCode": "g641",
+    "childCodes": [],
+    "lightspeedID": "2427"
+  },
+  {
+    "code": "c1079",
+    "name": "Sleeping Bag",
+    "parentCode": "g641",
+    "childCodes": [],
+    "lightspeedID": "2428"
+  },
+  {
+    "code": "c844",
+    "name": "Flag",
+    "parentCode": "g42",
+    "childCodes": [],
+    "lightspeedID": "2429"
+  },
+  {
+    "code": "c123_cot",
+    "name": "Cot",
+    "parentCode": "g641",
+    "childCodes": [],
+    "lightspeedID": "2430"
+  },
+  {
+    "code": "c632",
+    "name": "Single-Speed Frames",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2431"
+  },
+  {
+    "code": "c1081",
+    "name": "Pillow",
+    "parentCode": "g641",
+    "childCodes": [],
+    "lightspeedID": "2432"
+  },
+  {
+    "code": "c1086",
+    "name": "Cookware",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2433"
+  },
+  {
+    "code": "g640",
+    "name": "Camp Furniture",
+    "parentCode": "g639",
+    "childCodes": ["c1078", "c1312", "g713"],
+    "lightspeedID": "2434"
+  },
+  {
+    "code": "c1078",
+    "name": "Chair",
+    "parentCode": "g640",
+    "childCodes": [],
+    "lightspeedID": "2435"
+  },
+  {
+    "code": "c1087",
+    "name": "Utensil",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2436"
+  },
+  {
+    "code": "c121",
+    "name": "Water Bottles",
+    "parentCode": "g45",
+    "childCodes": [],
+    "lightspeedID": "2437"
+  },
+  {
+    "code": "g691",
+    "name": "Paddle and Water Sports",
+    "parentCode": "g639",
+    "childCodes": ["g710", "c1271", "g692", "c1272"],
+    "lightspeedID": "2438"
+  },
+  {
+    "code": "g710",
+    "name": "Paddling and Water Sports Accessories",
+    "parentCode": "g691",
+    "childCodes": ["c1273", "g711", "c1313"],
+    "lightspeedID": "2439"
+  },
+  {
+    "code": "c1273",
+    "name": "Deck Bag",
+    "parentCode": "g710",
+    "childCodes": [],
+    "lightspeedID": "2440"
+  },
+  {
+    "code": "c1312",
+    "name": "Table",
+    "parentCode": "g640",
+    "childCodes": [],
+    "lightspeedID": "2441"
+  },
+  {
+    "code": "g713",
+    "name": "Hammocks",
+    "parentCode": "g640",
+    "childCodes": ["c1107", "c1293"],
+    "lightspeedID": "2442"
+  },
+  {
+    "code": "c1107",
+    "name": "Hammock",
+    "parentCode": "g713",
+    "childCodes": [],
+    "lightspeedID": "2443"
+  },
+  {
+    "code": "c1102",
+    "name": "Shelters",
+    "parentCode": "g655",
+    "childCodes": [],
+    "lightspeedID": "2444"
+  },
+  {
+    "code": "c_coolers",
+    "name": "Coolers",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2445"
+  },
+  {
+    "code": "c828",
+    "name": "Unicycle Frame",
+    "parentCode": "g604",
+    "childCodes": [],
+    "lightspeedID": "2446"
+  },
+  {
+    "code": "c1293",
+    "name": "Hammock Accessories",
+    "parentCode": "g713",
+    "childCodes": [],
+    "lightspeedID": "2447"
+  },
+  {
+    "code": "g657",
+    "name": "Packs",
+    "parentCode": "g639",
+    "childCodes": ["c1238"],
+    "lightspeedID": "2448"
+  },
+  {
+    "code": "c1238",
+    "name": "Gear Pack",
+    "parentCode": "g657",
+    "childCodes": [],
+    "lightspeedID": "2449"
+  },
+  {
+    "code": "c_camp_fuel",
+    "name": "Camp Fuel",
+    "parentCode": "g643",
+    "childCodes": [],
+    "lightspeedID": "2450"
+  },
+  {
+    "code": "c1271",
+    "name": "Paddling Safety Equipment",
+    "parentCode": "g691",
+    "childCodes": [],
+    "lightspeedID": "2451"
+  },
+  {
+    "code": "c1225",
+    "name": "Pet Gear and Accessories",
+    "parentCode": "g637",
+    "childCodes": [],
+    "lightspeedID": "2452"
+  },
+  {
+    "code": "g711",
+    "name": "Fishing Accessories",
+    "parentCode": "g710",
+    "childCodes": ["c1315", "c1314"],
+    "lightspeedID": "2453"
+  },
+  {
+    "code": "c1315",
+    "name": "Holder Mount",
+    "parentCode": "g711",
+    "childCodes": [],
+    "lightspeedID": "2454"
+  },
+  {
+    "code": "c1314",
+    "name": "Fishing Rod and Accessory Holder",
+    "parentCode": "g711",
+    "childCodes": [],
+    "lightspeedID": "2455"
+  },
+  {
+    "code": "c1027",
+    "name": "Dirt Jump Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2456"
+  },
+  {
+    "code": "c1313",
+    "name": "Small Parts and Accessories",
+    "parentCode": "g710",
+    "childCodes": [],
+    "lightspeedID": "2457"
+  },
+  {
+    "code": "c1194",
+    "name": "Pet Bowl",
+    "parentCode": "g637",
+    "childCodes": [],
+    "lightspeedID": "2458"
+  },
+  {
+    "code": "c1072",
+    "name": "Leash / Collar / Harness",
+    "parentCode": "g637",
+    "childCodes": [],
+    "lightspeedID": "2459"
+  },
+  {
+    "code": "c314",
+    "name": "Polish",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2460"
+  },
+  {
+    "code": "c321",
+    "name": "Degreaser / Cleaner",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2461"
+  },
+  {
+    "code": "g692",
+    "name": "Paddling Carts and Transportation",
+    "parentCode": "g691",
+    "childCodes": ["c1269", "c1270"],
+    "lightspeedID": "2462"
+  },
+  {
+    "code": "c1269",
+    "name": "Cart",
+    "parentCode": "g692",
+    "childCodes": [],
+    "lightspeedID": "2463"
+  },
+  {
+    "code": "c1272",
+    "name": "Paddling Storage and Display",
+    "parentCode": "g691",
+    "childCodes": [],
+    "lightspeedID": "2464"
+  },
+  {
+    "code": "c1270",
+    "name": "Part and Accessory",
+    "parentCode": "g692",
+    "childCodes": [],
+    "lightspeedID": "2465"
+  },
+  {
+    "code": "c464",
+    "name": "Clipless Cleat",
+    "parentCode": "g573",
+    "childCodes": [],
+    "lightspeedID": "2466"
+  },
+  {
+    "code": "c461",
+    "name": "Cleat Cover",
+    "parentCode": "g573",
+    "childCodes": [],
+    "lightspeedID": "2467"
+  },
+  {
+    "code": "c2792_arm",
+    "name": "Arm Protection",
+    "parentCode": "g598",
+    "childCodes": [],
+    "lightspeedID": "2468"
+  },
+  {
+    "code": "c292",
+    "name": "Single-Speed Freewheel",
+    "parentCode": "g541",
+    "childCodes": [],
+    "lightspeedID": "2469"
+  },
+  {
+    "code": "c863",
+    "name": "Track Cog Carrier",
+    "parentCode": "g493",
+    "childCodes": [],
+    "lightspeedID": "2470"
+  },
+  {
+    "code": "c485",
+    "name": "Spoke Protector",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2471"
+  },
+  {
+    "code": "c62",
+    "name": "Frame Pump",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2472"
+  },
+  {
+    "code": "c59",
+    "name": "CO2 and Pressurized Inflation Device",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2473"
+  },
+  {
+    "code": "c134",
+    "name": "Pump Part",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2474"
+  },
+  {
+    "code": "c61",
+    "name": "Floor Pump",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2475"
+  },
+  {
+    "code": "c63",
+    "name": "Shock Pump",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2476"
+  },
+  {
+    "code": "g546",
+    "name": "Tube",
+    "parentCode": "g27",
+    "childCodes": [
+      "c1234",
+      "c363",
+      "c703",
+      "c796",
+      "c587",
+      "c1232_tubeless_tape",
+      "c704",
+      "c1233",
+      "c1232",
+      "c554",
+      "c804",
+      "c364",
+      "c1232_tubeless_system_enhancements"
+    ],
+    "lightspeedID": "2477"
+  },
+  {
+    "code": "c1234",
+    "name": "Tubeless Valves",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2478"
+  },
+  {
+    "code": "c363",
+    "name": "Valve Adaptor",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2479"
+  },
+  {
+    "code": "c703",
+    "name": "Valve Extender",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2480"
+  },
+  {
+    "code": "g582",
+    "name": "Tube and Tire Repair",
+    "parentCode": "g29",
+    "childCodes": [
+      "c591",
+      "c360",
+      "c362",
+      "c425",
+      "c424",
+      "c421",
+      "c422",
+      "c10023_tread_cutter"
+    ],
+    "lightspeedID": "2481"
+  },
+  {
+    "code": "c591",
+    "name": "Shop Air Compressor Head",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2482"
+  },
+  {
+    "code": "c940",
+    "name": "Quick Release Skewer Pair",
+    "parentCode": "g540",
+    "childCodes": [],
+    "lightspeedID": "2483"
+  },
+  {
+    "code": "c688",
+    "name": "Thru Axle & Skewer Part",
+    "parentCode": "g540",
+    "childCodes": [],
+    "lightspeedID": "2484"
+  },
+  {
+    "code": "c1318",
+    "name": "Wheel/Frame Lock",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2485"
+  },
+  {
+    "code": "c796",
+    "name": "Tubular Adhesive",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2486"
+  },
+  {
+    "code": "c586",
+    "name": "Rear Derailleur",
+    "parentCode": "g453",
+    "childCodes": [],
+    "lightspeedID": "2487"
+  },
+  {
+    "code": "c587",
+    "name": "Rim Strips and Tape",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2488"
+  },
+  {
+    "code": "c862",
+    "name": "Mustache Bar",
+    "parentCode": "g520",
+    "childCodes": [],
+    "lightspeedID": "2489"
+  },
+  {
+    "code": "c1470_aero_bar_extension",
+    "name": "Aero Bar Extensions",
+    "parentCode": "g71",
+    "childCodes": [],
+    "lightspeedID": "2490"
+  },
+  {
+    "code": "c84",
+    "name": "Front Mount Rack",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "2491"
+  },
+  {
+    "code": "c699",
+    "name": "Rear Shock Spring",
+    "parentCode": "g544",
+    "childCodes": [],
+    "lightspeedID": "2492"
+  },
+  {
+    "code": "c698",
+    "name": "Rear Shock Mount Kit",
+    "parentCode": "g544",
+    "childCodes": [],
+    "lightspeedID": "2493"
+  },
+  {
+    "code": "c697",
+    "name": "Rear Shocks",
+    "parentCode": "g544",
+    "childCodes": [],
+    "lightspeedID": "2494"
+  },
+  {
+    "code": "c1332",
+    "name": "Rear Shock Tune Kits",
+    "parentCode": "g544",
+    "childCodes": [],
+    "lightspeedID": "2495"
+  },
+  {
+    "code": "c196",
+    "name": "Integrated Stem/Aero Bar",
+    "parentCode": "g71",
+    "childCodes": [],
+    "lightspeedID": "2496"
+  },
+  {
+    "code": "c603_1",
+    "name": "Bar In",
+    "parentCode": "g63",
+    "childCodes": [],
+    "lightspeedID": "2497"
+  },
+  {
+    "code": "c1232_tubeless_tape",
+    "name": "Tubeless Tape",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2498"
+  },
+  {
+    "code": "g572",
+    "name": "Saddle",
+    "parentCode": "g27",
+    "childCodes": ["c469", "c701", "c468", "c831"],
+    "lightspeedID": "2499"
+  },
+  {
+    "code": "c469",
+    "name": "Saddles",
+    "parentCode": "g572",
+    "childCodes": [],
+    "lightspeedID": "2500"
+  },
+  {
+    "code": "c701",
+    "name": "Saddle Care and Part",
+    "parentCode": "g572",
+    "childCodes": [],
+    "lightspeedID": "2501"
+  },
+  {
+    "code": "c468",
+    "name": "Saddle Cover",
+    "parentCode": "g572",
+    "childCodes": [],
+    "lightspeedID": "2502"
+  },
+  {
+    "code": "c45",
+    "name": "Cable Lock",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2503"
+  },
+  {
+    "code": "c610",
+    "name": "Headset Seal",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2504"
+  },
+  {
+    "code": "c763",
+    "name": "Headtube Adaptor",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2505"
+  },
+  {
+    "code": "g675",
+    "name": "Fitting Tool",
+    "parentCode": "g29",
+    "childCodes": ["c1184", "c1185"],
+    "lightspeedID": "2506"
+  },
+  {
+    "code": "c1184",
+    "name": "Measurement Tool",
+    "parentCode": "g675",
+    "childCodes": [],
+    "lightspeedID": "2507"
+  },
+  {
+    "code": "c1154",
+    "name": "Helmet Part",
+    "parentCode": "g669",
+    "childCodes": [],
+    "lightspeedID": "2508"
+  },
+  {
+    "code": "c185",
+    "name": "Seatposts",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2509"
+  },
+  {
+    "code": "c831",
+    "name": "Unicycle Saddle",
+    "parentCode": "g572",
+    "childCodes": [],
+    "lightspeedID": "2510"
+  },
+  {
+    "code": "c209",
+    "name": "Foot Bed",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2511"
+  },
+  {
+    "code": "c928",
+    "name": "Running Shoes",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2512"
+  },
+  {
+    "code": "c296",
+    "name": "Mountain Shoes",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2513"
+  },
+  {
+    "code": "c297",
+    "name": "Road Shoes",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2514"
+  },
+  {
+    "code": "c915",
+    "name": "Tri Shoes",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2515"
+  },
+  {
+    "code": "c302",
+    "name": "Winter / Boot",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2516"
+  },
+  {
+    "code": "c_dropship_front_hub",
+    "name": "Drop Ship Front Hub",
+    "parentCode": "g594",
+    "childCodes": [],
+    "lightspeedID": "2517"
+  },
+  {
+    "code": "c_dropship_rear_hub",
+    "name": "Drop Ship Rear Hub",
+    "parentCode": "g594",
+    "childCodes": [],
+    "lightspeedID": "2518"
+  },
+  {
+    "code": "c479",
+    "name": "Cone Kit",
+    "parentCode": "g586",
+    "childCodes": [],
+    "lightspeedID": "2519"
+  },
+  {
+    "code": "c1125",
+    "name": "Touring/Recreational Shoe",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2520"
+  },
+  {
+    "code": "c1127",
+    "name": "Compression Sock",
+    "parentCode": "g700",
+    "childCodes": [],
+    "lightspeedID": "2521"
+  },
+  {
+    "code": "c1186",
+    "name": "Sock Liner",
+    "parentCode": "g28",
+    "childCodes": [],
+    "lightspeedID": "2522"
+  },
+  {
+    "code": "c149",
+    "name": "Stems",
+    "parentCode": "g530",
+    "childCodes": [],
+    "lightspeedID": "2523"
+  },
+  {
+    "code": "c671",
+    "name": "Steerer Extender",
+    "parentCode": "g533",
+    "childCodes": [],
+    "lightspeedID": "2524"
+  },
+  {
+    "code": "c734",
+    "name": "Steerer Tube Shim",
+    "parentCode": "g533",
+    "childCodes": [],
+    "lightspeedID": "2525"
+  },
+  {
+    "code": "c809",
+    "name": "Tandem Stoker Stem",
+    "parentCode": "g530",
+    "childCodes": [],
+    "lightspeedID": "2526"
+  },
+  {
+    "code": "c673",
+    "name": "Expander Bolt",
+    "parentCode": "g533",
+    "childCodes": [],
+    "lightspeedID": "2527"
+  },
+  {
+    "code": "c675",
+    "name": "Handlebar Clamp Shim",
+    "parentCode": "g533",
+    "childCodes": [],
+    "lightspeedID": "2528"
+  },
+  {
+    "code": "c672",
+    "name": "Stem Column Adaptor",
+    "parentCode": "g533",
+    "childCodes": [],
+    "lightspeedID": "2529"
+  },
+  {
+    "code": "c676",
+    "name": "Stem Pad",
+    "parentCode": "g533",
+    "childCodes": [],
+    "lightspeedID": "2530"
+  },
+  {
+    "code": "c471",
+    "name": "Spoke Nipple",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2531"
+  },
+  {
+    "code": "c1267",
+    "name": "do not use Spoke Head Washer",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2532"
+  },
+  {
+    "code": "c192",
+    "name": "Seatpost Shim",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2533"
+  },
+  {
+    "code": "c1237",
+    "name": "Dropper Seatpost",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2534"
+  },
+  {
+    "code": "c1322",
+    "name": "Dropper Seatpost Part",
+    "parentCode": "g1322",
+    "childCodes": [],
+    "lightspeedID": "2535"
+  },
+  {
+    "code": "c931",
+    "name": "Unicycle Seatpost",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2536"
+  },
+  {
+    "code": "c188",
+    "name": "Seatpost Clamp",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2537"
+  },
+  {
+    "code": "c1236",
+    "name": "Suspension Seatpost",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2538"
+  },
+  {
+    "code": "c189",
+    "name": "Seatpost Part",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2539"
+  },
+  {
+    "code": "c807",
+    "name": "Saddle Clamp",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2540"
+  },
+  {
+    "code": "g14",
+    "name": "Kickstand",
+    "parentCode": "g1",
+    "childCodes": ["c39", "c37"],
+    "lightspeedID": "2541"
+  },
+  {
+    "code": "c39",
+    "name": "Kickstands",
+    "parentCode": "g14",
+    "childCodes": [],
+    "lightspeedID": "2542"
+  },
+  {
+    "code": "c37",
+    "name": "Kickstand Part",
+    "parentCode": "g14",
+    "childCodes": [],
+    "lightspeedID": "2543"
+  },
+  {
+    "code": "c555",
+    "name": "Rear Wheel",
+    "parentCode": "g490",
+    "childCodes": [],
+    "lightspeedID": "2544"
+  },
+  {
+    "code": "c1292",
+    "name": "Belt Drive Kit",
+    "parentCode": "g652",
+    "childCodes": [],
+    "lightspeedID": "2545"
+  },
+  {
+    "code": "c116",
+    "name": "Body/Skin Care",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2546"
+  },
+  {
+    "code": "c1002",
+    "name": "Hair Care",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2547"
+  },
+  {
+    "code": "g634",
+    "name": "Kit-In-A-Box",
+    "parentCode": "g27",
+    "childCodes": [
+      "c1054",
+      "c1104",
+      "c1094",
+      "c1241",
+      "c1062",
+      "c1055",
+      "c1056",
+      "c1097",
+      "c1098",
+      "c1242",
+      "c1297"
+    ],
+    "lightspeedID": "2548"
+  },
+  {
+    "code": "c1054",
+    "name": "Kit-In-A-Box Road Group",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2549"
+  },
+  {
+    "code": "c1286",
+    "name": "Performance Therapy",
+    "parentCode": "g701",
+    "childCodes": [],
+    "lightspeedID": "2550"
+  },
+  {
+    "code": "c1004",
+    "name": "Lip Balm",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2551"
+  },
+  {
+    "code": "c1006",
+    "name": "Sunscreen",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2552"
+  },
+  {
+    "code": "c1300",
+    "name": "B-Number Holding Bin",
+    "parentCode": "g618",
+    "childCodes": [],
+    "lightspeedID": "2553"
+  },
+  {
+    "code": "g549",
+    "name": "DreamCycle",
+    "parentCode": "g0",
+    "childCodes": ["g551", "g550", "g596", "g599"],
+    "lightspeedID": "2554"
+  },
+  {
+    "code": "g551",
+    "name": "Kits",
+    "parentCode": "g549",
+    "childCodes": ["c717"],
+    "lightspeedID": "2555"
+  },
+  {
+    "code": "c717",
+    "name": "Kit",
+    "parentCode": "g551",
+    "childCodes": [],
+    "lightspeedID": "2556"
+  },
+  {
+    "code": "c1001",
+    "name": "Foot Care",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2557"
+  },
+  {
+    "code": "c1112",
+    "name": "First Aid Kit",
+    "parentCode": "g649",
+    "childCodes": [],
+    "lightspeedID": "2558"
+  },
+  {
+    "code": "c1114",
+    "name": "Wound and Skin Care",
+    "parentCode": "g696",
+    "childCodes": [],
+    "lightspeedID": "2559"
+  },
+  {
+    "code": "c898",
+    "name": "Other Shifter Part",
+    "parentCode": "g567",
+    "childCodes": [],
+    "lightspeedID": "2560"
+  },
+  {
+    "code": "c1005",
+    "name": "Pain Relief",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2561"
+  },
+  {
+    "code": "c459",
+    "name": "Toe Clip & Strap",
+    "parentCode": "g573",
+    "childCodes": [],
+    "lightspeedID": "2562"
+  },
+  {
+    "code": "g661",
+    "name": "Bottom Bracket Tools",
+    "parentCode": "g253",
+    "childCodes": ["c400"],
+    "lightspeedID": "2563"
   },
   {
     "code": "c400",
     "name": "Bottom Bracket Tool",
     "parentCode": "g661",
     "childCodes": [],
-    "lightspeedID": "1651"
+    "lightspeedID": "2564"
+  },
+  {
+    "code": "g659",
+    "name": "Bike Multi-Tools",
+    "parentCode": "g29",
+    "childCodes": ["c578"],
+    "lightspeedID": "2565"
+  },
+  {
+    "code": "c578",
+    "name": "Bike Multi-Tool",
+    "parentCode": "g659",
+    "childCodes": [],
+    "lightspeedID": "2566"
+  },
+  {
+    "code": "g564",
+    "name": "Wheel Tools",
+    "parentCode": "g29",
+    "childCodes": [
+      "c347",
+      "c334",
+      "c357",
+      "c339",
+      "c336",
+      "c348",
+      "c332",
+      "c338"
+    ],
+    "lightspeedID": "2567"
+  },
+  {
+    "code": "c347",
+    "name": "Truing Stand Accessory",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2568"
+  },
+  {
+    "code": "g663",
+    "name": "Cable, Housing and Hose",
+    "parentCode": "g253",
+    "childCodes": ["c1140", "c351", "c352"],
+    "lightspeedID": "2569"
+  },
+  {
+    "code": "c1140",
+    "name": "Disc Hose Tool",
+    "parentCode": "g663",
+    "childCodes": [],
+    "lightspeedID": "2570"
+  },
+  {
+    "code": "c405",
+    "name": "Chainring Tool",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "2571"
+  },
+  {
+    "code": "c409",
+    "name": "Freehub & Cog Tool",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "2572"
+  },
+  {
+    "code": "c359",
+    "name": "Tool Kit",
+    "parentCode": "g29",
+    "childCodes": [],
+    "lightspeedID": "2573"
+  },
+  {
+    "code": "g255",
+    "name": "Repair Stand",
+    "parentCode": "g29",
+    "childCodes": ["c372", "c929", "c374", "c373"],
+    "lightspeedID": "2574"
+  },
+  {
+    "code": "c372",
+    "name": "Repair Stands",
+    "parentCode": "g255",
+    "childCodes": [],
+    "lightspeedID": "2575"
+  },
+  {
+    "code": "c392",
+    "name": "Hex Wrench",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2576"
+  },
+  {
+    "code": "c403",
+    "name": "Cone Wrench",
+    "parentCode": "g376",
+    "childCodes": [],
+    "lightspeedID": "2577"
+  },
+  {
+    "code": "g287",
+    "name": "Pedal Tools",
+    "parentCode": "g253",
+    "childCodes": ["c418", "c369"],
+    "lightspeedID": "2578"
+  },
+  {
+    "code": "c418",
+    "name": "Pedal Wrench",
+    "parentCode": "g287",
+    "childCodes": [],
+    "lightspeedID": "2579"
+  },
+  {
+    "code": "c334",
+    "name": "Spoke Wrench",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2580"
+  },
+  {
+    "code": "c351",
+    "name": "Cable Cutter",
+    "parentCode": "g663",
+    "childCodes": [],
+    "lightspeedID": "2581"
+  },
+  {
+    "code": "c340",
+    "name": "Other Tool",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2582"
+  },
+  {
+    "code": "c410",
+    "name": "Freewheel Tool",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "2583"
+  },
+  {
+    "code": "c360",
+    "name": "Tire Lever",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2584"
+  },
+  {
+    "code": "c330",
+    "name": "Chain Tool Replacement Pin",
+    "parentCode": "g338",
+    "childCodes": [],
+    "lightspeedID": "2585"
+  },
+  {
+    "code": "c369",
+    "name": "Pedal Tool",
+    "parentCode": "g287",
+    "childCodes": [],
+    "lightspeedID": "2586"
+  },
+  {
+    "code": "c390",
+    "name": "Ratchets & Bits",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2587"
+  },
+  {
+    "code": "g601",
+    "name": "Open End Wrench",
+    "parentCode": "g304",
+    "childCodes": ["c388", "c819"],
+    "lightspeedID": "2588"
+  },
+  {
+    "code": "c388",
+    "name": "Combination Wrench",
+    "parentCode": "g601",
+    "childCodes": [],
+    "lightspeedID": "2589"
+  },
+  {
+    "code": "c929",
+    "name": "Work Bench",
+    "parentCode": "g255",
+    "childCodes": [],
+    "lightspeedID": "2590"
+  },
+  {
+    "code": "c352",
+    "name": "Cable Puller",
+    "parentCode": "g663",
+    "childCodes": [],
+    "lightspeedID": "2591"
+  },
+  {
+    "code": "c752",
+    "name": "Thumb Shifter Conversion Kit",
+    "parentCode": "g567",
+    "childCodes": [],
+    "lightspeedID": "2592"
+  },
+  {
+    "code": "c374",
+    "name": "Repair Stand Replacement Part",
+    "parentCode": "g255",
+    "childCodes": [],
+    "lightspeedID": "2593"
+  },
+  {
+    "code": "c382",
+    "name": "Measuring Tool",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2594"
+  },
+  {
+    "code": "c329",
+    "name": "Chain Tools",
+    "parentCode": "g338",
+    "childCodes": [],
+    "lightspeedID": "2595"
+  },
+  {
+    "code": "c419",
+    "name": "Screwdriver",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2596"
+  },
+  {
+    "code": "c394",
+    "name": "Torx Wrench",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2597"
+  },
+  {
+    "code": "c579",
+    "name": "Hammer",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2598"
+  },
+  {
+    "code": "c819",
+    "name": "Adjustable Wrench",
+    "parentCode": "g601",
+    "childCodes": [],
+    "lightspeedID": "2599"
+  },
+  {
+    "code": "c1142",
+    "name": "Plier",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2600"
+  },
+  {
+    "code": "c399",
+    "name": "Bearing Tool",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "2601"
+  },
+  {
+    "code": "c362",
+    "name": "Patch Kit",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2602"
+  },
+  {
+    "code": "g587",
+    "name": "Thread Repair",
+    "parentCode": "g304",
+    "childCodes": ["c778", "c780", "c781", "c779"],
+    "lightspeedID": "2603"
+  },
+  {
+    "code": "c778",
+    "name": "Thread Repair Kits",
+    "parentCode": "g587",
+    "childCodes": [],
+    "lightspeedID": "2604"
+  },
+  {
+    "code": "c762",
+    "name": "Tire Studs and Tool",
+    "parentCode": "g457",
+    "childCodes": [],
+    "lightspeedID": "2605"
+  },
+  {
+    "code": "c44",
+    "name": "Chain Lock",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2606"
+  },
+  {
+    "code": "c42",
+    "name": "U-Lock",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2607"
+  },
+  {
+    "code": "g588",
+    "name": "Frame Tools",
+    "parentCode": "g29",
+    "childCodes": ["c1144", "c590", "c385", "c401"],
+    "lightspeedID": "2608"
+  },
+  {
+    "code": "c1144",
+    "name": "Seatpost/Tube Cutting Tool",
+    "parentCode": "g588",
+    "childCodes": [],
+    "lightspeedID": "2609"
+  },
+  {
+    "code": "c425",
+    "name": "Tube & Tire Care Product",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2610"
+  },
+  {
+    "code": "c815",
+    "name": "L0cking 5kewer- old",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2611"
+  },
+  {
+    "code": "c1316",
+    "name": "Folding Lock",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2612"
+  },
+  {
+    "code": "c424",
+    "name": "Valve Tool",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2613"
+  },
+  {
+    "code": "c357",
+    "name": "Miscellaneous Spoke Tool",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2614"
+  },
+  {
+    "code": "c339",
+    "name": "Spoke Tensiometer",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2615"
+  },
+  {
+    "code": "c590",
+    "name": "Head & Steerer Tube Cutting Tool",
+    "parentCode": "g588",
+    "childCodes": [],
+    "lightspeedID": "2616"
+  },
+  {
+    "code": "c1131",
+    "name": "Belt Drive Tool",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "2617"
+  },
+  {
+    "code": "c780",
+    "name": "Taps",
+    "parentCode": "g587",
+    "childCodes": [],
+    "lightspeedID": "2618"
+  },
+  {
+    "code": "c385",
+    "name": "Frame Tool",
+    "parentCode": "g588",
+    "childCodes": [],
+    "lightspeedID": "2619"
+  },
+  {
+    "code": "c373",
+    "name": "Repair Stand Accessory",
+    "parentCode": "g255",
+    "childCodes": [],
+    "lightspeedID": "2620"
+  },
+  {
+    "code": "c336",
+    "name": "Dishing  Gauge",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2621"
+  },
+  {
+    "code": "c348",
+    "name": "Truing Stand Part",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2622"
+  },
+  {
+    "code": "g276",
+    "name": "Cutting Tools",
+    "parentCode": "g304",
+    "childCodes": ["g502", "c431", "c1141"],
+    "lightspeedID": "2623"
+  },
+  {
+    "code": "g502",
+    "name": "Hacksaws",
+    "parentCode": "g276",
+    "childCodes": ["c430", "c581"],
+    "lightspeedID": "2624"
+  },
+  {
+    "code": "c430",
+    "name": "Hacksaw",
+    "parentCode": "g502",
+    "childCodes": [],
+    "lightspeedID": "2625"
+  },
+  {
+    "code": "c332",
+    "name": "Truing Stand",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2626"
+  },
+  {
+    "code": "c581",
+    "name": "Hacksaw Blade",
+    "parentCode": "g502",
+    "childCodes": [],
+    "lightspeedID": "2627"
+  },
+  {
+    "code": "c1143",
+    "name": "Snap Ring Plier",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2628"
+  },
+  {
+    "code": "c401",
+    "name": "Bottom Bracket Tapping & Facing Tool",
+    "parentCode": "g588",
+    "childCodes": [],
+    "lightspeedID": "2629"
+  },
+  {
+    "code": "g457",
+    "name": "Tire",
+    "parentCode": "g27",
+    "childCodes": ["c762", "c484", "c1197", "c702"],
+    "lightspeedID": "2630"
+  },
+  {
+    "code": "c484",
+    "name": "Tires",
+    "parentCode": "g457",
+    "childCodes": [],
+    "lightspeedID": "2631"
+  },
+  {
+    "code": "c43",
+    "name": "Padlock",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2632"
+  },
+  {
+    "code": "c316",
+    "name": "Lubricant",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2633"
+  },
+  {
+    "code": "c704",
+    "name": "Tube Sealant",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2634"
+  },
+  {
+    "code": "c1233",
+    "name": "Tubeless Sealant",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2635"
+  },
+  {
+    "code": "c320",
+    "name": "Assembly Compound",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2636"
+  },
+  {
+    "code": "c317",
+    "name": "Suspension Oil and Lube",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2637"
+  },
+  {
+    "code": "c327",
+    "name": "Hand Cleaner",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2638"
+  },
+  {
+    "code": "c326",
+    "name": "Injector & Dispenser",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2639"
+  },
+  {
+    "code": "c315",
+    "name": "Rust Inhibitor",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2640"
+  },
+  {
+    "code": "c325",
+    "name": "Cutting Oil",
+    "parentCode": "g562",
+    "childCodes": [],
+    "lightspeedID": "2641"
+  },
+  {
+    "code": "c1149",
+    "name": "Travel Guide",
+    "parentCode": "g668",
+    "childCodes": [],
+    "lightspeedID": "2642"
+  },
+  {
+    "code": "c1148",
+    "name": "Bike Fitting",
+    "parentCode": "g668",
+    "childCodes": [],
+    "lightspeedID": "2643"
+  },
+  {
+    "code": "c78",
+    "name": "Calendar",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2644"
+  },
+  {
+    "code": "c1117",
+    "name": "Race Supply",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2645"
+  },
+  {
+    "code": "c592",
+    "name": "Other Gift Item",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2646"
+  },
+  {
+    "code": "c974",
+    "name": "Pedal Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2647"
+  },
+  {
+    "code": "c1232",
+    "name": "Tubeless Conversion Kits",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2648"
+  },
+  {
+    "code": "c1197",
+    "name": "Trainer Tire",
+    "parentCode": "g457",
+    "childCodes": [],
+    "lightspeedID": "2649"
+  },
+  {
+    "code": "c1151",
+    "name": "Training Guide",
+    "parentCode": "g668",
+    "childCodes": [],
+    "lightspeedID": "2650"
+  },
+  {
+    "code": "g593",
+    "name": "BMX Accessories",
+    "parentCode": "g1",
+    "childCodes": [
+      "c694",
+      "c694_bmx_peg_sleeve",
+      "c595",
+      "c596",
+      "c_bmx_rails",
+      "c2051"
+    ],
+    "lightspeedID": "2651"
+  },
+  {
+    "code": "c595",
+    "name": "BMX Number Plate",
+    "parentCode": "g593",
+    "childCodes": [],
+    "lightspeedID": "2652"
+  },
+  {
+    "code": "c596",
+    "name": "BMX Number",
+    "parentCode": "g593",
+    "childCodes": [],
+    "lightspeedID": "2653"
+  },
+  {
+    "code": "c554",
+    "name": "Tubes",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2654"
+  },
+  {
+    "code": "c_bmx_rails",
+    "name": "BMX Rails",
+    "parentCode": "g593",
+    "childCodes": [],
+    "lightspeedID": "2655"
+  },
+  {
+    "code": "c1192",
+    "name": "Ice Gripper",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2656"
+  },
+  {
+    "code": "g708",
+    "name": "Slacklines",
+    "parentCode": "g680",
+    "childCodes": ["c1215", "c1309"],
+    "lightspeedID": "2657"
+  },
+  {
+    "code": "c1215",
+    "name": "Slackline",
+    "parentCode": "g708",
+    "childCodes": [],
+    "lightspeedID": "2658"
+  },
+  {
+    "code": "c1223",
+    "name": "Pet Toy",
+    "parentCode": "g637",
+    "childCodes": [],
+    "lightspeedID": "2659"
+  },
+  {
+    "code": "c1084",
+    "name": "Compass and Orienteering Tool",
+    "parentCode": "g656",
+    "childCodes": [],
+    "lightspeedID": "2660"
+  },
+  {
+    "code": "c1073",
+    "name": "Shoe Care",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2661"
+  },
+  {
+    "code": "c804",
+    "name": "Valve Part",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2662"
+  },
+  {
+    "code": "g664",
+    "name": "Climbing",
+    "parentCode": "g639",
+    "childCodes": ["c1145"],
+    "lightspeedID": "2663"
+  },
+  {
+    "code": "c1145",
+    "name": "Carabiner",
+    "parentCode": "g664",
+    "childCodes": [],
+    "lightspeedID": "2664"
+  },
+  {
+    "code": "c1309",
+    "name": "Slackline Parts and Accessories",
+    "parentCode": "g708",
+    "childCodes": [],
+    "lightspeedID": "2665"
+  },
+  {
+    "code": "g638",
+    "name": "Water Purification",
+    "parentCode": "g639",
+    "childCodes": ["c1075", "c1076", "c1299"],
+    "lightspeedID": "2666"
+  },
+  {
+    "code": "c1075",
+    "name": "Filters and Filter Systems",
+    "parentCode": "g638",
+    "childCodes": [],
+    "lightspeedID": "2667"
+  },
+  {
+    "code": "c34",
+    "name": "Training Wheel",
+    "parentCode": "g13",
+    "childCodes": [],
+    "lightspeedID": "2668"
+  },
+  {
+    "code": "c1158",
+    "name": "Dog Bed",
+    "parentCode": "g637",
+    "childCodes": [],
+    "lightspeedID": "2669"
+  },
+  {
+    "code": "c1157",
+    "name": "Pet Gear Bag",
+    "parentCode": "g637",
+    "childCodes": [],
+    "lightspeedID": "2670"
+  },
+  {
+    "code": "c36",
+    "name": "Training Handle",
+    "parentCode": "g13",
+    "childCodes": [],
+    "lightspeedID": "2671"
+  },
+  {
+    "code": "c1240",
+    "name": "Casual Watch",
+    "parentCode": "g667",
+    "childCodes": [],
+    "lightspeedID": "2672"
+  },
+  {
+    "code": "c1275",
+    "name": "Entrees",
+    "parentCode": "g698",
+    "childCodes": [],
+    "lightspeedID": "2673"
+  },
+  {
+    "code": "c900",
+    "name": "Complete Unicycle",
+    "parentCode": "g604",
+    "childCodes": [],
+    "lightspeedID": "2674"
+  },
+  {
+    "code": "c77",
+    "name": "DVD/Video",
+    "parentCode": "g1",
+    "childCodes": [],
+    "lightspeedID": "2675"
+  },
+  {
+    "code": "c1161",
+    "name": "Virtual Reality Video",
+    "parentCode": "g670",
+    "childCodes": [],
+    "lightspeedID": "2676"
+  },
+  {
+    "code": "c1076",
+    "name": "Water Treatment",
+    "parentCode": "g638",
+    "childCodes": [],
+    "lightspeedID": "2677"
+  },
+  {
+    "code": "c1299",
+    "name": "Water Purification Accessories and Parts",
+    "parentCode": "g638",
+    "childCodes": [],
+    "lightspeedID": "2678"
+  },
+  {
+    "code": "c1268",
+    "name": "Spoke Washer",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2679"
+  },
+  {
+    "code": "c1306",
+    "name": "Outdoor Light Parts",
+    "parentCode": "g677",
+    "childCodes": [],
+    "lightspeedID": "2680"
+  },
+  {
+    "code": "c1308",
+    "name": "Trekking Pole Parts and Accessories",
+    "parentCode": "g707",
+    "childCodes": [],
+    "lightspeedID": "2681"
+  },
+  {
+    "code": "g654",
+    "name": "Pedal Accessories",
+    "parentCode": "g573",
+    "childCodes": ["c462", "c1137", "c1136"],
+    "lightspeedID": "2682"
+  },
+  {
+    "code": "c462",
+    "name": "Pedal Block",
+    "parentCode": "g654",
+    "childCodes": [],
+    "lightspeedID": "2683"
+  },
+  {
+    "code": "c1137",
+    "name": "Platform Clip On",
+    "parentCode": "g654",
+    "childCodes": [],
+    "lightspeedID": "2684"
+  },
+  {
+    "code": "c1185",
+    "name": "Cleat Shim",
+    "parentCode": "g675",
+    "childCodes": [],
+    "lightspeedID": "2685"
+  },
+  {
+    "code": "c941",
+    "name": "World Bicycle Relief",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2686"
+  },
+  {
+    "code": "c60",
+    "name": "CO2 and Pressurized Cartridge",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2687"
+  },
+  {
+    "code": "c1136",
+    "name": "Pedal Flip",
+    "parentCode": "g654",
+    "childCodes": [],
+    "lightspeedID": "2688"
+  },
+  {
+    "code": "c618",
+    "name": "Wheelset",
+    "parentCode": "g490",
+    "childCodes": [],
+    "lightspeedID": "2689"
+  },
+  {
+    "code": "c617",
+    "name": "Front Wheel",
+    "parentCode": "g490",
+    "childCodes": [],
+    "lightspeedID": "2690"
+  },
+  {
+    "code": "c421",
+    "name": "Tubeless Patch Kit",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2691"
+  },
+  {
+    "code": "c422",
+    "name": "Tubular Patch Kit",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2692"
+  },
+  {
+    "code": "c364",
+    "name": "Valve Cap",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2693"
+  },
+  {
+    "code": "c361",
+    "name": "Pressure Gauge",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2694"
+  },
+  {
+    "code": "c930",
+    "name": "Compressor",
+    "parentCode": "g25",
+    "childCodes": [],
+    "lightspeedID": "2695"
+  },
+  {
+    "code": "c968",
+    "name": "Ski Top",
+    "parentCode": "g621",
+    "childCodes": [],
+    "lightspeedID": "2696"
+  },
+  {
+    "code": "c967",
+    "name": "Ski Tights",
+    "parentCode": "g621",
+    "childCodes": [],
+    "lightspeedID": "2697"
+  },
+  {
+    "code": "c1167",
+    "name": "Overboot",
+    "parentCode": "g612",
+    "childCodes": [],
+    "lightspeedID": "2698"
+  },
+  {
+    "code": "c1305",
+    "name": "Snow Helmet Accessory",
+    "parentCode": "g685",
+    "childCodes": [],
+    "lightspeedID": "2699"
+  },
+  {
+    "code": "c920",
+    "name": "Reflective Stick-on",
+    "parentCode": "g42",
+    "childCodes": [],
+    "lightspeedID": "2700"
+  },
+  {
+    "code": "c85",
+    "name": "Rear Mount Rack",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "2701"
+  },
+  {
+    "code": "c87",
+    "name": "Bicycle Mounted Rack Part",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "2702"
+  },
+  {
+    "code": "c86",
+    "name": "Seatpost Mount Rack",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "2703"
+  },
+  {
+    "code": "c1323",
+    "name": "Gear Carrier/Scabbard",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "2704"
+  },
+  {
+    "code": "c1227",
+    "name": "Other Rack",
+    "parentCode": "g24",
+    "childCodes": [],
+    "lightspeedID": "2705"
+  },
+  {
+    "code": "c_dropship_rim",
+    "name": "Drop Ship Rims",
+    "parentCode": "cw-rims",
+    "childCodes": [],
+    "lightspeedID": "2706"
+  },
+  {
+    "code": "c702",
+    "name": "Tire Liners",
+    "parentCode": "g457",
+    "childCodes": [],
+    "lightspeedID": "2707"
+  },
+  {
+    "code": "c296_sandal",
+    "name": "Sandals",
+    "parentCode": "g545",
+    "childCodes": [],
+    "lightspeedID": "2708"
+  },
+  {
+    "code": "c1235",
+    "name": "Shifter, Flat Bar-System",
+    "parentCode": "g89",
+    "childCodes": [],
+    "lightspeedID": "2709"
+  },
+  {
+    "code": "c191",
+    "name": "Seatpost Quick Release",
+    "parentCode": "g583",
+    "childCodes": [],
+    "lightspeedID": "2710"
+  },
+  {
+    "code": "c431",
+    "name": "Tubing Cutter",
+    "parentCode": "g276",
+    "childCodes": [],
+    "lightspeedID": "2711"
+  },
+  {
+    "code": "c338",
+    "name": "Spoke Length Calculation Kit",
+    "parentCode": "g564",
+    "childCodes": [],
+    "lightspeedID": "2712"
+  },
+  {
+    "code": "c583",
+    "name": "Nutdriver",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2713"
+  },
+  {
+    "code": "c1141",
+    "name": "File",
+    "parentCode": "g276",
+    "childCodes": [],
+    "lightspeedID": "2714"
+  },
+  {
+    "code": "c551",
+    "name": "Freewheel/BB Shim",
+    "parentCode": "g541",
+    "childCodes": [],
+    "lightspeedID": "2715"
+  },
+  {
+    "code": "c781",
+    "name": "Dropout Saver",
+    "parentCode": "g587",
+    "childCodes": [],
+    "lightspeedID": "2716"
+  },
+  {
+    "code": "c779",
+    "name": "Rivet Nutter",
+    "parentCode": "g587",
+    "childCodes": [],
+    "lightspeedID": "2717"
+  },
+  {
+    "code": "c120",
+    "name": "Hydration Pack Care Product",
+    "parentCode": "g44",
+    "childCodes": [],
+    "lightspeedID": "2718"
+  },
+  {
+    "code": "c997",
+    "name": "Water Bottle Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2719"
+  },
+  {
+    "code": "c80",
+    "name": "Rear Wheel Trainer",
+    "parentCode": "g31",
+    "childCodes": [],
+    "lightspeedID": "2720"
+  },
+  {
+    "code": "c81",
+    "name": "Roller",
+    "parentCode": "g31",
+    "childCodes": [],
+    "lightspeedID": "2721"
+  },
+  {
+    "code": "c1162",
+    "name": "X_Trainer Bag",
+    "parentCode": "g670",
+    "childCodes": [],
+    "lightspeedID": "2722"
+  },
+  {
+    "code": "c1099",
+    "name": "Avalanche Safety",
+    "parentCode": "g612",
+    "childCodes": [],
+    "lightspeedID": "2723"
+  },
+  {
+    "code": "g671",
+    "name": "Snow Sport Accessories",
+    "parentCode": "g612",
+    "childCodes": ["c1101", "c1173", "c1229", "c895"],
+    "lightspeedID": "2724"
+  },
+  {
+    "code": "c1101",
+    "name": "Climbing Skin Part",
+    "parentCode": "g671",
+    "childCodes": [],
+    "lightspeedID": "2725"
+  },
+  {
+    "code": "c1053",
+    "name": "Ski Bag",
+    "parentCode": "g612",
+    "childCodes": [],
+    "lightspeedID": "2726"
+  },
+  {
+    "code": "c1173",
+    "name": "Leash",
+    "parentCode": "g671",
+    "childCodes": [],
+    "lightspeedID": "2727"
+  },
+  {
+    "code": "c1229",
+    "name": "Ski Boot Accessory",
+    "parentCode": "g671",
+    "childCodes": [],
+    "lightspeedID": "2728"
+  },
+  {
+    "code": "g624",
+    "name": "Binding",
+    "parentCode": "g612",
+    "childCodes": ["c987", "c988"],
+    "lightspeedID": "2729"
+  },
+  {
+    "code": "c987",
+    "name": "XC Binding",
+    "parentCode": "g624",
+    "childCodes": [],
+    "lightspeedID": "2730"
+  },
+  {
+    "code": "c988",
+    "name": "Binding Part",
+    "parentCode": "g624",
+    "childCodes": [],
+    "lightspeedID": "2731"
+  },
+  {
+    "code": "c1176",
+    "name": "Complete Classic/Skate Pole",
+    "parentCode": "g672",
+    "childCodes": [],
+    "lightspeedID": "2732"
+  },
+  {
+    "code": "c1175",
+    "name": "Complete Alpine/BC Pole",
+    "parentCode": "g672",
+    "childCodes": [],
+    "lightspeedID": "2733"
+  },
+  {
+    "code": "c1182",
+    "name": "Basket/Ferrule",
+    "parentCode": "g674",
+    "childCodes": [],
+    "lightspeedID": "2734"
+  },
+  {
+    "code": "c1183",
+    "name": "Handle/Strap",
+    "parentCode": "g674",
+    "childCodes": [],
+    "lightspeedID": "2735"
+  },
+  {
+    "code": "g625",
+    "name": "Roller Ski",
+    "parentCode": "g612",
+    "childCodes": ["c990", "c989"],
+    "lightspeedID": "2736"
+  },
+  {
+    "code": "c990",
+    "name": "Roller Ski Part",
+    "parentCode": "g625",
+    "childCodes": [],
+    "lightspeedID": "2737"
+  },
+  {
+    "code": "g704",
+    "name": "Snowshoe",
+    "parentCode": "g612",
+    "childCodes": [],
+    "lightspeedID": "2738"
+  },
+  {
+    "code": "c1224",
+    "name": "Snowshoes",
+    "parentCode": "g639",
+    "childCodes": [],
+    "lightspeedID": "2739"
+  },
+  {
+    "code": "c1298",
+    "name": "Snowshoe Accessory",
+    "parentCode": "g639",
+    "childCodes": [],
+    "lightspeedID": "2740"
+  },
+  {
+    "code": "g673",
+    "name": "Tools",
+    "parentCode": "g612",
+    "childCodes": [
+      "c1199",
+      "c879",
+      "c896",
+      "c892",
+      "c881",
+      "c882",
+      "c883",
+      "c880",
+      "c877",
+      "c885",
+      "c878",
+      "c1009"
+    ],
+    "lightspeedID": "2741"
+  },
+  {
+    "code": "c1199",
+    "name": "Cork and Polishing Pad",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2742"
+  },
+  {
+    "code": "c879",
+    "name": "Scraper",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2743"
+  },
+  {
+    "code": "c896",
+    "name": "Base Repair",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2744"
+  },
+  {
+    "code": "c892",
+    "name": "Abrasive Pad",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2745"
+  },
+  {
+    "code": "c881",
+    "name": "Brush",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2746"
+  },
+  {
+    "code": "c882",
+    "name": "Iron",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2747"
+  },
+  {
+    "code": "c883",
+    "name": "Vise/Table/Profile",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2748"
+  },
+  {
+    "code": "c895",
+    "name": "Ski Ties/Strap/Mount",
+    "parentCode": "g671",
+    "childCodes": [],
+    "lightspeedID": "2749"
+  },
+  {
+    "code": "c880",
+    "name": "Base Cleaner",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2750"
+  },
+  {
+    "code": "c877",
+    "name": "Edge Tool",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2751"
+  },
+  {
+    "code": "g613",
+    "name": "Wax",
+    "parentCode": "g612",
+    "childCodes": ["c873", "c871", "c870", "c1033", "c1179"],
+    "lightspeedID": "2752"
+  },
+  {
+    "code": "c873",
+    "name": "Wax Accessory",
+    "parentCode": "g613",
+    "childCodes": [],
+    "lightspeedID": "2753"
+  },
+  {
+    "code": "c885",
+    "name": "Structure Tool",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2754"
+  },
+  {
+    "code": "c878",
+    "name": "Waxing Thermometer",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2755"
+  },
+  {
+    "code": "c1009",
+    "name": "Mounting Jig",
+    "parentCode": "g673",
+    "childCodes": [],
+    "lightspeedID": "2756"
+  },
+  {
+    "code": "c871",
+    "name": "Glide Wax",
+    "parentCode": "g613",
+    "childCodes": [],
+    "lightspeedID": "2757"
+  },
+  {
+    "code": "c870",
+    "name": "Grip Wax",
+    "parentCode": "g613",
+    "childCodes": [],
+    "lightspeedID": "2758"
+  },
+  {
+    "code": "c1033",
+    "name": "Pine Tar",
+    "parentCode": "g613",
+    "childCodes": [],
+    "lightspeedID": "2759"
+  },
+  {
+    "code": "c1179",
+    "name": "Bulk Wax",
+    "parentCode": "g613",
+    "childCodes": [],
+    "lightspeedID": "2760"
+  },
+  {
+    "code": "c_k1044_electronic_shift_part_sram",
+    "name": "Electronic Shifter Part, SRAM",
+    "parentCode": "g89",
+    "childCodes": [],
+    "lightspeedID": "2761"
+  },
+  {
+    "code": "c2791_leg",
+    "name": "Leg Protection",
+    "parentCode": "g598",
+    "childCodes": [],
+    "lightspeedID": "2762"
+  },
+  {
+    "code": "c2793_torso",
+    "name": "Torso Protection",
+    "parentCode": "g598",
+    "childCodes": [],
+    "lightspeedID": "2763"
+  },
+  {
+    "code": "c288",
+    "name": "Fork Part",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "2764"
+  },
+  {
+    "code": "c289",
+    "name": "Dropout",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "2765"
+  },
+  {
+    "code": "c1104",
+    "name": "Kit-In-A-Box Cyclocross Group",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2766"
+  },
+  {
+    "code": "c1094",
+    "name": "Kit-In-A-Box Mtn Group",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2767"
+  },
+  {
+    "code": "c1241",
+    "name": "Kit-In-A-Box Fat Bike Drivetrain",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2768"
+  },
+  {
+    "code": "c_music",
+    "name": "Music",
+    "parentCode": "g15",
+    "childCodes": [],
+    "lightspeedID": "2769"
+  },
+  {
+    "code": "c_K922",
+    "name": "Thru Axle",
+    "parentCode": "g540",
+    "childCodes": [],
+    "lightspeedID": "2770"
+  },
+  {
+    "code": "c2791_set",
+    "name": "Knee/Leg Protection Sets",
+    "parentCode": "g598",
+    "childCodes": [],
+    "lightspeedID": "2771"
+  },
+  {
+    "code": "c291",
+    "name": "Suspension Part",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "2772"
+  },
+  {
+    "code": "c948",
+    "name": "Sliding Dropout",
+    "parentCode": "g219",
+    "childCodes": [],
+    "lightspeedID": "2773"
+  },
+  {
+    "code": "c748",
+    "name": "Derailleur Hanger Hardware",
+    "parentCode": "g702",
+    "childCodes": [],
+    "lightspeedID": "2774"
+  },
+  {
+    "code": "ck149",
+    "name": "BMX Stems",
+    "parentCode": "g530",
+    "childCodes": [],
+    "lightspeedID": "2775"
+  },
+  {
+    "code": "c203_direct_mount",
+    "name": "Direct Mount Chainrings",
+    "parentCode": "g577",
+    "childCodes": [],
+    "lightspeedID": "2776"
+  },
+  {
+    "code": "ck101",
+    "name": "BMX Hubs",
+    "parentCode": "g594",
+    "childCodes": [],
+    "lightspeedID": "2777"
+  },
+  {
+    "code": "c1232_tubeless_system_enhancements",
+    "name": "Tubeless System Enhancements",
+    "parentCode": "g546",
+    "childCodes": [],
+    "lightspeedID": "2778"
+  },
+  {
+    "code": "c99_custom_apparel",
+    "name": "Custom Apparel",
+    "parentCode": "g28",
+    "childCodes": [],
+    "lightspeedID": "2779"
+  },
+  {
+    "code": "c767-do-not-use",
+    "name": "Track Frame2",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2780"
+  },
+  {
+    "code": "c1047-do-not-use",
+    "name": "Transportation Frame Set",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2781"
+  },
+  {
+    "code": "c628-do-not-use",
+    "name": "Cyclocross Frame Set",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2782"
+  },
+  {
+    "code": "c631-do-not-use",
+    "name": "Single-Speed Frames2",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2783"
+  },
+  {
+    "code": "c645_do_not_use",
+    "name": "Road Caliper Brake Set",
+    "parentCode": "g79",
+    "childCodes": [],
+    "lightspeedID": "2784"
+  },
+  {
+    "code": "c25_donotusse",
+    "name": "do not use2",
+    "parentCode": "g12",
+    "childCodes": [],
+    "lightspeedID": "2785"
+  },
+  {
+    "code": "c10022_y_wrench",
+    "name": "Y-Wrench",
+    "parentCode": "g304",
+    "childCodes": [],
+    "lightspeedID": "2786"
+  },
+  {
+    "code": "c10023_tread_cutter",
+    "name": "Tread Cutter",
+    "parentCode": "g582",
+    "childCodes": [],
+    "lightspeedID": "2787"
+  },
+  {
+    "code": "c_k1049_folding_bike",
+    "name": "Folding Bikes",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "2788"
+  },
+  {
+    "code": "cDNU696-do-not-use",
+    "name": "DNUMountain Frames",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2789"
+  },
+  {
+    "code": "g92_fitness",
+    "name": "Fitness",
+    "parentCode": "g28",
+    "childCodes": ["c1351", "c1352", "c1353", "c1350"],
+    "lightspeedID": "2790"
+  },
+  {
+    "code": "c1351",
+    "name": "Fitness Shorts",
+    "parentCode": "g92_fitness",
+    "childCodes": [],
+    "lightspeedID": "2791"
+  },
+  {
+    "code": "c1352",
+    "name": "Fitness Tight",
+    "parentCode": "g92_fitness",
+    "childCodes": [],
+    "lightspeedID": "2792"
+  },
+  {
+    "code": "c1353",
+    "name": "Fitness Dress",
+    "parentCode": "g92_fitness",
+    "childCodes": [],
+    "lightspeedID": "2793"
+  },
+  {
+    "code": "c1350",
+    "name": "Fitness Top",
+    "parentCode": "g92_fitness",
+    "childCodes": [],
+    "lightspeedID": "2794"
+  },
+  {
+    "code": "c1279waffle",
+    "name": "Waffle",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2795"
+  },
+  {
+    "code": "c409_chain_whip_cog_holder",
+    "name": "Chain Whip & Cog Holder",
+    "parentCode": "g253",
+    "childCodes": [],
+    "lightspeedID": "2796"
+  },
+  {
+    "code": "c1319_cargo_bike",
+    "name": "Cargo Bike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "2797"
+  },
+  {
+    "code": "cK1319_cargo_frame",
+    "name": "Cargo Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2798"
+  },
+  {
+    "code": "c291_sus_data",
+    "name": "Suspension Data Acquisition",
+    "parentCode": "g10",
+    "childCodes": [],
+    "lightspeedID": "2799"
+  },
+  {
+    "code": "c_k615_crown_race",
+    "name": "Crown Race",
+    "parentCode": "g519",
+    "childCodes": [],
+    "lightspeedID": "2800"
+  },
+  {
+    "code": "c1201_do_not_use",
+    "name": "Child Carrier Trailer Part",
+    "parentCode": "g592",
+    "childCodes": [],
+    "lightspeedID": "2801"
+  },
+  {
+    "code": "c1160X",
+    "name": "X_ Trainer Software",
+    "parentCode": "g670",
+    "childCodes": [],
+    "lightspeedID": "2802"
+  },
+  {
+    "code": "c1049_ebike",
+    "name": "Ebike",
+    "parentCode": "g459",
+    "childCodes": [],
+    "lightspeedID": "2803"
+  },
+  {
+    "code": "c4_tool_wrap",
+    "name": "Tool Wrap",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "2804"
+  },
+  {
+    "code": "c1281A",
+    "name": "Recovery",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2805"
+  },
+  {
+    "code": "c100_sport_fuel",
+    "name": "Sport Fuel",
+    "parentCode": "g20",
+    "childCodes": [],
+    "lightspeedID": "2806"
+  },
+  {
+    "code": "g1322",
+    "name": "Dropper Seatpost Parts",
+    "parentCode": "g583",
+    "childCodes": ["c1322", "c1322a_dropper_remote"],
+    "lightspeedID": "2807"
+  },
+  {
+    "code": "c1322a_dropper_remote",
+    "name": "Dropper Seatpost Remote",
+    "parentCode": "g1322",
+    "childCodes": [],
+    "lightspeedID": "2808"
+  },
+  {
+    "code": "c52a",
+    "name": "Ebike Light",
+    "parentCode": "g22",
+    "childCodes": [],
+    "lightspeedID": "2809"
+  },
+  {
+    "code": "c1044k_fsa_electronic_shift_part",
+    "name": "Electronic Shifter Parts, FSA",
+    "parentCode": "g89",
+    "childCodes": [],
+    "lightspeedID": "2810"
+  },
+  {
+    "code": "c1010_control_tape",
+    "name": "Control Tape",
+    "parentCode": "g575",
+    "childCodes": [],
+    "lightspeedID": "2811"
+  },
+  {
+    "code": "c231_ear_protection",
+    "name": "Ear Protection",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "2812"
+  },
+  {
+    "code": "c231_multi_function_headwear",
+    "name": "Multi-Function Headwear",
+    "parentCode": "g124",
+    "childCodes": [],
+    "lightspeedID": "2813"
+  },
+  {
+    "code": "c116_topical_pain_relief",
+    "name": "Topical Pain Relief",
+    "parentCode": "g43",
+    "childCodes": [],
+    "lightspeedID": "2814"
+  },
+  {
+    "code": "c470_bulk_spoke",
+    "name": "Spoke, Bulk",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2815"
+  },
+  {
+    "code": "c470_individual_spoke",
+    "name": "Spoke, Individual",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2816"
+  },
+  {
+    "code": "c1062",
+    "name": "Kit-In-A-Box Mtn Support",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2817"
+  },
+  {
+    "code": "c2015",
+    "name": "Ebike Chainrings and Sprockets",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2818"
+  },
+  {
+    "code": "g720",
+    "name": "Ebike Components",
+    "parentCode": "g27",
+    "childCodes": ["g723", "g721", "c242_ebike_chain"],
+    "lightspeedID": "2819"
+  },
+  {
+    "code": "g722",
+    "name": "Ebike Drivetrain",
+    "parentCode": "g27",
+    "childCodes": [
+      "c2015",
+      "c2016",
+      "c2005",
+      "c2002",
+      "c2001",
+      "c2004",
+      "c2006",
+      "c181_ebike",
+      "c2003"
+    ],
+    "lightspeedID": "2820"
+  },
+  {
+    "code": "c2016",
+    "name": "Ebike Motor Parts",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2821"
+  },
+  {
+    "code": "g723",
+    "name": "Ebike Accessories",
+    "parentCode": "g720",
+    "childCodes": ["c2007", "c2009"],
+    "lightspeedID": "2822"
+  },
+  {
+    "code": "c2008",
+    "name": "Ebike Retail Support",
+    "parentCode": "g632",
+    "childCodes": [],
+    "lightspeedID": "2823"
+  },
+  {
+    "code": "c2005",
+    "name": "Ebike Motor Covers",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2824"
+  },
+  {
+    "code": "g721",
+    "name": "Ebike Head Units and Controllers",
+    "parentCode": "g720",
+    "childCodes": [],
+    "lightspeedID": "2825"
+  },
+  {
+    "code": "c2002",
+    "name": "Ebike Head Unit Parts",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2826"
+  },
+  {
+    "code": "c2010",
+    "name": "Ebike Tools",
+    "parentCode": "g29",
+    "childCodes": [],
+    "lightspeedID": "2827"
+  },
+  {
+    "code": "c2001",
+    "name": "Ebike Head Unit",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2828"
+  },
+  {
+    "code": "g724",
+    "name": "Ebike Battery",
+    "parentCode": "g27",
+    "childCodes": ["c2013", "c2012", "c2011", "c2014"],
+    "lightspeedID": "2829"
+  },
+  {
+    "code": "c2013",
+    "name": "Ebike Battery Mounting",
+    "parentCode": "g724",
+    "childCodes": [],
+    "lightspeedID": "2830"
+  },
+  {
+    "code": "c2012",
+    "name": "Ebike Battery Chargers",
+    "parentCode": "g724",
+    "childCodes": [],
+    "lightspeedID": "2831"
+  },
+  {
+    "code": "c2011",
+    "name": "Ebike Battery Cables",
+    "parentCode": "g724",
+    "childCodes": [],
+    "lightspeedID": "2832"
+  },
+  {
+    "code": "c2014",
+    "name": "Ebike Batteries",
+    "parentCode": "g724",
+    "childCodes": [],
+    "lightspeedID": "2833"
+  },
+  {
+    "code": "c2004",
+    "name": "Ebike Mid-Drive Systems",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2834"
+  },
+  {
+    "code": "c2006",
+    "name": "Ebike Motor Mounting Kits",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2835"
+  },
+  {
+    "code": "c2051",
+    "name": "BMX Padset",
+    "parentCode": "g593",
+    "childCodes": [],
+    "lightspeedID": "2836"
+  },
+  {
+    "code": "g_swim",
+    "name": "Swim",
+    "parentCode": "g28",
+    "childCodes": ["c842", "c755", "c756", "c899"],
+    "lightspeedID": "2837"
+  },
+  {
+    "code": "c2100",
+    "name": "Ebike Lock",
+    "parentCode": "g17",
+    "childCodes": [],
+    "lightspeedID": "2838"
+  },
+  {
+    "code": "c1049_cityframe_master",
+    "name": "City Frame",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2839"
+  },
+  {
+    "code": "c181_ebike",
+    "name": "Ebike Crankset",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2840"
+  },
+  {
+    "code": "c2007",
+    "name": "do not use1",
+    "parentCode": "g723",
+    "childCodes": [],
+    "lightspeedID": "2841"
+  },
+  {
+    "code": "c108_1",
+    "name": "Tailgate Pad",
+    "parentCode": "g38",
+    "childCodes": [],
+    "lightspeedID": "2842"
+  },
+  {
+    "code": "g592_1",
+    "name": "Trailer Parts",
+    "parentCode": "g592",
+    "childCodes": [
+      "c786",
+      "c786_3_trailer_hitch_parts",
+      "c786_7_trailer_part_other",
+      "c786_5_trailer_stroller_ski_kit",
+      "c786_1_trailer_covers_fabric_parts",
+      "c786_2_trailer_frame_parts",
+      "c786_4_trailer_hitch_thru_axle"
+    ],
+    "lightspeedID": "2843"
+  },
+  {
+    "code": "c786_3_trailer_hitch_parts",
+    "name": "Trailer Hitch Parts",
+    "parentCode": "g592_1",
+    "childCodes": [],
+    "lightspeedID": "2844"
+  },
+  {
+    "code": "c786_7_trailer_part_other",
+    "name": "Other Trailer Parts",
+    "parentCode": "g592_1",
+    "childCodes": [],
+    "lightspeedID": "2845"
+  },
+  {
+    "code": "c786_5_trailer_stroller_ski_kit",
+    "name": "Trailer Stroller/Ski Kits",
+    "parentCode": "g592_1",
+    "childCodes": [],
+    "lightspeedID": "2846"
+  },
+  {
+    "code": "c786_8_trailer_bag",
+    "name": "Trailer Bags",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "2847"
+  },
+  {
+    "code": "c786_1_trailer_covers_fabric_parts",
+    "name": "Trailer Covers/Fabric Parts",
+    "parentCode": "g592_1",
+    "childCodes": [],
+    "lightspeedID": "2848"
+  },
+  {
+    "code": "c786_2_trailer_frame_parts",
+    "name": "Trailer Frame Parts",
+    "parentCode": "g592_1",
+    "childCodes": [],
+    "lightspeedID": "2849"
+  },
+  {
+    "code": "c661_1",
+    "name": "Hydraulic Brake/Shift Lever, Drop Bar",
+    "parentCode": "g552",
+    "childCodes": [],
+    "lightspeedID": "2850"
+  },
+  {
+    "code": "c786_4_trailer_hitch_thru_axle",
+    "name": "Thru Axle Trailer Hitch Adaptor",
+    "parentCode": "g592_1",
+    "childCodes": [],
+    "lightspeedID": "2851"
+  },
+  {
+    "code": "c995",
+    "name": "Roller Ski Bag",
+    "parentCode": "g2",
+    "childCodes": [],
+    "lightspeedID": "2852"
+  },
+  {
+    "code": "c1133",
+    "name": "Hitch Ski Rack",
+    "parentCode": "g35",
+    "childCodes": [],
+    "lightspeedID": "2853"
+  },
+  {
+    "code": "c1277",
+    "name": "Bread, Spreads, and Oils",
+    "parentCode": "g698",
+    "childCodes": [],
+    "lightspeedID": "2854"
+  },
+  {
+    "code": "c685",
+    "name": "E-Clamp",
+    "parentCode": "g470",
+    "childCodes": [],
+    "lightspeedID": "2855"
+  },
+  {
+    "code": "c924",
+    "name": "Front Custom Wheel",
+    "parentCode": "g490",
+    "childCodes": [],
+    "lightspeedID": "2856"
+  },
+  {
+    "code": "c925",
+    "name": "Rear Custom Wheel",
+    "parentCode": "g490",
+    "childCodes": [],
+    "lightspeedID": "2857"
+  },
+  {
+    "code": "c1014",
+    "name": "Guru Brake Nut",
+    "parentCode": "g79",
+    "childCodes": [],
+    "lightspeedID": "2858"
+  },
+  {
+    "code": "c926",
+    "name": "Custom Wheel Spoke",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2859"
+  },
+  {
+    "code": "c927",
+    "name": "Custom Wheel Spoke Nipple",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2860"
+  },
+  {
+    "code": "c937",
+    "name": "Custom Wheel Lacing",
+    "parentCode": "g574",
+    "childCodes": [],
+    "lightspeedID": "2861"
+  },
+  {
+    "code": "c1055",
+    "name": "Kit-In-A-Box Road Support",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2862"
+  },
+  {
+    "code": "c1056",
+    "name": "Kit-In-A-Box BMX Package",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2863"
+  },
+  {
+    "code": "c1097",
+    "name": "Kit-In-A-Box TT Group",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2864"
+  },
+  {
+    "code": "c1098",
+    "name": "Kit-In-A-Box  SS Mtn Drivetrain",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2865"
+  },
+  {
+    "code": "c1242",
+    "name": "Kit-In-A-Box Fat Bike Support",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2866"
+  },
+  {
+    "code": "c1297",
+    "name": "Kit-In-A-Box Fat Bike Partial Build",
+    "parentCode": "g634",
+    "childCodes": [],
+    "lightspeedID": "2867"
+  },
+  {
+    "code": "c553",
+    "name": "Campagnolo Shifter Part",
+    "parentCode": "g567",
+    "childCodes": [],
+    "lightspeedID": "2868"
+  },
+  {
+    "code": "c1244_do_not_use",
+    "name": "Cycling Jacket",
+    "parentCode": "g622",
+    "childCodes": [],
+    "lightspeedID": "2869"
+  },
+  {
+    "code": "c627-do-not-use",
+    "name": "Road Frame2",
+    "parentCode": "g501",
+    "childCodes": [],
+    "lightspeedID": "2870"
+  },
+  {
+    "code": "g550",
+    "name": "drecmcycle Complete Bikes",
+    "parentCode": "g549",
+    "childCodes": [
+      "c1035",
+      "c1036",
+      "c716",
+      "c768",
+      "c793",
+      "c816",
+      "c836",
+      "c992"
+    ],
+    "lightspeedID": "2871"
+  },
+  {
+    "code": "c1035",
+    "name": "Aero Bar Labor Charge",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2872"
+  },
+  {
+    "code": "c1036",
+    "name": "Cyclo Lever Install Labor Charge",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2873"
+  },
+  {
+    "code": "c716",
+    "name": "Complete Bike",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2874"
+  },
+  {
+    "code": "c768",
+    "name": "Extra Labor Charge",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2875"
+  },
+  {
+    "code": "c793",
+    "name": "Accessory Pack",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2876"
+  },
+  {
+    "code": "c816",
+    "name": "Assembly Labor Choice",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2877"
+  },
+  {
+    "code": "c836",
+    "name": "Unicycle Labor",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2878"
+  },
+  {
+    "code": "c992",
+    "name": "Pick and Ship Labor",
+    "parentCode": "g550",
+    "childCodes": [],
+    "lightspeedID": "2879"
+  },
+  {
+    "code": "g596",
+    "name": "Hidden Categories",
+    "parentCode": "g549",
+    "childCodes": ["c956"],
+    "lightspeedID": "2880"
+  },
+  {
+    "code": "c956",
+    "name": "Big Dummy Rear Hydro Line Kit",
+    "parentCode": "g596",
+    "childCodes": [],
+    "lightspeedID": "2881"
+  },
+  {
+    "code": "g599",
+    "name": "Custom Wheel Numbers",
+    "parentCode": "g549",
+    "childCodes": ["c805", "c935", "c936", "c938", "c939", "c950", "c951"],
+    "lightspeedID": "2882"
+  },
+  {
+    "code": "c805",
+    "name": "Custom Wheel Number",
+    "parentCode": "g599",
+    "childCodes": [],
+    "lightspeedID": "2883"
+  },
+  {
+    "code": "c935",
+    "name": "Custom Wheel Intended Use",
+    "parentCode": "g599",
+    "childCodes": [],
+    "lightspeedID": "2884"
+  },
+  {
+    "code": "c936",
+    "name": "Custom Wheel Offset",
+    "parentCode": "g599",
+    "childCodes": [],
+    "lightspeedID": "2885"
+  },
+  {
+    "code": "c938",
+    "name": "Custom Wheel Labor",
+    "parentCode": "g599",
+    "childCodes": [],
+    "lightspeedID": "2886"
+  },
+  {
+    "code": "c939",
+    "name": "Custom Wheel UST Labor",
+    "parentCode": "g599",
+    "childCodes": [],
+    "lightspeedID": "2887"
+  },
+  {
+    "code": "c950",
+    "name": "Custom Wheel Carbon Labor",
+    "parentCode": "g599",
+    "childCodes": [],
+    "lightspeedID": "2888"
+  },
+  {
+    "code": "c951",
+    "name": "Custom Wheel Dropship Service Charge",
+    "parentCode": "g599",
+    "childCodes": [],
+    "lightspeedID": "2889"
+  },
+  {
+    "code": "c989",
+    "name": "Roller Skis",
+    "parentCode": "g625",
+    "childCodes": [],
+    "lightspeedID": "2890"
+  },
+  {
+    "code": "c1030",
+    "name": "Water Bottle Cage Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2891"
+  },
+  {
+    "code": "c1116",
+    "name": "Banner",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2892"
+  },
+  {
+    "code": "c980",
+    "name": "Lock Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2893"
+  },
+  {
+    "code": "c981",
+    "name": "Trailer Display",
+    "parentCode": "g623",
+    "childCodes": [],
+    "lightspeedID": "2894"
+  },
+  {
+    "code": "c_travel_accessories",
+    "name": "Travel Accessories",
+    "parentCode": "G_travel",
+    "childCodes": [],
+    "lightspeedID": "2895"
+  },
+  {
+    "code": "c2003",
+    "name": "Ebike Hub Drive Systems",
+    "parentCode": "g722",
+    "childCodes": [],
+    "lightspeedID": "2896"
+  },
+  {
+    "code": "c2009",
+    "name": "Ebike Software",
+    "parentCode": "g723",
+    "childCodes": [],
+    "lightspeedID": "2897"
+  },
+  {
+    "code": "c242_ebike_chain",
+    "name": "Ebike Chain",
+    "parentCode": "g720",
+    "childCodes": [],
+    "lightspeedID": "2898"
+  },
+  {
+    "code": "c1049d",
+    "name": "Folding Ebike",
+    "parentCode": "g459e",
+    "childCodes": [],
+    "lightspeedID": "2899"
+  },
+  {
+    "code": "c1049e",
+    "name": "City Ebike",
+    "parentCode": "g459e",
+    "childCodes": [],
+    "lightspeedID": "2900"
+  },
+  {
+    "code": "c1191e",
+    "name": "Fat Ebike",
+    "parentCode": "g459e",
+    "childCodes": [],
+    "lightspeedID": "2901"
+  },
+  {
+    "code": "c662e",
+    "name": "Mountain Ebike",
+    "parentCode": "g459e",
+    "childCodes": [],
+    "lightspeedID": "2902"
+  },
+  {
+    "code": "c664e",
+    "name": "Cyclocross Ebike",
+    "parentCode": "g459e",
+    "childCodes": [],
+    "lightspeedID": "2903"
+  },
+  {
+    "code": "g459e",
+    "name": "Ebikes",
+    "parentCode": "g0",
+    "childCodes": [
+      "c1049d",
+      "c1049e",
+      "c1191e",
+      "c662e",
+      "c664e",
+      "c1290e",
+      "c1319e"
+    ],
+    "lightspeedID": "2904"
+  },
+  {
+    "code": "c1290e",
+    "name": "All-Road Ebike",
+    "parentCode": "g459e",
+    "childCodes": [],
+    "lightspeedID": "2905"
+  },
+  {
+    "code": "c1319e",
+    "name": "Cargo Ebikes",
+    "parentCode": "g459e",
+    "childCodes": [],
+    "lightspeedID": "2906"
   }
 ]
