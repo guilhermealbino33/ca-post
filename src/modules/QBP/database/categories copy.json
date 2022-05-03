@@ -1,0 +1,28 @@
+{
+  "responseStatus": {
+    "type": "OK"
+  },
+  "errors": [],
+  "categories": [
+    {
+      "code": "g0",
+      "name": "QBP Product Catalog",
+      "parentCode": null
+    },
+    {
+      "code": "cw-special-categories",
+      "name": "CW Special",
+      "parentCode": "g0"
+    },
+    {
+      "code": "cw-rims",
+      "name": "CW Rims",
+      "parentCode": "cw-special-categories"
+    },
+    {
+      "code": "g27",
+      "name": "Components",
+      "parentCode": "g0"
+    }
+  ]
+}
