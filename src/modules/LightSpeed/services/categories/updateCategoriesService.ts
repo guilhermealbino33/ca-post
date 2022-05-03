@@ -38,7 +38,7 @@ export class UpdateCategoriesService {
     for (const category of categoriesMock) {
       const parentId = await this.findParentID(category, categoriesMock);
       // console.log("category new for", category);
-      console.log("parentId new for", parentId);
+      // console.log("parentId new for", parentId);
       const data = {
         parentID: parentId,
       };
@@ -46,8 +46,8 @@ export class UpdateCategoriesService {
       const categoryId = await this.findID(category, categoriesMock);
       await this.updateCategory(data, categoryId);
       // console.log("createdCategory", createdCategory);
-      console.log("categoryId new for:", categoryId);
-      console.log("data new for:", data);
+      // console.log("categoryId new for:", categoryId);
+      // console.log("data new for:", data);
     }
   }
 
