@@ -8,47 +8,48 @@ import { ICategory } from "modules/LightSpeed/interfaces/ICategoryInterface";
 import api, { getToken } from "services/LightSpeed/api";
 import { lockRequest } from "utils/lock-request/lock-request";
 
+import categoriesCommonCodes from "../../../QBP/database/categories-common-codes.json";
 import categories from "../../../QBP/database/categories.json";
 
 export class UpdateCategoriesService {
   async execute(): Promise<any> {
     const categoriesMock = categories.categories as any;
 
-    for (const category of categoriesMock) {
-      const data = {
-        name: category.name,
-      };
-      const createdCategory = await this.createCategory(data);
-      // console.log("createdCategory", createdCategory);
-      const categoryId = createdCategory.Category.categoryID;
-      console.log("categoryId :", categoryId);
+    // for (const category of categoriesMock) {
+    //   const data = {
+    //     name: category.name,
+    //   };
+    //   const createdCategory = await this.createCategory(data);
+    //   // console.log("createdCategory", createdCategory);
+    //   const categoryId = createdCategory.Category.categoryID;
+    //   console.log("categoryId :", categoryId);
 
-      category.lightspeedID = categoryId;
-    }
-    fs.writeFile(
-      "src/modules/QBP/database/categories-common-codes.json",
-      JSON.stringify(categoriesMock),
-      (err) => {
-        // Checking for errors
-        if (err) throw err;
-
-        console.log("Done writing");
-      }
-    );
+    //   category.lightspeedID = categoryId;
+    // }
     for (const category of categoriesMock) {
-      const parentId = await this.findParentID(category, categoriesMock);
+      const parentId = await this.findParentID(category, categoriesCommonCodes);
       // console.log("category new for", category);
       // console.log("parentId new for", parentId);
       const data = {
         parentID: parentId,
       };
       // console.log("data", data);
-      const categoryId = await this.findID(category, categoriesMock);
+      const categoryId = await this.findID(category, categoriesCommonCodes);
       await this.updateCategory(data, categoryId);
       // console.log("createdCategory", createdCategory);
       // console.log("categoryId new for:", categoryId);
       // console.log("data new for:", data);
     }
+    // fs.writeFile(
+    //   "src/modules/QBP/database/categories-common-codes.json",
+    //   JSON.stringify(categoriesMock),
+    //   (err) => {
+    //     // Checking for errors
+    //     if (err) throw err;
+
+    //     console.log("Done writing");
+    //   }
+    // );
   }
 
   private async findID(
@@ -81,29 +82,29 @@ export class UpdateCategoriesService {
     return foundCategory.lightspeedID;
   }
 
-  private async createCategory(body: any): Promise<any> {
-    const token = await getToken();
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    };
-    try {
-      const response = await api.post(
-        `/API/V3/Account/${process.env.ACCOUNT_ID}/Category.json`,
-        body,
-        {
-          headers,
-        }
-      );
+  // private async createCategory(body: any): Promise<any> {
+  //   const token = await getToken();
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${token}`,
+  //   };
+  //   try {
+  //     const response = await api.post(
+  //       `/API/V3/Account/${process.env.ACCOUNT_ID}/Category.json`,
+  //       body,
+  //       {
+  //         headers,
+  //       }
+  //     );
 
-      await lockRequest(response);
+  //     await lockRequest(response);
 
-      return response.data;
-    } catch (error) {
-      console.log(error);
-      return "error";
-    }
-  }
+  //     return response.data;
+  //   } catch (error) {
+  //     console.log(error);
+  //     return "error";
+  //   }
+  // }
 
   private async updateCategory(body: any, categoryId: string): Promise<any> {
     const token = await getToken();

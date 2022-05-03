@@ -86,7 +86,6 @@ class AttributesService {
       };
       data.Value.Attributes.push(value);
     });
-    console.log("data", JSON.stringify(data));
     return data;
   }
 }

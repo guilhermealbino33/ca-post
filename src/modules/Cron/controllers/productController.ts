@@ -26,7 +26,7 @@ class ProductController {
     const imageService = new ImageService();
 
     let lastSku: string;
-    const queue = await queueService.pullOne();
+    const queue = await queueService.pullQueue(60);
     const headers = { "Content-Type": "application/json" };
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
@@ -231,11 +231,11 @@ class ProductController {
           );
         }
       }
+      res.status(200).json("Success!");
     } catch (e: any) {
-      console.log(e.response.data);
+      res.status(500).json(e.response.data);
+      console.log("error");
     }
-
-    res.status(201).json("Success!");
   };
 }
 

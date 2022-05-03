@@ -6,10 +6,10 @@
 import { Request, Response } from "express";
 
 import { setup } from "./database/mongoDB";
-import { CategoryController } from "./modules/Cron/useCases/categoryController";
-import { ImageController } from "./modules/Cron/useCases/imageController";
-import { LabelController } from "./modules/Cron/useCases/labelController";
-import { ProductController } from "./modules/Cron/useCases/productController";
+import { CategoryController } from "./modules/Cron/controllers/categoryController";
+import { ImageController } from "./modules/Cron/controllers/imageController";
+import { LabelController } from "./modules/Cron/controllers/labelController";
+import { ProductController } from "./modules/Cron/controllers/productController";
 
 import "./infra/config-env";
 

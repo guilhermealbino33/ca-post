@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import { CategoryController } from "../modules/Cron/useCases/categoryController";
-import { ImageController } from "../modules/Cron/useCases/imageController";
-import { LabelController } from "../modules/Cron/useCases/labelController";
-import { ProductController } from "../modules/Cron/useCases/productController";
-import { UpdateProductController } from "../modules/Cron/useCases/updateProductController";
+import { CategoryController } from "../modules/Cron/controllers/categoryController";
+import { ImageController } from "../modules/Cron/controllers/imageController";
+import { LabelController } from "../modules/Cron/controllers/labelController";
+import { ProductController } from "../modules/Cron/controllers/productController";
+import { UpdateProductController } from "../modules/Cron/controllers/updateProductController";
 
 const cronRoutes = Router();
 const productController = new ProductController();
