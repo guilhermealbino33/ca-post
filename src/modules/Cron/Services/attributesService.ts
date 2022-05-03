@@ -75,13 +75,18 @@ class AttributesService {
     };
 
     product.data.productAttributes.forEach((attrib: IAttribQBP, i: number) => {
-      const attribute = {
-        Name: `Metafield${1 + i}`,
-        Value: `• ${attrib.name}: ${attrib.value}`,
+      const name = {
+        Name: `MetafieldName${1 + i}`,
+        Value: attrib.name,
       };
-      data.Value.Attributes.push(attribute);
+      data.Value.Attributes.push(name);
+      const value = {
+        Name: `MetafieldValue${1 + i}`,
+        Value: attrib.value,
+      };
+      data.Value.Attributes.push(value);
     });
-
+    console.log("data", JSON.stringify(data));
     return data;
   }
 }
