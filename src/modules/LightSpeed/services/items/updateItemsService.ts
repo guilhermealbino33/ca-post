@@ -16,32 +16,35 @@ export class UpdateItemsService {
     const categoriesMock = categories as any;
     const commonProducts = [];
 
-    for (let index = 0; index < 9999; index++) {
+    for (let index = 1; index < 9999; index++) {
       const _commonProducts = await this.getCommonLshQbpItems(index);
-
       if (_commonProducts) {
         commonProducts.push(_commonProducts);
+        for (const item of commonProducts) {
+          console.log(
+            "categoryCodes",
+            item[index].qbpProduct.categoryCodes[
+              item[index].qbpProduct.categoryCodes.length - 1
+            ]
+          );
+          console.log("lightspeedID", item[index].lshProduct.itemID);
+          const commonItem = {
+            code: item[index].qbpProduct.categoryCodes[
+              item[index].qbpProduct.categoryCodes.length - 1
+            ],
+            lightspeedID: item[index].lshProduct.itemID,
+          };
+          console.log("commonItem", commonItem);
+          const foundID = await this.findID(commonItem, categoriesMock);
+
+          const data = {
+            categoryID: foundID,
+          };
+          await this.updateItem(data, commonItem.lightspeedID);
+        }
       } else {
         break;
       }
-    }
-
-    for (const item of commonProducts) {
-      const commonItem = {
-        code: item.qbpProduct.categoryCodes[
-          item.qbpProduct.categoryCodes.length - 1
-        ],
-        lightspeedID: item.lshProduct.itemID,
-      };
-
-      const foundID = await this.findID(commonItem, categoriesMock);
-
-      const data = {
-        categoryID: foundID,
-      };
-      console.log("commonItem", commonItem);
-      console.log("body", data);
-      // await this.updateItem(data, commonItem.lightspeedID);
     }
   }
   private async getCommonLshQbpItems(page: number) {

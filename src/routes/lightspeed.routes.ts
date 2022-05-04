@@ -8,6 +8,6 @@ const itemController = new GetItemsController();
 
 lightSpeedRoutes.post("/categories", createCategoryHandle);
 lightSpeedRoutes.get("/items", itemController.handle);
-lightSpeedRoutes.get("/items/update", updateItemsHandle);
+lightSpeedRoutes.put("/items/update", updateItemsHandle);
 
 export { lightSpeedRoutes };
