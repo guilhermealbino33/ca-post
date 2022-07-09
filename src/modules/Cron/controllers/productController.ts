@@ -26,7 +26,8 @@ class ProductController {
     const imageService = new ImageService();
 
     let lastSku: string;
-    const queue = await queueService.pullQueue(60);
+    const queue = await queueService.pullOne();
+    console.log("queue", queue);
     const headers = { "Content-Type": "application/json" };
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
@@ -36,11 +37,15 @@ class ProductController {
     const sku = queue.map(
       (item) => item.product?.data.manufacturerPartNumber ?? item.product?.code
     );
+    console.log("sku", sku);
+
     const parentSku = queue.map(
       (item) => `PARENT-${item.product?.data.model.code}`
     );
+    console.log("parentSku", parentSku);
 
     const codes = await getProductsBySkuService.handle(sku);
+
     const parentCodes = await getProductsBySkuService.handle(parentSku);
 
     const createdParents: {
@@ -64,7 +69,6 @@ class ProductController {
           code?.body.value?.[0]?.Sku === product.data.manufacturerPartNumber ||
           code?.body.value?.[0]?.Sku === product.data.code
       );
-
       if (code?.body.value?.length === 0 || !code) {
         const parentCode = parentCodes.data.responses.find(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
