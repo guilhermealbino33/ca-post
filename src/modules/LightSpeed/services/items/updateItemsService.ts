@@ -41,8 +41,14 @@ export class UpdateItemsService {
             categoryID: foundID,
           };
           await this.updateItem(data, commonItem.lightspeedID);
+          // if (queuePosition <= 100) {
+          //   queuePosition++;
+          // } else {
+          //   queuePosition = 0;
+          // }
         }
       } else {
+        console.log("out");
         break;
       }
     }
@@ -87,8 +93,8 @@ export class UpdateItemsService {
       await lockRequest(response);
 
       return response.data;
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.data);
       return "error";
     }
   }
