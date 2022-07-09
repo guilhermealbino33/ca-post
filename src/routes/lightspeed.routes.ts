@@ -6,7 +6,7 @@ import { updateItemsHandle } from "modules/LightSpeed/useCases/itemController";
 const lightSpeedRoutes = Router();
 const itemController = new GetItemsController();
 
-lightSpeedRoutes.post("/categories", createCategoryHandle);
+lightSpeedRoutes.put("/categories", createCategoryHandle);
 lightSpeedRoutes.get("/items", itemController.handle);
 lightSpeedRoutes.put("/items/update", updateItemsHandle);
 
