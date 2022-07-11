@@ -26,8 +26,7 @@ class ProductController {
     const imageService = new ImageService();
 
     let lastSku: string;
-    const queue = await queueService.pullOne();
-    console.log("queue", queue);
+    const queue = await queueService.pullQueue(15);
     const headers = { "Content-Type": "application/json" };
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];

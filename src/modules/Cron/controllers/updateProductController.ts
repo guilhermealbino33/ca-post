@@ -19,25 +19,18 @@ class UpdateProductController {
       "Content-Type": "application/json",
     };
     const batchBody: IBatchBody[] = [];
-    const queue = await queueService.pullOne();
+    const queue = await queueService.pullQueue(5);
     const getProductsBySkuService = new GetProductsBySkuService();
 
     const sku = queue.map(
       (item) => item.product?.data.manufacturerPartNumber ?? item.product?.code
     );
     let index = 0;
-    // queue.forEach(async (item: IQueueInterface, i: number) => {
     for (const item of queue) {
       const { product } = item;
       const codes = await getProductsBySkuService.handle(sku);
-      // const code = codes.data.responses.find(
-      //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      //   (code: any) =>
-      //     code?.body.value?.[0]?.Sku === product.data.manufacturerPartNumber ||
-      //     code?.body.value?.[0]?.Sku === product.data.code
-      // );
 
-      const productID = codes.data?.responses[0]?.body.value[0]?.ID;
+      const productID = codes.data?.responses[index]?.body.value[0]?.ID;
 
       if (!productID) {
         console.log(`*************** Sku ${sku} not found ***************`);
@@ -51,7 +44,7 @@ class UpdateProductController {
         url: `/v1/Products(${productID})`,
         body: {
           Description: product.data.model.description,
-          ShortDescription: toHtml(product.data.bulletPoints),
+          ShortDescription: toHtml(product.data.model.bulletPoints),
         },
         headers: {
           "Content-Type": "application/json",
