@@ -1,34 +1,43 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
 import api, { createToken } from "services/ChannelAdvisor/api";
+import queueService from "services/Queue";
+import { IQueueInterface } from "services/Queue/interfaces/interfaces";
+import { utils } from "utils/utils";
 
 import { IBatchBody } from "../interfaces/Interfaces";
+import { GetProductsBySkuService } from "../services/getProductsBySkuService";
 
 class UpdateProductController {
   handle = async (req: Request, res: Response) => {
+    const { toHtml } = utils;
     await createToken();
 
     const headers = {
       "Content-Type": "application/json",
     };
     const batchBody: IBatchBody[] = [];
-    const queue = req.body.Sku;
-    // const newSku = req.body.NewSku;
+    const queue = await queueService.pullOne();
+    const getProductsBySkuService = new GetProductsBySkuService();
 
-    const bodyCodes = {
-      requests: queue.map((sku: string, index: number) => ({
-        id: String(index),
-        method: "get",
-        url: `/v1/products?$filter=Sku eq '${sku}'&$select=ID, Sku`,
-      })),
-    };
-    const codes = await api.post(`/v1/$batch`, JSON.stringify(bodyCodes), {
-      headers,
-    });
+    const sku = queue.map(
+      (item) => item.product?.data.manufacturerPartNumber ?? item.product?.code
+    );
+    let index = 0;
+    // queue.forEach(async (item: IQueueInterface, i: number) => {
+    for (const item of queue) {
+      const { product } = item;
+      const codes = await getProductsBySkuService.handle(sku);
+      // const code = codes.data.responses.find(
+      //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      //   (code: any) =>
+      //     code?.body.value?.[0]?.Sku === product.data.manufacturerPartNumber ||
+      //     code?.body.value?.[0]?.Sku === product.data.code
+      // );
 
-    queue.forEach(async (sku: string, index: number) => {
-      const productID = codes.data?.responses[index]?.body.value[0]?.ID;
-      // const productSKU = codes.data?.responses[index]?.body.value[0]?.Sku;
+      const productID = codes.data?.responses[0]?.body.value[0]?.ID;
 
       if (!productID) {
         console.log(`*************** Sku ${sku} not found ***************`);
@@ -41,17 +50,27 @@ class UpdateProductController {
         method: "put",
         url: `/v1/Products(${productID})`,
         body: {
-          Sku: `PARENT-${sku}`,
+          Description: product.data.model.description,
+          ShortDescription: toHtml(product.data.bulletPoints),
         },
         headers: {
           "Content-Type": "application/json",
         },
       };
-      console.log(`${index + 1} - code ${productID}`);
+      console.log(`${index} - code ${productID}`);
       batchBody.push(config);
-    });
-    // console.log(batchBody);
+      // eslint-disable-next-line no-plusplus
+      index++;
+    }
+    console.log("batchBody", batchBody);
+
     try {
+      if (batchBody.length === 0) {
+        res
+          .status(201)
+          .json("No products have been updated on Channel Advisor!");
+      }
+
       await api.post(
         `/v1/$batch`,
         JSON.stringify({
@@ -63,7 +82,7 @@ class UpdateProductController {
       );
       return res.json("Concluded");
     } catch (e: any) {
-      return console.log("Error", e);
+      return console.log("Error", e.response);
     }
   };
 }
