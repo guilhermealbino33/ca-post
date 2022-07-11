@@ -165,6 +165,8 @@ class ProductController {
                 product.data.brand.name
               ),
               Attributes: createdParent.childData.Value.Attributes,
+              Description: product.data.model.description,
+              ShortDescription: toHtml(product.data.model.bulletPoints),
               ThirdPartyAllowed: product.data.thirdPartyAllowed,
               Images: product.data.images,
             });
