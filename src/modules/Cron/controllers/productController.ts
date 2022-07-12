@@ -26,7 +26,7 @@ class ProductController {
     const imageService = new ImageService();
 
     let lastSku: string;
-    const queue = await queueService.pullQueue(15);
+    const queue = await queueService.pullQueue(60);
     const headers = { "Content-Type": "application/json" };
     const batchBody: IBatchBody[] = [];
     const codesResponse: string[] = ["Job concluded!"];
@@ -164,8 +164,6 @@ class ProductController {
                 product.data.brand.name
               ),
               Attributes: createdParent.childData.Value.Attributes,
-              Description: product.data.model.description,
-              ShortDescription: toHtml(product.data.model.bulletPoints),
               ThirdPartyAllowed: product.data.thirdPartyAllowed,
               Images: product.data.images,
             });
