@@ -1,6 +1,6 @@
 /**
  * Cron file
- * NOT REMOVE!
+ * DO NOT REMOVE!
  */
 
 import { Request, Response } from "express";
