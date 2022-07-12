@@ -6,12 +6,6 @@ import { utils } from "utils/utils";
 
 import { IProductInterface } from "../../QBP/models/ProductInterface";
 
-type IAttribQBP = {
-  name: string;
-  value: string;
-  unit?: string;
-};
-
 class AttributesService {
   handle(product: IProductInterface) {
     const { toHtml, removeDuplicatedWordsBetween, nonZeroReturn } = utils;
@@ -49,7 +43,9 @@ class AttributesService {
           },
           {
             Name: "QBP Short Description",
-            Value: toHtml(product.data.model.bulletPoints),
+            Value: `${toHtml(product.data.model.bulletPoints)}${toHtml(
+              product.data.bulletPoints
+            )}`,
           },
           {
             Name: "QBP Cost",
@@ -132,7 +128,6 @@ class AttributesService {
       index++;
     }
 
-    // console.log(data.Value.Attributes);
     return data;
   }
 }
