@@ -10,8 +10,6 @@ type ChildProduct = {
   ParentProductID: string;
   Title: string;
   Attributes: object;
-  Description: string;
-  ShortDescription: string;
   ThirdPartyAllowed: boolean;
   Images: string[];
 };
@@ -25,8 +23,6 @@ class CreateChildProductService {
       ParentSku,
       Title,
       Attributes,
-      Description,
-      ShortDescription,
       ParentProductID,
     } = childProduct;
 
@@ -41,8 +37,6 @@ class CreateChildProductService {
       IsInRelationship,
       Title,
       Attributes,
-      Description,
-      ShortDescription,
       ParentProductID,
     };
 
